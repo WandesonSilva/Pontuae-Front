@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+
+  <div class="uk-margin">
+    <input class="uk-input uk-form-default" formControlName="Id" type="text" placeholder="ID do Prêmio">
+  </div>
+  <div class="uk-margin">
+    <input class="uk-input uk-form-default" formControlName="Nome" type="text" placeholder="Nome do prêmio">
+  </div>
+  <div class="uk-margin">
+    <input class="uk-input uk-form-default" formControlName="Descricao" type="text" placeholder="Descrição do prêmio">
+  </div>
+  <div class="uk-margin">
+    <input class="uk-input uk-form-default" formControlName="PontosNecessario" type="text"
+      placeholder="Quantidade de Pontos">
+  </div>
+  <div class="uk-text-right">
+    <button class="uk-button buttonSave uk-border-rounded" (click)="submit()">Salvar</button>
+    <button class="uk-button uk-button-default uk-border-rounded" >Fechar</button>
+  </div>
+</form>

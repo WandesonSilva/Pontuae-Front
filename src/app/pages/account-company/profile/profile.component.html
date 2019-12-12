@@ -1,0 +1,151 @@
+<div class="uk-container uk-margin-top">
+
+    
+            <form [formGroup]="form" *ngIf="!carregando" >
+              <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+                  <a (click)="ComeBack()"><span uk-icon="icon:arrow-left"  class=""></span> Voltar</a>
+                  <div class="uk-margin">
+                      <input class="uk-input uk-form-large" formControlName="Email" 
+                       type="text" [ngClass]="{'uk-form-danger': (!form.controls.Email.valid && !form.controls.Email.pristine) }"
+                       placeholder="Email">
+                    </div>  
+        
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text"  formControlName="NomeFantasia"
+                      [ngClass]="{'uk-form-danger': (!form.controls.NomeFantasia.valid && !form.controls.NomeFantasia.pristine) }"
+                      placeholder="Nome Comercial" >
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Descricao"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Descricao.valid && !form.controls.Descricao.pristine)}"
+                      placeholder="Descrição">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large " type="text" formControlName="NomeResponsavel"
+                      [ngClass]="{'uk-form-danger': (!form.controls.NomeResponsavel.valid && !form.controls.NomeResponsavel.pristine) }"
+                      placeholder="Nome Responsável">
+                  </div>
+        
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" mask="(00) 0000-0000"  type="text" formControlName="Telefone"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Telefone.valid && !form.controls.Telefone.pristine) }"
+                      placeholder="Telefone">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" mask="00.000.000/0000-00"  type="text" formControlName="Documento"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Documento.valid && !form.controls.Documento.pristine) }"
+                      placeholder="Cnpj">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Seguimentos"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Seguimentos.valid && !form.controls.Seguimentos.pristine) }"
+                      placeholder="Seguimentos">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Horario"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Horario.valid && !form.controls.Horario.pristine) }"
+                      placeholder="Horario de Atendimento">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Facebook" 
+                    [ngClass]="{'uk-form-danger': (!form.controls.Facebook.valid && !form.controls.Facebook.pristine) }"
+                    placeholder="Link do seu Facebook">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Instagram"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Instagram.valid && !form.controls.Instagram.pristine) }"
+                      placeholder="Link do seu Instagram">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="WebSite"
+                      [ngClass]="{'uk-form-danger': (!form.controls.WebSite.valid && !form.controls.WebSite.pristine) }"
+                      placeholder="Link do seu Website">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Delivery"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Delivery.valid && !form.controls.Delivery.pristine) }"
+                      placeholder="Link da Delivery">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Bairro"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Bairro.valid && !form.controls.Bairro.pristine) }"
+                      placeholder="Bairro">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Rua"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Rua.valid && !form.controls.Rua.pristine) }"
+                      placeholder="Rua">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Numero"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Numero.valid && !form.controls.Numero.pristine) }"
+                      placeholder="Numero de endereço">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" mask="00000-00" type="text" formControlName="Cep"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Cep.valid && !form.controls.Cep.pristine) }"
+                      placeholder="Cep">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Cidade"
+                      [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Horario.pristine) }"
+                      placeholder="Cidade">
+                  </div>
+                  <div class="uk-margin">
+                    <select class="uk-select" type="text" formControlName="Estado" placeholder="Estado">
+                      <option value="">Selecione o seu Estado</option>
+                      <option>Acre (AC)
+                      <option>Alagoas (AL)</option>
+                      <option>Amapá (AP)</option>
+                      <option>Amazonas (AM)</option>
+                      <option>Bahia (BA)</option>
+                      <option>Ceará (CE)</option>
+                      <option>Distrito Federal (DF)</option>
+                      <option> Santo (ES)</option>
+                      <option>Goiás (GO)</option>
+                      <option>Maranhão (MA)</option>
+                      <option>Mato Grosso (MT)</option>
+                      <option>Mato Grosso do Sul (MS)</option>
+                      <option> Gerais (MG)</option>
+                      <option>Pará (PA) </option>
+                      <option>Paraíba (PB)</option>
+                      <option>Paraná (PR)</option>
+                      <option>Pernambuco (PE)</option>
+                      <option>Piauí (PI)</option>
+                      <option>Rio de Janeiro (RJ)</option>
+                      <option>Rio Grande do Norte (RN)</option>
+                      <option>Rio Grande do Sul (RS)</option>
+                      <option>Rondônia (RO)</option>
+                      <option>Roraima (RR)</option>
+                      <option>Santa Catarina (SC)</option>
+                      <option>São Paulo (SP)</option>
+                      <option>Sergipe (SE)</option>
+                      <option>Tocantins (TO)</option>
+                    </select>
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input uk-form-large" type="text" formControlName="Complemento" 
+                    placeholder="Complemento">
+                  </div>
+          
+          
+                  <div class="js-upload uk-align-center" uk-form-custom>
+                    <input type="file" (change)="onUploadImagem($event)" formControlName="Logo" >
+              
+                    <button
+                      class="uk-button uk-button-primary uk-button-small  uk-margin-small-right  uk-margin-small-   uk-border-rounded"
+                      type="button" tabindex="-1">Anexa  Logo Marca</button>
+          
+                  </div>
+          
+          
+                  <div class="uk-margin uk-text-right">
+                    <button class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoSucesso" [disabled]="form.invalid"
+                      (click)="Submit()">Salvar</button>
+                  </div>
+                </div>
+              </form>
+
+        
+
+    </div>

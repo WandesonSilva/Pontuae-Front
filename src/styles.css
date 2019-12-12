@@ -1,0 +1,141 @@
+#menuColor {
+  text-align: center;
+  background: #9a06ad;
+  background: -moz-linear-gradient(60deg, #bd076b 0%, #800691 100%);
+  background: -webkit-linear-gradient(60deg, #bd076b 0%, #800691 100%);
+  background: linear-gradient(60deg, #bd076b 0%, #800691 100%);
+}
+.autoHeight {
+  height: 100vh;
+}
+.FundoLogin {
+  background: linear-gradient(60deg, #d6085e 25%, #800691 100%);
+}
+.BotaoSucesso {
+  background-color: #3fa845;
+  color: white;
+}
+
+.buttonAdd{
+  background-color: #10D55B;
+  border-bottom: 2px solid transparent;
+ 
+}
+
+#red {
+  color: #ec2300;
+}
+#upload {
+  font-weight: bold;
+  color: #28a745;
+  margin-left: 15px;
+  line-height: 36px;
+}
+.embacado::after {
+  filter: blur(2px);
+}
+
+.quebraLinha {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+
+.uk-card-header{
+  border-radius: 20px;
+  
+
+}
+
+
+.uk-navbar{
+  margin-top: -5px;
+  height: 67px;  
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+
+.buttonSave {
+  background-color:  #32BF82;
+  padding: 2px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 100;
+  font-style: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-box-shadow: 2px 5px 2px 0px rgba(145, 144, 144, 0.603);
+  -moz-box-shadow: 2px 5px 4px 0px rgba(121, 110, 110, 0.507);
+  box-shadow: 2px 3px 2px 0px rgba(105, 101, 101, 0.411);
+  
+}  
+
+.buttonSave:hove{
+  background-color: #25C67B;
+  color: #fff;
+  
+}
+.buttonPlus {
+  background-color: #800691;
+  padding: 2px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 100;
+  font-style: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-box-shadow: 2px 5px 2px 0px rgba(145, 144, 144, 0.603);
+  -moz-box-shadow: 2px 5px 4px 0px rgba(121, 110, 110, 0.507);
+  box-shadow: 2px 3px 2px 0px rgba(105, 101, 101, 0.411);
+}
+
+.buttonPlus:hover{
+  background-color: #8c119c;
+  color: #fff;  
+  -webkit-box-shadow: 2px 7px 2px 0px rgba(145, 144, 144, 0.322);
+  -moz-box-shadow: 2px 7px 2px 0px rgba(117, 115, 115, 0.39);
+  box-shadow: 4px 4px 2px 0px rgba(94, 93, 93, 0.39);
+}
+
+
+.uk-card-default{
+  -webkit-box-shadow: 2px 1px 5px 0px rgba(194, 194, 194, 0.733);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(214, 207, 207, 0.726);
+  box-shadow: 1px 1px 4px 0px rgba(211, 211, 211, 0.514);
+  border-radius: 40px;
+ 
+}
+
+.uk-button-text{
+  color: #7b098a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  
+}
+
+.cor:hover{
+  color: #3e0846; 
+  cursor: pointer;
+}
+
+.iconCard{
+   font-size: 30px;
+   color: #3e0846; 
+}

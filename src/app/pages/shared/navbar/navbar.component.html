@@ -1,0 +1,48 @@
+
+
+<nav class="uk-navbar uk-navbar-container uk-light  " id="menuColor" uk-navbar>
+  <div class="uk-navbar-left">
+    <a class="uk-navbar-toggle uk-margin-small-right uk-margin-small-left" uk-toggle="target: #offcanvas-overlay" href="#">
+      <span uk-navbar-toggle-icon></span>
+    </a>
+    <a routerLink="/home" class=" uk-text-large uk-active uk-link-heading" style="font-family:Cocon">pontua <a style="font-family:Lucida Handwriting"> Aê</a></a>
+  </div>
+          <!--  --MENU HORIZONTAL--   -->
+  <div class="uk-navbar-right">
+     
+    <ul class="uk-navbar-nav">
+
+      <li class="uk-active"><a href="#">{{ user.email }}</a></li>
+      <li class="uk-active">
+      </li>
+      <li>
+        <a  href="#" ><span class="uk-icon-button uk-icon" uk-icon="icon: cog"></span></a>
+        <div class="uk-navbar-dropdown">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li class="uk-active"><a href="">Menu</a></li>
+            <li><a routerLink="/perfil">Perfil</a></li>
+            <li><a routerLink="/config/regra/:id">Configuração de Programa fidelidade</a></li>
+            <li><a href="#">Item</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a id="red" (click)="Logout()">Sair</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+      <h3>Menu</h3>
+      <ul class="uk-nav uk-nav-default">
+
+        <!--<li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> </a>  </li>-->
+        <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+
+        <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
