@@ -27,12 +27,12 @@ import { ListClientPageComponent } from './pages/customer/list-client-page/list-
 import { AuthenticationService } from './service/authentication.service';
 import { ClientGuard } from './guards/client.guard';
 import { AdminGuard } from './guards/Admin.guard';
-import { AuthService } from './Guards/auth.service';
-import { PointEditComponent } from './pages/settings/program-loyalty/point-edit/point-edit/point-edit.component';
+import { AuthService } from './Guards/auth.service';;
 import { CardGeneratedRecipeComponent } from './pages/dashboard/card-generated-recipe/card-generated-recipe.component';
 import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
 import { LoginComponent } from './pages/account-company/login/login.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
+import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
 
 
 

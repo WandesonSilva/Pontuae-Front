@@ -10,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { PointDeleteComponent } from './config-point.ts/point-delete/point-delete.component';
-import { PointEditComponent } from './point-edit/point-edit/point-edit.component';
+import { PointEditComponent } from './config-point.ts/point-edit/point-edit.component';
+
 
 
 @NgModule({
