@@ -17,6 +17,7 @@ import { PointComponent } from './pages/pointing/point/point.component';
 import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
 import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
+import {  DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -27,8 +28,8 @@ const routes: Routes = [
     // canActivate: [AuthService, AdminGuard],
     children: [
 
-      { path: '', component: CardGroupComponent },
-      { path: 'home', component: CardGroupComponent },
+      { path: '', component: DashboardComponent },
+      { path: 'home', component: DashboardComponent },
 
       { path: 'preCadastro', component: PreRegisterComponent },
       { path: 'perfil', component: ProfileComponent },
