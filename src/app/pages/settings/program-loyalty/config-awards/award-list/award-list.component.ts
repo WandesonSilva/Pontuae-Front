@@ -4,7 +4,7 @@ import { MatDialogConfig, MatDialog } from '@angular/material';
 import { AwardCreateComponent } from '../award-create/award-create.component';
 import { Award } from 'src/app/models/award.models';
 import { AwardService } from 'src/app/service/award.service';
-import { Security } from 'src/app/utils/security-util';
+import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-award-list',

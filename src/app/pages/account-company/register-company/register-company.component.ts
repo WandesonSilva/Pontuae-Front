@@ -3,7 +3,7 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
 import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Security } from 'src/app/utils/security-util';
+import { Security } from 'src/app/utils/security.util';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/service/company.service';
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';

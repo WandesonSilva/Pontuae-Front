@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from "@angular/core";
-import { Security } from '../utils/security-util';
+import { Security } from '../utils/security.util';
 import { Point } from '../models/points.models';
 import { RuleProgram } from '../models/ruleProgram';
 

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PointService } from 'src/app/service/point.service';
-import { Security } from 'src/app/utils/security-util';
+import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-point',

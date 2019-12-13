@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Security } from 'src/app/utils/security-util';
+import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-nav',

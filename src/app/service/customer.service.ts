@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Security } from '../Utils/Security-util';
+import { Security } from '../utils/security.util';
 import { Empresa } from '../models/company.models';
 import { tap } from 'rxjs/operators';
 import { ListaEmpresaSaldo } from '../models/listarEmpresaSaldo';

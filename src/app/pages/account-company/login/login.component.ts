@@ -1,5 +1,5 @@
 import { User } from '../../../models/user.model';
-import { Security } from '../../../Utils/Security-util';
+import { Security } from '../../../utils/security.util';
 import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';

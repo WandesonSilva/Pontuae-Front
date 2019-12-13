@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Security } from 'src/app/Utils/Security-util';
+import { Security } from 'src/app/utils/security.util';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 
 @Component({

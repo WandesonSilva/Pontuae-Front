@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RulePointService } from 'src/app/service/rule-point.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { Security } from 'src/app/utils/security-util';
+import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-point-create',

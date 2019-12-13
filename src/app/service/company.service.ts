@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { Empresa } from '../models/company.models';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Security } from '../Utils/Security-util';
+import { Security } from '../utils/security.util';
 
 
 const httpOptions = {
