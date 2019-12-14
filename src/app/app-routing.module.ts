@@ -17,6 +17,7 @@ import { PointComponent } from './pages/pointing/point/point.component';
 import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
 import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
+import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
 
 
 const routes: Routes = [
@@ -39,10 +40,11 @@ const routes: Routes = [
       {
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
-          // { path: 'listPoint', component: ListPo },
-          { path: 'listAward', component: AwardListComponent },
           { path: 'listProgram', component: ProgramLoyaltyComponent},
-         // { path: '', redirectTo: '/config', pathMatch: 'full' },
+          { path: 'formRulePoint', component: FormPointComponent },
+          { path: 'formAward', component: FormPointComponent },
+          { path: 'listAward', component: AwardListComponent },          
+          { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },
     ]

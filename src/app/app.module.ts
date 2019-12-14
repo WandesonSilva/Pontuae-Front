@@ -33,6 +33,7 @@ import { CardGroupComponent } from './pages/dashboard/card-group/card-group.comp
 import { LoginComponent } from './pages/account-company/login/login.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
 import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
+import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
 
 
 
@@ -61,6 +62,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PointCreateComponent,
     AwardListComponent,
     ProfileComponent,
+    FormPointComponent, 
     ProgramLoyaltyComponent,
     ListCompanyComponent,
     AwardCreateComponent,
