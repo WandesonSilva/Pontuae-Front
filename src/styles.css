@@ -63,10 +63,6 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-
-
-
-
 .buttonSave {
   background-color:  #32BF82;
   padding: 2px;
@@ -112,7 +108,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
-.uk-card-default{
+.card-round{
   -webkit-box-shadow: 2px 1px 5px 0px rgba(194, 194, 194, 0.733);
   -moz-box-shadow: 1px 1px 5px 0px rgba(214, 207, 207, 0.726);
   box-shadow: 1px 1px 4px 0px rgba(211, 211, 211, 0.514);
@@ -136,4 +132,35 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .iconCard{
    font-size: 30px;
    color: #3e0846; 
+}
+
+.iconStyle{
+  font-size: 30px;
+  padding: -20px; 
+  margin: -5px; 
+  color: #7b098a;
+}
+
+.line-border{
+  border-style: solid;
+  border-top-width:3px;
+  border-bottom-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+}
+
+.line-sucess{
+  border-top-color:rgb(0, 194, 81);
+}
+
+.line-danger{
+  border-top-color:#C20D00;
+}
+
+.line-primary{
+  border-top-color:#134DEC;
+}
+
+.line-secondary{
+  border-top-color:#CB14A0;
 }
