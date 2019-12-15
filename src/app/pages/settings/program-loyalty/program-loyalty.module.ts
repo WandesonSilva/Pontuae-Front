@@ -12,12 +12,14 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { PointDeleteComponent } from './config-point.ts/point-delete/point-delete.component';
 import { PointEditComponent } from './config-point.ts/point-edit/point-edit.component';
 import { FormPointComponent } from './form-shared/form-point/form-point.component';
+import { ProgramLoyaltyComponent } from './program-loyalty.component';
 
 
 
 @NgModule({
   declarations: [
     AwardListComponent,
+    ProgramLoyaltyComponent,
     AwardCreateComponent,
     AwardDeleteComponent,
     AwardEditComponent,

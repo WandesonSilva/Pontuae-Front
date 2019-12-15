@@ -17,12 +17,8 @@ import { PointComponent } from './pages/pointing/point/point.component';
 import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
 import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
-<<<<<<< HEAD
 import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
-=======
-import {  DashboardComponent } from './pages/dashboard/dashboard.component';
->>>>>>> refs/remotes/origin/master
-
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
 

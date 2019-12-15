@@ -28,18 +28,14 @@ import { AuthenticationService } from './service/authentication.service';
 import { ClientGuard } from './guards/client.guard';
 import { AdminGuard } from './guards/Admin.guard';
 import { AuthService } from './Guards/auth.service';
-import { CardGeneratedRecipeComponent } from './pages/dashboard/card-generated-recipe/card-generated-recipe.component';
 import { LoginComponent } from './pages/account-company/login/login.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
 import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
-<<<<<<< HEAD
 import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
-=======
-import { DashboardModule } from './pages/dashboard/dashboard.module';
-
->>>>>>> refs/remotes/origin/master
-
-
+// import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { CardTotalSalesComponent } from './pages/dashboard/card-total-sales/card-total-sales.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -53,7 +49,9 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     LoginClienteComponent,
     MenuComponent,
     RegisterCompanyComponent,
-    CardGeneratedRecipeComponent,
+    CardGroupComponent,
+    DashboardComponent,
+    CardTotalSalesComponent,
     CarregarComponent,
     PointComponent,
     RescueComponent,
@@ -76,7 +74,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
   ],
 
   imports: [
-    DashboardModule,
+    // DashboardModule,
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
