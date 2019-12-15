@@ -69,6 +69,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     AwardCreateComponent,
     ListClientPageComponent,
     PointEditComponent 
+    //deleta
     
     
   ],
