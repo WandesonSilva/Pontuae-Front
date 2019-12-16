@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { RulePointService } from 'src/app/service/rule-point.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Security } from 'src/app/utils/security.util';
+import { Point } from 'src/app/models/points.models';
 
 @Component({
   selector: 'app-point-create',
@@ -13,65 +14,24 @@ import { Security } from 'src/app/utils/security.util';
 
 })
 
-export class PointCreateComponent implements OnInit {
+export class PointCreateComponent   {
+
   public form: FormGroup;
   public busy = false;
   // public description;
 
   constructor(
-
-
     private router: Router,
     private service: RulePointService,
-    private fb: FormBuilder,
     private toastr: ToastrService,
   ) {
-    this.form = this.fb.group({
 
-      Nome: ['', Validators.compose([
-        Validators.minLength(3),
-        Validators.maxLength(80),
-        Validators.required
-      ])],
-
-      Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
-      Valor: ['', [Validators.required]],
-      Ponto: ['', [Validators.required]],
-      Validacao: ['', [Validators.required]],
-
-    });
   }
-  ngOnInit() {
-
-    // tslint:disable-next-line: radix
-    const IdUser = parseInt(Security.getUser().id);
-
-
-    this.busy = true;
-    this
-      .service
-      .getByIdProgramLoyalty(IdUser)
-      .subscribe(
-        (data: any) => {
-          this.busy = false;
-          this.form.controls[' Id '].setValue(data.Id);
-          this.form.controls[' Nome '].setValue(data.Nome);
-          this.form.controls[' Descricao '].setValue(data.Descricao);
-          this.form.controls[' Valor '].setValue(data.Valor);
-          this.form.controls[' Ponto '].setValue(data.Ponto);
-          this.form.controls[' Validacao '].setValue(data.Validacao);
-        },
-        (err) => {
-          console.log(err);
-          this.busy = false;
-        }
-      );
-  }
-
-  submit() {
+ 
+  onsubmit(p: Point) {
 
     this.service
-        .createRule(this.form.value)
+        .createRule(p)
         .subscribe((data: any) => {
           this.busy = false;
           this.toastr.success('Salvo com sucesso');
@@ -89,5 +49,4 @@ export class PointCreateComponent implements OnInit {
 
 
 }
-
 
