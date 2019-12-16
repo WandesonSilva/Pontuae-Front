@@ -1,64 +1,102 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Security } from 'src/app/utils/security.util';
 import { RulePointService } from 'src/app/service/rule-point.service';
 import { Point } from 'src/app/models/points.models';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-point-edit',
   templateUrl: './point-edit.component.html',
   styleUrls: ['./point-edit.component.css']
 })
-export class PointEditComponent  {
+export class PointEditComponent  implements OnInit  {
 
-  // public configPoint: Point = <Point>{};
-  // public form: FormGroup;
-  // public busy = false;
+    public form: FormGroup;
+    public busy = false;
+  //  event: EventEmitter<any> = new EventEmitter();
 
 
-  // constructor(
-  //   private router: Router,
-  //   private service: RulePointService,
-  //   private toastr: ToastrService,
+    constructor(
+     private router: Router,
+     private service: RulePointService,
+     private fb: FormBuilder,
+     private toastr: ToastrService,
+     private activatedRoute: ActivatedRoute,
 
-  // ) { }
+   ) { 
 
-  // ngOnInit() {
+//Obtendo Id do programaLoyalty
 
-  //   // tslint:disable-next-line: radix
-  //   const IdUser = parseInt(Security.getUser().id);
-  //   this.busy = true;
-  //   this
-  //     .service
-  //     .getByIdProgramLoyalty(IdUser)
-  //     .subscribe((data: any) => {
-  //       this.configPoint = data;
-  //     },
-  //       (err) => {
-  //         console.log(err);
-  //         this.busy = false;
-  //       }
-  //     );
 
-  // }
+     this.form = this.fb.group({
 
-  // submit() {
-  //   this.busy = true;
-  //   this
-  //   .service
-  //   .updateProgramLoyalty(this.form.value)
-  //     .subscribe(
-  //       (data: any) => {
-  //         this.busy = false;
-  //         this.toastr.success(data.message, 'Atualização Completa!');
-  //       },
-  //       (err) => {
-  //         console.log(err);
-  //         this.busy = false;
-  //       }
-  //     );
-  // }
+      Nome: ['', Validators.compose([
+         Validators.minLength(3),
+         Validators.maxLength(80),
+         Validators.required
+       ])],
+
+       Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
+       Valor: ['', [Validators.required]],
+       Ponto: ['', [Validators.required]],
+       Validacao: ['', [Validators.required]],
+
+     });
+
+      
+    
+  }
+   ngOnInit() {
+
+    const idUser = Security.getUser().id;
+
+
+   this.busy = true;
+    this
+       .service
+       .getByIdProgramLoyalty(this.activatedRoute.snapshot.params.id, idUser)  
+       .subscribe(
+         (data: any) => {
+           this.busy = false;
+           this.form.controls['Id'].setValue(data.Id);
+           this.form.controls['Nome'].setValue(data.Nome);
+           this.form.controls['Descricao'].setValue(data.Descricao);
+           this.form.controls['Valor'].setValue(data.Valor);
+           this.form.controls['Ponto'].setValue(data.Ponto);
+           this.form.controls['Validacao'].setValue(data.Validacao);
+         },
+         (err) => {
+           console.log(err);
+           this.busy = false;
+         }
+       );
+   }
+
+   submit() {
+   this.busy = true;
+       this.service
+         .updateProgramLoyalty(this.form.value)
+         .subscribe(
+           (data: any) => {
+           this.busy = false;
+           this.toastr.success(data.message, 'Salvo com sucesso');
+           this.router.navigate(['/']);
+
+         },
+
+           (err) => {
+             console.log(err);
+             this.busy = false;
+             this.toastr.success('Salvo com sucesso');
+           }
+         );
+
+  
 
 }
+}
+

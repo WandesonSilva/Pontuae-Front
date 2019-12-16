@@ -36,7 +36,7 @@ export class RescueComponent implements OnInit {
 
     this.
       service
-      .ResgatarPontos(this.form.value)
+      .pointPost(this.form.value)
       .subscribe((data: any) => {
 
       }, (err) => {

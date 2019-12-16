@@ -115,6 +115,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-radius: 40px;
  
 }
+.uk-card-white{
+  background-color: #ffffff;
+}
 
 .uk-button-text{
   color: #7b098a;

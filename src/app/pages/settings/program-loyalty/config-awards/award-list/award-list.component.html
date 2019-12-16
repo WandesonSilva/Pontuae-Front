@@ -1,7 +1,8 @@
 <div class="uk-text-right">
   <!--<h4 style="text-align:left">campanha!</h4>-->
-  <button class=" uk-button buttonPlus uk-border-rounded  " (click)="openDialogCreate()"><i
-      uk-icon="icon: plus-circle; ratio: 1.1"></i>Adicionar</button>
+      <button class="uk-button buttonPlus uk-border-rounded uk-margin-small-right" type="button"
+      uk-toggle="target: #modal-example"><i uk-icon="icon: plus-circle; ratio: 1.1"></i>Adicionar</button>
+
 </div>
 
 <table class="uk-table uk-table-hover uk-table-divider">
@@ -31,3 +32,16 @@
     </tr>
   </tbody>
 </table>
+
+ 
+    <!-- This is the modal -->
+    <div id="modal-example" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body">
+     <app-award-create></app-award-create>
+      </div>
+    </div>
+    
+    
+    
+    
+  

@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Security } from '../utils/security.util';
 import { Point } from '../models/points.models';
 import { RuleProgram } from '../models/ruleProgram';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({ providedIn: 'root' })
@@ -10,6 +11,8 @@ import { RuleProgram } from '../models/ruleProgram';
 export class RulePointService {
 
   public url = "https://localhost:44311/";
+  postIdSource = new  BehaviorSubject<number>(0);
+  postIdData: any;
 
   constructor(private http: HttpClient) {
   }
@@ -30,20 +33,24 @@ export class RulePointService {
 
   }
 
-  getListProgramLoyalty(id: number) {
-    return this.http.get<Point[]>(`${this.url}/Pontos/${id}`, { headers: this.composeHeaders() });
+  getListProgramLoyalty( id: string, idUser: string) {
+    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${id}/empresaId/${idUser}`, { headers: this.composeHeaders() });
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get
-  getByIdProgramLoyalty(idUser: number) {
-    return this.http.get<Point[]>(`${this.url}/Pontos/${idUser}`, { headers: this.composeHeaders() });
+  getByIdProgramLoyalty(id: string, idUser: string) {
+    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${id}/empresaId/${idUser}`, { headers: this.composeHeaders() });
   }
-
-
 
 
   updateProgramLoyalty(data: any) {
     return this.http.put(`${this.url}/Pontos`, data, { headers: this.composeHeaders() });
   }
+
+  changePostId(postId: number){
+    this.postIdSource.next(postId);
+}
+
+
 
 }

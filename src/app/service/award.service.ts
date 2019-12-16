@@ -37,4 +37,6 @@ export class AwardService {
     return this.http.get<Award[]>(`${this.url}/Pontos/${idUser}`, { headers: this.composeHeaders() });
   }
 
+  
+
 }
