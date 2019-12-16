@@ -1,79 +1,10 @@
-<!--<div class="uk-container">
-
+<div class="uk-container">
   <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m uk-margin-top">
     <h5 class="uk-card-title" style="margin-top: -10px;"> <a uk-icon="icon:chevron-double-left; ratio:2"></a> Programa de fidelidade</h5>
     <ul  uk-tab="swiping: false"  class="uk-tab">
-
-      
-      <li class="uk-active"><a routerLink="/config/listPoint" >Cartão fidelidade</a></li>      
-      <li><a routerLink="/config/listAward">prêmios</a></li>
-     
+      <li class="uk-active"><a routerLink="/config/listProgram" >Cartão fidelidade</a></li>      
+      <li><a routerLink="/config/listAward" >prêmios</a></li> 
     </ul>
-
     <router-outlet></router-outlet>
-
      </div>
-</div>-->
-
-<div class="uk-container">
-<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m uk-margin-top">
-
-<div class="uk-text-right">
-  <!--<h4 style="text-align:left">campanha!</h4>-->
-  <button class="uk-button buttonPlus uk-border-rounded">
-    <i uk-icon="icon: plus-circle; ratio: 1.1"></i><a href="#modal-example" uk-toggle>Adicionar Programa de Fidelidade</a> </button>
-<!---->
-
-
-
-<!---->
 </div>
-<table class="uk-table uk-table-hover uk-table-divider">
-  <thead>
-    <tr>
-
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Pontos Necessário</th>
-      <th>Validade</th>
-      <th> </th>
-
-    </tr>
-  </thead>
-  <tbody>
-
-    <tr *ngFor="let colum of List$ | async">
-      <td>{{colum.nome}}</td>
-      <td>{{colum.descricao}}</td>
-      <td>{{colum.pontos}}</td>
-      <td>{{colum.validade}}</td>
-      <td><button class="btn btn-success" (click)="openDialogEdit(colum.id)"><i class="Small material-icons"
-            style="color:#800691">remove_red_eye</i></button>
-
-        <button class="btn btn-success" (click)="openDialogDelete(colum.id)" style="margin-left: 20px;"><i
-            class=" Small material-icons" style="color:#c52626">delete</i></button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-</div>
-
-
-
-<!-- This is the modal -->
-<div id="modal-example" uk-modal>
-  <div class="uk-modal-dialog uk-modal-body">
-    <ul  uk-tab="swiping: false"  class="uk-tab">
-      
-    
-      <!--<li class="uk-active"><a routerLink="/config/formRulePoint">Cartão fidelidade</a></li>   -->   
-      <li><a routerLink="/config/formRulePoint">Cartão fidelidade</a></li>
-     
-    </ul>
-
-    <router-outlet></router-outlet>
-  </div>
-</div>
-

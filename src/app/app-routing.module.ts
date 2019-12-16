@@ -19,6 +19,9 @@ import { RegisterCompanyComponent } from './pages/account-company/register-compa
 import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
 import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PointCreateComponent } from './pages/settings/program-loyalty/config-point.ts/point-create/point-create.component';
+import { AwardCreateComponent } from './pages/settings/program-loyalty/config-awards/award-create/award-create.component';
+import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
 
 const routes: Routes = [
 
@@ -40,9 +43,9 @@ const routes: Routes = [
       {
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
-          { path: 'listProgram', component: ProgramLoyaltyComponent},
-          { path: 'formRulePoint', component: FormPointComponent },
-          { path: 'formAward', component: FormPointComponent },
+          { path: 'listProgram', component: ListProgramLoyaltyComponent},
+          { path: 'formRulePoint', component: PointCreateComponent },
+          { path: 'formAward', component: AwardCreateComponent },
           { path: 'listAward', component: AwardListComponent },          
           { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]

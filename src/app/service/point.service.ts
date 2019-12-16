@@ -22,28 +22,14 @@ export class PointService {
 
     }
 
-    Pontuar(data: any) {
+    pointPost(data: any) {
         const id = parseInt(Security.getUser().id, data.id);
         data.IdUsuario = id;
         return this.http.post(`${this.url}v1/Pontos`, data, { headers: this.composeHeaders() });
 
     }
 
-    ResgatarPontos(data: any) {
+  
 
-        return this.http.post(`${this.url}v1/ResgatarPontos`, data, { headers: this.composeHeaders() });
-
-    }
-
-    BuscarPremios() {
-
-        const b = parseInt(Security.getUser().id, this.id);
-        const a = this.http.get<Premios[]>(`${this.url}v1/Premios/${b}`).pipe(
-            tap(console.log)
-        );
-        console.log(a);
-        return a;
-
-
-    }
+   
 }

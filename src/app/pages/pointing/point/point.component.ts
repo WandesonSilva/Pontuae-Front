@@ -39,7 +39,7 @@ export class PointComponent implements OnInit {
 
     this
     .service
-    .Pontuar(this.form.value)
+    .pointPost(this.form.value)
     .subscribe((data: any) => {
     },
     (err) => {

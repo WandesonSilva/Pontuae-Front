@@ -36,6 +36,8 @@ import { FormPointComponent } from './pages/settings/program-loyalty/form-shared
 import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardTotalSalesComponent } from './pages/dashboard/card-total-sales/card-total-sales.component';
+import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
+
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -68,9 +70,9 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ListCompanyComponent,
     AwardCreateComponent,
     ListClientPageComponent,
-    PointEditComponent 
-    //deleta
-    
+    PointEditComponent,
+    ListProgramLoyaltyComponent 
+
     
   ],
 
@@ -83,17 +85,17 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     NgxMaskModule.forRoot(options),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [],
   providers: [AuthenticationService, AuthService, ClientGuard, AdminGuard],
 
 
-  bootstrap: [AppComponent],
-  entryComponents: [
-    PointCreateComponent,
-    AwardCreateComponent,
-  ],
+  bootstrap: [AppComponent]
+  // entryComponents: [
+  //   PointCreateComponent,
+  //   AwardCreateComponent,
+  // ],
 
 })
 export class AppModule { }
