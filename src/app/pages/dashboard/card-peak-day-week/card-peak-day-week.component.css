@@ -1,0 +1,11 @@
+body {  
+    background: #1D1F20;
+    padding: 16px;
+  }
+  
+  .chart-container {
+    position: relative;
+    margin: auto;
+    height: 70vh;
+    width: 100vw;
+  }
