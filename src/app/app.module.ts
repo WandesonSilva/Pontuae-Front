@@ -1,20 +1,20 @@
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { NavbarComponent } from './pages/shared/navbar/navbar.component';
 import { NavComponent } from './pages/shared/nav/nav.component';
 import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
 import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
 import { CarregarComponent } from './pages/shared/carregar/carregar.component';
 import { MenuComponent } from './pages/shared/Menu.component';
-import { PointComponent } from './pages/pointing/point/point.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
 import { ListCompanyComponent } from './pages/list-company/list-company.component';
@@ -24,15 +24,19 @@ import { ProfileComponent } from './pages/account-company/profile/profile.compon
 import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/program-loyalty.component';
 import { AwardCreateComponent } from './pages/settings/program-loyalty/config-awards/award-create/award-create.component';
 import { ListClientPageComponent } from './pages/customer/list-client-page/list-client-page.component';
+
 import { AuthenticationService } from './service/authentication.service';
 import { ClientGuard } from './guards/client.guard';
 import { AdminGuard } from './guards/Admin.guard';
 import { AuthService } from './Guards/auth.service';
+
 import { LoginComponent } from './pages/account-company/login/login.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
 import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
 import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { PointingComponent } from './pages/pointing/pointing/pointing.component';
+import { PointComponent } from './pages/pointing/point/point.component';
 
 
 
@@ -64,7 +68,9 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ListCompanyComponent,
     AwardCreateComponent,
     ListClientPageComponent,
-    PointEditComponent 
+    PointEditComponent,
+    PointComponent,
+    PointingComponent
     
     
   ],

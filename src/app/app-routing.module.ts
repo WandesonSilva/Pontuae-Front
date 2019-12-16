@@ -19,6 +19,8 @@ import { RegisterCompanyComponent } from './pages/account-company/register-compa
 import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
 import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PointingComponent } from './pages/pointing/pointing/pointing.component';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 
 const routes: Routes = [
 
@@ -33,7 +35,7 @@ const routes: Routes = [
 
       { path: 'preCadastro', component: PreRegisterComponent },
       { path: 'perfil', component: ProfileComponent },
-      { path: 'point', component: PointComponent },
+      { path: 'pointing', component: PointingComponent },
 
       { path: 'listClientPage', component: ListClientPageComponent },
 
@@ -43,7 +45,7 @@ const routes: Routes = [
           { path: 'listProgram', component: ProgramLoyaltyComponent},
           { path: 'formRulePoint', component: FormPointComponent },
           { path: 'formAward', component: FormPointComponent },
-          { path: 'listAward', component: AwardListComponent },          
+          { path: 'listAward', component: AwardListComponent },
           { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },

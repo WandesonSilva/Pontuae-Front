@@ -8,6 +8,8 @@ import { CardGroupComponent } from './card-group/card-group.component';
 import { CardTicketMediumComponent } from './card-ticket-medium/card-ticket-medium.component';
 import { CardTotalCustomerComponent } from './card-total-customer/card-total-customer.component';
 import { CardPeakDayWeekComponent } from './card-peak-day-week/card-peak-day-week.component';
+import { AppRoutingModule } from '../../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,10 +19,11 @@ import { CardPeakDayWeekComponent } from './card-peak-day-week/card-peak-day-wee
     CardGroupComponent,
     CardTicketMediumComponent,
     CardTotalCustomerComponent,
-    CardPeakDayWeekComponent
+    CardPeakDayWeekComponent,
+    
   ],
   imports: [
- 
+    RouterModule 
   ]
 })
 export class DashboardModule { }
