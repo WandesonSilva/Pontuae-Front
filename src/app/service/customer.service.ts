@@ -43,7 +43,7 @@ export class CustomerService {
 
   GetListCustomer(id: number) {
     return this.http.get<any[]>(`${this.url}v1/ListaClientes/${id}`, { headers: this.composeHeaders() });
-  } 
+  }
 
   GetByIdCustomer(id: number) {
     return this.http.get<any[]>(`${this.url}v1/Cliente/${id}`, { headers: this.composeHeaders() });
