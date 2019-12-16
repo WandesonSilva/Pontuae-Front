@@ -32,16 +32,12 @@ import { LoginComponent } from './pages/account-company/login/login.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
 import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
 import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
-<<<<<<< HEAD
 // import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CardTotalSalesComponent } from './pages/dashboard/card-total-sales/card-total-sales.component';
 import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
-=======
 import { DashboardModule } from './pages/dashboard/dashboard.module';
-
->>>>>>> refs/remotes/origin/master
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -72,15 +68,11 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ListCompanyComponent,
     AwardCreateComponent,
     ListClientPageComponent,
-<<<<<<< HEAD
-    PointEditComponent,
-    ListProgramLoyaltyComponent 
 
-=======
-    PointEditComponent 
-    
->>>>>>> refs/remotes/origin/master
-    
+    PointEditComponent,
+    ListProgramLoyaltyComponent,
+
+    PointEditComponent   
   ],
 
   imports: [

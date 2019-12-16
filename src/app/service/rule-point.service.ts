@@ -33,13 +33,13 @@ export class RulePointService {
 
   }
 
-  getListProgramLoyalty(id: number) {
-    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${id}`, { headers: this.composeHeaders() });
+  getListProgramLoyalty( id: string, idUser: string) {
+    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${id}/empresaId/${idUser}`, { headers: this.composeHeaders() });
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get
-  getByIdProgramLoyalty(idUser: number) {
-    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${idUser}`, { headers: this.composeHeaders() });
+  getByIdProgramLoyalty(id: string, idUser: string) {
+    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${id}/empresaId/${idUser}`, { headers: this.composeHeaders() });
   }
 
 

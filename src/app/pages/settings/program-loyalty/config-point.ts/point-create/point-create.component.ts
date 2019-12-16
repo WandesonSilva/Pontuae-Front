@@ -47,7 +47,7 @@ export class PointCreateComponent   {
 
      this.service
          .createRule(this.form.value)
-        .subscribe((data: any) => {
+         .subscribe((data: any) => {
            this.busy = false;
            this.toastr.success('Salvo com sucesso');
 

@@ -2,10 +2,10 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Security } from 'src/app/utils/security.util';
 import { RulePointService } from 'src/app/service/rule-point.service';
 import { Point } from 'src/app/models/points.models';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { RuleProgram } from 'src/app/models/ruleProgram';
+
 
 
 @Component({
@@ -24,9 +24,14 @@ export class PointEditComponent  implements OnInit  {
      private router: Router,
      private service: RulePointService,
      private fb: FormBuilder,
-     private toastr: ToastrService
+     private toastr: ToastrService,
+     private activatedRoute: ActivatedRoute,
 
    ) { 
+
+//Obtendo Id do programaLoyalty
+
+
      this.form = this.fb.group({
 
       Nome: ['', Validators.compose([
@@ -42,18 +47,18 @@ export class PointEditComponent  implements OnInit  {
 
      });
 
-
+      
     
   }
    ngOnInit() {
 
-    const idUser = parseInt(Security.getUser().id);
+    const idUser = Security.getUser().id;
 
 
    this.busy = true;
     this
        .service
-       .getByIdProgramLoyalty(idUser)  //esta função esta errada
+       .getByIdProgramLoyalty(this.activatedRoute.snapshot.params.id, idUser)  
        .subscribe(
          (data: any) => {
            this.busy = false;
@@ -71,25 +76,27 @@ export class PointEditComponent  implements OnInit  {
        );
    }
 
-  // onPostEditFormSubmit() {
-  // this.busy = true;
-  //     this.service
-  //       .updateProgramLoyalty(this.form.value)
-  //       .subscribe(
-  //         (data: any) => {
-  //         this.busy = false;
-  //         this.toastr.success(data.message, 'Salvo com sucesso');
+   submit() {
+   this.busy = true;
+       this.service
+         .updateProgramLoyalty(this.form.value)
+         .subscribe(
+           (data: any) => {
+           this.busy = false;
+           this.toastr.success(data.message, 'Salvo com sucesso');
+           this.router.navigate(['/']);
 
-  //       },
+         },
 
-  //         (err) => {
-  //           console.log(err);
-  //           this.busy = false;
-  //           this.toastr.success('Salvo com sucesso');
-  //         }
-  //       );
+           (err) => {
+             console.log(err);
+             this.busy = false;
+             this.toastr.success('Salvo com sucesso');
+           }
+         );
 
   
 
+}
 }
 
