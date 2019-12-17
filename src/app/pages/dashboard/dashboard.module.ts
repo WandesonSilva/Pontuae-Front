@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { CardTotalSalesComponent } from './card-total-sales/card-total-sales.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { CardGroupComponent } from './card-group/card-group.component';
 import { CardTicketMediumComponent } from './card-ticket-medium/card-ticket-medium.component';
 import { CardTotalCustomerComponent } from './card-total-customer/card-total-customer.component';
@@ -18,10 +15,13 @@ import { RouterModule } from '@angular/router';
     CardGroupComponent,
     CardTicketMediumComponent,
     CardTotalCustomerComponent,
-    CardPeakDayWeekComponent
+    CardPeakDayWeekComponent,
+    
   ],
   imports: [
+
    RouterModule
+
   ]
 })
 export class DashboardModule { }

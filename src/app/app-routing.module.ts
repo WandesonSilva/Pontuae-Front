@@ -11,19 +11,17 @@ import { ListCompanyComponent } from './pages/list-company/list-company.componen
 import { AwardListComponent } from './pages/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/program-loyalty.component';
 import { ListClientPageComponent } from './pages/customer/list-client-page/list-client-page.component';
-
 import { ProfileComponent } from './pages/account-company/profile/profile.component';
-import { PointComponent } from './pages/pointing/point/point.component';
 import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
-import { CardGroupComponent } from './pages/dashboard/card-group/card-group.component';
-import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PointCreateComponent } from './pages/settings/program-loyalty/config-point.ts/point-create/point-create.component';
 import { AwardCreateComponent } from './pages/settings/program-loyalty/config-awards/award-create/award-create.component';
 import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
 import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
 import { AwardEditComponent } from './pages/settings/program-loyalty/config-awards/award-edit/award-edit.component';
+import { PointingComponent } from './pages/pointing/pointing/pointing.component';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 
 const routes: Routes = [
 
@@ -38,7 +36,7 @@ const routes: Routes = [
 
       { path: 'preCadastro', component: PreRegisterComponent },
       { path: 'perfil', component: ProfileComponent },
-      { path: 'point', component: PointComponent },
+      { path: 'pointing', component: PointingComponent },
 
       { path: 'listClientPage', component: ListClientPageComponent },
 
@@ -51,6 +49,7 @@ const routes: Routes = [
           { path: 'Create-form-Award', component: AwardCreateComponent },
           { path: 'Edit-form-Award', component: AwardEditComponent },
           { path: 'list-Award', component: AwardListComponent },          
+
           { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },
