@@ -33,8 +33,8 @@ export class RulePointService {
 
   }
 
-  getListProgramLoyalty( id: string, idUser: string) {
-    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${id}/empresaId/${idUser}`, { headers: this.composeHeaders() });
+  getListProgramLoyalty( idUser: string) {
+    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${idUser}`, { headers: this.composeHeaders() });
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get
@@ -45,6 +45,11 @@ export class RulePointService {
 
   updateProgramLoyalty(data: any) {
     return this.http.put(`${this.url}/Pontos`, data, { headers: this.composeHeaders() });
+  }
+
+  
+  deleteLoyalty(id: string){
+    return this.http.delete(`${this.url}v1/Pontos/${id}`, {headers: this.composeHeaders()})
   }
 
   changePostId(postId: number){

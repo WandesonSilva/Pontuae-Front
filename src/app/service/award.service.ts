@@ -29,12 +29,16 @@ export class AwardService {
     return this.http.put(`${this.url}v1/premio`, data, {headers: this.composeHeaders()});
   }
 
-  getListAward(Id: number) {
-    return this.http.get<Award[]>(`${this.url}v1/premio/${Id}`, { headers: this.composeHeaders()});
+  getListAward(userId: string) {
+    return this.http.get<Award[]>(`${this.url}v1/premio/${userId}`, { headers: this.composeHeaders()});
   }
 
-  getByIdAward(idUser: number) {
-    return this.http.get<Award[]>(`${this.url}/Pontos/${idUser}`, { headers: this.composeHeaders() });
+  getByIdAward(userId: string, id: string) {
+    return this.http.get<Award[]>(`${this.url}v1/premio/${userId}/empresa/${id}`, { headers: this.composeHeaders() });
+  }
+  
+  deleteAward(id: string){
+    return this.http.delete(`${this.url}v1/premio/${id}`, {headers: this.composeHeaders()})
   }
 
   

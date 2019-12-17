@@ -1,10 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AwardService } from 'src/app/service/award.service';
-import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-award-create',
@@ -13,7 +12,7 @@ import { Security } from 'src/app/utils/security.util';
 
 })
 
-export class AwardCreateComponent implements OnInit {
+export class AwardCreateComponent  {
   public form: FormGroup;
   public busy = false;
 
@@ -21,7 +20,8 @@ export class AwardCreateComponent implements OnInit {
     private router: Router,
     private service: AwardService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+   
   ) {
     this.form = this.fb.group({
 
@@ -37,32 +37,7 @@ export class AwardCreateComponent implements OnInit {
     });
 
   }
-  ngOnInit() {
-
-    // tslint:disable-next-line: radix
-    const IdUser = parseInt(Security.getUser().id);
-
-    this.busy = true;
-    this
-      .service
-      .getByIdAward(IdUser)
-      .subscribe(
-        (data: any) => {
-          this.busy = false;
-          this.form.controls[' Id '].setValue(data.Id);
-          this.form.controls[' Nome '].setValue(data.Nome);
-          this.form.controls[' Descricao '].setValue(data.Descricao);
-          this.form.controls[' PontosNecessario '].setValue(data.PontosNecessario);
-
-
-
-        },
-        (err) => {
-          console.log(err);
-          this.busy = false;
-        }
-      );
-  }
+  
 
   submit() {
 
@@ -70,7 +45,8 @@ export class AwardCreateComponent implements OnInit {
         .createAward(this.form.value)
         .subscribe((data: any) => {
           this.busy = false;
-          this.toastr.success('Salvo com sucesso');
+          this.toastr.success(data.message,'Salvo com sucesso');
+          this.backPage();
         },
 
           (err) => {
@@ -79,4 +55,8 @@ export class AwardCreateComponent implements OnInit {
           }
         );
         }
+        backPage(){
+          this.router.navigate(['/config/listProgram']);
+        }
 }
+

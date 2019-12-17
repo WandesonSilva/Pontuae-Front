@@ -12,57 +12,59 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 })
 
-export class PointCreateComponent   {
+export class PointCreateComponent {
 
-    public form: FormGroup;
-    public busy = false;
-    public description;
+  public form: FormGroup;
+  public busy = false;
+  public description;
 
-    constructor(
+  constructor(
     private router: Router,
     private service: RulePointService,
     private fb: FormBuilder,
     private toastr: ToastrService,
-    ) {
-    
+  ) {
+
     this.form = this.fb.group({
 
-       Nome: ['', Validators.compose([
-      Validators.minLength(3),
+      Nome: ['', Validators.compose([
+        Validators.minLength(3),
         Validators.maxLength(80),
-         Validators.required
-       ])],
+        Validators.required
+      ])],
 
-       Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
-       Valor: ['', [Validators.required]],
-       Ponto: ['', [Validators.required]],
-       Validacao: ['', [Validators.required]],
+      Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
+      Valor: ['', [Validators.required]],
+      Ponto: ['', [Validators.required]],
+      Validacao: ['', [Validators.required]],
 
-     });
+    });
 
 
- }
- 
-   submit() {
-
-     this.service
-         .createRule(this.form.value)
-         .subscribe((data: any) => {
-           this.busy = false;
-           this.toastr.success('Salvo com sucesso');
-
-         },
-
-           (err) => {
-             console.log(err);
-             this.busy = false;
-             this.toastr.success('Salvo com sucesso');
-           }
-        );
-          }
-          
- 
   }
+
+  submit() {
+
+    this.service
+      .createRule(this.form.value)
+      .subscribe((data: any) => {
+        this.busy = false;
+        this.toastr.success('Salvo com sucesso');
+        this.backPage();
+      },
+        (err) => {
+          console.log(err);
+          this.busy = false;
+          this.toastr.success('Salvo com sucesso');
+        }
+      );
+  }
+
+  backPage() {
+    this.router.navigate(['/config/listProgram']);
+  }
+
+}
 
 
 

@@ -23,6 +23,7 @@ import { PointCreateComponent } from './pages/settings/program-loyalty/config-po
 import { AwardCreateComponent } from './pages/settings/program-loyalty/config-awards/award-create/award-create.component';
 import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
 import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
+import { AwardEditComponent } from './pages/settings/program-loyalty/config-awards/award-edit/award-edit.component';
 
 const routes: Routes = [
 
@@ -44,11 +45,12 @@ const routes: Routes = [
       {
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
-          { path: 'listProgram', component: ListProgramLoyaltyComponent},
-          { path: 'formRulePointCreate', component: PointCreateComponent },
-          { path: 'formRulePointEdit', component: PointEditComponent },
-          { path: 'formAward', component: AwardCreateComponent },
-          { path: 'listAward', component: AwardListComponent },          
+          { path: 'list-Program', component: ListProgramLoyaltyComponent},
+          { path: 'Create-form-Point', component: PointCreateComponent },
+          { path: 'Edit-form-Point', component: PointEditComponent },
+          { path: 'Create-form-Award', component: AwardCreateComponent },
+          { path: 'Edit-form-Award', component: AwardEditComponent },
+          { path: 'list-Award', component: AwardListComponent },          
           { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },
