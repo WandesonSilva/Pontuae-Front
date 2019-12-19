@@ -1,1 +1,22 @@
-<p>award-edit works!</p>
+<form [formGroup]="form">
+    <div class="uk-margin">
+      <input hidden class="uk-input uk-form-default" formControlName="Id" type="text" placeholder="ID do Prêmio"
+      [ngClass]="{'uk-form-danger': (!form.controls.Id.valid && !form.controls.Id.pristine) }">
+    </div>
+    <div class="uk-margin">
+      <input class="uk-input uk-form-default" formControlName="Nome" type="text" placeholder="Nome do prêmio"
+      [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }">
+    </div>
+    <div class="uk-margin">
+      <input class="uk-input uk-form-default" formControlName="Descricao" type="text" placeholder="Descrição do prêmio"
+      [ngClass]="{'uk-form-danger': (!form.controls.Descricao.valid && !form.controls.Descricao.pristine) }"
+    </div>
+    <div class="uk-margin">
+      <input class="uk-input uk-form-default" formControlName="PontosNecessario" type="text" placeholder="Quantidade de Pontos"
+      [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.PontosNecessario.pristine) }">
+    </div>
+    <div class="uk-text-right">
+      <button class="uk-button buttonSave uk-border-rounded" (click)="submit()">Salvar</button> 
+      <button class="uk-button uk-button-default uk-border-rounded" (click)="backPage()">Voltar</button>
+    </div>
+  </form>

@@ -4,6 +4,7 @@ import { Security } from 'src/app/utils/security.util';
 import { RulePointService } from 'src/app/service/rule-point.service';
 import { RuleProgram } from 'src/app/models/ruleProgram';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-program-loyalty',
@@ -13,13 +14,29 @@ import { ActivatedRoute } from '@angular/router';
 
 export class ListProgramLoyaltyComponent implements OnInit {
   public List$: Observable<RuleProgram[]> = null;
+  public busy = false;
   
-  constructor(private service: RulePointService, private activatedRoute: ActivatedRoute) { }
+  constructor(private service: RulePointService, private activatedRoute: ActivatedRoute, private toastr: ToastrService,) { }
 
 
   
   ngOnInit() {
     const idUser = Security.getUser().id;
-      this.List$ = this.service.getListProgramLoyalty(this.activatedRoute.snapshot.params.id, idUser);
-  }   
+      this.List$ = this.service.getListProgramLoyalty(idUser);
+  }  
+   
+  Delete(id: string) {
+    if (confirm("Deseja realmente Excluir?")) {  
+      this.busy = true;    
+      this.service
+        .deleteLoyalty(id).subscribe((data: any) => {
+          this.busy = false;
+          this.toastr.success(data.message, 'Deletado com sucesso');
+        });
+    }
+  }
+
+  existList() {
+    return this.List$ && this.List$ != null;
+  }
 }

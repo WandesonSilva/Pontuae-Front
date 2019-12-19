@@ -29,8 +29,6 @@ export class PointEditComponent  implements OnInit  {
 
    ) { 
 
-//Obtendo Id do programaLoyalty
-
 
      this.form = this.fb.group({
 
@@ -94,9 +92,10 @@ export class PointEditComponent  implements OnInit  {
              this.toastr.success('Salvo com sucesso');
            }
          );
-
+          }
   
-
-}
+      backPage(){
+        this.router.navigate(['/listProgram']);
+      }
 }
 

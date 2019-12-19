@@ -5,6 +5,7 @@ import { AwardCreateComponent } from '../award-create/award-create.component';
 import { Award } from 'src/app/models/award.models';
 import { AwardService } from 'src/app/service/award.service';
 import { Security } from 'src/app/utils/security.util';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-award-list',
@@ -13,12 +14,26 @@ import { Security } from 'src/app/utils/security.util';
 
 })
 export class AwardListComponent implements OnInit {
-  public Award$: Observable<Award[]> = null;
-   constructor(private service: AwardService) { }
+  public ListAward$: Observable<Award[]> = null;
+  public busy = false;
+  constructor(private service: AwardService, private toastr: ToastrService, ) { }
 
-   ngOnInit() {
+  ngOnInit() {
 
-    const Id = parseInt(Security.getUser().id);
-    this.Award$ = this.service.getListAward(Id);
+    const useId = Security.getUser().id;
+    this.ListAward$ = this.service.getListAward(useId);
+  }
+
+
+  Delete(id: string) {
+    if (confirm("Deseja realmente Excluir?")) {
+      this.busy = true;
+      this.service
+        .deleteAward(id).subscribe((data: any) => {
+          this.busy = false;
+          this.toastr.success(data.message, 'Deletado com sucesso');
+        });
+    }
+
   }
 }

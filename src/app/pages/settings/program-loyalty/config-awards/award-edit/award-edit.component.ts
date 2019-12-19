@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AwardService } from 'src/app/service/award.service';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-award-edit',
@@ -17,11 +18,33 @@ export class AwardEditComponent implements OnInit {
     private router: Router,
     private service: AwardService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private activatedRoute: ActivatedRoute,
   ) { }
-
   ngOnInit() {
+
+    // tslint:disable-next-line: radix
+    const IdUser = Security.getUser().id;
+
+    this.busy = true;
+    this
+      .service
+      .getByIdAward(IdUser,this.activatedRoute.snapshot.params.id )
+      .subscribe(
+        (data: any) => {
+          this.busy = false;
+          this.form.controls[' Id '].setValue(data.Id);
+          this.form.controls[' Nome '].setValue(data.Nome);
+          this.form.controls[' Descricao '].setValue(data.Descricao);
+          this.form.controls[' PontosNecessario '].setValue(data.PontosNecessario);
+        },
+        (err) => {
+          console.log(err);
+          this.busy = false;
+        }
+      );
   }
+
   submit() {
 
     this.busy = true;
@@ -31,14 +54,16 @@ export class AwardEditComponent implements OnInit {
       .subscribe((data: any) => {
         this.busy = false;
         this.toastr.success(data.message, 'Salvo com sucesso');
-
-        // this.router.navigate(['/']);
+        this.backPage();
       }, (err) => {
         this.busy = false;
         console.log(err);
         this.toastr.warning(err.data);
       }
       );
+  }
+  backPage(){
+    this.router.navigate(['/config/listProgram']);
   }
 }
 

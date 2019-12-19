@@ -1,40 +1,37 @@
+<div class="uk-text-right">
+  <!--<h4 style="text-align:left">campanha!</h4>-->
+  <button class="uk-button buttonPlus uk-border-rounded uk-margin-small-right" routerLink="/config/Create-form-Point">
+    <i uk-icon="icon: plus-circle; ratio: 1.1"></i>Adicionar</button>
+  <router-outlet></router-outlet>
+</div>
+<table class="uk-table uk-table-hover uk-table-divider">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Pontos Necessário</th>
+      <th>Validade</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="!existList()">
+      <td class="uk-text-center" colspan="5">
+        Comece criando seu programa de fidelidade! 😀
+      </td>
+    </tr>
+    <tr *ngFor="let colum of List$ | async">
+      <td hidden>{{coluna.id}}</td>
+      <td>{{colum.nome}}</td>
+      <td>{{colum.descricao}}</td>
+      <td>{{colum.pontos}}</td>
+      <td>{{colum.validacao}}</td>
+      <td><button class="btn btn-success" routerLink="/config/formRulePointEdit/{{colum.id}}"><i
+            class="Small material-icons" style="color:#800691">remove_red_eye</i></button>
 
-    <div class="uk-text-right">
-      <!--<h4 style="text-align:left">campanha!</h4>-->
-      <button class="uk-button buttonPlus uk-border-rounded uk-margin-small-right" routerLink="/config/formRulePointCreate">
-        <i uk-icon="icon: plus-circle; ratio: 1.1"></i>Adicionar</button>
-        <router-outlet></router-outlet>
-    </div>
-    <table class="uk-table uk-table-hover uk-table-divider">
-      <thead>
-        <tr>
-
-          <th>Nome</th>
-          <th>Descrição</th>
-          <th>Pontos Necessário</th>
-          <th>Validade</th>
-          <th> </th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <!-- <div class="text-center" *ngIf="!existemLembretes()">
-        Nenhum lembrete cadastrado.
-      </div> -->
-
-        <tr *ngFor="let colum of List$ | async">
-          <td>{{colum.nome}}</td>
-          <td>{{colum.descricao}}</td>
-          <td>{{colum.pontos}}</td>
-          <td>{{colum.validacao}}</td>
-          <td><button class="btn btn-success"  routerLink="/config/formRulePointEdit/{{colum.id}}"><i class="Small material-icons"
-                style="color:#800691">remove_red_eye</i></button>
-
-            <button class="btn btn-success" (click)="delete(colum.id)" style="margin-left: 20px;"><i
-                class=" Small material-icons" style="color:#c52626">delete</i></button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    
+        <button class="btn btn-success" (click)="delete(colum.id)" style="margin-left: 20px;"><i
+            class=" Small material-icons" style="color:#c52626">delete</i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>

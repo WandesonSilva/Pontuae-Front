@@ -3,7 +3,7 @@
     <form [formGroup]="form" >
     
         <div class="uk-margin"><!--OBS: adicionar hidden no input abaixo para oculta campo-->
-           <input class="uk-input uk-form-default"  formControlName="Id" type="text" placeholder="Id do Programa de fidelidade"
+           <input hidden class="uk-input uk-form-default"  formControlName="Id" type="text" placeholder="Id do Programa de fidelidade"
            [ngClass]="{'uk-form-danger': (!form.controls.Id.valid && !form.controls.Id.pristine) }">
          </div>
        <div class="uk-margin">
@@ -30,7 +30,7 @@
        <!--Button-->
        <div class="uk-text-right">
          <button class="uk-button buttonSave uk-border-rounded"[disabled]="form.invalid"  (click)="submit()" >Salvar</button>
-       <button class="uk-button uk-button-default uk-border-rounded" (click)="onClose()">Fechar</button>
+       <button class="uk-button uk-button-default uk-border-rounded" (click)="backPage()">Voltar</button>
        </div>
        
      </form>

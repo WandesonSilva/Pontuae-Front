@@ -1,8 +1,8 @@
 <div class="uk-text-right">
   <!--<h4 style="text-align:left">campanha!</h4>-->
-      <button class="uk-button buttonPlus uk-border-rounded uk-margin-small-right" type="button"
-      uk-toggle="target: #modal-example"><i uk-icon="icon: plus-circle; ratio: 1.1"></i>Adicionar</button>
-
+  <button class="uk-button buttonPlus uk-border-rounded uk-margin-small-right" routerLink="/config/Create-form-Award"><i
+      uk-icon="icon: plus-circle; ratio: 1.1"></i>Adicionar</button>
+      <app-award-create></app-award-create>
 </div>
 
 <table class="uk-table uk-table-hover uk-table-divider">
@@ -16,32 +16,25 @@
     </tr>
   </thead>
   <tbody>
-   
+    <tr *ngIf="!existList()">
+      <td class="uk-text-center" colspan="5">
+        Adicioner Reconpensas ao seu programa de fidelidade! 😃 🎁
+      </td>
+    </tr>
 
-    <tr *ngFor="let coluna of Award$ | async  ">
+    <tr *ngFor="let coluna of ListAward$ | async  ">
       <td hidden>{{coluna.id}}</td>
       <td>{{coluna.premio}}</td>
       <td>{{coluna.descricao}}</td>
       <td>{{coluna.pontos}}</td>
       <td>{{coluna.quantidade}}</td>
-      <td><button class="btn btn-success" (click)="openDialogEdit(colum.id)"><i class="Small material-icons"
-            style="color:#800691">remove_red_eye</i></button>
-        <button class="btn btn-success" (click)="openDialogDelete(colum.id)" style="margin-left: 20px;"><i
+      <td><button class="btn btn-success" routerLink="/config/Edit-form-Award/{{colum.id}}"><i
+            class="Small material-icons" style="color:#800691">remove_red_eye</i></button>
+        <button class="btn btn-success" (click)="Delete(colum.id)" style="margin-left: 20px;"><i
             class=" Small material-icons" style="color:#c52626">delete</i></button>
       </td>
     </tr>
   </tbody>
 </table>
 
- 
-    <!-- This is the modal -->
-    <div id="modal-example" uk-modal>
-      <div class="uk-modal-dialog uk-modal-body">
-     <app-award-create></app-award-create>
-      </div>
-    </div>
-    
-    
-    
-    
-  
+
