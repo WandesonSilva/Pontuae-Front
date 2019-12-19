@@ -13,7 +13,9 @@
   background: white;
 
 }
-
+.autoHeight {
+  height: 100vh;
+}
 
 .margin-70{
   margin-top: 70px;

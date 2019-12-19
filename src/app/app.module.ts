@@ -41,6 +41,8 @@ import { DashboardCustomerModule } from './pages/dashboard-customer/dashboard-cu
 import { DashboardCustomerComponent } from './pages/dashboard-customer/dashboard-customer.component';
 import { ListCompanyComponent } from './pages/dashboard-customer/list-company/list-company.component';
 import { MenuModule } from './pages/shared/menu.module';
+import { ProgramLoyaltyModule } from './pages/settings/program-loyalty/program-loyalty.module';
+import { PointDeleteComponent } from './pages/settings/program-loyalty/config-point.ts/point-delete/point-delete.component';
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -53,27 +55,25 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     LoginClienteComponent,
     RegisterCompanyComponent,
     CarregarComponent,
-    PointComponent,
     RescueComponent,
     RegisterCompanyComponent,
     LoginComponent,
     LoginClienteComponent,
     RegisterCustomerComponent,
     AppComponent,
-    PointCreateComponent,
-    AwardListComponent,
     ProfileComponent,
     FormPointComponent, 
-    ProgramLoyaltyComponent,
-    AwardCreateComponent,
     ListClientPageComponent,
-    PointEditComponent,
+    PointingComponent,
     PointComponent,
-    PointingComponent
+    PointCreateComponent,
+    PointDeleteComponent,
+    PointEditComponent
     
   ],
 
   imports: [
+    ProgramLoyaltyModule,
     DashboardCustomerModule,
     DashboardModule,
     ReactiveFormsModule,
