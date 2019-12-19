@@ -56,18 +56,19 @@ export class LoginClienteComponent implements OnInit {
           this.carregando = false;
           this.setUser( data.users, data.token);
           this.toastr.success(data.mensage);
+          
         },
         (err) => {
           this.carregando = false;
           console.log(err);
-          this.toastr.warning(err.data, 'erro ao logar');
+          this.toastr.warning(err.message, 'erro ao logar');
         }
       );
   }
 
   setUser(user,token){
     Security.set(user, token);
-    this.router.navigate(['/cliente']);
+    this.router.navigate(['/home-client/list']);
   }
 
   setCadatrarPerfil(validade){

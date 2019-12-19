@@ -62,7 +62,6 @@ export class Security {
         if (!user.claim || user.claim.length == 0) {
             return false;
         }
-
         return user.claim.includes(claim);
     }
 
