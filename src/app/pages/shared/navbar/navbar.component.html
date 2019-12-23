@@ -1,7 +1,7 @@
 
-
-<nav class="uk-navbar uk-navbar-container uk-light  " id="menuColor" uk-navbar>
-  <div class="uk-navbar-left">
+<div uk-sticky >
+<nav class="uk-navbar uk-navbar-container uk-light " id="menuColor" uk-navbar >
+  <div class="uk-navbar-left" >
     <a class="uk-navbar-toggle uk-margin-small-right uk-margin-small-left" uk-toggle="target: #offcanvas-overlay" href="#">
       <span uk-navbar-toggle-icon></span>
     </a>
@@ -16,8 +16,8 @@
       <li class="uk-active">
       </li>
       <li>
-        <a  href="#" ><span class="uk-icon-button uk-icon" uk-icon="icon: cog"></span></a>
-        <div class="uk-navbar-dropdown">
+        <a  href="#" > <span class="uk-icon-button uk-icon" uk-icon="icon: cog"></span></a>
+        <div uk-dropdown="mode: click">
           <ul class="uk-nav uk-navbar-dropdown-nav">
             <li class="uk-active"><a href="">Menu</a></li>
             <li><a routerLink="/perfil">Perfil</a></li>
@@ -46,3 +46,4 @@
   </div>
 </nav>
 
+</div>

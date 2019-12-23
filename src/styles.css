@@ -5,9 +5,22 @@
   background: -webkit-linear-gradient(60deg, #bd076b 0%, #800691 100%);
   background: linear-gradient(60deg, #bd076b 0%, #800691 100%);
 }
+
+.nav-fixed{
+  height: 100vh;
+  position: static;
+  position: fixed;
+  background: white;
+
+}
 .autoHeight {
   height: 100vh;
 }
+
+.margin-70{
+  margin-top: 70px;
+}
+
 .FundoLogin {
   background: linear-gradient(60deg, #d6085e 25%, #800691 100%);
 }
@@ -42,25 +55,19 @@
   text-overflow: ellipsis;
 }
 
-
 .uk-card-header{
   border-radius: 20px;
   
 
 }
 
-
 .uk-navbar{
   margin-top: -5px;
   height: 67px;  
 }
 
-
-html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .buttonSave {

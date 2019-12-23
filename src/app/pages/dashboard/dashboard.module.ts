@@ -6,6 +6,7 @@ import { CardTicketMediumComponent } from './card-ticket-medium/card-ticket-medi
 import { CardTotalCustomerComponent } from './card-total-customer/card-total-customer.component';
 import { CardPeakDayWeekComponent } from './card-peak-day-week/card-peak-day-week.component';
 import { RouterModule } from '@angular/router';
+import { MenuModule } from '../shared/menu.module';
 
 
 @NgModule({
@@ -19,9 +20,8 @@ import { RouterModule } from '@angular/router';
     
   ],
   imports: [
-
-   RouterModule
-
+    RouterModule ,
+    
   ]
 })
 export class DashboardModule { }
