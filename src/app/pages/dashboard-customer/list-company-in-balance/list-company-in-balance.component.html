@@ -1,84 +1,20 @@
 <div class="uk-card uk-card-body uk-card-default uk-card-body uk-width-1-1@m ">
-  <table class="uk-table uk-table-hove uk-table-divider">
+  <table 
+  class="uk-table uk-table-hove uk-table-divider"  >
     <thead>
       <tr>
         <th class="">Empresa</th>
         <th class="uk-width-small">Saldo</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngFor="let Balance of Balances">
       <tr>
-        <td>Table Data</td>
+      <td>{{Balance.nomeEmpresa}}</td>
         <td class="uk-text-truncate">Table Data</td>
       </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
-      <tr>
-        <td>Table Data</td>
-        <td class="uk-text-truncate">Table Data</td>
-      </tr>
+      
+     
       
     </tbody>
   </table>
 </div>
-
-
-<!-- <div class="uk-flex-center uk-child-width-1-5@m uk-padding" uk-grid>
-    <div >
-      <div class="uk-card uk-card-small uk-card-default uk-card-body">
-        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-           <img src="{{ URL_IMG + '/Dados/imgEmpresa/' + ListaSaldo.logo }} " />
-          <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default">
-            <h4 class="uk-card-title uk-text-truncate ">
-             {{ ListaSaldo.nomeFantasia }} dsadsa
-            </h4>
-          </div>
-        </div>
-        <p class=" uk-text-right  uk-h4 uk-margin">
-          <span class="uk-text-success">
-            sadsadsa
-      {{ ListaSaldo.saldo + " pontos " }}
-          </span>
-        </p>
-      </div>
-    </div>
-  </div>  -->

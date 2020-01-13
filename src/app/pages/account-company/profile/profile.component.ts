@@ -12,10 +12,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProfileComponent implements OnInit {
   public form: FormGroup;
-  public carregando = false;
   public url = 'https://localhost:44311/';
   public empresa: Empresa;
-
+  public carregando = false;
   public message: string;
   public selectedFile: File = null;
 
@@ -135,6 +134,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    // tslint:disable-next-line: radix
     const id = parseInt(Security.getUser().id);
 
     this

@@ -7,14 +7,13 @@ import { Security } from 'src/app/utils/security.util';
 })
 export class NavComponent implements OnInit {
   show: boolean;
-
+private claimValid;
   constructor() { }
 
   ngOnInit() {
-    //if (Security.getUser().claim === 'Cliente') {
-    //  this.show = true;
-    }
+    this.claimValid = Security.getUser().claim === 'Cliente';
+    if (this.claimValid) {
+      this.show = true;
+     }
   }
-
-
-
+}

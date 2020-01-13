@@ -182,13 +182,13 @@ export class RegisterCompanyComponent implements OnInit {
         (data: any) => {
           console.log(this.form.value);
           this.carregando = false;
-          this.toastr.info(data.mensage);
+          this.toastr.info(data.dado.message);
           this.router.navigate(['/login']);
 
         },
         (err: any) => {
           this.carregando = false;
-          this.toastr.warning(err.mensage);
+          this.toastr.warning(err.dado.message);
           this.router.navigate(['/login']);
           console.log(this.form.value);
         }

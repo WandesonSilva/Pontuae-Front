@@ -3,6 +3,8 @@ import { Empresa } from 'src/app/models/company.models';
 import { Observable } from 'rxjs';
 import { CustomerService } from 'src/app/service/customer.service';
 import { ListaEmpresaSaldo } from 'src/app/models/listarEmpresaSaldo';
+import { DataService } from '../../../service/company.service';
+import { async } from '@angular/core/testing';
 
 
 @Component({
@@ -11,18 +13,21 @@ import { ListaEmpresaSaldo } from 'src/app/models/listarEmpresaSaldo';
   styleUrls: ['./list-company.component.css']
 })
 export class ListCompanyComponent implements OnInit {
-  ListaSaldos: ListaEmpresaSaldo[];
+  ListaEmpresas: Empresa [];
   public URL_IMG = 'https://localhost:44311';
+  public carregando = false;
+  constructor(private service: DataService) { }
 
-  constructor(private service: CustomerService) { }
 
-
-  ngOnInit() {
-   /*  this
+  ngOnInit () {
+  
+    this
     .service
-    .ListarProgramasFidelidadeCadastrados()
-    .subscribe(datas => this.ListaSaldos = datas); */
+    .listarEmpresas()
+    .subscribe(datas => this.ListaEmpresas = datas);
+    
 
+    console.log(this.ListaEmpresas);
   }
 
 

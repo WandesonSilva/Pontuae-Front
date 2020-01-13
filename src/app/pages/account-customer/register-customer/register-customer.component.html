@@ -11,7 +11,7 @@
     <form [formGroup]="form" *ngIf="!carregando">
       
         <div class="uk-card uk-card-default  uk-card-body  uk-border-rounded">
-          <a><span uk-icon="icon:arrow-left" class=""></span> Voltar</a>
+          <a (click)="ToLogin()"><span uk-icon="icon:arrow-left" class=""></span> Voltar</a>
           <h3 class="uk-card-title uk-position-top-center"> Cadastro</h3>
   
           <div class="uk-margin">
@@ -38,7 +38,7 @@
               placeholder="Data de nascimento">
           </div>
           <div class="uk-margin">
-            <input class="uk-input uk-form-large " type="text" formControlName="Cpf"
+            <input class="uk-input uk-form-large " type="text" formControlName="Cpf" mask="000.000.000-00"
               [ngClass]="{'uk-form-danger': (!form.controls.Cpf.valid && !form.controls.Cpf.pristine) }"
               placeholder="CPF">
           </div>
@@ -54,7 +54,7 @@
             <select class="uk-select" type="text" formControlName="Sexo" placeholder="Estado">
               <option value="">Selecione o seu Sexo</option>
               <option value="M">Masculino</option>
-              <option value="F">Femenino</option>
+              <option value="F">Feminino</option>
             </select>
           </div>  
           <div class="uk-margin uk-text-right">

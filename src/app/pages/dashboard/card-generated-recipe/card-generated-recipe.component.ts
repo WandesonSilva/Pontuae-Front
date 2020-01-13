@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReportDataService } from '../../../service/report-data.service';
+import { Security } from '../../../utils/security.util';
 
 @Component({
   selector: 'app-card-generated-recipe',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardGeneratedRecipeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private service: ReportDataService) { }
+valorRetido: any;
   ngOnInit() {
   }
+
+  RetainedCustomers(){
+    const usuario =  Security.getUser();
+    this
+    .service
+    .GetRetained(usuario)
+    .subscribe(data => this.valorRetido = data);
+  }
+ 
 
 }

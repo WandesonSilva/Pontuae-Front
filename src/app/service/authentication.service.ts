@@ -39,6 +39,6 @@ export class AuthenticationService {
     }
 
     createUser(data){
-        return this.http.post(`${this.url}v1/NovaEmpresa`,data);
+        return this.http.post(`${this.url}v1/NovoAdmin`,data);
     }
 }

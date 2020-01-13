@@ -46,7 +46,7 @@ export class DataService {
     }
 
     listarEmpresas() {
-        return this.http.get<Empresa[]>(`${this.url}v1/ListarEmpresas`)
+        return this.http.get<Empresa[]>(`${this.url}v1/Empresa/Lista`)
             .pipe(
                 tap(console.log)
             );

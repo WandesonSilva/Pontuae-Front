@@ -4,6 +4,7 @@ import { Security } from '../utils/security.util';
 import { Empresa } from '../models/company.models';
 import { tap } from 'rxjs/operators';
 import { ListaEmpresaSaldo } from '../models/listarEmpresaSaldo';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -25,7 +26,7 @@ export class CustomerService {
     return this.http.get<any[]>(this.url);
   }
 
-  cadastrarCliente(data: any) {
+  cadastrarCliente(data) {
     console.log(data);
     return this.http.post(`${this.url}v1/NovoCliente`, data);
   }
@@ -51,5 +52,12 @@ export class CustomerService {
 
   GetHistoric(id: number) {
     return this.http.get<any[]>(`${this.url}v1/ClientHistory/${id}`, { headers: this.composeHeaders() });
+  }
+
+  GetBalanceOfCompany(){
+    return this.http.get<Observable<Empresa>[]>(`${this.url}v1/ListarEmpresas`)
+    .pipe(
+        tap(console.log)
+    );
   }
 }

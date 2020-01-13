@@ -1,6 +1,6 @@
 <div class="uk-container uk-margin-top">
 
-    
+    <app-carregar  *ngIf="carregando"></app-carregar>
             <form [formGroup]="form" *ngIf="!carregando" >
               <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
                   <a (click)="ComeBack()"><span uk-icon="icon:arrow-left"  class=""></span> Voltar</a>

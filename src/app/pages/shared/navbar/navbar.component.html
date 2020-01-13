@@ -5,7 +5,7 @@
     <a class="uk-navbar-toggle uk-margin-small-right uk-margin-small-left" uk-toggle="target: #offcanvas-overlay" href="#">
       <span uk-navbar-toggle-icon></span>
     </a>
-    <a routerLink="/home" class=" uk-text-large uk-active uk-link-heading" style="font-family:Cocon">pontua <a style="font-family:Lucida Handwriting"> Aê</a></a>
+    <a (click)="GoHome()" class=" uk-text-large uk-active uk-link-heading" style="font-family:Cocon">pontua <a style="font-family:Lucida Handwriting"> Aê</a></a>
   </div>
           <!--  --MENU HORIZONTAL--   -->
   <div class="uk-navbar-right">
@@ -20,11 +20,10 @@
         <div uk-dropdown="mode: click">
           <ul class="uk-nav uk-navbar-dropdown-nav">
             <li class="uk-active"><a href="">Menu</a></li>
-            <li><a routerLink="/perfil">Perfil</a></li>
-            <li><a routerLink="/config/regra/:id">Configuração de Programa fidelidade</a></li>
+            <li><a (click)="ToProfile()" >Perfil</a></li>
             <li><a href="#">Item</a></li>
             <li class="uk-nav-divider"></li>
-            <li><a id="red" (click)="Logout()">Sair</a></li>
+            <li><a id="red" (click)="GoOut()">Sair</a></li>
           </ul>
         </div>
       </li>

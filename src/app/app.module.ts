@@ -43,6 +43,8 @@ import { ListCompanyComponent } from './pages/dashboard-customer/list-company/li
 import { MenuModule } from './pages/shared/menu.module';
 import { ProgramLoyaltyModule } from './pages/settings/program-loyalty/program-loyalty.module';
 import { PointDeleteComponent } from './pages/settings/program-loyalty/config-point.ts/point-delete/point-delete.component';
+import { CarregarModule } from './pages/shared/carregar/carregar.module';
+import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -54,7 +56,6 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PreRegisterComponent,
     LoginClienteComponent,
     RegisterCompanyComponent,
-    CarregarComponent,
     RescueComponent,
     RegisterCompanyComponent,
     LoginComponent,
@@ -68,11 +69,14 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PointComponent,
     PointCreateComponent,
     PointDeleteComponent,
-    PointEditComponent
-    
+    PointEditComponent,
+    ProfileCustomerComponent,
+
   ],
 
   imports: [
+    CarregarModule,
+    MenuModule,
     ProgramLoyaltyModule,
     DashboardCustomerModule,
     DashboardModule,
@@ -91,11 +95,11 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
   bootstrap: [AppComponent],
  entryComponents: [
+
   DashboardCustomerComponent,
    //PointCreateComponent,
    //AwardCreateComponent,
   //MenuComponent
-
   ],
   
 

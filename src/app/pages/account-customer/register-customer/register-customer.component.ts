@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./register-customer.component.css'],
  })
 export class RegisterCustomerComponent implements OnInit {
-
+  public carregando = false;
 
   public form: FormGroup;
 
@@ -23,7 +23,9 @@ export class RegisterCustomerComponent implements OnInit {
     private http: HttpClient,
   ) { 
         this.form = this.fb.group({
-
+        
+      ClaimType: ['', null],
+      ClaimValue: ['', null],
       IdUsuario: ['', null],
       Email: ['', Validators.compose([
         Validators.minLength(4),
@@ -40,14 +42,11 @@ export class RegisterCustomerComponent implements OnInit {
         Validators.maxLength(60),
         Validators.required
       ])],
-      DataNascimento: ['', Validators.compose([
-        Validators.required
-      ])],
-      Sexo: ['', Validators.compose([
-        Validators.required
-      ])],
+      DataNascimento: [''],
+      Sexo: [''],
       Cpf: ['', Validators.compose([
-        Validators.required
+        Validators.minLength(11),
+        Validators.maxLength(11),
       ])],
       Telefone: ['', Validators.compose([
         Validators.required
@@ -61,14 +60,23 @@ export class RegisterCustomerComponent implements OnInit {
   }
 
   submit() {
+    this.carregando = true;
     this
       .service
       .cadastrarCliente(this.form.value)
-      .subscribe((data: any) => {
-
+      .subscribe(
+        (data: any) => {
+        console.log(this.form.value);
       }, (err) => {
         console.log(err);
+        this.carregando = false;
+        console.log(err);
+        this.toastr.warning(err.dado.message, 'Erro no dados');
       }
       );
+  }
+
+  ToLogin(){
+    this.router.navigate(['/loginCliente']);
   }
 }

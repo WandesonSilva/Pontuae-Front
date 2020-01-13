@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class RulePointService {
 
-  public url = "https://localhost:44311/";
+  public url = 'https://localhost:44311/';
   postIdSource = new  BehaviorSubject<number>(0);
   postIdData: any;
 

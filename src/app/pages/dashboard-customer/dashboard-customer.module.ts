@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { MenuComponent } from '../shared/Menu.component';
 import { MenuModule } from '../shared/menu.module';
+import { CarregarComponent } from '../shared/carregar/carregar.component';
+import { AppModule } from '../../app.module';
+import { CarregarModule } from '../shared/carregar/carregar.module';
 
 
 
@@ -14,15 +17,13 @@ import { MenuModule } from '../shared/menu.module';
     DashboardCustomerComponent,
     ListCompanyComponent,
     ListCompanyInBalanceComponent,
-
   ],
   imports: [
+    CarregarModule,
     MenuModule,
     RouterModule,
     BrowserModule
   ],
-  entryComponents:[
   
-  ]
 })
 export class DashboardCustomerModule { }

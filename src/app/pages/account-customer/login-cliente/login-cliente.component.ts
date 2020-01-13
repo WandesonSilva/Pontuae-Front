@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, Route } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Security } from 'src/app/utils/security.util';
 import { AuthenticationService } from 'src/app/service/authentication.service';
@@ -12,14 +12,14 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
 })
 export class LoginClienteComponent implements OnInit {
   public form: FormGroup;
-  public carregando= false;
-  public customPatterns = {'0': { pattern: new RegExp('\[a-zA-Z\]')}};
+  public carregando = false;
+  public customPatterns = { 0: { pattern: new RegExp('\[a-zA-Z\]') } };
 
-  
+
   constructor(
     private router: Router,
     private service: AuthenticationService,
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private toastr: ToastrService,
   ) {
     this.form = this.fb.group({
@@ -28,25 +28,24 @@ export class LoginClienteComponent implements OnInit {
       ])],
       Senha: ['', Validators.compose([
         Validators.minLength(3),
-        Validators.maxLength(20), 
+        Validators.maxLength(20),
         Validators.required
       ])]
     });
-   }
+  }
 
   ngOnInit() {
-    const token = localStorage.getItem('tokenPontuaae')
+    const token = localStorage.getItem('tokenPontuaae');
 
-    if(token) {
+    if (token) {
 
-     console.log(" altenticado ")
-    }
-    else {
+      console.log(' altenticado ');
+    } else {
       localStorage.clear();
     }
-   }
+  }
 
-  submit(){
+  submit() {
     this.carregando = true;
     this
       .service
@@ -54,9 +53,10 @@ export class LoginClienteComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.carregando = false;
-          this.setUser( data.users, data.token);
+          this.setUser(data.users, data.token);
           this.toastr.success(data.mensage);
-          
+          this.router.navigate(['/client/dashboard']);
+
         },
         (err) => {
           this.carregando = false;
@@ -66,12 +66,12 @@ export class LoginClienteComponent implements OnInit {
       );
   }
 
-  setUser(user,token){
+  setUser(user, token) {
     Security.set(user, token);
-    this.router.navigate(['/home-client/list']);
+    this.router.navigate(['/home-client/Dash']);
   }
 
-  setCadatrarPerfil(validade){
+  setCadatrarPerfil(validade) {
 
     this.router.navigate(['/addPerfil']);
   }
