@@ -21,10 +21,9 @@ import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/co
 import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
 import { AwardEditComponent } from './pages/settings/program-loyalty/config-awards/award-edit/award-edit.component';
 import { PointingComponent } from './pages/pointing/pointing/pointing.component';
-import { DashboardModule } from './pages/dashboard/dashboard.module';
-import { DashboardCustomerModule } from './pages/dashboard-customer/dashboard-customer.module';
 import { DashboardCustomerComponent } from './pages/dashboard-customer/dashboard-customer.component';
 import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
+
 
 const routes: Routes = [
 
@@ -48,8 +47,8 @@ const routes: Routes = [
           { path: 'Create-form-Point', component: PointCreateComponent },
           { path: 'Edit-form-Point', component: PointEditComponent },
           { path: 'Create-form-Award', component: AwardCreateComponent },
-          { path: 'Edit-form-Award', component: AwardEditComponent },
-          { path: 'list-Award', component: AwardListComponent },
+          { path: 'Edit-form- ', component: AwardEditComponent },
+          { path: 'list-Award', component: AwardListComponent },    
           { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },
