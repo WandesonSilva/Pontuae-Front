@@ -1,0 +1,91 @@
+<div class="uk-container">
+  <div class="uk-flex-center">
+    <div class="uk-card uk-card-default uk-card-bodyy uk-width-1-1@m uk-margin-top    line-borderleft ">
+      <div uk-grid>
+        <div class="uk-width-expand">
+
+          <h3 class="uk-card-title-small ukh3 uk-expand "><i class="iconback" uk-icon="icon:arrow-left; ratio:1.2 "
+              onClick="history.go(-1)"></i>
+            Alterar Campanha
+          </h3>
+        </div>
+
+        <div class="uk-width-auto">
+          <p uk-margin>
+            <a class="  uk-aling-center-right" type="button" (click)="Delete()"
+              uk-tooltip="title: Deletar; pos: bottom"><i class="uk-buttonDelte"
+                uk-icon="icon:trash; ratio: 1.1"></i></a>
+            <a class=" uk-aling-center-right" type="button" (click)="Desable()"
+              uk-tooltip="title: Desativar; pos: bottom"><i class="uk-buttonDisable"
+                uk-icon="icon: ban; ratio: 1.1 "></i></a>
+          </p>
+
+        </div>
+      </div>
+      <hr>
+
+      <form [formGroup]="form" class="uk-form-stacked ">
+        <div class="uk-grid uk-grid-large uk-child-width-expand@s " uk-grid>
+
+          <div class="uk-width-1-2@s">
+            <label class="uk-form-label" for="form-stacked-select">Quem deve receber esta campanha?</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" >
+                <option>Selecione</option>
+                <option value="0">Vip</option>
+                <option value="1">Ouro</option>
+                <option value="2">Prata</option>
+                <option value="3">Bronze</option>
+                <option value="4">Recorrentes</option>
+                <option value="5">Eventuais</option>
+                <option value="6">Ativos</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="uk-width-1-2@s">
+            <label class="uk-form-label" for="form-stacked-text">Nome da Campanha</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" formControlName="Nome" type="text" placeholder="Exemplo: promoção dia das mães">
+            </div>
+          </div>
+        </div>
+        <!--uk-grid-->
+
+        <br>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="form-stacked-text">Qual mensagem deseja enviar?</label>
+          <textarea class="uk-textarea" rows="5" formControlName="Conteudo"
+            placeholder="Digite sua mensagem com até 160 caracteres ou utilize modelos prontos"></textarea>
+        </div>
+
+        <!--   
+            <div class="uk-text-left">
+              <button class="uk-button buttonSMS" routerLink="/model-message"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Modelos Prontos</button>
+            </div> -->
+
+        <div class="uk-width-1-1 ">
+          <label class="uk-form-label" for="form-stacked-select">Defina o momento do Envio?</label>
+          <input [matDatepicker]="myDatepicker" class="uk-input" class="uk-form-controls  formDatepicke"
+            formControlName="DataEnvio" placeholder="Definar a Data">
+          <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #myDatepicker color="accent"></mat-datepicker>
+        </div>
+
+        <div class="uk-width-1-2@s uk-grid-margin ">
+            <label class="uk-form-label" for="form-stacked-select">Será enviada mais de uma vez?</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" formControlName="Reenviar" placeholder="Selecione">
+                <option value="1">Não</option>
+                <option value="2">Sim</option>
+              </select>
+          </div>
+        </div>
+        <hr>
+        <button class="uk-button buttonSave" (click)="Submit()" [disabled]="form.invalid"><i class="fa fa-paper-plane"
+            aria-hidden="true"></i> Salvar!</button>
+      </form>
+    </div>
+  </div>
+</div>

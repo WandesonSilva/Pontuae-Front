@@ -1,0 +1,104 @@
+<div class="uk-container">
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m uk-margin-top  line-borderleft ">
+    <div>
+      <h2 class="uk-card-title-small ukh3 "> <i class="iconback" uk-icon="icon:arrow-left; ratio:1.2 "
+          onClick="history.go(-1)"></i>
+        Criar Automação
+      </h2>
+
+      <hr>
+      <form [formGroup]="form" class="uk-form-stacked ">
+        <div class="uk-grid uk-grid-large uk-child-width-expand@s " uk-grid>
+
+          <div class="uk-width-1-4@s">
+            <label class="uk-form-label" for="form-stacked-select">Tipo Automação</label>
+            <div class="uk-form-controls" >
+              <select  id="form-stacked-select" class="uk-select" formControlName="Tipo"  (change)="selectInput($event)">
+                <option>Selecione uma opção</option>
+                <option value="0">Especial de Aniversário</option>
+                <option value="1">Dia do Mês</option>
+                <option value="2">Dia da Semana</option>
+                <option value="3">Clientes em risco</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="uk-width-1-4@s">
+            <label class="uk-form-label" for="form-stacked-select">Segmento</label>
+            <div class="uk-form-controls">
+              <select  class="uk-select" formControlName="Segmento"  id="form-stacked-select">
+                <option>Todos Clientes</option>
+                <option value="0">Novo</option>
+                <option value="1">Vip</option>
+                <option value="2">Frequente</option>
+                <option value="3">Eventual</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="uk-width-1-4@s">
+            <label class="uk-form-label" for="form-stacked-select">Seg. Customizado</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" formControlName="SegCustomizado" >
+                <option>Selecione uma opção</option>
+                <option value="0">Ouro</option>
+                <option value="1">Prata</option>
+                <option value="2">Bronze</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="uk-width-1-4@s">
+            <label  class="uk-form-label" for="form-stacked-select">Canal de Comunicação</label>
+            <div class="uk-form-controls">
+              <select  class="uk-select" id="form-stacked-select" formControlName="Tipo" >
+                <option value="0">SMS</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!--uk-grid-->
+
+        <br>
+
+        <div  class="uk-width-1-5@s" *ngIf="isAniversarioSelected" >
+          <label class="uk-form-label" for="form-stacked-text">Dias Antes do Aniversário</label>
+          <div class="uk-form-controls">
+            <input class="uk-input "  id="form-stacked-text" type="text" formControlName="DiasAntesAniversario" 
+              placeholder="Exemplo: 7">
+          </div>
+        </div>
+
+        <div  class="uk-width-1-5@s" *ngIf="isDiaMesSelected" >
+          <label class="uk-form-label" for="form-stacked-text">Dia do Mês</label>
+          <div class="uk-form-controls">
+            <input class="uk-input "  id="form-stacked-text" type="text" formControlName="DiaMes" 
+              placeholder="Digite o dia do Mês">
+          </div>
+        </div>
+
+        <div  class="uk-width-1-5@s" *ngIf="isDiaSemanaSelected" >
+          <label class="uk-form-label" for="form-stacked-text">Dia da Semana</label>
+          <div class="uk-form-controls">
+            <input class="uk-input "  id="form-stacked-text" type="text" formControlName="DiaSemana" 
+              placeholder="Digite o dia da Semana">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="form-stacked-text">mensagem</label>
+          <textarea class="uk-textarea" rows="5" formControlName="Conteudo" placeholder="Digite sua mensagem com até 160 "></textarea>
+        </div>
+
+        <!-- <div class="uk-text-left">
+          <button class="uk-button buttonSMS" routerLink="/Message/Index"> <i uk-icon="icon: commenting; ratio: 1.1">
+            </i> Mensagem Pronta</button>
+        </div> -->
+        <hr>
+        <div class="uk-text-right"> 
+            <button class="uk-button buttonSave" (click)="Submit()"><i
+                uk-icon="icon: check; ratio: 1.1"></i>Salvar</button>
+        </div>        
+      </form>
+    </div>
+  </div>

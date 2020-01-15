@@ -1,0 +1,46 @@
+<div class="uk-container">
+    <div class="uk-card uk-card-default  uk-card-bodyy uk-margin-top line-borderleft">
+        <div uk-grid>
+            <div class="uk-width-expand">
+                <h2 class="uk-card-title-small ukh3 uk-expand "><i class="iconback"
+                        uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
+                    Campanhas
+                </h2>
+            </div>
+            <div class="uk-width-auto"> <i class=" btn-custom uk-link uk-aling-center-right" type="button"
+                    uk-tooltip="title: Criar Novo" uk-icon="icon:  plus-circle; ratio: 1.4 "
+                    routerLink="/Campaign/Create"></i>
+            </div>
+        </div>
+        <hr>    
+        
+        <!-- <div *ngIf="!existList()">
+            <span class="uk-text-center" colspan="5">
+              <p >Comece</p>
+            </span>
+          </div> -->
+
+        <ul class="uk-list uk-list-divider">      
+            <div *ngFor="let item of ListCampaign$ | async" class="uk-card">   
+            <li>
+                <p class="uk-column-span">
+                <strong>N° Cliente:</strong><span> {{item.QtdSelecionado}} </span>
+                </p>
+                <p class="uk-column-span">
+                    <strong>Campanha:</strong><span> {{item.Nome}}</span>
+                </p>
+                <p class="uk-column-span">
+                    <strong>Canal de comunicação</strong><span> {{item.Canal}}</span>
+                </p>
+                <p class="uk-column-span">
+                    <strong>Segmento</strong><span>{{item.Segmento}} </span>
+                </p>
+                     <div class="buttonAlingFloat " style="margin-top: -90px;"><i class="iconNext" type="button" 
+                            uk-icon="icon:arrow-right; ratio: 1.4 " routerLink="/Automation/Edit/{{item.id}}"></i>
+                    </div>                
+            </li>  
+        </div>                   
+        </ul>    
+         
+    </div>
+</div>

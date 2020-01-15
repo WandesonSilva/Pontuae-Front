@@ -1,5 +1,6 @@
 
 export class Empresa {
+ 
   public IdUsuario: number;
   public NomeFantasia: string;
   public Descricacao: string;

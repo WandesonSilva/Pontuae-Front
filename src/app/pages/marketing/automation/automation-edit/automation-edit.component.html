@@ -1,0 +1,119 @@
+<div class="uk-container">
+    <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-width-1-1@m uk-margin-top  line-borderleft ">
+       <div>
+      <h3 class="uk-card-title-small ukh3 "> <a  class="iconback" uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)  "></a>
+          
+          Alterar Automação
+        </h3>
+      <hr>
+
+      <div class="uk-position-top-right uk-overlay "  style="margin-top: -15px; ">
+                  
+          <p uk-margin>
+                <a type="button" (click)="Delete()" uk-tooltip="title: Deletar; pos: bottom"><i class="uk-buttonDelte" uk-icon="icon:trash; ratio: 1.1"></i></a>          
+                <a type="button" (click)="Desable()" uk-tooltip="title: Desativar; pos: bottom"><i class="uk-buttonDisable" uk-icon="icon: ban; ratio: 1.1 "></i></a>                    
+          </p>
+            
+
+      </div>
+       </div>
+         <form [formGroup]="form" class="uk-form-stacked ">    
+          <div class="uk-grid uk-grid-large uk-child-width-expand@s " uk-grid>
+              
+            <div class="uk-width-1-4@s">
+            <label class="uk-form-label" for="form-stacked-select">Ação</label>
+            <div class="uk-form-controls uk-form-controls-text">
+                <select class="uk-select" id="form-stacked-select">
+                  <option>Selecione uma Ação</option>
+                  <option value="1">Especial de Aniversário</option>
+                  <option value="2">Dia do Mês</option>
+                  <option value="3">Dia da Semana</option>
+                  <option value="4">Clientes em risco</option>
+                </select>
+            </div>
+        </div>
+  
+        
+  
+        <div class="uk-width-1-4@s">
+          <label class="uk-form-label" for="form-stacked-select">Segmento</label>
+          <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select">
+                  <option>Todos Clientes</option>
+                  <option value="1">Novo</option>
+                  <option value="2">Vip</option>
+                  <option value="3">Frequente</option>
+                  <option value="4">Eventual</option>
+              </select>
+          </div>
+      </div>
+  
+  
+  
+      <div class="uk-width-1-4@s">
+        <label class="uk-form-label" for="form-stacked-select">Seg. Customizado</label>
+        <div class="uk-form-controls">
+            <select class="uk-select" id="form-stacked-select">
+                  <option>Selecione uma opção</option>
+                  <option value="1">Ouro</option>
+                  <option value="2">Prata</option>
+                  <option value="3">Bronze</option>
+            </select>
+        </div>
+    </div>
+  
+    
+    <div class="uk-width-1-4@s">
+      <label class="uk-form-label" for="form-stacked-select">Canal de Comunicação</label>
+      <div class="uk-form-controls">
+          <select class="uk-select" id="form-stacked-select">
+              <option value="1">SMS</option>     
+          </select>
+      </div>
+  </div>
+  </div><!--uk-grid-->
+        
+  
+  
+  <br>                
+              <div class="uk-width-1-2@s">
+              <label class="uk-form-label ">Dias Antes do Aniversário</label>
+              <div class="uk-inline">
+                <div class="uk-form-controls">
+                <span class="uk-form-icon " uk-icon="icon: calendar"></span>              
+              <input class="uk-input " formControlName="Dia"  type="text" placeholder="quantidade">
+              
+              </div>
+              </div>
+              </div>
+  
+            <div class="uk-margin">
+              <label class="uk-form-label" for="form-stacked-text">mensagem</label>
+            <textarea class="uk-textarea" rows="5" formControlName="Conteudo"  placeholder="Textarea"></textarea>
+            </div>
+  
+            <div class="uk-text-left">
+              <button class="uk-button buttonSMS" routerLink="/Message/Index"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Mensagem Pronta</button>
+            </div>
+   <hr>          
+            <div class="uk-text-right">
+              <p uk-margin>
+           
+            <button class="uk-button buttonSave" (click)="Submit()" style="margin-left: 8px;"  ><i uk-icon="icon: check; ratio: 1.1"></i>Salvar</button>
+              </p> 
+          </div>
+  
+  
+  
+    </form>
+  
+  
+      </div>
+  </div>
+          
+          
+  
+           
+           
+  
+  

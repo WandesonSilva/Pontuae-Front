@@ -22,7 +22,13 @@ import { PointEditComponent } from './pages/settings/program-loyalty/config-poin
 import { AwardEditComponent } from './pages/settings/program-loyalty/config-awards/award-edit/award-edit.component';
 import { PointingComponent } from './pages/pointing/pointing/pointing.component';
 import { DashboardCustomerComponent } from './pages/dashboard-customer/dashboard-customer.component';
-import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
+import { AutomationCreateComponent } from './pages/marketing/automation/automation-create/automation-create.component';
+import { AutomationEditComponent } from './pages/marketing/automation/automation-edit/automation-edit.component';
+import { AutomationListComponent } from './pages/marketing/automation/automation-list/automation-list.component';
+import { CampaignCreateComponent } from './pages/marketing/campaign/campaign-create/campaign-create.component';
+import { CampaignEditComponent } from './pages/marketing/campaign/campaign-edit/campaign-edit.component';
+import { CampaignListComponent } from './pages/marketing/campaign/campaign-list/campaign-list.component';
+import { ModelMessageComponent } from './pages/marketing/model-message/model-message.component';
 
 
 const routes: Routes = [
@@ -32,35 +38,47 @@ const routes: Routes = [
     component: MenuComponent,
     //canActivate: [AuthService, ],
     children: [
+      
+      { path: '', component: DashboardComponent  },
+      { path: 'home', component: DashboardComponent },
 
-      { path: '', component: DashboardComponent,},
-      { path: 'home', component: DashboardComponent , },
-      { path: 'preCadastro', component: PreRegisterComponent , },
-      { path: 'profile', component: ProfileComponent , },
-      { path: 'pointing', component: PointingComponent,  },
-      { path: 'listClientPage', component: ListClientPageComponent, },
+
+      { path: 'preCadastro', component: PreRegisterComponent},
+      { path: 'perfil', component: ProfileComponent},
+      { path: 'pointing', component: PointingComponent },
+
+      { path: 'listClientPage', component: ListClientPageComponent },     
 
       {
-        path: 'config', component: ProgramLoyaltyComponent ,
+        path: 'config', component: ProgramLoyaltyComponent,
         children: [
-          { path: 'list-Program', component: ListProgramLoyaltyComponent},
-          { path: 'Create-form-Point', component: PointCreateComponent },
-          { path: 'Edit-form-Point', component: PointEditComponent },
-          { path: 'Create-form-Award', component: AwardCreateComponent },
-          { path: 'Edit-form- ', component: AwardEditComponent },
-          { path: 'list-Award', component: AwardListComponent },    
+          { path: 'listProgram/Index', component: ListProgramLoyaltyComponent},
+          { path: 'Point/Create', component: PointCreateComponent },
+          { path: 'ConfigPoint/Edit', component: PointEditComponent },
+          { path: 'Award/Create', component: AwardCreateComponent },
+          { path: 'Award/Edit', component: AwardEditComponent },
+          { path: 'listAward/Index', component: AwardListComponent },    
           { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },
+
+      { path: 'Automation/Create', component: AutomationCreateComponent},
+      { path: 'Automation/Edit', component: AutomationEditComponent},
+      { path: 'Automation/Index', component: AutomationListComponent},
+
+      { path: 'Campaign/Create', component: CampaignCreateComponent},
+      { path: 'Campaign/Edit', component: CampaignEditComponent},
+      { path: 'Campaign/Index', component: CampaignListComponent},
+      
+      { path: 'Message/Index', component: ModelMessageComponent}, 
     ]
   },
   {
-    path: 'client', component: MenuComponent,
-    //canActivate: [AuthService, ClientGuard],
+    path: 'home-client', component: MenuComponent,
+   // canActivate: [AuthService, ClientGuard],
     children: [
-      { path: 'dashboard', component: DashboardCustomerComponent  },
-      { path: 'list', component: ListCompanyComponent },
-      { path: 'profile-customer', component: ProfileCustomerComponent }
+      { path: 'Dash', component: DashboardCustomerComponent  },
+      { path: 'list', component: ListCompanyComponent }
     ]
 
   },

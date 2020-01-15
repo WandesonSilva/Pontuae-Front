@@ -1,0 +1,49 @@
+<div class="uk-container">
+    <div class="uk-card uk-card-default  uk-card-body  uk-width-1-1@m uk-margin-top line-borderleft">
+        <div uk-grid>
+            <div class="uk-width-expand">
+                <h3 class="uk-card-title-small ukh3 uk-expand "><i class="iconback"
+                        uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
+                    Automações
+                </h3>
+            </div>
+            <div class="uk-width-auto"> <span class=" btn-custom uk-aling-top-right" type="button"
+                    uk-tooltip="title: Criar Novo" uk-icon="icon: plus-circle; ratio: 1.4 "
+                    routerLink="/Automation/Create"></span>
+            </div>            
+        </div>
+        <hr>
+
+        
+        <!-- <div *ngIf="!existList()">
+            <span class="uk-text-center" colspan="5">
+              <p >Comece</p>
+            </span>
+          </div> -->
+        
+     
+        <ul class="uk-list uk-list-divider" >        
+         
+           <div *ngFor="let item of ListAutomation$ | async" class="uk-card">
+            <li>
+
+              
+                <p class="uk-column-span">
+                    <strong>Tipo:</strong><span>item.Tipo</span><span *ngIf="ListAutomation.Ativo==1">item.Ativo</span>                     
+                </p>
+
+                <p class="uk-column-span">
+                    <strong>Canal de Comunicação:</strong><span>item.Canal</span>               
+                </p>
+
+                <p class="uk-column-span">
+                    <strong>Segmentacao:</strong><span>item.Segmento</span>                     
+                </p>
+                    <div class="uk-position-center-right">
+                        <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 " routerLink="/Automation/Edit/{{item.Id}}"></i>
+                    </div>
+            </li>
+           </div>   
+        </ul>
+    </div>
+</div>

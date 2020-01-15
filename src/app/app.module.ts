@@ -1,19 +1,14 @@
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ComponentFactoryResolver } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { NavbarComponent } from './pages/shared/navbar/navbar.component';
-import { NavComponent } from './pages/shared/nav/nav.component';
 import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
-import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
-import { CarregarComponent } from './pages/shared/carregar/carregar.component';
+import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';ComponentFactoryResolver
 import { MenuComponent } from './pages/shared/Menu.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
@@ -38,14 +33,18 @@ import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { PointingComponent } from './pages/pointing/pointing/pointing.component';
 import { PointComponent } from './pages/pointing/point/point.component';
 import { DashboardCustomerModule } from './pages/dashboard-customer/dashboard-customer.module';
-import { DashboardCustomerComponent } from './pages/dashboard-customer/dashboard-customer.component';
-import { ListCompanyComponent } from './pages/dashboard-customer/list-company/list-company.component';
-import { MenuModule } from './pages/shared/menu.module';
 import { ProgramLoyaltyModule } from './pages/settings/program-loyalty/program-loyalty.module';
 import { PointDeleteComponent } from './pages/settings/program-loyalty/config-point.ts/point-delete/point-delete.component';
-import { CarregarModule } from './pages/shared/carregar/carregar.module';
-import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
+import { AutomationCreateComponent } from './pages/marketing/automation/automation-create/automation-create.component';
+import { AutomationEditComponent } from './pages/marketing/automation/automation-edit/automation-edit.component';
+import { AutomationListComponent } from './pages/marketing/automation/automation-list/automation-list.component';
+import { CampaignCreateComponent } from './pages/marketing/campaign/campaign-create/campaign-create.component';
+import { CampaignEditComponent } from './pages/marketing/campaign/campaign-edit/campaign-edit.component';
+import { ModelMessageComponent } from './pages/marketing/model-message/model-message.component';
+import { CampaignListComponent } from './pages/marketing/campaign/campaign-list/campaign-list.component';
 
+import { MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
+import { CarregarComponent } from './pages/shared/carregar/carregar.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -70,13 +69,24 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PointCreateComponent,
     PointDeleteComponent,
     PointEditComponent,
-    ProfileCustomerComponent,
 
+    AutomationCreateComponent,
+    AutomationEditComponent,
+    AutomationListComponent,
+    CampaignCreateComponent,
+    CampaignEditComponent,
+    CampaignListComponent,
+    ModelMessageComponent
+
+
+
+
+
+
+    
   ],
 
   imports: [
-    CarregarModule,
-    MenuModule,
     ProgramLoyaltyModule,
     DashboardCustomerModule,
     DashboardModule,
@@ -85,6 +95,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
+    MatDatepickerModule, MatNativeDateModule, MatInputModule,
     ToastrModule.forRoot(), // ToastrModule added
     NgxMaskModule.forRoot(options),
     ReactiveFormsModule
@@ -95,11 +106,11 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
   bootstrap: [AppComponent],
  entryComponents: [
-
-  DashboardCustomerComponent,
+   ,
    //PointCreateComponent,
    //AwardCreateComponent,
   //MenuComponent
+
   ],
   
 
