@@ -9,7 +9,7 @@ import { ScoreComapanyModels } from '../../../models/ScoreCompany.models';
   styleUrls: ['./list-company-in-balance.component.css']
 })
 export class ListCompanyInBalanceComponent implements OnInit {
-Balances: Observable<ScoreComapanyModels> [];
+Balances: ScoreComapanyModels[];
   constructor(private service: CustomerService) { }
 
   ngOnInit() {

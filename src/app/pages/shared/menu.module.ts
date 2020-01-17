@@ -11,6 +11,7 @@ import { CarregarComponent } from './carregar/carregar.component';
     MenuComponent,
     NavComponent,
     NavbarComponent
+
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,8 @@ import { Observable, of, throwError } from 'rxjs';
 import { Empresa } from '../models/company.models';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Security } from '../utils/security.util';
+import { Customer } from '../models/customer.model';
+import { PreRegisterModels } from '../models/preRegister.models';
 
 
 const httpOptions = {
@@ -50,6 +52,10 @@ export class DataService {
             .pipe(
                 tap(console.log)
             );
+    }
+
+    preRegister(data: any){
+        return this.http.post(`${this.url}/v1/Cliente/PreCadastro`, data);
     }
 }
 

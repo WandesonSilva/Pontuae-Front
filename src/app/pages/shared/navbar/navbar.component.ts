@@ -15,8 +15,8 @@ export class NavbarComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.user = Security.getUser();
-    this.claimOfUser = this.user.claim === 'Admin';
+   // this.user = Security.getUser();
+   // this.claimOfUser = this.user.claim === 'Admin';
   }
 
   GoOut() {

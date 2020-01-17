@@ -11,9 +11,9 @@ private claimValid;
   constructor() { }
 
   ngOnInit() {
-    this.claimValid = Security.getUser().claim === 'Cliente';
-    if (this.claimValid) {
-      this.show = true;
-     }
+   // this.claimValid = Security.getUser().claim === 'Cliente';
+   // if (this.claimValid) {
+    //  this.show = true;
+    // }
   }
 }

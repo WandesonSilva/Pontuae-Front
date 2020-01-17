@@ -8,7 +8,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
-import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';ComponentFactoryResolver
+import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component'; ComponentFactoryResolver
 import { MenuComponent } from './pages/shared/Menu.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
@@ -44,7 +44,8 @@ import { ModelMessageComponent } from './pages/marketing/model-message/model-mes
 import { CampaignListComponent } from './pages/marketing/campaign/campaign-list/campaign-list.component';
 
 import { MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
-import { CarregarComponent } from './pages/shared/carregar/carregar.component';
+import { CarregarModule } from './pages/shared/carregar/carregar.module';
+
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -62,14 +63,13 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     RegisterCustomerComponent,
     AppComponent,
     ProfileComponent,
-    FormPointComponent, 
+    FormPointComponent,
     ListClientPageComponent,
     PointingComponent,
     PointComponent,
     PointCreateComponent,
     PointDeleteComponent,
     PointEditComponent,
-
     AutomationCreateComponent,
     AutomationEditComponent,
     AutomationListComponent,
@@ -79,11 +79,6 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ModelMessageComponent
 
 
-
-
-
-
-    
   ],
 
   imports: [
@@ -98,21 +93,17 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     MatDatepickerModule, MatNativeDateModule, MatInputModule,
     ToastrModule.forRoot(), // ToastrModule added
     NgxMaskModule.forRoot(options),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarregarModule
   ],
   exports: [],
   providers: [AuthenticationService, AuthService, ClientGuard, AdminGuard],
 
 
   bootstrap: [AppComponent],
- entryComponents: [
-   ,
-   //PointCreateComponent,
-   //AwardCreateComponent,
-  //MenuComponent
-
+  entryComponents: [
   ],
-  
+
 
 })
 export class AppModule { }

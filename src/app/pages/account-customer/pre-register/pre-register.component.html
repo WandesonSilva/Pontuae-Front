@@ -5,36 +5,37 @@
       <h4 class="uk-card-title-small"> <a uk-icon="icon:chevron-double-left; ratio:1.3" onClick="history.go(-1)"></a>
         Pré-Cadastro de Usuários
       </h4>
+      <form [formGroup]="form">
       <div>
+        
         <div class="uk-fieldset">
-
-          <div class="uk-margin">
-            <div class="uk-form">
-              <input class="uk-input" id="form-stacked-text" type="text" placeholder="Nome cliente">
-            </div>
-          </div>
-          <div class="uk-grid uk-grid-large uk-child-width-expand@s uk-text-center" uk-grid>
-            <div class="uk-margin-1-2@m">
+          
+            <div class="uk-margin">
               <div class="uk-form">
-                <input class="uk-input" id="form-stacked-text" type="text" placeholder="CPF">
+                <input class="uk-input" formControlName="nomeCliente"
+                [ngClass]="{'uk-form-danger': (!form.controls.nomeCliente.valid && !form.controls.nomeCliente.pristine) }" id="form-stacked-text" type="text" placeholder="Nome cliente">
               </div>
             </div>
+            <div class="uk-grid uk-grid-large uk-child-width-expand@s uk-text-center" uk-grid>
 
-            <div class="uk-margin-1-2@m">
-              <div class="uk-form">
-                <input class="uk-input" id="form-stacked-text" type="text" placeholder="Telefone">
+              <div class="uk-margin-1-1@m">
+                <div class="uk-form">
+                  <input class="uk-input" id="form-stacked-text"
+                  formControlName="telefone" type="text" mask="(00) 00000-0000"
+                  [ngClass]="{'uk-form-danger': (!form.controls.telefone.valid && !form.controls.telefone.pristine) }"
+                    placeholder="Telefone">
+                </div>
               </div>
             </div>
-          </div>
         </div>
         <div class="uk-align-right@s uk-margin-top">
 
-          <button class="uk-button uk-button-primary">Cadastrar</button>
+          <button class="uk-button uk-button-primary" (click)="submit()">Cadastrar</button>
 
         </div>
-
+        
       </div>
-
+    </form>
     </div>
   </div>
 </div>
