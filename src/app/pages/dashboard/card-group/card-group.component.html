@@ -6,13 +6,13 @@
       <div class="uk-card-white card-round ">
         <a routerLink="/preCadastro" uk-tooltip="title: Pré-Cadastro de clientes; pos:bottom">
           <div class="uk-card-header">
-            <div class="uk-grid-small " uk-grid>
+            <div class="uk-grid-small" uk-grid>
               <div class="uk-width-auto">
-                <span class="iconStyle" uk-icon="icon: plus-circle; ratio: 1.4;"> </span>
+                <i class=" Medium material-icons iconStyle">add_circle_outline</i>
               </div>
               <div class="uk-width-expand">
 
-                <a class=" uk-button uk-button-text uk-text-truncate">Pré-Cadastro</a>
+                <a class=" uk-button uk-button-text uk-text-truncate">cadastro</a>
               </div>
 
             </div>
@@ -23,25 +23,25 @@
     </div>
 
     <div>
-      <div class="uk-card uk-card-default card-round ">
+      <div class="uk-card-white  card-round ">
+        <a routerLink="/pointing">
         <div class="uk-card-header">
           <div class="uk-grid-small " uk-grid>
             <div class="uk-width-auto">
                 <i class=" Medium material-icons iconStyle" >stars</i>
             </div>
             <div class="uk-width-expand " >
-                <a routerLink="/pointing" class="uk-button uk-button-text">Bonificar</a>
-              
+                <a class="uk-button uk-button-text">Bonificar</a>              
             </div>
-          </div>
-        
+          </div>        
       </div>
+    </a>
     </div>
     </div>
 
     <div>
       <div class="uk-card-white  card-round">
-        <a >
+        <a routerLink="/Automation/Index">
           <div class="uk-card-header">
             <div class="uk-grid-small " uk-grid>
               <div class="uk-width-auto">
@@ -59,7 +59,7 @@
 
     <div>
       <div class="uk-card-white card-round">
-        <a (click)="ToConfig()">
+        <a routerLink="config/listProgram">
         <div class="uk-card-header">
           <div class="uk-grid-small " uk-grid>
             <div class="uk-width-auto">
