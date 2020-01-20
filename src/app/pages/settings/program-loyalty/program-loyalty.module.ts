@@ -20,10 +20,13 @@ import { PointEditComponent } from './config-point.ts/point-edit/point-edit.comp
   declarations: [
     ProgramLoyaltyComponent,
     ListProgramLoyaltyComponent,
+    
     AwardListComponent,
     AwardCreateComponent,
-    AwardDeleteComponent,
-    AwardEditComponent
+    AwardEditComponent,
+
+    PointCreateComponent,
+    PointEditComponent
   
   ],
   imports: [

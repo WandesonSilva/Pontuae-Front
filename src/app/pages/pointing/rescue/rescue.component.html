@@ -1,22 +1,29 @@
-<div class="uk-card uk-card-default uk-card-body ">
+<div class="uk-card uk-card-default uk-card-body  line-borderleft ">
 
-  <h3 class="uk-card-title uk-text-center">Resgatar</h3>
-
+  <h2 class="uk-card-title-small ukh3 uk-expand "> Resgatar</h2>
   <form [formGroup]="form" class="uk-form-stacked">
 
+
     <div class="uk-margin">
-      <label class="uk-form-label " for="form-stacked-text">Nº de Telefone</label>
+      <label class="uk-form-label" for="form-stacked-text">Contato (Celular)</label>
+      <div class="uk-inline">
       <div class="uk-form-controls">
-        <input class="uk-input"  mask="(00) 00000-0000" formControlName="Telefone" id="form-stacked-text" type="text"
-          placeholder="Some text...">
+        <a class="uk-form-icon"><i class="material-icons">contact_phone</i></a>     
+        <input class="uk-input  uk-form-large uk-form-width-large" mask="(00) 00000-0000" formControlName="Telefone" id="form-stacked-text" type="text"
+          placeholder="Digite o celular do cliente">
+      </div>
       </div>
     </div>
+  
     <div class="uk-margin">
-      <label class="uk-form-label" for="form-stacked-text">Codigo Produto</label>
-      <div class="uk-form-controls">
-        <input class="uk-input" formControlName="CodPremio" id="form-stacked-text" type="text"
-          placeholder="Some text...">
+      <label class="uk-form-label" for="form-stacked-text">Codigo Prêmio</label>
+      <div class="uk-inline">
+        <div class="uk-form-controls">
+          <a class="uk-form-icon"><i class="material-icons">local_play</i></a>    
+        <input class="uk-input uk-form-large uk-form-width-large" formControlName="CodPremio" id="form-stacked-text" type="text"
+          placeholder="Digite o codigo do Prêmio">
       </div>
+    </div>
     </div>
 
     <button class="uk-button uk-button-primary buttonSave" (click)="Submit()">Resgatar</button>

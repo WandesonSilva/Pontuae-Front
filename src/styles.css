@@ -94,10 +94,39 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items: center;
 } */
 
+.uk-h6{
+    font-size: 12px;
+    line-height: 1.4;
+    color: #000;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.uk-divider-small::after {
+  width: 100px;
+  border-top: 3px solid #eb1dc8;
+ border-image: linear-gradient(90deg,#f05ac3 0,#f348ce 35%,#af0aa1ec 100%);
+  border-image-slice: 1;
+}
+
+
+
+/* .uk-heading-small{
+  font-size: 41.808px;
+  line-height: 1.2;
+  color: #8b064ff5;
+  font-family: Roboto;
+  font-weight: 100;
+} */
+
+
+
 
 
 .ukh3, .ukh2{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 21px;
   font-weight: 600;
   line-height: 30px;
@@ -304,8 +333,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .uk-card-white{
   background-color: #ffffff;
+  
 }
 
+.uk-card-Award{
+  background-color: #ffffff;
+  -webkit-box-shadow: 2px 1px 5px 0px rgba(194, 194, 194, 0.733);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(214, 207, 207, 0.726);
+  box-shadow: 1px 1px 4px 0px rgba(211, 211, 211, 0.514);
+}
 .uk-button-text{
   color: #7b098a;
   font-family: Arial, Helvetica, sans-serif;

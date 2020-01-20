@@ -1,15 +1,18 @@
 <div class="uk-text-right">
   <!--<h4 style="text-align:left">campanha!</h4>-->
-  <button class="uk-button buttonPlus uk-border-rounded uk-margin-small-right" routerLink="/config/Create-form-Award"><i
-      uk-icon="icon: plus-circle; ratio: 1.1"></i>Adicionar</button>
-      <app-award-create></app-award-create>
+  <div class="uk-width-auto"> <i class=" btn-custom uk-link uk-aling-center-right" type="button"
+    uk-tooltip="title: Adicionar Novo" uk-icon="icon:  plus-circle; ratio: 1.4 "
+    routerLink="/Config/Award/Create"></i>
+
+</div>
+     
 </div>
 
-<table class="uk-table uk-table-hover uk-table-divider">
+<div class="uk-overflow-auto">
+<table class=" uk-table  uk-table-divider uk-table-hover   uk-table-responsive">
   <thead>
     <tr>
       <th>Premio</th>
-      <th>Descrição</th>
       <th>Pontos</th>
       <th>Quantidade</th>
       <th> </th>
@@ -25,7 +28,6 @@
     <tr *ngFor="let coluna of ListAward$ | async  ">
       <td hidden>{{coluna.id}}</td>
       <td>{{coluna.premio}}</td>
-      <td>{{coluna.descricao}}</td>
       <td>{{coluna.pontos}}</td>
       <td>{{coluna.quantidade}}</td>
       <td><button class="btn btn-success" routerLink="/config/Edit-form-Award/{{colum.id}}"><i
@@ -36,5 +38,6 @@
     </tr>
   </tbody>
 </table>
+</div>
 
 

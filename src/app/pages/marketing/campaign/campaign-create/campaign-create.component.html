@@ -1,5 +1,5 @@
 <div class="uk-container">
-    <div class="uk-card uk-card-default uk-card-bodyy uk-width-1-1@m uk-position-center uk-margin-top uk-flex-center   line-borderleft ">
+    <div class="uk-card uk-card-default uk-card-bodyy uk-width-1-1@m  uk-margin-top uk-flex-center   line-borderleft ">
       <div uk-grid>
         <div class="uk-width-expand">
 
@@ -10,7 +10,7 @@
         </div>
       </div>
       <hr>
-      <form [formGroup]="form" class="uk-form-stacked ">
+      <form [formGroup]="form" class="uk-form-stacked">
         <div class="uk-grid uk-grid-small uk-child-width-expand@s " uk-grid>
 
           <div class="uk-width-1-2@s">
@@ -62,6 +62,7 @@
             <label class="uk-form-label" for="form-stacked-select">Será enviada mais de uma vez?</label>
             <div class="uk-form-controls">
               <select class="uk-select" id="form-stacked-select" formControlName="Reenviar" placeholder="Selecione">
+                <option>Selecione</option>
                 <option value="0">Não</option>
                 <option value="1">Sim</option>
               </select>

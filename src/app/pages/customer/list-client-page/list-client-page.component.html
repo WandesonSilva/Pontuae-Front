@@ -1,20 +1,24 @@
 <div class="uk-container">
 
         <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m uk-margin-top">
-          <h5 class="uk-card-title" style="margin-top: -10px;"> <a uk-icon="icon:chevron-double-left; ratio:1.9"></a> Clientes</h5>
+          <h2 class="uk-card-title-small ukh3 uk-expand "><i class="iconback"
+            uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
+        Ranking Clientes
+    </h2>
+          
           <div class="uk-text-right">
                 <!--<h4 style="text-align:left">campanha!</h4>-->
                 <button class="uk-button uk-button-default uk-border-rounded" (click)="openDialogCreate()">
                   <i uk-icon="icon:more; ratio: 1.1"></i>Dados</button>
                   
               </div>
-              <table class="uk-table uk-table-hover uk-table-divider">
+              <div class="uk-overflow-auto">
+                <table class="uk-table uk-table-small uk-table-divider  uk-table-hover">
                 <thead>
                   <tr>
               
                     <th>Nome</th>
                     <th>Telefone</th>
-                    <th>Status</th>
                     <th>Visitas</th>
                     <th>Resgate</th>
                     <th>Saldo</th>                    
@@ -26,7 +30,6 @@
                   <tr *ngFor="let colum of ListClient$ | async">
                     <td>{{colum.nome}}</td>
                     <td>{{colum.telefone}}</td>
-                    <td>{{colum.status}}</td>
                     <td>{{colum.visitas}}</td>
                     <td>{{colum.resgate}}</td>
                     <td>{{colum.Saldo}}</td>
@@ -34,5 +37,6 @@
                   </tr>
                 </tbody>
               </table>
+              </div>
            </div>
       </div>
