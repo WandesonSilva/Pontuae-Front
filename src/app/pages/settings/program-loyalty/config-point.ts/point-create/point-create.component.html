@@ -1,35 +1,59 @@
-<form [formGroup]="form" (ngSubmit)="onPostFormSubmit()" >
+<form [formGroup]="form"  class="uk-form-stacked">
+
+
+
 
   <div class="uk-margin"><!--OBS: adicionar hidden no input abaixo para oculta campo-->
-     <input hidden class="uk-input uk-form-default"  formControlName="Id" type="text" placeholder="Id do Programa de fidelidade"
+     <input hidden class="uk-input uk-form-default" id="form-stacked-text" formControlName="Id" type="text" placeholder="Id do Programa de fidelidade"
      [ngClass]="{'uk-form-danger': (!form.controls.Id.valid && !form.controls.Id.pristine) }">
    </div>
+
+
  <div class="uk-margin">
-     <input class="uk-input uk-form-default" formControlName="Nome" type="text" placeholder="Nome do programa de fidelidade"
+  <label class="uk-form-label" for="form-stacked-text">Nome do Programa</label>
+  <div class="uk-form-controls">
+     <input  class="uk-input uk-form-default uk-padding" id="form-stacked-text" formControlName="Nome" type="text" placeholder="Nome do programa de fidelidade"
      [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }">
    </div>
+ </div>
+<!-- 
    <div class="uk-margin">
-       <input class="uk-input uk-form-default" formControlName="Descricao"  type="text" placeholder="Descrição do programa de fidelidade"
+    <label class="uk-form-label" for="form-stacked-text">Nome</label>
+    <div class="uk-form-controls">
+       <input class="uk-input uk-form-default uk-padding" id="form-stacked-text" formControlName="Descricao"  type="text" placeholder="Descrição do programa de fidelidade"
        [ngClass]="{'uk-form-danger': (!form.controls.Descricao.valid && !form.controls.Descricao.pristine) }">
      </div>
+   </div> -->
  <div class="uk-margin">
-   <input class="uk-input uk-form-default" uk-tooltip="Adicionar Sugestão dica" formControlName="Valor" type="text" placeholder="R$ Informe Valor gasto para virar pontos"
+  <label class="uk-form-label" for="form-stacked-text">Valor minimo para ganhar pontos?</label>
+  <div class="uk-form-controls">
+   <input class="uk-input uk-form-default uk-padding"  mask="separator"  thousandSeparator="."  id="form-stacked-text"  formControlName="Valor" type="text" placeholder="R$ Exemplo:R$ 1=1 ponto"
    [ngClass]="{'uk-form-danger': (!form.controls.Valor.valid && !form.controls.Valor.pristine) }">
  </div>
+ </div>
+
  <div class="uk-margin">
-   <input class="uk-input uk-form-default" formControlName="Ponto" type="text" placeholder="Equivalem a quantos pontos"
+  <label class="uk-form-label" for="form-stacked-text">Equivalem a quantos pontos?</label>
+  <div class="uk-form-controls">
+   <input class="uk-input uk-form-default uk-padding" id="form-stacked-text" formControlName="Ponto" type="text" placeholder="Digite a quantidade de pontos"
    [ngClass]="{'uk-form-danger': (!form.controls.Ponto.valid && !form.controls.Ponto.pristine) }">
  </div>
+ </div>
+ 
  <div class="uk-margin">
-   <input class="uk-input uk-form-default" type="text" formControlName="Validacao"
+  <label class="uk-form-label" for="form-stacked-text">Tempo de expiração de pontos em Dias?</label>
+  <div class="uk-form-controls">
+   <input class="uk-input uk-form-default uk-padding" id="form-stacked-text"  type="text" formControlName="Validacao"
    [ngClass]="{'uk-form-danger': (!form.controls.Validacao.valid && !form.controls.Validacao.pristine)}"
-   placeholder="Validades dos Pontos/Dia">
+   placeholder="Exemplo: 365">
+ </div>
  </div>
  <!--Button-->
- <div class="uk-text-right">
-   <button class="uk-button buttonSave uk-border-rounded " [disabled]="form.invalid"  (click)="submit()" >Salvar</button>
-   <button class="uk-button uk-button-default uk-border-rounded" (click)="backPage()" style="color:#800691">Volta</button>
- </div>
+
+  <div class="uk-text-left">
+    <button class="uk-button buttonSave" (click)="Submit()"><i
+      uk-icon="icon: check; ratio: 1.1"></i>Salvar</button>
+  </div>
  
 </form>
     

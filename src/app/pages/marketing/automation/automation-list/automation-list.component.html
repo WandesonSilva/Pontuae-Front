@@ -10,40 +10,109 @@
             <div class="uk-width-auto"> <span class=" btn-custom uk-aling-top-right" type="button"
                     uk-tooltip="title: Criar Novo" uk-icon="icon: plus-circle; ratio: 1.4 "
                     routerLink="/Automation/Create"></span>
-            </div>            
+            </div>
         </div>
         <hr>
 
-        
+
         <!-- <div *ngIf="!existList()">
             <span class="uk-text-center" colspan="5">
               <p >Comece</p>
             </span>
           </div> -->
-        
-     
-        <ul class="uk-list uk-list-divider" >        
+
+
+        <!-- <ul class="uk-list uk-list-divider" >        
          
-           <div *ngFor="let item of ListAutomation$ | async" class="uk-card">
-            <li>
+            <div *ngFor="let item of ListAutomation$ | async" class="uk-card"> -->
+        <!--             
 
               
                 <p class="uk-column-span">
                     <strong>Tipo:</strong><span>item.Tipo</span><span *ngIf="ListAutomation.Ativo==1">item.Ativo</span>                     
-                </p>
+                </p> --> 
 
-                <p class="uk-column-span">
-                    <strong>Canal de Comunicação:</strong><span>item.Canal</span>               
-                </p>
 
-                <p class="uk-column-span">
-                    <strong>Segmentacao:</strong><span>item.Segmento</span>                     
-                </p>
-                    <div class="uk-position-center-right">
-                        <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 " routerLink="/Automation/Edit/{{item.Id}}"></i>
+        <div class="uk-card">
+            <div class="uk-grid uk-grid-large uk-child-width-expand@s uk-margin-remove-bottom " uk-grid>
+
+                <dl class="uk-description-list uk-description-list-divider ">
+                    <dt><strong
+                            class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
+                            uk-scrollspy-class>Tipo:</strong></dt>
+                    <dd>
+                        <h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
+                            uk-scrollspy-class>Especial de Aniversário</h4>
+                        <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium"></div>
+                    </dd>
+                </dl>
+
+                <dl class="uk-description-list uk-description-list-divider">
+                    <dt><strong>Segmento:</strong></dt>
+                    <dd>Vip</dd>
+                </dl>
+
+
+                <dl class="uk-description-list uk-description-list-divider">
+                    <dt><strong>Canal de Comunicacao:</strong></dt>
+                    <dd>Especial de Aniversário</dd>
+                </dl>
+
+            </div>
+            <hr>
+
+            <div class="uk-panel uk-width-1-2 uk-text-left">
+
+                <div class="uk-margin-large uk-text-center">
+                    <div class="uk-child-width-1-1 uk-child-width-1-4@s uk-grid-divider uk-grid-match uk-grid uk-grid-stack"
+                        uk-grid>
+
+                        <div class="uk-first-column">
+                            <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
+                                uk-scrollspy-class>
+                                <h3 class=" uk-heading-small  uk-margin-remove-bottom">43</h3>
+                                <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">SMS Enviados
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-grid-margin uk-first-column">
+                            <div class="el-item uk-panel uk-margin-remove- uk-scrollspy-inview uk-animation-slide-right-medium"
+                                uk-scrollspy-class>
+                                <h3 class="uk-heading-small  uk-margin-remove-bottom">12,34</h3>
+                                <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Valor Investido
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-grid-margin uk-first-column">
+                            <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
+                                uk-scrollspy-class>
+                                <h3 class="uk-heading-small uk-margin-remove-bottom">3</h3>
+                                <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Quantidade Retorno
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-grid-margin uk-first-column">
+                            <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
+                                uk-scrollspy-class>
+                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen">123,98</h3>
+                                <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Resultado
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-            </li>
-           </div>   
-        </ul>
+                </div>
+            </div>
+            <div class="uk-position-center-right">
+                <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 "
+                    routerLink="/Automation/Edit"></i>
+            </div>
+        </div>
     </div>
 </div>

@@ -16,7 +16,6 @@ import { RegisterCustomerComponent } from './pages/account-customer/register-cus
 import { PointCreateComponent } from './pages/settings/program-loyalty/config-point.ts/point-create/point-create.component';
 import { AwardListComponent } from './pages/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { ProfileComponent } from './pages/account-company/profile/profile.component';
-import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/program-loyalty.component';
 import { AwardCreateComponent } from './pages/settings/program-loyalty/config-awards/award-create/award-create.component';
 import { ListClientPageComponent } from './pages/customer/list-client-page/list-client-page.component';
 
@@ -45,6 +44,9 @@ import { CampaignListComponent } from './pages/marketing/campaign/campaign-list/
 
 import { MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
 import { CarregarModule } from './pages/shared/carregar/carregar.module';
+import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
+import { AwardEditComponent } from './pages/settings/program-loyalty/config-awards/award-edit/award-edit.component';
+import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/program-loyalty.component';
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -65,24 +67,35 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ProfileComponent,
     FormPointComponent,
     ListClientPageComponent,
-    PointingComponent,
+    PointingComponent, 
     PointComponent,
-    PointCreateComponent,
-    PointDeleteComponent,
-    PointEditComponent,
+
+
+
     AutomationCreateComponent,
     AutomationEditComponent,
     AutomationListComponent,
     CampaignCreateComponent,
     CampaignEditComponent,
     CampaignListComponent,
-    ModelMessageComponent
+    ModelMessageComponent,
 
+
+
+    ProgramLoyaltyComponent,
+    ListProgramLoyaltyComponent,
+    
+    AwardListComponent,
+    AwardCreateComponent,
+    AwardEditComponent,
+
+    PointCreateComponent,
+    PointEditComponent
 
   ],
 
   imports: [
-    ProgramLoyaltyModule,
+    
     DashboardCustomerModule,
     DashboardModule,
     ReactiveFormsModule,

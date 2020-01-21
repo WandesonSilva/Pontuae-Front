@@ -1,41 +1,43 @@
-<div class="uk-container uk-margin-top ">
-  <div class="uk-flex-center">
-    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-position-center">
+<div class="uk-container ">
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-margin-top uk-position-center  line-borderleft ">
 
-      <h4 class="uk-card-title-small"> <a uk-icon="icon:chevron-double-left; ratio:1.3" onClick="history.go(-1)"></a>
-        Pré-Cadastro de Usuários
-      </h4>
-      <form [formGroup]="form">
-      <div>
-        
-        <div class="uk-fieldset">
-          
-            <div class="uk-margin">
+      <div class="uk-width-expand">
+        <h2 class="uk-card-title-small ukh3 uk-expand "><i class="iconback"
+                uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
+            Pré-cadastro de Usuarios
+        </h2>
+        <hr>
+    </div>
+    <form [formGroup]="form" class="uk-form-stacked">
+ 
+
+                  
+            <!-- <div class="uk-margin">
               <div class="uk-form">
                 <input class="uk-input" formControlName="nomeCliente"
                 [ngClass]="{'uk-form-danger': (!form.controls.nomeCliente.valid && !form.controls.nomeCliente.pristine) }" id="form-stacked-text" type="text" placeholder="Nome cliente">
               </div>
-            </div>
-            <div class="uk-grid uk-grid-large uk-child-width-expand@s uk-text-center" uk-grid>
+            </div> -->
+          
 
-              <div class="uk-margin-1-1@m">
-                <div class="uk-form">
-                  <input class="uk-input" id="form-stacked-text"
-                  formControlName="telefone" type="text" mask="(00) 00000-0000"
-                  [ngClass]="{'uk-form-danger': (!form.controls.telefone.valid && !form.controls.telefone.pristine) }"
-                    placeholder="Telefone">
-                </div>
+            <div class="uk-width-1-1@s">
+              <label class="uk-form-label">Contato (Celular)</label>
+              <div class="uk-inline">
+              <div class="uk-form-controls">
+                <span class="uk-form-icon"><i class="material-icons">contact_phone</i></span>     
+                <input class="uk-input uk-form-large uk-form-width-large " mask="(00) 00000-0000" formControlName="Telefone" type="text"
+                  placeholder="Digite o celular do cliente">
+              </div>
               </div>
             </div>
-        </div>
-        <div class="uk-align-right@s uk-margin-top">
+           <br>
+        <div class="uk-align-left@s ">
 
-          <button class="uk-button uk-button-primary" (click)="submit()">Cadastrar</button>
+          <button class=" buttonSave uk-button" (click)="submit()">Cadastrar</button>
 
         </div>
-        
-      </div>
+ 
     </form>
     </div>
-  </div>
 </div>
+ 

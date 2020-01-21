@@ -1,22 +1,41 @@
-<form [formGroup]="form">
+<div class="uk-width-expand">
+  <!-- <h2 class="uk-card-title-small ukh3 uk-expand "><i class="iconback"
+          uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
+      Adicionar Prêmio
+  </h2> -->
+  <hr>
+</div>
+<form [formGroup]="form"  class="uk-form-stacked">
   <div class="uk-margin">
-    <input hidden class="uk-input uk-form-default" formControlName="Id" type="text" placeholder="ID do Prêmio"
+    <input hidden class="uk-input uk-form-default" id="form-stacked-text" formControlName="Id" type="text" placeholder="ID do Prêmio"
     [ngClass]="{'uk-form-danger': (!form.controls.Id.valid && !form.controls.Id.pristine) }">
   </div>
-  <div class="uk-margin">
-    <input class="uk-input uk-form-default" formControlName="Nome" type="text" placeholder="Nome do prêmio"
-    [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }">
+
+  <div class="uk-margin ">
+    <label class="uk-form-label" for="form-stacked-text">Nome</label>
+    <div class="uk-form-controls">
+      <input  class="uk-input uk-form-default uk-padding" id="form-stacked-text" formControlName="Nome" type="text" placeholder="Digite o nome do Prêmio"
+      [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }">
+    </div>
   </div>
+
   <div class="uk-margin">
-    <input class="uk-input uk-form-default" formControlName="Descricao" type="text" placeholder="Descrição do prêmio"
+    <label class="uk-form-label" for="form-stacked-text">Descrição</label>
+    <div class="uk-form-controls">
+    <input class="uk-input uk-form-default uk-padding" id="form-stacked-text"  formControlName="Descricao" type="text" placeholder="Digite a regra do prêmio"
     [ngClass]="{'uk-form-danger': (!form.controls.Descricao.valid && !form.controls.Descricao.pristine) }">
   </div>
+</div>
+
   <div class="uk-margin">
-    <input class="uk-input uk-form-default" formControlName="PontosNecessario" type="text" placeholder="Quantidade de Pontos"
+    <label class="uk-form-label" for="form-stacked-text">PontosNecessário</label>
+    <div class="uk-form-controls">
+    <input class="uk-input uk-form-default"  id="form-stacked-text" formControlName="PontosNecessario" type="text" placeholder="Digite a Quantidade de Pontos"
     [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.PontosNecessario.pristine) }">
   </div>
-  <div class="uk-text-right">
-    <button class="uk-button buttonSave uk-border-rounded" (click)="submit()">Salvar</button> 
-    <button class="uk-button uk-button-default uk-border-rounded" (click)="backPage()">Voltar</button>
+</div>
+  <div class="uk-text-left">
+    <button class="uk-button buttonSave" (click)="Submit()"><i
+      uk-icon="icon: check; ratio: 1.1"></i>Salvar</button>
   </div>
 </form>
