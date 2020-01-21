@@ -7,9 +7,9 @@
                     Automações
                 </h3>
             </div>
-            <div class="uk-width-auto"> <span class=" btn-custom uk-aling-top-right" type="button"
+            <div class="uk-width-auto"> <a class=" btn-custom uk-aling-top-right" type="button"
                     uk-tooltip="title: Criar Novo" uk-icon="icon: plus-circle; ratio: 1.4 "
-                    routerLink="/Automation/Create"></span>
+                    routerLink="/Automation/Create"></a>                
             </div>
         </div>
         <hr>
@@ -22,18 +22,13 @@
           </div> -->
 
 
-        <!-- <ul class="uk-list uk-list-divider" >        
-         
-            <div *ngFor="let item of ListAutomation$ | async" class="uk-card"> -->
-        <!--             
-
               
-                <p class="uk-column-span">
+                <!-- <p class="uk-column-span">
                     <strong>Tipo:</strong><span>item.Tipo</span><span *ngIf="ListAutomation.Ativo==1">item.Ativo</span>                     
                 </p> --> 
 
-
-        <div class="uk-card">
+ 
+        <div class="uk-card" *ngFor="let item of ListAutomation$ | async">
             <div class="uk-grid uk-grid-large uk-child-width-expand@s uk-margin-remove-bottom " uk-grid>
 
                 <dl class="uk-description-list uk-description-list-divider ">
@@ -42,20 +37,20 @@
                             uk-scrollspy-class>Tipo:</strong></dt>
                     <dd>
                         <h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
-                            uk-scrollspy-class>Especial de Aniversário</h4>
+                            uk-scrollspy-class>{{item.TipoAutomacao}}</h4>
                         <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium"></div>
                     </dd>
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Segmento:</strong></dt>
-                    <dd>Vip</dd>
+                    <dd>{{item.Segmento}},{{item.SegCustomizado}}</dd>
                 </dl>
 
 
                 <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Canal de Comunicacao:</strong></dt>
-                    <dd>Especial de Aniversário</dd>
+                    <dt><strong>Forma de Envio:</strong></dt>
+                    <dd>{{item.TipoCanal}}</dd>
                 </dl>
 
             </div>
@@ -70,7 +65,7 @@
                         <div class="uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class=" uk-heading-small  uk-margin-remove-bottom">43</h3>
+                                <h3 class=" uk-heading-small  uk-margin-remove-bottom">{{item.QtdEnviados}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">SMS Enviados
 
                                 </div>
@@ -80,7 +75,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove- uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small  uk-margin-remove-bottom">12,34</h3>
+                                <h3 class="uk-heading-small  uk-margin-remove-bottom">{{item.ValorInvestido}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Valor Investido
 
                                 </div>
@@ -90,7 +85,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom">3</h3>
+                                <h3 class="uk-heading-small uk-margin-remove-bottom">{{item.QtdRetorno}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Quantidade Retorno
 
                                 </div>
@@ -100,7 +95,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen">123,98</h3>
+                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen">{{ (item.Vendas/100) | currency: 'BRL'}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Resultado
 
                                 </div>

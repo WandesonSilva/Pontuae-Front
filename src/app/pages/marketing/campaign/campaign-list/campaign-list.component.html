@@ -8,7 +8,7 @@
                 </h2>
             </div>
             <div class="uk-width-auto"> <i class=" btn-custom uk-link uk-aling-center-right" type="button"
-                    uk-tooltip="title: Criar Novo" uk-icon="icon:  plus-circle; ratio: 1.4 "
+                    uk-tooltip="title: Criar Novo" uk-icon="icon: plus-circle; ratio: 1.4 "
                     routerLink="/Campaign/Create"></i>
             </div>
         </div>
@@ -19,42 +19,8 @@
               <p >Comece</p>
             </span>
           </div> -->
-
-        <!-- <ul class="uk-list uk-list-divider">      
-            <div *ngFor="let item of ListCampaign$ | async" class="uk-card">   
-            <li>
-                <p class="uk-column-span">
-                <strong>N° Cliente:</strong><span> {{item.QtdSelecionado}} </span>
-                </p>
-                <p class="uk-column-span">
-                    <strong>Campanha:</strong><span> {{item.Nome}}</span>
-                </p>
-                <p class="uk-column-span">
-                    <strong>Canal de comunicação</strong><span> {{item.Canal}}</span>
-                </p>
-                <p class="uk-column-span">
-                    <strong>Segmento</strong><span>{{item.Segmento}} </span>
-                </p>
-                     <div class="buttonAlingFloat " style="margin-top: -90px;"><i class="iconNext" type="button" 
-                            uk-icon="icon:arrow-right; ratio: 1.4 " routerLink="/Automation/Edit/{{item.id}}"></i>
-                    </div>                
-            </li>  
-        </div>                   
-        </ul>     -->
-         
-
-
-
-
-
-
-
-
-
-
-
-        
-        <div class="uk-card">
+     
+        <div *ngFor="let item of ListCampaign$ | async" class="uk-card">   
             <div class="uk-grid uk-grid-large uk-child-width-expand@s uk-margin-remove-bottom " uk-grid>
 
                 <dl class="uk-description-list uk-description-list-divider ">
@@ -63,30 +29,29 @@
                             uk-scrollspy-class>Campanha:</strong></dt>
                     <dd>
                         <h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
-                            uk-scrollspy-class>Oferta dia das mães</h4>
+                            uk-scrollspy-class>{{ item.Nome }}</h4>
                         <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium"></div>
                     </dd>
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>N° Cliente:</strong></dt>
-                    <dd>33</dd>
+                    <dd>{{ item.QtdSelecionado }}</dd>
                 </dl>
 
 
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Segmento:</strong></dt>
-                    <dd>Vip</dd>
+                    <dd>{{ item.Segmento }}</dd>
                 </dl>
-
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Canal de Comunicação:</strong></dt>
-                    <dd>SMS</dd>
+                    <dd>{{item.Canal}}</dd>
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Enviada em :</strong></dt>
-                    <dd>23/01/2020</dd>
+                    <dt><strong>Enviada em:</strong></dt>
+                    <dd>{{ item.DataEnvio | date : 'dd/MM/yyyy' }}</dd>
                 </dl>
 
             </div>
@@ -101,7 +66,7 @@
                         <div class="uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class=" uk-heading-small  uk-margin-remove-bottom">43</h3>
+                                <h3 class=" uk-heading-small  uk-margin-remove-bottom">{{item.QtdEnviados}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">SMS Enviados
 
                                 </div>
@@ -111,7 +76,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove- uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small  uk-margin-remove-bottom">12,34</h3>
+                                <h3 class="uk-heading-small  uk-margin-remove-bottom">{{item.ValorInvestido}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Valor Investido
 
                                 </div>
@@ -121,7 +86,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom">3</h3>
+                                <h3 class="uk-heading-small uk-margin-remove-bottom">{{item.QtdRetorno}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Quantidade Retorno
 
                                 </div>
@@ -131,7 +96,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen">123,98</h3>
+                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen">{{ (item.Vendas/100) | currency: 'BRL'}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Resultado
 
                                 </div>
@@ -140,10 +105,13 @@
                     </div>
                 </div>
             </div>
-            <div class="uk-position-center-right " >
+            <div class="uk-position-center-right">
                 <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 "
-                    routerLink="/Campaign/Edit"></i>
+                    routerLink="/Automation/Edit"></i>
             </div>
         </div>
+
+
+        
     </div>
 </div>

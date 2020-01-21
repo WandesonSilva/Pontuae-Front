@@ -10,4 +10,9 @@ export class Automation
     public TipoCanal: string;
     public DiasAntesAniversario: number;
     public Conteudo: string;
+
+    public QtdEnviados: number;
+    public ValorInvestido: string;
+    public QtdRetorno: number;
+    public Resultado: number;
 }

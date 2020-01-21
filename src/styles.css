@@ -233,62 +233,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 }
   
-.buttonBack {
-
-  color: rgb(122, 122, 122);
-  border: 2px solid #a3a3a3;;
-
-  background-color:  #fffffff4;
-  padding: 1px;
-  border-radius: 4px;
-  font-size: 1em;
-  font-weight: 100;
-  font-style: bold;
-  padding-left: 10px;
-  padding-right: 10px;
-  -webkit-box-shadow: 2px 5px 2px 0px rgba(194, 193, 193, 0.603);
-  -moz-box-shadow: 2px 5px 4px 0px rgba(207, 207, 207, 0.507);
-  box-shadow: 2px 3px 2px 0px rgba(197, 197, 197, 0.411);
-  
-}  
-
-.buttonDesable{
-  
-  color: rgb(7, 5, 5);
-  border: 2px solid #a3a3a3;;
-
-  background-color:  #eee7e7f4;
-  padding: 1px;
-  border-radius: 4px;
-  font-size: 1em;
-  font-weight: 100;
-  font-style: bold;
-  padding-left: 10px;
-  padding-right: 10px;
-  -webkit-box-shadow: 2px 5px 2px 0px rgba(194, 193, 193, 0.603);
-  -moz-box-shadow: 2px 5px 4px 0px rgba(207, 207, 207, 0.507);
-  box-shadow: 2px 3px 2px 0px rgba(197, 197, 197, 0.411);
-
-}
-
-.buttonTrash{
-
-   color: rgb(214, 49, 49);
-  border: 2px solid #a3a3a3;;
-
-  background-color:  #eee7e7f4;
-  padding: 1px;
-  border-radius: 4px;
-  font-size: 1em;
-  font-weight: 100;
-  font-style: bold;
-  padding-left: 10px;
-  padding-right: 10px;
-  -webkit-box-shadow: 2px 5px 2px 0px rgba(194, 193, 193, 0.603);
-  -moz-box-shadow: 2px 5px 4px 0px rgba(207, 207, 207, 0.507);
-  box-shadow: 2px 3px 2px 0px rgba(197, 197, 197, 0.411);
-
-}
 
 
 .btn-custom{ 
@@ -296,7 +240,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-radius: 50px; 
   color: #fff;
   padding: 5px 5px  5px;
+  text-shadow: none;
 }
+
 
 
   
