@@ -8,7 +8,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
-import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component'; ComponentFactoryResolver
+import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
 import { MenuComponent } from './pages/shared/Menu.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';

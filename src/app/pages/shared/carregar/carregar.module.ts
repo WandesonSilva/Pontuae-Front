@@ -11,9 +11,9 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule
   ],
-  exports: [ CarregarComponent ]
+  exports: [CarregarComponent]
 })
-export class CarregarModule { 
- 
+export class CarregarModule {
+
 }
 
