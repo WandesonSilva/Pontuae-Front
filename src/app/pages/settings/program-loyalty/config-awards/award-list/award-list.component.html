@@ -1,43 +1,54 @@
-<div class="uk-text-right">
-  <!--<h4 style="text-align:left">campanha!</h4>-->
-  <div class="uk-width-auto"> <i class=" btn-custom uk-link uk-aling-center-right" type="button"
-    uk-tooltip="title: Adicionar Novo" uk-icon="icon:  plus-circle; ratio: 1.4 "
-    routerLink="/Config/Award/Create"></i>
+<div>
+  <div class="uk-text-right">
+    <!--<h4 style="text-align:left">campanha!</h4>-->
+    <div class="uk-width-auto"> <i class=" btn-custom uk-link uk-aling-center-right" type="button"
+        uk-tooltip="title: Adicionar Novo" uk-icon="icon:  plus-circle; ratio: 1.4 "
+        routerLink="/Config/Award/Create"></i>
 
+    </div>
+
+  </div>
+
+  <div *ngIf="!ListAward$ == null">
+    <div class="uk-overflow-auto">
+      <table class=" uk-table  uk-table-divider uk-table-hover   uk-table-responsive">
+        <thead>
+          <tr>
+            <th>Premio</th>
+            <th>Pontos</th>
+            <th>Quantidade</th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngIf="!existList()">
+            <td class="uk-text-center" colspan="5">
+              Adicioner Reconpensas ao seu programa de fidelidade! 😃 🎁
+            </td>
+          </tr>
+
+
+          <tr *ngFor="let coluna of ListAward$ | async  ">
+            <td hidden>{{coluna.id}}</td>
+            <td>{{coluna.premio}}</td>
+            <td>{{coluna.pontos}}</td>
+            <td>{{coluna.quantidade}}</td>
+            <td><button class="btn btn-success" routerLink="/config/Edit-form-Award/{{colum.id}}"><i
+                  class="Small material-icons" style="color:#800691">remove_red_eye</i></button>
+              <button class="btn btn-success" (click)="Delete(coluna.id)" style="margin-left: 20px;"><i
+                  class=" Small material-icons" style="color:#c52626">delete</i></button>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
 </div>
-     
+
+<div *ngIf="ListAward$ == null">
+  Lista Vazia
 </div>
-
-<div class="uk-overflow-auto">
-<table class=" uk-table  uk-table-divider uk-table-hover   uk-table-responsive">
-  <thead>
-    <tr>
-      <th>Premio</th>
-      <th>Pontos</th>
-      <th>Quantidade</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngIf="!existList()">
-      <td class="uk-text-center" colspan="5">
-        Adicioner Reconpensas ao seu programa de fidelidade! 😃 🎁
-      </td>
-    </tr>
-
-    <tr *ngFor="let coluna of ListAward$ | async  ">
-      <td hidden>{{coluna.id}}</td>
-      <td>{{coluna.premio}}</td>
-      <td>{{coluna.pontos}}</td>
-      <td>{{coluna.quantidade}}</td>
-      <td><button class="btn btn-success" routerLink="/config/Edit-form-Award/{{colum.id}}"><i
-            class="Small material-icons" style="color:#800691">remove_red_eye</i></button>
-        <button class="btn btn-success" (click)="Delete(colum.id)" style="margin-left: 20px;"><i
-            class=" Small material-icons" style="color:#c52626">delete</i></button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-

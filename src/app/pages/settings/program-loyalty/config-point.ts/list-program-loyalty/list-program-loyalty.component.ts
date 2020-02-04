@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class ListProgramLoyaltyComponent implements OnInit {
-  public List$: Observable<RuleProgram[]> = null;
+  public List$: Observable<RuleProgram[]>;
   public busy = false;
   
   constructor(private service: RulePointService, private activatedRoute: ActivatedRoute, private toastr: ToastrService,) { }
@@ -21,8 +21,8 @@ export class ListProgramLoyaltyComponent implements OnInit {
 
   
   ngOnInit() {
-    //const idUser = Security.getUser().id;
-     // this.List$ = this.service.getListProgramLoyalty(idUser);
+    const idUser = Security.getUser().id;
+      this.List$ = this.service.getListProgramLoyalty(idUser);
   }  
    
   Delete(id: string) {
@@ -37,6 +37,7 @@ export class ListProgramLoyaltyComponent implements OnInit {
   }
 
   existList() {
-    return this.List$ && this.List$ != null;
+    console.log(this.List$ == null);
+    return this.List$ == null;
   }
 }

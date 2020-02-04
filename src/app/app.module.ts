@@ -47,6 +47,8 @@ import { CarregarModule } from './pages/shared/carregar/carregar.module';
 import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
 import { AwardEditComponent } from './pages/settings/program-loyalty/config-awards/award-edit/award-edit.component';
 import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/program-loyalty.component';
+import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
+import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -65,13 +67,11 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     RegisterCustomerComponent,
     AppComponent,
     ProfileComponent,
+    ProfileCustomerComponent,
     FormPointComponent,
     ListClientPageComponent,
-    PointingComponent, 
+    PointingComponent,
     PointComponent,
-
-
-
     AutomationCreateComponent,
     AutomationEditComponent,
     AutomationListComponent,
@@ -79,23 +79,18 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     CampaignEditComponent,
     CampaignListComponent,
     ModelMessageComponent,
-
-
-
     ProgramLoyaltyComponent,
     ListProgramLoyaltyComponent,
-    
     AwardListComponent,
     AwardCreateComponent,
     AwardEditComponent,
-
     PointCreateComponent,
-    PointEditComponent
+    PointEditComponent,
+    ResetAccountComponent
 
   ],
 
   imports: [
-    
     DashboardCustomerModule,
     DashboardModule,
     ReactiveFormsModule,
@@ -111,12 +106,9 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
   ],
   exports: [],
   providers: [AuthenticationService, AuthService, ClientGuard, AdminGuard],
-
-
   bootstrap: [AppComponent],
   entryComponents: [
   ],
-
 
 })
 export class AppModule { }

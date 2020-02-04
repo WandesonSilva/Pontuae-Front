@@ -5,6 +5,8 @@ import { Empresa } from '../models/company.models';
 import { tap } from 'rxjs/operators';
 import { ListaEmpresaSaldo } from '../models/listarEmpresaSaldo';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { Customer } from '../models/customer.model';
 
 
 @Injectable({
@@ -22,6 +24,11 @@ export class CustomerService {
     return headeers;
   }
 
+  getProfileCustomer(id: string) {
+    return this.http.get<Customer[]>(`${environment.UrlBase}v1/Cliente/${id}`);
+  
+  }
+  
   GetPremios() {
     return this.http.get<any[]>(this.url);
   }
@@ -54,10 +61,14 @@ export class CustomerService {
     return this.http.get<any[]>(`${this.url}v1/ClientHistory/${id}`, { headers: this.composeHeaders() });
   }
 
-  GetBalanceOfCompany(){
-    return this.http.get<Observable<Empresa>[]>(`${this.url}v1/ListarEmpresas`)
+  GetBalanceOfCompany(id: string){
+    return this.http.get<Observable<Empresa>[]>(`${this.url}v1/Cliente/ListaSaldo/${id}`, { headers: this.composeHeaders() })
     .pipe(
         tap(console.log)
     );
+  }
+
+  UpdateProfileCustomer(data: any) {
+    return this.http.put(`${environment.UrlBase}v1/Cliente/put`, data);
   }
 }

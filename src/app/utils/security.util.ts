@@ -1,10 +1,11 @@
 import { User } from '../models/user.model';
 
-export class Security {
-    public static set(user: User, token: string) {
-        const data = JSON.stringify(user);
 
-        localStorage.setItem('tokenPontuaae', token);
+export class Security {
+    public static set(users: User, token: string) {
+        const data = JSON.stringify(users);
+        //const Ptoken = JSON.stringify(token);
+        localStorage.setItem('tokenPontuaae',token);
         localStorage.setItem('userPontuaae', btoa(data));
     }
 
@@ -51,7 +52,7 @@ export class Security {
         localStorage.removeItem('tokenPontuaae');
     }
 
-    public static isInRole(claim: string): boolean {
+    public static isInRole(claimValue: string): boolean {
         const user = this.getUser();
 
         if (!user) {
@@ -59,10 +60,10 @@ export class Security {
         }
 
         // tslint:disable-next-line: triple-equals
-        if (!user.claim || user.claim.length == 0) {
+        if (!user.claimValue || user.claimValue.length == 0) {
             return false;
         }
-        return user.claim.includes(claim);
+        return user.claimValue.includes(claimValue);
     }
 
 }

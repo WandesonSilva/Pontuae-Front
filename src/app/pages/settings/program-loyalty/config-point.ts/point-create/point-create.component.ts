@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RulePointService } from 'src/app/service/rule-point.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Security } from '../../../../../utils/security.util';
+import { RuleProgram } from '../../../../../models/ruleProgram';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 })
 
-export class PointCreateComponent {
+export class PointCreateComponent implements OnInit {
 
   public form: FormGroup;
   public busy = false;
@@ -26,27 +28,40 @@ export class PointCreateComponent {
   ) {
 
     this.form = this.fb.group({
-
-      Nome: ['', Validators.compose([
-        Validators.minLength(3),
-        Validators.maxLength(80),
-        Validators.required
-      ])],
-
-      Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
+      Id: ['', [Validators.required]],
       Valor: ['', [Validators.required]],
       Ponto: ['', [Validators.required]],
-      Validacao: ['', [Validators.required]],
+      Validade: ['', [Validators.required]],
 
     });
 
 
   }
+  ngOnInit() {
+    this.GetRule();
+  }
+
+  GetRule() {
+    const id = Security.getUser().id;
+    this
+      .service
+      .getByIdProgramLoyalty(id)
+      .subscribe((data: any) => {
+
+        this.form.controls.Id.setValue(id);
+        this.form.controls.Valor.setValue(data.valor);
+        this.form.controls.Ponto.setValue(data.ponto);
+        this.form.controls.Validade.setValue(data.validade);
+        console.log(data);
+      }, err => {
+        console.log(err);
+      });
+  }
 
   submit() {
 
     this.service
-      .createRule(this.form.value)
+      .updateProgramLoyalty(this.form.value)
       .subscribe((data: any) => {
         this.busy = false;
         this.toastr.success('Salvo com sucesso');

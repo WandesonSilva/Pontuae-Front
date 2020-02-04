@@ -4,6 +4,7 @@ import { Security } from '../utils/security.util';
 import { Point } from '../models/points.models';
 import { RuleProgram } from '../models/ruleProgram';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({ providedIn: 'root' })
@@ -38,8 +39,8 @@ export class RulePointService {
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get
-  getByIdProgramLoyalty(id: string, idUser: string) {
-    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${id}/empresaId/${idUser}`, { headers: this.composeHeaders() });
+  getByIdProgramLoyalty(id: string) {
+    return this.http.get<RuleProgram[]>(`${environment.UrlBase}v1/Config/${id}`);
   }
 
 
@@ -47,7 +48,6 @@ export class RulePointService {
     return this.http.put(`${this.url}/Pontos`, data, { headers: this.composeHeaders() });
   }
 
-  
   deleteLoyalty(id: string){
     return this.http.delete(`${this.url}v1/Pontos/${id}`, {headers: this.composeHeaders()})
   }

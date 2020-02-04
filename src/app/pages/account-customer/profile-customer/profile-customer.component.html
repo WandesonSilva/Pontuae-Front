@@ -1,34 +1,47 @@
 <div class="uk-container uk-margin-top">
   <app-carregar *ngIf="carregando"></app-carregar>
   <form [formGroup]="form" *ngIf="!carregando">
+   
     <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
-      <a ><span uk-icon="icon:arrow-left" class=""></span> Voltar</a>
+      <div uk-grid>
+        <div class="uk-width-expand">
+            <h3 class="uk-card-title-small ukh3 uk-expand "><i class="iconback"
+                    uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
+                Perfil
+            </h3>
+        </div>
+        <div class="uk-width-auto"> <a class="uk-button uk-button-primary uk-aling-right card-round" type="button" style="background: #9a06ad"
+                uk-tooltip="title: Alterar Usuario" uk-icon="icon: user; ratio: 1.4 "
+                routerLink="/resetAccount">Alterar Usuario</a>                
+        </div>
+    </div>
       <div class="uk-margin">
-        <input class="uk-input uk-form-large" formControlName="Email" type="text"
-          [ngClass]="{'uk-form-danger': (!form.controls.Email.valid && !form.controls.Email.pristine)}"
-          placeholder="Email">
-      </div>
+    
 
       <div class="uk-margin">
         <input class="uk-input uk-form-large" type="text" formControlName="Nome"
-          [ngClass]="{'uk-form-danger': (!form.controls.NomeFantasia.valid && !form.controls.NomeFantasia.pristine) }"
-          placeholder="Nome Comercial">
+          [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }"
+          placeholder="Nome">
       </div>
+
       <div class="uk-margin">
         <input class="uk-input uk-form-large" type="text" formControlName="Email"
-          [ngClass]="{'uk-form-danger': (!form.controls.Descricao.valid && !form.controls.Descricao.pristine)}"
-          placeholder="Descrição">
+          [ngClass]="{'uk-form-danger': (!form.controls.Email.valid && !form.controls.Email.pristine) }"
+          placeholder="Email de contato">
       </div>
+ 
       <div class="uk-margin">
         <input class="uk-input uk-form-large" mask="(00) 0000-0000" type="text" formControlName="Telefone"
           [ngClass]="{'uk-form-danger': (!form.controls.Telefone.valid && !form.controls.Telefone.pristine) }"
           placeholder="Telefone">
       </div>
-      >
+
+      
       <div class="uk-margin uk-text-right">
         <button class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoSucesso"
           [disabled]="form.invalid" (click)="Submit()">Salvar</button>
       </div>
     </div>
+  </div>
   </form>
 </div>

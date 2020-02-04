@@ -13,89 +13,92 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   templateUrl: './point-edit.component.html',
   styleUrls: ['./point-edit.component.css']
 })
-export class PointEditComponent  implements OnInit  {
+export class PointEditComponent implements OnInit {
 
-    public form: FormGroup;
-    public busy = false;
+  public form: FormGroup;
+  public busy = false;
   //  event: EventEmitter<any> = new EventEmitter();
 
 
-    constructor(
-     private router: Router,
-     private service: RulePointService,
-     private fb: FormBuilder,
-     private toastr: ToastrService,
-     private activatedRoute: ActivatedRoute,
+  constructor(
+    private router: Router,
+    private service: RulePointService,
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private activatedRoute: ActivatedRoute,
 
-   ) { 
+  ) {
 
 
-     this.form = this.fb.group({
+    this.form = this.fb.group({
 
       Nome: ['', Validators.compose([
-         Validators.minLength(3),
-         Validators.maxLength(80),
-         Validators.required
-       ])],
+        Validators.minLength(3),
+        Validators.maxLength(80),
+        Validators.required
+      ])],
 
-       Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
-       Valor: ['', [Validators.required]],
-       Ponto: ['', [Validators.required]],
-       Validacao: ['', [Validators.required]],
+      Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
+      Valor: ['', [Validators.required]],
+      Ponto: ['', [Validators.required]],
+      Validacao: ['', [Validators.required]],
 
-     });
+    });
 
-      
-    
+
+
   }
-   ngOnInit() {
+  ngOnInit() {
+    this.busy = true;
+    this.GetProfile();
+  }
+
+  submit() {
+    this.busy = true;
+    this.service
+      .updateProgramLoyalty(this.form.value)
+      .subscribe(
+        (data: any) => {
+          this.busy = false;
+          this.toastr.success(data.message, 'Salvo com sucesso');
+          this.router.navigate(['/']);
+
+        },
+
+        (err) => {
+          console.log(err);
+          this.busy = false;
+          this.toastr.success('Salvo com sucesso');
+        }
+      );
+  }
+
+  GetProfile() {
 
     const idUser = Security.getUser().id;
 
-
-   this.busy = true;
     this
-       .service
-       .getByIdProgramLoyalty(this.activatedRoute.snapshot.params.id, idUser)  
-       .subscribe(
-         (data: any) => {
-           this.busy = false;
-           this.form.controls['Id'].setValue(data.Id);
-           this.form.controls['Nome'].setValue(data.Nome);
-           this.form.controls['Descricao'].setValue(data.Descricao);
-           this.form.controls['Valor'].setValue(data.Valor);
-           this.form.controls['Ponto'].setValue(data.Ponto);
-           this.form.controls['Validacao'].setValue(data.Validacao);
-         },
-         (err) => {
-           console.log(err);
-           this.busy = false;
-         }
-       );
-   }
+      .service
+      .getByIdProgramLoyalty(idUser)
+      .subscribe(
+        (data: any) => {
+          this.busy = false;
+          this.form.controls.Id.setValue(data.Id);
+          this.form.controls.Nome.setValue(data.Nome);
+          this.form.controls.Descricao.setValue(data.Descricao);
+          this.form.controls.Valor.setValue(data.Valor);
+          this.form.controls.Ponto.setValue(data.Ponto);
+          this.form.controls.Validacao.setValue(data.Validacao);
+        },
+        (err) => {
+          console.log(err);
+          this.busy = false;
+        }
+      );
+  }
 
-   submit() {
-   this.busy = true;
-       this.service
-         .updateProgramLoyalty(this.form.value)
-         .subscribe(
-           (data: any) => {
-           this.busy = false;
-           this.toastr.success(data.message, 'Salvo com sucesso');
-           this.router.navigate(['/']);
-
-         },
-
-           (err) => {
-             console.log(err);
-             this.busy = false;
-             this.toastr.success('Salvo com sucesso');
-           }
-         );
-          }
-  
-      backPage(){
-        this.router.navigate(['/listProgram']);
-      }
+  backPage() {
+    this.router.navigate(['/listProgram']);
+  }
 }
 

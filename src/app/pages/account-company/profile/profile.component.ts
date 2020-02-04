@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   public carregando = false;
   public message: string;
   public selectedFile: File = null;
-
+  //public imagem:File = null;
   // tslint:disable-next-line: no-output-on-prefix
   @Output() public onUploadFinished = new EventEmitter();
 
@@ -25,7 +25,8 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     private service: DataService,
     private toastr: ToastrService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    
 
   ) {
     this.form = this.fb.group({
@@ -179,6 +180,7 @@ export class ProfileComponent implements OnInit {
       .service
       .UpdatePerfil(this.form.value)
       .subscribe((data: any) => {
+        console.log(this.form.value);
         this.carregando = false;
         this.toastr.success('Salvo com sucesso');
         this.router.navigate(['/']);
@@ -199,6 +201,7 @@ export class ProfileComponent implements OnInit {
       .subscribe(
         (event) => {
           this.toastr.success('Salvo com sucesso');
+                    console.log(this.selectedFile);
         },
         (err) => {
           this.carregando = false;

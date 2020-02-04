@@ -23,7 +23,7 @@ export class DataService {
     public composeHeaders() {
         const tokem = localStorage.getItem('tokenPontuaae');
         const headers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
-
+        console.log(headers);
         return headers;
 
 
@@ -36,11 +36,12 @@ export class DataService {
     }
 
     GetPerfil(id: number) {
-        return this.http.get<any[]>(`${this.url}v1/DetalheEmpresa/${id}`, { headers: this.composeHeaders() });
+        console.log(id);
+        return this.http.get<any[]>(`${this.url}v1/Empresa/${id}`, { headers: this.composeHeaders() });
     }
 
     UpdatePerfil(data) {
-        return this.http.put(`${this.url}v1/EditarEmpresa`, data, { headers: this.composeHeaders() });
+        return this.http.put(`${this.url}v1/Empresa/edit`, data, { headers: this.composeHeaders() });
     }
 
     uploadImagem(data: any): Observable<any> {
@@ -48,7 +49,7 @@ export class DataService {
     }
 
     listarEmpresas() {
-        return this.http.get<Empresa[]>(`${this.url}v1/Empresa/Lista`)
+        return this.http.get<Empresa[]>(`${this.url}v1/Empresa/Lista`, { headers: this.composeHeaders() })
             .pipe(
                 tap(console.log)
             );

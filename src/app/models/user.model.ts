@@ -3,7 +3,7 @@ export class User {
         public idEmpresa: string,
         public id: string,
         public email: string,
-        public claim: string,
+        public claimValue: string,
     ) {
 
     }

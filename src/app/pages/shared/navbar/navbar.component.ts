@@ -15,8 +15,8 @@ export class NavbarComponent implements OnInit {
 
   }
   ngOnInit() {
-   // this.user = Security.getUser();
-   // this.claimOfUser = this.user.claim === 'Admin';
+    this.user = Security.getUser();
+    this.claimOfUser = this.user.claimValue === 'Admin';
   }
 
   GoOut() {
@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
     if (this.claimOfUser) {
       this.router.navigate(['/home']);
     } else {
-      this.router.navigate(['/client/dashboard']);
+      this.router.navigate(['/home-client']);
     }
   }
 
@@ -52,7 +52,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/profile']);
     } else {
       console.log('aqui2');
-      this.router.navigate(['/client/profile-customer']);
+      this.router.navigate(['/home-client/profile-customer']);
     }
   }
 

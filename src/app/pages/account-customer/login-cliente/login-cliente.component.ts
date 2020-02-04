@@ -54,8 +54,8 @@ export class LoginClienteComponent implements OnInit {
         (data: any) => {
           this.carregando = false;
           this.setUser(data.users, data.token);
-          this.toastr.success(data.mensage);
-          this.router.navigate(['/client/dashboard']);
+          this.toastr.success(data);
+         
 
         },
         (err) => {
@@ -68,7 +68,7 @@ export class LoginClienteComponent implements OnInit {
 
   setUser(user, token) {
     Security.set(user, token);
-    this.router.navigate(['/home-client/Dash']);
+    this.router.navigate(['/home-client/']);
   }
 
   setCadatrarPerfil(validade) {

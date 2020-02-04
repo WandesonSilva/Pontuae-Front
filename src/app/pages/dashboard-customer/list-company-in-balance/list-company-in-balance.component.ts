@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../../service/customer.service';
 import { Observable } from 'rxjs';
 import { ScoreComapanyModels } from '../../../models/ScoreCompany.models';
+import { Security } from '../../../utils/security.util';
 
 @Component({
   selector: 'app-list-company-in-balance',
@@ -17,9 +18,10 @@ Balances: ScoreComapanyModels[];
   }
 
   BalanceCustomer() {
+    const id = Security.getUser().id;
     this
     .service
-    .GetBalanceOfCompany()
+    .GetBalanceOfCompany('1')
     .subscribe(data => this.Balances = data);
   }
 

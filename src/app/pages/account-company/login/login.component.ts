@@ -68,6 +68,8 @@ export class LoginComponent implements OnInit {
           this.carregando = false;
           this.setUser(data.users, data.token);
           this.toastr.success(data.mensage);
+          this.router.navigate(['/']);
+
         },
         (err) => {
           this.carregando = false;
@@ -77,9 +79,9 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  setUser(user, token) {
-    Security.set(user, token);
-    this.router.navigate(['/']);
+  setUser(users, token) {
+    Security.set(users, token);
+
   }
 
   setCadatrarPerfil(validade) {

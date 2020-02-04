@@ -1,48 +1,66 @@
+<div uk-sticky>
+  <nav class="uk-navbar uk-navbar-container uk-light " id="menuColor" uk-navbar>
+    <div class="uk-navbar-left">
+      <a *ngIf="this.claimOfUser" class="uk-navbar-toggle uk-margin-small-right uk-margin-small-left" uk-toggle="target: #offcanvas-overlay"
+        href="#">
+        <span uk-navbar-toggle-icon></span>
+      </a>
+      <a (click)="GoHome()" class=" uk-text-large uk-active uk-link-heading uk-margin-small-left" style="font-family:Cocon">pontua <a
+          style="font-family:Lucida Handwriting"> Aê</a></a>
+    </div>
+    <!--  --MENU HORIZONTAL--   -->
+    <div class="uk-navbar-right">
 
-<div uk-sticky >
-<nav class="uk-navbar uk-navbar-container uk-light " id="menuColor" uk-navbar >
-  <div class="uk-navbar-left" >
-    <a class="uk-navbar-toggle uk-margin-small-right uk-margin-small-left" uk-toggle="target: #offcanvas-overlay" href="#">
-      <span uk-navbar-toggle-icon></span>
-    </a>
-    <a (click)="GoHome()" class=" uk-text-large uk-active uk-link-heading" style="font-family:Cocon">pontua <a style="font-family:Lucida Handwriting"> Aê</a></a>
-  </div>
-          <!--  --MENU HORIZONTAL--   -->
-  <div class="uk-navbar-right">
-     
-    <ul class="uk-navbar-nav">
+      <ul class="uk-navbar-nav">
 
-      <li class="uk-active"><a href="#">{{ user.email }}</a></li>
-      <li class="uk-active">
-      </li>
-      <li>
-        <a  href="#" > <span class="uk-icon-button uk-icon" uk-icon="icon: cog"></span></a>
-        <div uk-dropdown="mode: click">
-          <ul class="uk-nav uk-navbar-dropdown-nav">
-            <li class="uk-active"><a href="">Menu</a></li>
-            <li><a (click)="ToProfile()" >Perfil</a></li>
-            <li><a href="#">Item</a></li>
-            <li class="uk-nav-divider"></li>
-            <li><a id="red" (click)="GoOut()">Sair</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
-    <div class="uk-offcanvas-bar">
-      <button class="uk-offcanvas-close" type="button" uk-close></button>
-      <h3>Menu</h3>
-      <ul class="uk-nav uk-nav-default">
-
-        <!--<li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> </a>  </li>-->
-        <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-
-        <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
+        <li class="uk-active"><a href="#">{{ user.email }}</a></li>
+        <li class="uk-active">
+        </li>
+        <li>
+          <a href="#"> <span class="uk-icon-button uk-icon" uk-icon="icon: cog"></span></a>
+          <div uk-dropdown="mode: click">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+              <li class="uk-active"><a href="">Menu</a></li>
+              <li><a (click)="ToProfile()">Perfil</a></li>
+              <li><a href="#">Item</a></li>
+              <li class="uk-nav-divider"></li>
+              <li><a id="red" (click)="GoOut()">Sair</a></li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </div>
-  </div>
-</nav>
+
+    <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <h3>Menu</h3>
+        <ul class="uk-nav uk-nav-default">
+
+          <!--<li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> </a>  </li>-->
+
+          <li class="uk-margin-small-bottom" uk-tooltip="title: home; delay: 100; pos: right"><a
+              routerLink="/home"><span>Home </span></a></li>
+
+
+          <li class="uk-margin-small-bottom" uk-tooltip="title: Clientes; delay: 100; pos: right"><a
+              routerLink="/listClientPage"><span>Clientes </span></a></li>
+
+          <li class="uk-margin-small-bottom" uk-tooltip="title: Automações; delay: 100; pos: right"><a
+              routerLink="/Campaign/Index"><span>Automações </span></a></li>
+
+          <li class="uk-margin-small-bottom" uk-tooltip="title: Fidelidade; delay: 100; pos: right"><a
+              routerLink="/Config/Point/Create"><span>Fidelidade</span></a></li>
+          <li class="uk-margin-small-bottom" uk-tooltip="title: Precisa de Ajuda?; delay: 100; pos: right"><a
+              routerLink="/home"><span>Ajuda </span></a></li>
+
+          <li class="uk-margin-small-bottom" uk-tooltip="title: Controle de Usuários; delay: 100; pos: right">
+            <a routerLink="/home"><span>Controle de Usuários </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 </div>

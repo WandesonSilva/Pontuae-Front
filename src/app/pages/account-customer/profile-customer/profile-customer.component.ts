@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CustomerService } from '../../../service/customer.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Security } from '../../../utils/security.util';
 
 @Component({
   selector: 'app-profile-customer',
@@ -21,7 +22,7 @@ export class ProfileCustomerComponent implements OnInit {
 
   ) {
     this.form = this.fb.group({
-      IdUsuario: ['', Validators.compose([
+      Id: ['', Validators.compose([
         Validators.required,
       ])],
       Nome: ['', Validators.compose([
@@ -43,24 +44,42 @@ export class ProfileCustomerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.GetCustomer();
+  }
+
+  GetCustomer() {
+    const id = Security.getUser().id;
+    this
+      .service
+      .getProfileCustomer(id)
+      .subscribe((data: any) => {
+        this.form.controls.Id.setValue(id);
+        this.form.controls.Nome.setValue(data.nome);
+        this.form.controls.Email.setValue(data.email);
+        this.form.controls.Telefone.setValue(data.telefone);
+        console.log(data);
+      },
+        (err) => {
+          console.log(err);
+        });
   }
 
 
   Submit() {
-    // this.carregando = true;
-    //this
-    //  .service
-    //  .UpdatePerfil(this.form.value)
-    //  .subscribe((data: any) => {
-    //    this.carregando = false;
-    //    this.toastr.success('Salvo com sucesso');
-    //    this.router.navigate(['/']);
-    //  }, (err) => {
-    //   this.carregando = false;
-    //   console.log(err);
-    //    this.toastr.warning(err.data);
-    //  }
-    //  );
+    this.carregando = true;
+    this
+      .service
+      .UpdateProfileCustomer(this.form.value)
+      .subscribe((data: any) => {
+        this.carregando = false;
+        this.toastr.success('Salvo com sucesso');
+        
+      }, (err) => {
+        this.carregando = false;
+        console.log(err);
+        this.toastr.warning(err.data);
+      }
+      );
 
 
   }
