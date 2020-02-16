@@ -39,7 +39,7 @@ const routes: Routes = [
   {
     path: '',
     component: MenuComponent,
-    canActivate: [AuthService, AdminGuard],
+    //canActivate: [AuthService, AdminGuard],
     children: [
 
       { path: '', component: DashboardComponent },

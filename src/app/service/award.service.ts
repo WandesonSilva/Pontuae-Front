@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Security } from '../utils/security.util';
 import { Award } from '../models/award.models';
 import { environment } from 'src/environments/environment';
+import { ListAwardClient } from '../models/ListAwardClient';
 
 
 @Injectable({ providedIn: 'root' })
@@ -34,15 +35,24 @@ export class AwardService {
     return this.http.get<any[]>(`${environment.UrlBase}v1/Premios/${id}`);
   }
 
-  getByIdAward(id: number) {
-  
-    return this.http.get<Award[]>(`${environment.UrlBase}v1/Premios/${id}`, { headers: this.composeHeaders() });
+  getListAwardClient(idEmpresa: string, contato: string) {
+    return this.http.get<ListAwardClient[]>(`${this.url}v1/premio/${idEmpresa}/${contato}`, { headers: this.composeHeaders()});
+  }
+
+
+  getByIdAward(userId: string, id: string) {
+    return this.http.get<Award[]>(`${this.url}v1/premio/${userId}/empresa/${id}`, { headers: this.composeHeaders() });
   }
   
   deleteAward(IdEmpresa: number, IdPremio: number){
     return this.http.delete(`${environment.UrlBase}v1/deletePremio/${IdPremio}/${IdEmpresa}`, {headers: this.composeHeaders()})
   }
 
+  rescue(data: any) {
+    const id = parseInt(Security.getUser().idEmpresa);
+    data.IdEmpresa = id;
+    return this.http.put(`${this.url}/Pontos`, data, { headers: this.composeHeaders() });
+  }
   
 
 }

@@ -1,46 +1,53 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PointService } from 'src/app/service/point.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AwardService } from 'src/app/service/award.service';
+import { Security } from 'src/app/utils/security.util';
+import { Observable } from 'rxjs';
+import { ListAwardClient } from 'src/app/models/ListAwardClient';
 
 @Component({
   selector: 'app-rescue',
   templateUrl: './rescue.component.html',
   styleUrls: ['./rescue.component.css']
 })
-export class RescueComponent implements OnInit {
+export class RescueComponent {
   public form: FormGroup;
+  public ListAward$: Observable<ListAwardClient[]> 
+  public contato: string;
 
   constructor(
     private fb: FormBuilder,
-    private service: PointService,
-    private router: Router,
+    private service: AwardService,
     private toastr: ToastrService,
   ) {
     this.form = this.fb.group({
       Telefone: ['', Validators.compose([
         Validators.required
       ])],
-      CodPremio: ['', Validators.compose([
-        Validators.required
-      ])],
       IdUsuario: ['', Validators.required],
     });
   }
 
-  ngOnInit() {
+  seach(Contact: string) {
+    const idEmpresa = Security.getUser().idEmpresa;
+    this.ListAward$ = this.service.getListAwardClient(idEmpresa, Contact); 
+    
   }
 
-  Submit() {
 
+  rescue( id: number, saldo: number) {
     this.
       service
-      .pointPost(this.form.value)
+      .rescue(id) 
       .subscribe((data: any) => {
+        this.toastr.info(data.dado.message);
 
       }, (err) => {
         console.log(err);
+        this.toastr.warning(err.dado.message);
       });
   }
 }

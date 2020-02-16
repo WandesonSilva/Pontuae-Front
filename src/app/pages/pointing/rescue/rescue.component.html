@@ -9,12 +9,12 @@
       <div class="uk-inline">
       <div class="uk-form-controls">
         <a class="uk-form-icon"><i class="material-icons">contact_phone</i></a>     
-        <input class="uk-input  uk-form-large uk-form-width-large" mask="(00) 00000-0000" formControlName="Telefone" id="form-stacked-text" type="text"
+        <input class="uk-input  uk-form-large uk-form-width-large" [value] ="Telefone" mask="(00) 00000-0000" formControlName="Telefone" id="form-stacked-text" type="text"
           placeholder="Digite o celular do cliente">
       </div>
       </div>
     </div>
-  
+  <!--
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text">Codigo Prêmio</label>
       <div class="uk-inline">
@@ -26,6 +26,45 @@
     </div>
     </div>
 
-    <button class="uk-button uk-button-primary buttonSave" (click)="Submit()">Resgatar</button>
+  -->
+    
+    <button class="uk-button uk-button-primary buttonSave" (input)="seach($event.target.value)">Buscar</button>
   </form>
+  
+
+  <div *ngFor="let item of ListAward$ | async">
+  <div class="uk-card  uk-card-default uk-card-bodyy uk-margin-top line-borderleft"> 
+  
+    <div><h4 class="uk-margin-remove">{{item.Nome}}</h4></div>
+      <div class="uk-margin-remove"><strong class="uk-text-large uk-text-success ">{{item.Saldo}}/</strong ><span class="uk-text-bold "> item.{{PontosNecessario}} pontos</span></div>
+       
+     <progress id="js-progressbar" class="uk-progress "value="{{item.Saldo}}" max="{{item.PontosNecessario}}"></progress>
+
+<script>
+
+    UIkit.util.ready(function () {
+
+        var bar = document.getElementById('js-progressbar');
+
+        var animate = setInterval(function () {
+
+            bar.value += 10;
+
+            if (bar.value >= bar.max) {
+                clearInterval(animate);
+            }
+
+        }, 1000);
+
+    });
+
+</script>
+      <button class="uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child"  (click)="rescue({{item.ID}}, {{item.Saldo}})" >Resgatar</button>
+    
+ 
+  </div>
+    
+   
+  </div>
+
 </div>

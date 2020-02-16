@@ -24,8 +24,13 @@
 .FundoLogin {
   background: linear-gradient(60deg, #d6085e 25%, #800691 100%);
 }
+
 .BotaoSucesso {
   background-color: #3fa845;
+  color: white;
+}
+.botaoResgatar{  
+  background-color: #32D296;
   color: white;
 }
 
@@ -330,6 +335,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
  border-left-color: #970682;
 }
 
+
+
 .line-border{
   border-style: solid;
   border-top-width:3px;
@@ -458,5 +465,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
+
+.uk-progress{
+  background: #32D296;
+}
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
