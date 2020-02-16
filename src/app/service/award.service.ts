@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Security } from '../utils/security.util';
 import { Award } from '../models/award.models';
+import { ListAwardClient } from '../models/ListAwardClient';
 
 
 @Injectable({ providedIn: 'root' })
@@ -33,6 +34,11 @@ export class AwardService {
     return this.http.get<Award[]>(`${this.url}v1/premio/${userId}`, { headers: this.composeHeaders()});
   }
 
+  getListAwardClient(idEmpresa: string, contato: string) {
+    return this.http.get<ListAwardClient[]>(`${this.url}v1/premio/${idEmpresa}/${contato}`, { headers: this.composeHeaders()});
+  }
+
+
   getByIdAward(userId: string, id: string) {
     return this.http.get<Award[]>(`${this.url}v1/premio/${userId}/empresa/${id}`, { headers: this.composeHeaders() });
   }
@@ -41,6 +47,11 @@ export class AwardService {
     return this.http.delete(`${this.url}v1/premio/${id}`, {headers: this.composeHeaders()})
   }
 
+  rescue(data: any) {
+    const id = parseInt(Security.getUser().idEmpresa);
+    data.IdEmpresa = id;
+    return this.http.put(`${this.url}/Pontos`, data, { headers: this.composeHeaders() });
+  }
   
 
 }

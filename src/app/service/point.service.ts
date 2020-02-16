@@ -1,7 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Security } from '../utils/security.util';
-import { Premios } from '../models/premios.models';
 import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root'})
