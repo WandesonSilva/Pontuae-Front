@@ -14,7 +14,7 @@
       </div>
       </div>
     </div>
-  <!--
+  
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text">Codigo Prêmio</label>
       <div class="uk-inline">
@@ -26,7 +26,7 @@
     </div>
     </div>
 
-  -->
+  
     
     <button class="uk-button uk-button-primary buttonSave" (input)="seach($event.target.value)">Buscar</button>
   </form>
@@ -59,7 +59,7 @@
     });
 
 </script>
-      <button class="uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child"  (click)="rescue({{item.ID}}, {{item.Saldo}})" >Resgatar</button>
+      <button class="uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child"  (click)="rescue([(item.id)],[(item.saldo)] )" >Resgatar</button>
     
  
   </div>

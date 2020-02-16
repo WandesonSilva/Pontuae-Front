@@ -24,24 +24,24 @@ export class AwardEditComponent implements OnInit {
   ngOnInit() {
 
     // tslint:disable-next-line: radix
-    const id = Security.getUser().id;
+    const idCliente = Security.getUser().id;
     this.busy = true;
-    this
-      .service
-      .getByIdAward(id)
-      .subscribe(
-        (data: any) => {
-          this.busy = false;
-          this.form.controls[' Id '].setValue(data.Id);
-          this.form.controls[' Nome '].setValue(data.Nome);
-          this.form.controls[' Descricao '].setValue(data.Descricao);
-          this.form.controls[' PontosNecessario '].setValue(data.PontosNecessario);
-        },
-        (err) => {
-          console.log(err);
-          this.busy = false;
-        }
-      );
+    // this
+    //   .service
+    //   .getByIdAward(idCliente, this.form.value.ID)
+    //   .subscribe(
+    //     (data: any) => {
+    //       this.busy = false;
+    //       this.form.controls[' Id '].setValue(data.Id);
+    //       this.form.controls[' Nome '].setValue(data.Nome);
+    //       this.form.controls[' Descricao '].setValue(data.Descricao);
+    //       this.form.controls[' PontosNecessario '].setValue(data.PontosNecessario);
+    //     },
+    //     (err) => {
+    //       console.log(err);
+    //       this.busy = false;
+    //     }
+    //   );
   }
 
   submit() {

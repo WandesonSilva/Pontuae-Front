@@ -40,7 +40,7 @@ export class AwardService {
   }
 
 
-  getByIdAward(userId: string, id: string) {
+  getByIdAward(userId: number, id: string) {
     return this.http.get<Award[]>(`${this.url}v1/premio/${userId}/empresa/${id}`, { headers: this.composeHeaders() });
   }
   

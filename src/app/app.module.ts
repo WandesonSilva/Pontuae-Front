@@ -86,7 +86,8 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     AwardEditComponent,
     PointCreateComponent,
     PointEditComponent,
-    ResetAccountComponent
+    ResetAccountComponent,
+    RescueComponent,
 
   ],
 
