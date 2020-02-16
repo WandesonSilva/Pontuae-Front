@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { MatDialogConfig, MatDialog } from '@angular/material';
-import { AwardCreateComponent } from '../award-create/award-create.component';
 import { Award } from 'src/app/models/award.models';
 import { AwardService } from 'src/app/service/award.service';
 import { Security } from 'src/app/utils/security.util';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-award-list',
@@ -14,26 +13,43 @@ import { ToastrService } from 'ngx-toastr';
 
 })
 export class AwardListComponent implements OnInit {
-  public ListAward$: Observable<Award[]> = null;
+  public List: Award[];
   public busy = false;
-  constructor(private service: AwardService, private toastr: ToastrService, ) { }
-
+  constructor(
+    private service: AwardService, 
+    private toastr: ToastrService,
+    private router: Router) { }
+  
   ngOnInit() {
-
-    const useId = Security.getUser().id;
-    this.ListAward$ = this.service.getListAward(useId);
+    
+    this.ListAward(); 
+    
   }
 
 
-  Delete(id: string) {
+  ListAward(){
+    const id = Security.getUser().id;
+    this.service.getListAward(id).subscribe(data => this.List = data);
+  }
+
+
+  
+  Delete(idPonto: number) {
+    const id = Security.getUser().id;
     if (confirm("Deseja realmente Excluir?")) {
       this.busy = true;
       this.service
-        .deleteAward(id).subscribe((data: any) => {
+        .deleteAward(id, idPonto )
+        .subscribe((data: any) => {
           this.busy = false;
+          this.ListAward(); 
           this.toastr.success(data.message, 'Deletado com sucesso');
+          
+        },
+        (err) => {
+          console.log(err);
         });
-    }
+  }
 
   }
 }

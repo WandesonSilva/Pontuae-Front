@@ -13,12 +13,12 @@ export class AutomationService {
   }
 
   public composeHeaders() {
-    const tokem = localStorage.getItem('tokenPontuaae');
-    const headeers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
+    const token = localStorage.getItem('tokenPontuaae');
+    const headers = new HttpHeaders().set('autorization', 'token');
+    return headers;
 
-    return headeers;
+}
 
-  }
 
   createAutomation(data: any) {
     // tslint:disable-next-line: radix

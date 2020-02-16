@@ -25,7 +25,7 @@ export class ListProgramLoyaltyComponent implements OnInit {
       this.List$ = this.service.getListProgramLoyalty(idUser);
   }  
    
-  Delete(id: string) {
+  Delete(id: any) {
     if (confirm("Deseja realmente Excluir?")) {  
       this.busy = true;    
       this.service

@@ -32,6 +32,8 @@ export class PointComponent implements OnInit {
     });
    }
 
+  
+
   ngOnInit() {
   }
 
@@ -41,11 +43,12 @@ export class PointComponent implements OnInit {
     .service
     .pointPost(this.form.value)
     .subscribe((data: any) => {
+      this.toastr.success('Operação finalizada com sucesso')
     },
     (err) => {
       console.log(err)
-    }
-    )
+      this.toastr.warning('Erro na Operação')
+      })
   }
 
 }

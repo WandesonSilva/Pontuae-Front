@@ -24,12 +24,11 @@ export class AwardEditComponent implements OnInit {
   ngOnInit() {
 
     // tslint:disable-next-line: radix
-    const IdUser = Security.getUser().id;
-
+    const id = Security.getUser().id;
     this.busy = true;
     this
       .service
-      .getByIdAward(IdUser,this.activatedRoute.snapshot.params.id )
+      .getByIdAward(id)
       .subscribe(
         (data: any) => {
           this.busy = false;

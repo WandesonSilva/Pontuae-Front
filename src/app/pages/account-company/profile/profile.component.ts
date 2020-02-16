@@ -135,8 +135,8 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    // tslint:disable-next-line: radix
-    const id = parseInt(Security.getUser().id);
+  
+    const id = Security.getUser().id;
 
     this
       .service

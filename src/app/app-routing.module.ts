@@ -58,13 +58,12 @@ const routes: Routes = [
 
         path: 'Config', component: ProgramLoyaltyComponent,
         children: [
-          { path: 'ListProgram/Index', component: ListProgramLoyaltyComponent },
+         
           { path: 'Point/Create', component: PointCreateComponent },
           { path: 'Point/Edit', component: PointEditComponent },
-
           { path: 'Award/Create', component: AwardCreateComponent },
           { path: 'Award/Edit', component: AwardEditComponent },
-          { path: 'ListAward/Index', component: AwardListComponent },
+          { path: 'ListAward', component: AwardListComponent },
           { path: '', redirectTo: '/Config', pathMatch: 'full' },
         ]
       },

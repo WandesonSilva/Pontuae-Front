@@ -19,17 +19,17 @@ export class DataService {
 
     public url = 'https://localhost:44311/';
 
-
     public composeHeaders() {
         const tokem = localStorage.getItem('tokenPontuaae');
-        const headers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
-        console.log(headers);
-        return headers;
+        const headeers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
+    
+        return headeers;
+    
+      }
+    
 
-
-    }
     CriarPerfil(data) {
-        data.IdUsuario = parseInt(Security.getUser().id, data.IdUsuario);
+        data.Id = Security.getUser().id;
         console.log(data);
         return this.http.post(`${this.url}v1/PerfilEmpresa`, data);
 
@@ -55,7 +55,7 @@ export class DataService {
             );
     }
 
-    preRegister(data: any){
+    preRegister(data: any) {
         return this.http.post(`${this.url}/v1/Cliente/PreCadastro`, data);
     }
 }

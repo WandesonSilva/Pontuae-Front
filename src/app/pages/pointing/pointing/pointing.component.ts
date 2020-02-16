@@ -18,10 +18,10 @@ Awards: Award[];
   }
 
   ListAward(){
-    const user = Security.getUser();
+    const id = Security.getUser().id;
     this
     .service
-    .getListAward(user.id)
+    .getListAward(id)
     .subscribe(data => this.Awards = data);
   }
 

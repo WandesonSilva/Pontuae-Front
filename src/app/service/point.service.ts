@@ -23,8 +23,9 @@ export class PointService {
     }
 
     pointPost(data: any) {
-        const id = parseInt(Security.getUser().id, data.id);
-        data.IdUsuario = id;
+        const a = Security.getUser().id
+        data.id = a;
+      
         return this.http.post(`${this.url}v1/Pontos`, data, { headers: this.composeHeaders() });
 
     }

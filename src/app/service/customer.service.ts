@@ -22,9 +22,11 @@ export class CustomerService {
     const headeers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
 
     return headeers;
+
   }
 
-  getProfileCustomer(id: string) {
+
+  getProfileCustomer(id: number) {
     return this.http.get<Customer[]>(`${environment.UrlBase}v1/Cliente/${id}`);
   
   }
@@ -40,7 +42,7 @@ export class CustomerService {
 
   ListarProgramasFidelidadeCadastrados() {
 
-    const b = parseInt(Security.getUser().id, this.id);
+    const b = Security.getUser().id;
     const a = this.http.get<ListaEmpresaSaldo[]>(`${this.url}v1/SaldosCliente/${b}`).pipe(
       tap(console.log)
     );

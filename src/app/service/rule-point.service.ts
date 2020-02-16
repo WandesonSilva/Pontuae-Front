@@ -28,27 +28,27 @@ export class RulePointService {
 
   createRule(data: any) {
     // tslint:disable-next-line: radix
-    const id = parseInt(Security.getUser().id);
+    const id = Security.getUser().id;
     data.IdUsuario = id;
     return this.http.post(`${this.url}v1/Pontos`, data, { headers: this.composeHeaders() });
 
   }
 
-  getListProgramLoyalty( idUser: string) {
+  getListProgramLoyalty( idUser: number) {
     return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${idUser}`, { headers: this.composeHeaders() });
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get
-  getByIdProgramLoyalty(id: string) {
+  getByIdProgramLoyalty(id: number) {
     return this.http.get<RuleProgram[]>(`${environment.UrlBase}v1/Config/${id}`);
   }
 
 
   updateProgramLoyalty(data: any) {
-    return this.http.put(`${this.url}/Pontos`, data, { headers: this.composeHeaders() });
+    return this.http.put(`${environment.UrlBase}v1/Config/edit`, data, { headers: this.composeHeaders() });
   }
 
-  deleteLoyalty(id: string){
+  deleteLoyalty(id: number){
     return this.http.delete(`${this.url}v1/Pontos/${id}`, {headers: this.composeHeaders()})
   }
 

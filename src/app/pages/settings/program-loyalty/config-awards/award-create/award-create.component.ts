@@ -1,9 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AwardService } from 'src/app/service/award.service';
+import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-award-create',
@@ -12,7 +12,10 @@ import { AwardService } from 'src/app/service/award.service';
 
 })
 
-export class AwardCreateComponent  {
+export class AwardCreateComponent implements OnInit {
+  ngOnInit() {
+    console.log(this.form.value);
+  }
   public form: FormGroup;
   public busy = false;
 
@@ -21,42 +24,53 @@ export class AwardCreateComponent  {
     private service: AwardService,
     private fb: FormBuilder,
     private toastr: ToastrService,
-   
+
   ) {
     this.form = this.fb.group({
 
+      IdEmpresa: ['', null],
+
       Nome: ['', Validators.compose([
         Validators.minLength(3),
-        Validators.maxLength(80),
+        Validators.maxLength(50),
         Validators.required
       ])],
 
-      Descricao: ['', [Validators.required]],
-      PontosNecessario: ['', [Validators.required]],
-
+      Descricao: ['', Validators.compose([
+        Validators.minLength(3),
+        Validators.maxLength(150),
+        Validators.required
+      ])],
+      QtdPontos: ['', Validators.compose([
+        Validators.required
+      ])],
     });
 
   }
-  
+
 
   submit() {
+    const id = Security.getUser().id;
+    this.form.value.IdEmpresa = id;
 
-      this.service
-        .createAward(this.form.value)
-        .subscribe((data: any) => {
-          this.busy = false;
-          this.toastr.success(data.message,'Salvo com sucesso');
-          this.backPage();
-        },
+    console.log(this.form.value);
 
-          (err) => {
-            console.log(err);
-            this.busy = false;
-          }
-        );
-        }
-        backPage(){
-          this.router.navigate(['/config/listProgram']);
-        }
+
+    this.service
+      .createAward(this.form.value)
+      .subscribe((data: any) => {
+        console.log(data);
+        this.busy = false;
+        this.backPage();
+        this.toastr.success(data.message, 'Salvo com sucesso');
+       
+      }, (err) => {
+        console.log(err);
+        this.busy = false;
+      }
+      );
+  }
+  backPage() {
+    this.router.navigate(['/Config/ListAward']);  }
 }
 

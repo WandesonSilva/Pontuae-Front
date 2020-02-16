@@ -17,7 +17,7 @@ import { RuleProgram } from '../../../../../models/ruleProgram';
 export class PointCreateComponent implements OnInit {
 
   public form: FormGroup;
-  public busy = false;
+  public carregando = false;
   public description;
 
   constructor(
@@ -28,48 +28,65 @@ export class PointCreateComponent implements OnInit {
   ) {
 
     this.form = this.fb.group({
-      Id: ['', [Validators.required]],
-      Valor: ['', [Validators.required]],
-      Ponto: ['', [Validators.required]],
-      Validade: ['', [Validators.required]],
+      IdEmpresa: ['', Validators.compose([
+        Validators.required
+      ])],
+   
+      Reais: ['', Validators.compose([
+        Validators.minLength(1),
+        Validators.maxLength(20),
+        Validators.required
+      ])],
+      PontosFidelidade: ['',  Validators.compose([
+        Validators.minLength(1),
+        Validators.maxLength(20),
+        Validators.required
+      ])],
+      ValidadePontos: ['', Validators.compose([
+       
+        Validators.required
+      ])],
 
     });
 
 
   }
   ngOnInit() {
+    
     this.GetRule();
   }
 
   GetRule() {
-    const id = Security.getUser().id;
+    this.carregando = true;
+    const IdEmpresa = Security.getUser().id;
     this
       .service
-      .getByIdProgramLoyalty(id)
+      .getByIdProgramLoyalty(IdEmpresa)
       .subscribe((data: any) => {
-
-        this.form.controls.Id.setValue(id);
-        this.form.controls.Valor.setValue(data.valor);
-        this.form.controls.Ponto.setValue(data.ponto);
-        this.form.controls.Validade.setValue(data.validade);
+        this.carregando = false;
+        this.form.controls.IdEmpresa.setValue(IdEmpresa);
+        this.form.controls.Reais.setValue(data.reais);
+        this.form.controls.PontosFidelidade.setValue(data.pontosFidelidade);
+        this.form.controls.ValidadePontos.setValue(data.validadePontos);
         console.log(data);
       }, err => {
         console.log(err);
+        this.carregando = false;
       });
   }
 
   submit() {
-
+    this.carregando = true;
     this.service
       .updateProgramLoyalty(this.form.value)
       .subscribe((data: any) => {
-        this.busy = false;
+        this.carregando = false;
         this.toastr.success('Salvo com sucesso');
         this.backPage();
       },
         (err) => {
           console.log(err);
-          this.busy = false;
+          this.carregando = false;
           this.toastr.success('Salvo com sucesso');
         }
       );

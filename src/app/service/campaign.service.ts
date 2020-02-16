@@ -19,9 +19,10 @@ export class CampaignService {
 
   }
 
+
   createCampaign(data: any) {
     // tslint:disable-next-line: radix
-    const id = parseInt(Security.getUser().id);
+    const id = Security.getUser().id;
     data.IdEmpresa = id;
     return this.http.post(`${this.url}v1/Campanha`, data, { headers: this.composeHeaders() });
 

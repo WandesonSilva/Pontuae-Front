@@ -15,7 +15,7 @@ export class ListClientPageComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line: radix
-    const Id = parseInt(Security.getUser().id);
-    // this.ListClient$ = this.service.GetListCustomer(Id);
+    const Id = Security.getUser().id;
+     //this.ListClient$ = this.service.GetListCustomer(Id);
   }
 }
