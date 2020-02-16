@@ -11,13 +11,13 @@ import { Campaign } from 'src/app/models/campaign';
 })
 export class CampaignListComponent implements OnInit {
   public ListCampaign$: Observable<Campaign[]> = null;
-  // public ListMessage$: Observable<Campaign[]> = null;
   public busy = false;
   constructor(private service: CampaignService ) { }
 
   ngOnInit() {
     const idEmpresa = parseInt(Security.getUser().idEmpresa);
-    // this.ListMessage$ = this.service.getListCampaign(idEmpresa);
+    this.ListCampaign$ = this.service.getListCampaign(idEmpresa);
+    
   }
 
   existList() {
