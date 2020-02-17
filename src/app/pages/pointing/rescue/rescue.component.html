@@ -9,12 +9,14 @@
       <div class="uk-inline">
       <div class="uk-form-controls">
         <a class="uk-form-icon"><i class="material-icons">contact_phone</i></a>     
-        <input class="uk-input  uk-form-large uk-form-width-large" [value] ="Telefone" mask="(00) 00000-0000" formControlName="Telefone" id="form-stacked-text" type="text"
+        <input class="uk-input  uk-form-large uk-form-width-large" (keypress)="seach($event)"  mask="(00) 00000-0000"
+         formControlName="Telefone" id="form-stacked-text" type="text"
+
           placeholder="Digite o celular do cliente">
       </div>
       </div>
     </div>
-  
+<!--   
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text">Codigo Prêmio</label>
       <div class="uk-inline">
@@ -24,17 +26,18 @@
           placeholder="Digite o codigo do Prêmio">
       </div>
     </div>
-    </div>
+    </div> -->
 
   
     
-    <button class="uk-button uk-button-primary buttonSave" (input)="seach($event.target.value)">Buscar</button>
+    <button class="uk-button uk-button-primary buttonSave" (click)="seach()">Buscar</button>
   </form>
-  
 
+  
+ 
   <div *ngFor="let item of ListAward$ | async">
   <div class="uk-card  uk-card-default uk-card-bodyy uk-margin-top line-borderleft"> 
-  
+    
     <div><h4 class="uk-margin-remove">{{item.Nome}}</h4></div>
       <div class="uk-margin-remove"><strong class="uk-text-large uk-text-success ">{{item.Saldo}}/</strong ><span class="uk-text-bold "> item.{{PontosNecessario}} pontos</span></div>
        

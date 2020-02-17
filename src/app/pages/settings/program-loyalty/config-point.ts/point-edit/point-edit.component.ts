@@ -75,11 +75,11 @@ export class PointEditComponent implements OnInit {
 
   GetProfile() {
 
-    const idUser = Security.getUser().id;
+    const idEmpresa = Security.getUser().idEmpresa;
 
     this
       .service
-      .getByIdProgramLoyalty(idUser)
+      .getByIdProgramLoyalty(idEmpresa)
       .subscribe(
         (data: any) => {
           this.busy = false;

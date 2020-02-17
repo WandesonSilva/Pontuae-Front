@@ -28,14 +28,14 @@ export class AwardListComponent implements OnInit {
 
 
   ListAward(){
-    const id = Security.getUser().id;
+    const id = Security.getUser().idEmpresa;
     this.service.getListAward(id).subscribe(data => this.List = data);
   }
 
 
   
   Delete(idPonto: number) {
-    const id = Security.getUser().id;
+    const id = Security.getUser().idEmpresa;
     if (confirm("Deseja realmente Excluir?")) {
       this.busy = true;
       this.service

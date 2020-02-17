@@ -21,8 +21,8 @@ export class ListProgramLoyaltyComponent implements OnInit {
 
   
   ngOnInit() {
-    const idUser = Security.getUser().id;
-      this.List$ = this.service.getListProgramLoyalty(idUser);
+    const Id = Security.getUser().idEmpresa;
+      this.List$ = this.service.getListProgramLoyalty(Id);
   }  
    
   Delete(id: any) {

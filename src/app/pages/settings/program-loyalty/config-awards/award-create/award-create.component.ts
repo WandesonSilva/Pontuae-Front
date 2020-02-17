@@ -50,7 +50,7 @@ export class AwardCreateComponent implements OnInit {
 
 
   submit() {
-    const id = Security.getUser().id;
+    const id = Security.getUser().idCliente;
     this.form.value.IdEmpresa = id;
 
     console.log(this.form.value);

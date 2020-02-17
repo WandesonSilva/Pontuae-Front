@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Security } from '../utils/security.util';
 import { Campaign } from '../models/campaign';
+import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
 
@@ -22,30 +23,30 @@ export class CampaignService {
 
   createCampaign(data: any) {
     // tslint:disable-next-line: radix
-    const id = Security.getUser().id;
+    const id = Security.getUser().idEmpresa;
     data.IdEmpresa = id;
-    return this.http.post(`${this.url}v1/Campanha`, data, { headers: this.composeHeaders() });
+    return this.http.post(`${environment.UrlBase}v1/Campanha`, data, { headers: this.composeHeaders() });
 
   }
 
   updateCampaign(data: any) {
-    const id = parseInt(Security.getUser().idEmpresa);
+    const id = Security.getUser().idEmpresa;
     data.IdEmpresa = id;
-    return this.http.put(`${this.url}/Campanha`, data, { headers: this.composeHeaders() });
+    return this.http.put(`${environment.UrlBase}/Campanha`, data, { headers: this.composeHeaders() });
   }
 
   deleteCampaign(id: number){
-    const idEmpresa = parseInt(Security.getUser().idEmpresa);
-    return this.http.delete(`${this.url}v1/Campanha/${id}/${idEmpresa}`, {headers: this.composeHeaders()})
+    const idEmpresa = Security.getUser().idEmpresa;
+    return this.http.delete(`${environment.UrlBase}v1/Campanha/${id}/${idEmpresa}`, {headers: this.composeHeaders()})
   }
 
   getListCampaign( idEmpresa: number) {
-    return this.http.get<Campaign[]>(`${this.url}/Campanha/${idEmpresa}`, { headers: this.composeHeaders() });
+    return this.http.get<Campaign[]>(`${environment.UrlBase}/Campanha/${idEmpresa}`, { headers: this.composeHeaders() });
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get
   getByIdCampaign(id: number, idEmpresa: number) {
-    return this.http.get<Campaign[]>(`${this.url}/Campanha/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
+    return this.http.get<Campaign[]>(`${environment.UrlBase}/Campanha/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
   }
   
 

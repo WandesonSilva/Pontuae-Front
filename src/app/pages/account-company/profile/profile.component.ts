@@ -136,7 +136,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
   
-    const id = Security.getUser().id;
+    const id = Security.getUser().idEmpresa;
 
     this
       .service

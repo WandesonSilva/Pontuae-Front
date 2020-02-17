@@ -27,7 +27,7 @@ export class AwardService {
   }
 
   updateAward(data: any) { 
-    return this.http.put(`${this.url}v1/premio`, data, {headers: this.composeHeaders()});
+    return this.http.put(`${environment.UrlBase}v1/premio`, data, {headers: this.composeHeaders()});
   }
 
   getListAward(id: any) {
@@ -35,13 +35,13 @@ export class AwardService {
     return this.http.get<any[]>(`${environment.UrlBase}v1/Premios/${id}`);
   }
 
-  getListAwardClient(idEmpresa: string, contato: string) {
-    return this.http.get<ListAwardClient[]>(`${this.url}v1/premio/${idEmpresa}/${contato}`, { headers: this.composeHeaders()});
+  getListAwardClient(Id: number, contato: string) {
+    return this.http.get<ListAwardClient[]>(`${environment.UrlBase}v1/premio/${Id}/${contato}`, { headers: this.composeHeaders()});
   }
 
 
-  getByIdAward(userId: number, id: string) {
-    return this.http.get<Award[]>(`${this.url}v1/premio/${userId}/empresa/${id}`, { headers: this.composeHeaders() });
+  getByIdAward(idUsuario: string, id: string) {
+    return this.http.get<Award[]>(`${environment.UrlBase}v1/premio/${idUsuario}/empresa/${id}`, { headers: this.composeHeaders() });
   }
   
   deleteAward(IdEmpresa: number, IdPremio: number){
@@ -49,9 +49,10 @@ export class AwardService {
   }
 
   rescue(data: any) {
-    const id = parseInt(Security.getUser().idEmpresa);
-    data.IdEmpresa = id;
-    return this.http.put(`${this.url}/Pontos`, data, { headers: this.composeHeaders() });
+    const user = Security.getUser();
+    data.IdEmpresa = user.idEmpresa;
+    data.IdEmpresa = user.idUsuario;
+    return this.http.put(`${environment.UrlBase}/Pontos`, data, { headers: this.composeHeaders() });
   }
   
 

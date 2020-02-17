@@ -2,12 +2,12 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Security } from '../utils/security.util';
 import { tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root'})
 
 export class PointService {
 
-    public url = 'https://localhost:44311/';
     public id: number;
     constructor(
         private http: HttpClient
@@ -22,10 +22,12 @@ export class PointService {
     }
 
     pointPost(data: any) {
-        const a = Security.getUser().id
-        data.id = a;
+        const a = Security.getUser();
+        data.IdEmpresa = a.idEmpresa;
+        data.IdUsuario = a.idUsuario;
+
       
-        return this.http.post(`${this.url}v1/Pontos`, data, { headers: this.composeHeaders() });
+        return this.http.post(`${environment.UrlBase}v1/Pontos`, data);
 
     }
 

@@ -19,7 +19,7 @@ export class ModelMessageComponent implements OnInit {
   constructor(private service: MessageService ) { }
 
   ngOnInit() {
-    const idEmpresa = parseInt(Security.getUser().idEmpresa);
+    const idEmpresa = Security.getUser().idEmpresa;
     this.ListMessage$ = this.service.getListModelMessage(idEmpresa);
   }
 

@@ -24,7 +24,7 @@ export class AwardEditComponent implements OnInit {
   ngOnInit() {
 
     // tslint:disable-next-line: radix
-    const idCliente = Security.getUser().id;
+    //const idCliente = Security.getUser().idEmpresa;
     this.busy = true;
     // this
     //   .service

@@ -48,7 +48,7 @@ export class ProfileCustomerComponent implements OnInit {
   }
 
   GetCustomer() {
-    const id = Security.getUser().id;
+    const id = Security.getUser().idCliente;
     this
       .service
       .getProfileCustomer(id)

@@ -58,7 +58,7 @@ export class PointCreateComponent implements OnInit {
 
   GetRule() {
     this.carregando = true;
-    const IdEmpresa = Security.getUser().id;
+    const IdEmpresa = Security.getUser().idEmpresa;
     this
       .service
       .getByIdProgramLoyalty(IdEmpresa)

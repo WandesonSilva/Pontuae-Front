@@ -31,9 +31,10 @@ export class RescueComponent {
     });
   }
 
-  seach(Contact: string) {
-    const idEmpresa = Security.getUser().idEmpresa;
-    this.ListAward$ = this.service.getListAwardClient(idEmpresa, Contact); 
+  seach() {
+    const id = Security.getUser().idEmpresa;
+    //console.log(event.target.value);
+    this.ListAward$ = this.service.getListAwardClient(id, this.form.value.Telefone); 
     
   }
 

@@ -18,7 +18,7 @@ Balances: ScoreComapanyModels[];
   }
 
   BalanceCustomer() {
-    const id = Security.getUser().id;
+    const id = Security.getUser().idCliente;
     this
     .service
     .GetBalanceOfCompany('1')

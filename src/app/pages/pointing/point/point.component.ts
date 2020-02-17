@@ -28,7 +28,7 @@ export class PointComponent implements OnInit {
       ValorInfor: ['', Validators.compose([
         Validators.required
       ])],
-      IdUsuario: [''],
+      IdEmpresa: [''],
     });
    }
 

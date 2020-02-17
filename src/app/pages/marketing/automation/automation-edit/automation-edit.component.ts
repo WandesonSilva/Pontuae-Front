@@ -41,7 +41,7 @@ export class AutomationEditComponent implements OnInit {
 
   ngOnInit() {
 
-    const idEmpresa = parseInt(Security.getUser().idEmpresa);
+    const idEmpresa = Security.getUser().idEmpresa;
 
     this.busy = true;
     this

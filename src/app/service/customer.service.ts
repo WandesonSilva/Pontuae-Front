@@ -13,8 +13,6 @@ import { Customer } from '../models/customer.model';
   providedIn: 'root'
 })
 export class CustomerService {
-  public url = 'https://localhost:44311/';
-  public id: number;
   constructor(private http: HttpClient) { }
 
   public composeHeaders() {
@@ -30,41 +28,34 @@ export class CustomerService {
     return this.http.get<Customer[]>(`${environment.UrlBase}v1/Cliente/${id}`);
   
   }
-  
-  GetPremios() {
-    return this.http.get<any[]>(this.url);
-  }
 
   cadastrarCliente(data) {
-    console.log(data);
-    return this.http.post(`${this.url}v1/NovoCliente`, data);
+    return this.http.post(`${environment.UrlBase}v1/NovoCliente`, data);
   }
 
   ListarProgramasFidelidadeCadastrados() {
 
-    const b = Security.getUser().id;
-    const a = this.http.get<ListaEmpresaSaldo[]>(`${this.url}v1/SaldosCliente/${b}`).pipe(
+    const id = Security.getUser().idCliente;
+    const a = this.http.get<ListaEmpresaSaldo[]>(`${environment.UrlBase}v1/SaldosCliente/${id}`).pipe(
       tap(console.log)
     );
-    console.log(b);
-    console.log(a);
     return a;
   }
 
   GetListCustomer(id: number) {
-    return this.http.get<any[]>(`${this.url}v1/ListaClientes/${id}`, { headers: this.composeHeaders() });
+    return this.http.get<any[]>(`${environment.UrlBase}v1/ListaClientes/${id}`, { headers: this.composeHeaders() });
   }
 
   GetByIdCustomer(id: number) {
-    return this.http.get<any[]>(`${this.url}v1/Cliente/${id}`, { headers: this.composeHeaders() });
+    return this.http.get<any[]>(`${environment.UrlBase}v1/Cliente/${id}`, { headers: this.composeHeaders() });
   }
 
   GetHistoric(id: number) {
-    return this.http.get<any[]>(`${this.url}v1/ClientHistory/${id}`, { headers: this.composeHeaders() });
+    return this.http.get<any[]>(`${environment.UrlBase}v1/ClientHistory/${id}`, { headers: this.composeHeaders() });
   }
 
   GetBalanceOfCompany(id: string){
-    return this.http.get<Observable<Empresa>[]>(`${this.url}v1/Cliente/ListaSaldo/${id}`, { headers: this.composeHeaders() })
+    return this.http.get<Observable<Empresa>[]>(`${environment.UrlBase}v1/Cliente/ListaSaldo/${id}`, { headers: this.composeHeaders() })
     .pipe(
         tap(console.log)
     );

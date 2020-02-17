@@ -6,6 +6,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { Security } from '../utils/security.util';
 import { Customer } from '../models/customer.model';
 import { PreRegisterModels } from '../models/preRegister.models';
+import { environment } from 'src/environments/environment';
 
 
 const httpOptions = {
@@ -29,34 +30,31 @@ export class DataService {
     
 
     CriarPerfil(data) {
-        data.Id = Security.getUser().id;
-        console.log(data);
-        return this.http.post(`${this.url}v1/PerfilEmpresa`, data);
-
+        data.Id = Security.getUser().idEmpresa;
+        return this.http.post(`${environment.UrlBase}v1/PerfilEmpresa`, data);
     }
 
     GetPerfil(id: number) {
-        console.log(id);
-        return this.http.get<any[]>(`${this.url}v1/Empresa/${id}`, { headers: this.composeHeaders() });
+        return this.http.get<any[]>(`${environment.UrlBase}v1/Empresa/${id}`, { headers: this.composeHeaders() });
     }
 
     UpdatePerfil(data) {
-        return this.http.put(`${this.url}v1/Empresa/edit`, data, { headers: this.composeHeaders() });
+        return this.http.put(`${environment.UrlBase}v1/Empresa/edit`, data, { headers: this.composeHeaders() });
     }
 
     uploadImagem(data: any): Observable<any> {
-        return this.http.post(`${this.url}v1/empresa/imagem`, data);
+        return this.http.post(`${environment.UrlBase}v1/empresa/imagem`, data);
     }
 
     listarEmpresas() {
-        return this.http.get<Empresa[]>(`${this.url}v1/Empresa/Lista`, { headers: this.composeHeaders() })
+        return this.http.get<Empresa[]>(`${environment.UrlBase}v1/Empresa/Lista`, { headers: this.composeHeaders() })
             .pipe(
                 tap(console.log)
             );
     }
 
     preRegister(data: any) {
-        return this.http.post(`${this.url}/v1/Cliente/PreCadastro`, data);
+        return this.http.post(`${environment.UrlBase}/v1/Cliente/PreCadastro`, data);
     }
 }
 

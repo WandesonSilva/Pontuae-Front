@@ -18,7 +18,7 @@ Awards: Award[];
   }
 
   ListAward(){
-    const id = Security.getUser().id;
+    const id = Security.getUser().idEmpresa;   
     this
     .service
     .getListAward(id)

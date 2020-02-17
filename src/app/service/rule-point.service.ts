@@ -28,14 +28,14 @@ export class RulePointService {
 
   createRule(data: any) {
     // tslint:disable-next-line: radix
-    const id = Security.getUser().id;
+    const id = Security.getUser().idEmpresa;
     data.IdUsuario = id;
-    return this.http.post(`${this.url}v1/Pontos`, data, { headers: this.composeHeaders() });
+    return this.http.post(`${environment.UrlBase}v1/Pontos`, data, { headers: this.composeHeaders() });
 
   }
 
-  getListProgramLoyalty( idUser: number) {
-    return this.http.get<RuleProgram[]>(`${this.url}/Pontos/${idUser}`, { headers: this.composeHeaders() });
+  getListProgramLoyalty( id: number) {
+    return this.http.get<RuleProgram[]>(`${environment.UrlBase}/Pontos/${id}`, { headers: this.composeHeaders() });
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get
@@ -49,13 +49,7 @@ export class RulePointService {
   }
 
   deleteLoyalty(id: number){
-    return this.http.delete(`${this.url}v1/Pontos/${id}`, {headers: this.composeHeaders()})
+    return this.http.delete(`${environment.UrlBase}v1/Pontos/${id}`, {headers: this.composeHeaders()})
   }
-
-  changePostId(postId: number){
-    this.postIdSource.next(postId);
-}
-
-
 
 }

@@ -15,7 +15,7 @@ export class CampaignListComponent implements OnInit {
   constructor(private service: CampaignService ) { }
 
   ngOnInit() {
-    const idEmpresa = parseInt(Security.getUser().idEmpresa);
+    const idEmpresa = Security.getUser().idEmpresa;
     this.ListCampaign$ = this.service.getListCampaign(idEmpresa);
     
   }

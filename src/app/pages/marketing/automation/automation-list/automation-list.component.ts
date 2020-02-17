@@ -17,7 +17,7 @@ export class AutomationListComponent implements OnInit {
   constructor(private service: AutomationService, private activatedRoute: ActivatedRoute, private toastr: ToastrService,) { }
 
   ngOnInit() {
-    const idEmpresa = parseInt(Security.getUser().idEmpresa);
+    const idEmpresa = Security.getUser().idEmpresa;
     this.ListAutomation$ = this.service.getListAutomation(idEmpresa);
   }
 
