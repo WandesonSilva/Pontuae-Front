@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Security } from '../utils/security.util';
 import { Award } from '../models/award.models';
 import { environment } from 'src/environments/environment';
-import { ListAwardClient } from '../models/ListAwardClient';
+import { listAwardClient } from '../models/listAwardClient';
 
 
 @Injectable({ providedIn: 'root' })
@@ -36,7 +36,7 @@ export class AwardService {
   }
 
   getListAwardClient(Id: number, contato: string) {
-    return this.http.get<ListAwardClient[]>(`${environment.UrlBase}v1/premio/${Id}/${contato}`, { headers: this.composeHeaders()});
+    return this.http.get<listAwardClient[]>(`${environment.UrlBase}v1/premio/${Id}/${contato}`, { headers: this.composeHeaders()});
   }
 
 
