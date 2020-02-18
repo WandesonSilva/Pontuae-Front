@@ -31,11 +31,11 @@ export class RescueComponent {
     });
   }
 
-  seach() {
+  async seach() {
     const id = Security.getUser().idEmpresa;
     //console.log(event.target.value);
-    this.ListAward$ = this.service.getListAwardClient(id, this.form.value.Telefone); 
-    
+    this.ListAward$ = await this.service.getListAwardClient(id, this.form.value.Telefone); 
+    console.log(this.ListAward$);
   }
 
 
