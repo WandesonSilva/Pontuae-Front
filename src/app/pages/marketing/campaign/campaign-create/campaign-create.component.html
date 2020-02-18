@@ -29,6 +29,16 @@
             </div>
           </div>
 
+          <div hidden class="uk-width-1-4@s">
+            <label  class="uk-form-label" for="form-stacked-select" >Canal de Comunicação</label>
+            <div class="uk-form-controls">
+              <select  class="uk-select" id="form-stacked-select" formControlName="Tipo"  >
+                <option value="0">SMS</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
           <div class="uk-width-1-2@s">
             <label class="uk-form-label" for="form-stacked-text">Nome da Campanha</label>
             <div class="uk-form-controls">
@@ -39,6 +49,10 @@
         <!--uk-grid-->
            
         <br>
+        <div class="uk-alert-warning" uk-alert>
+          <p>Evite utilizar acentos e caracteres especiais na mensagem abaixo.</p>
+        </div>
+
         <div class="uk-margin">
           <label class="uk-form-label" for="form-stacked-text">Qual mensagem deseja enviar?</label>
           <textarea class="uk-textarea" rows="5" formControlName="Conteudo"
@@ -58,7 +72,7 @@
           <mat-datepicker #myDatepicker color="accent"></mat-datepicker>
         </div>
 
-          <div class="uk-width-1-2@s">
+          <!-- <div class="uk-width-1-2@s">
             <label class="uk-form-label" for="form-stacked-select">Será enviada mais de uma vez?</label>
             <div class="uk-form-controls">
               <select class="uk-select" id="form-stacked-select" formControlName="Reenviar" placeholder="Selecione">
@@ -67,7 +81,7 @@
                 <option value="1">Sim</option>
               </select>
           </div>
-        </div>
+        </div> -->
             </div>
         <hr>
 

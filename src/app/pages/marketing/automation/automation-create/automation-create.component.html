@@ -48,10 +48,10 @@
             </div>
           </div>
 
-          <div class="uk-width-1-4@s">
-            <label  class="uk-form-label" for="form-stacked-select">Canal de Comunicação</label>
+          <div hidden class="uk-width-1-4@s">
+            <label  class="uk-form-label" for="form-stacked-select" >Canal de Comunicação</label>
             <div class="uk-form-controls">
-              <select  class="uk-select" id="form-stacked-select" formControlName="Tipo" >
+              <select  class="uk-select" id="form-stacked-select" formControlName="Tipo"  >
                 <option value="0">SMS</option>
               </select>
             </div>
@@ -84,6 +84,11 @@
               placeholder="Digite o dia da Semana">
           </div>
         </div>
+
+        <div class="uk-alert-warning" uk-alert>
+          <p>Evite utilizar acentos e caracteres especiais na mensagem abaixo.</p>
+        </div>
+     
 
         <div class="uk-margin">
           <label class="uk-form-label" for="form-stacked-text">Qual mensagem deseja enviar?</label>
