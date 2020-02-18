@@ -34,9 +34,9 @@ export class AwardService {
   
     return this.http.get<any[]>(`${environment.UrlBase}v1/Premios/${id}`);
   }
-
+  
   getListAwardClient(Id: number, contato: string) {
-    return this.http.get<ListAwardClient[]>(`${environment.UrlBase}v1/premio/${Id}/${contato}`, { headers: this.composeHeaders()});
+    return this.http.get<ListAwardClient[]>(`${environment.UrlBase}v1/Premios/${Id}/${contato}`, { headers: this.composeHeaders()});
   }
 
 
@@ -52,7 +52,7 @@ export class AwardService {
     const user = Security.getUser();
     data.IdEmpresa = user.idEmpresa;
     data.IdEmpresa = user.idUsuario;
-    return this.http.put(`${environment.UrlBase}/Pontos`, data, { headers: this.composeHeaders() });
+    return this.http.put(`${environment.UrlBase}v1/Pontos`, data, { headers: this.composeHeaders() });
   }
   
 

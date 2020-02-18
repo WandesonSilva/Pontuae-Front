@@ -22,13 +22,17 @@ export class PointComponent implements OnInit {
   ) {
 
     this.form = this.fb.group({
+      IdEmpresa: ['', Validators.compose([
+      ])],
+      IdUsuario: ['',Validators.compose([
+      ])],
       Telefone: ['', Validators.compose([
         Validators.required
       ])],
       ValorInfor: ['', Validators.compose([
         Validators.required
       ])],
-      IdEmpresa: [''],
+  
     });
    }
 
@@ -39,15 +43,22 @@ export class PointComponent implements OnInit {
 
   Submit(){
 
+    const a = Security.getUser();
+       
+    this.form.value.IdEmpresa = a.idEmpresa;
+    this.form.value.IdUsuario = a.idUsuario;
+        console.log(a);
     this
     .service
     .pointPost(this.form.value)
     .subscribe((data: any) => {
-      this.toastr.success('Operação finalizada com sucesso')
+      
+      this.toastr.success('Operação finalizada com sucesso');
+      console.log(data);
     },
     (err) => {
       console.log(err)
-      this.toastr.warning('Erro na Operação')
+      this.toastr.warning('Erro na Operação');
       })
   }
 

@@ -17,12 +17,12 @@ Awards: Award[];
   ngOnInit() {
   }
 
-  ListAward(){
-    const id = Security.getUser().idEmpresa;   
-    this
-    .service
-    .getListAward(id)
-    .subscribe(data => this.Awards = data);
-  }
+  // ListAward(){
+  //   const id = Security.getUser().idEmpresa;   
+  //   this
+  //   .service
+  //   .getListAward(id)
+  //   .subscribe(data => this.Awards = data);
+  // }
 
 }

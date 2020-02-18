@@ -22,16 +22,8 @@ export class PointService {
     }
 
     pointPost(data: any) {
-        const a = Security.getUser();
-        data.IdEmpresa = a.idEmpresa;
-        data.IdUsuario = a.idUsuario;
-
-      
         return this.http.post(`${environment.UrlBase}v1/Pontos`, data);
 
     }
-
-  
-
    
 }
