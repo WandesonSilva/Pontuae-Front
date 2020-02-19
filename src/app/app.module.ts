@@ -39,7 +39,6 @@ import { AutomationEditComponent } from './pages/marketing/automation/automation
 import { AutomationListComponent } from './pages/marketing/automation/automation-list/automation-list.component';
 import { CampaignCreateComponent } from './pages/marketing/campaign/campaign-create/campaign-create.component';
 import { CampaignEditComponent } from './pages/marketing/campaign/campaign-edit/campaign-edit.component';
-import { ModelMessageComponent } from './pages/marketing/model-message/model-message.component';
 import { CampaignListComponent } from './pages/marketing/campaign/campaign-list/campaign-list.component';
 
 import { MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
@@ -78,7 +77,6 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     CampaignCreateComponent,
     CampaignEditComponent,
     CampaignListComponent,
-    ModelMessageComponent,
     ProgramLoyaltyComponent,
     ListProgramLoyaltyComponent,
     AwardListComponent,
