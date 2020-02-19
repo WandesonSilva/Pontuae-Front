@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Security } from '../utils/security.util';
 import { Empresa } from '../models/company.models';
 import { tap } from 'rxjs/operators';
-import { ListaEmpresaSaldo } from '../models/listarEmpresaSaldo';
+import { ListaEmpresaSaldo } from '../models/listarEmpresaSaldo.models';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Customer } from '../models/customer.model';

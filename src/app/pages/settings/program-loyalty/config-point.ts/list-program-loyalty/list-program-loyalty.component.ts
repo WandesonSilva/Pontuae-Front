@@ -2,7 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Security } from 'src/app/utils/security.util';
 import { RulePointService } from 'src/app/service/rule-point.service';
-import { RuleProgram } from 'src/app/models/ruleProgram';
+import { RuleProgram } from 'src/app/models/ruleProgram.models';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

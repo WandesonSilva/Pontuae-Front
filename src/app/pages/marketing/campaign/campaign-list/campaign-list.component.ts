@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Security } from 'src/app/utils/security.util';
 import { CampaignService } from 'src/app/service/campaign.service';
 import { Observable } from 'rxjs';
-import { Campaign } from 'src/app/models/campaign';
+import { Campaign } from 'src/app/models/campaign.models';
 
 @Component({
   selector: 'app-campaign-list',

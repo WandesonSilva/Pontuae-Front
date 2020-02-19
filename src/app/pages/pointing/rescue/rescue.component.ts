@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AwardService } from 'src/app/service/award.service';
 import { Security } from 'src/app/utils/security.util';
 import { Observable } from 'rxjs';
-import { listAwardClient } from 'src/app/models/listAwardClient';
+import { listAwardClient } from 'src/app/models/listAwardClient.models';
 
 @Component({
   selector: 'app-rescue',

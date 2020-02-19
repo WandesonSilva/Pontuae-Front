@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Empresa } from 'src/app/models/company.models';
 import { Observable } from 'rxjs';
 import { CustomerService } from 'src/app/service/customer.service';
-import { ListaEmpresaSaldo } from 'src/app/models/listarEmpresaSaldo';
+import { ListaEmpresaSaldo } from 'src/app/models/listarEmpresaSaldo.models';
 import { DataService } from '../../../service/company.service';
 import { async } from '@angular/core/testing';
 

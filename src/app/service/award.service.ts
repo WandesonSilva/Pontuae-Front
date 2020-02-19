@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Security } from '../utils/security.util';
 import { Award } from '../models/award.models';
 import { environment } from 'src/environments/environment';
-import { listAwardClient } from '../models/listAwardClient';
+import { listAwardClient } from '../models/listAwardClient.models';
 
 
 @Injectable({ providedIn: 'root' })
