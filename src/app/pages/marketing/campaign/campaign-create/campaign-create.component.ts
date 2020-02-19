@@ -40,9 +40,12 @@ export class CampaignCreateComponent {
     if(this.form.value.dataEnvio != null){
       this.form.value.agendamentoAtivo = 1;
     }
+    else{
+      (this.form.value.dataEnvio == null)
+      this.form.value.agendamentoAtivo = 0;
+    }
 
   }
-
 
   // IMCOMPLETO
   buscaContatos(){
@@ -65,6 +68,7 @@ export class CampaignCreateComponent {
         }
       );
   }
+
 
   // backPage() {
   //   this.router.navigate(['/']);

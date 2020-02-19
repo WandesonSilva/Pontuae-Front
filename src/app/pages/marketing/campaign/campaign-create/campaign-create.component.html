@@ -11,9 +11,9 @@
       </div>
       <hr>
       <form [formGroup]="form" class="uk-form-stacked">
-        <div class="uk-grid uk-grid-small uk-child-width-expand@s " uk-grid>
+        <div class="uk-grid uk-grid-lager uk-child-width-expand@s " uk-grid>
 
-          <div class="uk-width-1-2@s">
+          <div class="uk-width-1-4@s">
             <label class="uk-form-label" for="form-stacked-select">Segmento</label>
             <div class="uk-form-controls">
               <select class="uk-select" id="form-stacked-select" formControlName="Segmento" >
@@ -37,15 +37,19 @@
               </select>
             </div>
           </div>
-        </div>
 
-          <div class="uk-width-1-2@s">
+
+
+          <div class="uk-width-1-4@s">
             <label class="uk-form-label" for="form-stacked-text">Nome da Campanha</label>
             <div class="uk-form-controls">
               <input class="uk-input " formControlName="Nome" type="text" placeholder="Exemplo: promoção dia das mães">
             </div>
           </div>
+
         </div>
+
+          
         <!--uk-grid-->
            
         <br>
@@ -65,8 +69,8 @@
 
         <div uk-grid>
         <div class="uk-width-1-2@s">
-          <label class="uk-form-label" for="form-stacked-select">Agendar Envio</label>
-          
+          <label class="uk-form-label" for="form-stacked-select">Agendar Campanhar?</label> <div>opcional</div>
+        
           <input [matDatepicker]="myDatepicker" class="uk-input" class="uk-form-controls  formDatepicke"
             formControlName="DataEnvio" placeholder="">
           <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>

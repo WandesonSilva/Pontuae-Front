@@ -22,7 +22,6 @@ import { AutomationListComponent } from './pages/marketing/automation/automation
 import { CampaignCreateComponent } from './pages/marketing/campaign/campaign-create/campaign-create.component';
 import { CampaignEditComponent } from './pages/marketing/campaign/campaign-edit/campaign-edit.component';
 import { CampaignListComponent } from './pages/marketing/campaign/campaign-list/campaign-list.component';
-import { ModelMessageComponent } from './pages/marketing/model-message/model-message.component';
 import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/program-loyalty.component';
 import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
 import { PointingComponent } from './pages/pointing/pointing/pointing.component';
@@ -77,12 +76,11 @@ const routes: Routes = [
       { path: 'Campaign/Edit', component: CampaignEditComponent },
       { path: 'Campaign/Index', component: CampaignListComponent },
 
-      { path: 'Message/Index', component: ModelMessageComponent },
     ]
   },
   {
     path: 'home-client', component: MenuComponent,
-    canActivate: [AuthService, ClientGuard],
+    //canActivate: [AuthService, ClientGuard],
     children: [
       { path: '', component: DashboardCustomerComponent },
       { path: 'list', component: ListCompanyComponent },
