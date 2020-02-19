@@ -44,6 +44,7 @@ export class RescueComponent {
       service
       .rescue(id) 
       .subscribe((data: any) => {
+        
         this.toastr.info(data.dado.message);
 
       }, (err) => {
