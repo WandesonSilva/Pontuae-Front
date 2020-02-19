@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AwardService } from 'src/app/service/award.service';
 import { Security } from 'src/app/utils/security.util';
 import { Observable } from 'rxjs';
-import { ListAwardClient } from 'src/app/models/ListAwardClient';
+import { listAwardClient } from 'src/app/models/listAwardClient';
 
 @Component({
   selector: 'app-rescue',
@@ -15,7 +15,7 @@ import { ListAwardClient } from 'src/app/models/ListAwardClient';
 })
 export class RescueComponent {
   public form: FormGroup;
-  public ListAward$: Observable<ListAwardClient[]> 
+  public ListAward$: Observable<listAwardClient[]> 
   public contato: string;
 
   constructor(

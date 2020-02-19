@@ -4,8 +4,6 @@ import { AutomationService } from 'src/app/service/automation.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
-
-
 @Component({
   selector: 'app-automation-create',
   templateUrl: './automation-create.component.html',
@@ -33,14 +31,14 @@ export class AutomationCreateComponent implements OnInit {
 
     this.form = this.fb.group({
 
-      Conteudo: ['', Validators.compose([Validators.maxLength(160), Validators.required])],
-      TipoAutomacao: ['', [Validators.required]],
-      Segmentacao: ['', [Validators.nullValidator]],
-      SegCustomizado: ['', [Validators.nullValidator]],
-      DiaSemana: ['', [Validators.nullValidator]],
-      DiaMes: ['', [Validators.nullValidator]],
-      DiasAntesAniversario: ['', [Validators.nullValidator]],
-      TipoCanal: ['', [Validators.nullValidator]]
+      conteudo: ['', Validators.compose([Validators.maxLength(160), Validators.required])],
+      tipoAutomacao: ['', [Validators.required]],
+      segmentacao: ['', [Validators.nullValidator]],
+      segCustomizado: ['', [Validators.nullValidator]],
+      diaSemana: ['', [Validators.nullValidator]],
+      diaMes: ['', [Validators.nullValidator]],
+      diasAntesAniversario: ['', [Validators.nullValidator]],
+      tipoCanal: ['', [Validators.nullValidator]]
 
     });
 

@@ -1,7 +1,7 @@
 export class ListaEmpresaSaldo {
 
-    public NomeFantasia: string;
-    public Saldo: number;
-    public Logo: string;
+    public nomeFantasia: string;
+    public saldo: number;
+    public logo: string;
 
 }

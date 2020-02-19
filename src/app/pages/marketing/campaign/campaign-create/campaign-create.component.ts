@@ -28,14 +28,27 @@ export class CampaignCreateComponent {
         Validators.maxLength(60),
         Validators.required])],
 
-      DataEnvio: ['', Validators.compose([Validators.required])],
-      Conteudo: ['', Validators.compose([Validators.required])],
-      Segmentacao: ['', Validators.compose([Validators.required])],
-      CampanhaAtiva: ['', Validators.compose([Validators.nullValidator])],
-      QtdSelecionado: ['', Validators.compose([Validators.nullValidator])],
+      dataEnvio: ['', Validators.compose([Validators.required])],
+      conteudo: ['', Validators.compose([Validators.required])],
+      segmentacao: ['', Validators.compose([Validators.required])],
+
+
+      agendamentoAtivo: ['', Validators.compose([Validators.nullValidator])],
+      qtdSelecionado: ['', Validators.compose([Validators.nullValidator])],
     });
 
+    if(this.form.value.dataEnvio != null){
+      this.form.value.agendamentoAtivo = 1;
+    }
+
   }
+
+
+  // IMCOMPLETO
+  buscaContatos(){
+    this.form.value.segmentacao
+  }
+ 
 
   submit() {
 

@@ -1,21 +1,21 @@
 export class Campaign 
 {
-   // public Id: number;
-   // public IdEmpresa: number;
-   public Nome: string;
-   public Conteudo: string;
-   public DataEnvio: string; 
-   // public HoraEnvio: string; 
-   public TipoCanal: string;
-   public Segmento: string;
-   public QtdSelecionado: number;
-   public CampanhaAtiva: boolean;
+   public id: number;
+   public idEmpresa: number;
+   public nome: string;
+   public conteudo: string;
+   public dataEnvio: string; 
+   // public horaEnvio: string; 
+   public tipoCanal: string;
+   public segmento: string;
+   public qtdSelecionado: number;
+   public AgendamentoAtivo: number;
 
 
-   public QtdEnviados: number;
-   public ValorInvestido: string;
-   public QtdRetorno: number;
-   public Vendas: number;
+   public qtdEnviados: number;
+   public valorInvestido: string;
+   public qtdRetorno: number;
+   public vendas: number;
 }
 
 

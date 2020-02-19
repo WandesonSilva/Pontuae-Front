@@ -1,18 +1,18 @@
 export class Automation
 {
-    public Id: number;
-    public IdEmpresa: number;
-    public TipoAutomacao: string;
-    public Segmento: string;
-    public SegCustomizado: string;
-    public DiaSemana: string;
-    public DiaMes: number;
-    public TipoCanal: string;
-    public DiasAntesAniversario: number;
-    public Conteudo: string;
+    public id: number;
+    public idEmpresa: number;
+    public tipoAutomacao: string;
+    public segmento: string;
+    public segCustomizado: string;
+    public diaSemana: string;
+    public diaMes: number;
+    public tipoCanal: string;
+    public diasAntesAniversario: number;
+    public conteudo: string;
 
-    public QtdEnviados: number;
-    public ValorInvestido: string;
-    public QtdRetorno: number;
-    public Resultado: number;
+    public qtdEnviados: number;
+    public valorInvestido: string;
+    public qtdRetorno: number;
+    public resultado: number;
 }

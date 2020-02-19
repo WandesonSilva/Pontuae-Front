@@ -1,4 +1,4 @@
 export class PreRegisterModels{
-    public Nome: string;
-    public Telefone: number;
+    public nome: string;
+    public telefone: number;
 }

@@ -1,6 +1,6 @@
-export class ListAwardClient {
-    public ID: number;
-    public Nome: string;
-    public PontosNecessario: number;
-    public Saldo : number;
+export class listAwardClient {
+    public id: number;
+    public nome: string;
+    public pontosNecessario: number;
+    public saldo : number;
 }
