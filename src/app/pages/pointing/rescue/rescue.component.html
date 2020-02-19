@@ -11,30 +11,14 @@
         <a class="uk-form-icon"><i class="material-icons">contact_phone</i></a>     
         <input class="uk-input  uk-form-large uk-form-width-large"  mask="(00) 00000-0000"
          formControlName="Telefone" id="form-stacked-text" type="text"
-
           placeholder="Digite o celular do cliente">
       </div>
       </div>
     </div>
-<!--   
-    <div class="uk-margin">
-      <label class="uk-form-label" for="form-stacked-text">Codigo Prêmio</label>
-      <div class="uk-inline">
-        <div class="uk-form-controls">
-          <a class="uk-form-icon"><i class="material-icons">local_play</i></a>    
-        <input class="uk-input uk-form-large uk-form-width-large" formControlName="CodPremio" id="form-stacked-text" type="text"
-          placeholder="Digite o codigo do Prêmio">
-      </div>
-    </div>
-    </div> -->
-
-  
     
     <button class="uk-button uk-button-primary buttonSave" (click)="seach()">Buscar</button>
   </form>
 
-  
- 
   <div *ngFor="let item of ListAward$ | async">
   <div class="uk-card  uk-card-default uk-card-bodyy uk-margin-top line-borderleft"> 
     
@@ -42,14 +26,8 @@
       <div class="uk-margin-remove"><strong class="uk-text-large uk-text-success ">{{item.saldo}}/</strong ><span class="uk-text-bold "> {{item.pontosNecessario}} </span></div>
        
      <progress id="js-progressbar" class="uk-progress "value="{{item.saldo}}" max="{{item.pontosNecessario}}"></progress>
-
-
-      <button class="uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child"  (click)="rescue([(item.id)],[(item.saldo)] )" >Resgatar</button>
-    
- 
+      <button class="uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child"  (click)="rescue([(item.id)],[(item.pontosNecessario)] )" >Resgatar</button>
   </div>
-    
-   
-  </div>
+</div>
 
 </div>

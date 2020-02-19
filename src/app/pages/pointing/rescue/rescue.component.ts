@@ -7,6 +7,7 @@ import { AwardService } from 'src/app/service/award.service';
 import { Security } from 'src/app/utils/security.util';
 import { Observable } from 'rxjs';
 import { listAwardClient } from 'src/app/models/listAwardClient.models';
+import { rescueModels } from 'src/app/models/rescue.models';
 
 @Component({
   selector: 'app-rescue',
@@ -34,15 +35,20 @@ export class RescueComponent {
   async seach() {
     const id = Security.getUser().idEmpresa;
     //console.log(event.target.value);
-    this.ListAward$ = await this.service.getListAwardClient(id, this.form.value.Telefone); 
-    console.log(this.ListAward$);
+     const a = await this.service.getListAwardClient(id, this.form.value.Telefone);
+
+     console.log(a);
+     this.ListAward$ = a;
   }
 
 
   rescue( id: number, saldo: number) {
+    const user = Security.getUser();
+    const resgatar = new rescueModels(id[0], user.idEmpresa, user.idUsuario, saldo[0]);
+    console.log(resgatar);
     this.
       service
-      .rescue(id) 
+      .rescue(resgatar) 
       .subscribe((data: any) => {
         
         this.toastr.info(data.dado.message);

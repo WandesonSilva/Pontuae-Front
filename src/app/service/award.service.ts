@@ -4,6 +4,7 @@ import { Security } from '../utils/security.util';
 import { Award } from '../models/award.models';
 import { environment } from 'src/environments/environment';
 import { listAwardClient } from '../models/listAwardClient.models';
+import { rescueModels } from '../models/rescue.models';
 
 
 @Injectable({ providedIn: 'root' })
@@ -36,7 +37,7 @@ export class AwardService {
   }
 
   getListAwardClient(Id: number, contato: string) {
-    return this.http.get<listAwardClient[]>(`${environment.UrlBase}v1/premio/${Id}/${contato}`, { headers: this.composeHeaders()});
+    return this.http.get<listAwardClient[]>(`${environment.UrlBase}v1/Premios/${Id}/${contato}`, { headers: this.composeHeaders()});
   }
 
 
@@ -48,12 +49,8 @@ export class AwardService {
     return this.http.delete(`${environment.UrlBase}v1/deletePremio/${IdPremio}/${IdEmpresa}`, {headers: this.composeHeaders()})
   }
 
-  rescue(data: any) {
-    const user = Security.getUser();
-    data.IdEmpresa = user.idEmpresa;
-    data.IdEmpresa = user.idUsuario;
-    return this.http.put(`${environment.UrlBase}/Pontos`, data, { headers: this.composeHeaders() });
+  rescue(data: rescueModels) {    
+    return this.http.put(`${environment.UrlBase}v1/Pontos`, data, { headers: this.composeHeaders() });
   }
   
-
 }
