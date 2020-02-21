@@ -322,19 +322,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 
+.line-bordertop{
+  border-style: solid;
+  border-top-width:2px;
+  border-bottom-width: 0;
+  border-right-width: 0;
+  border-left-width: 0px;
+}
+
 
 .line-borderleft{
   border-style: solid;
   border-top-width:0;
   border-bottom-width: 0;
   border-right-width: 0;
-  border-left-width: 1px;
+  border-left-width: 3px;
 }
 
 .line-borderleft{
  border-left-color: #970682;
 }
-
 
 
 .line-border{
@@ -362,6 +369,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-top-color:#CB14A0;
 }
 
+.line-gold{
+  border-top-color:#f1c40f;
+}
+
 
 .buttonSMS{
     background: #9a06ad;
@@ -369,7 +380,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background: -webkit-linear-gradient(75deg, #800691 0%, #800691 100%);
     background: linear-gradient(75deg, #e20f83 0%, #800691 100%);
     color: #fff;
-    
     border-radius: 50px;
 }
 
@@ -378,11 +388,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-right: 4px;
     color: #fff;
 }  
-
-
-
-
- 
 
  .uk-input{
   background-color: #ffffff;
@@ -411,7 +416,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #fff;
   background-clip: padding-box;
 }
-
 
 .formDatepicke{
   background-color: #ffffff;
@@ -464,10 +468,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-top: -90px;
 }
 
-
-
-.uk-progress{
-  background: #32D296;
+#js-progressbar{
+  border-color: #32D296;
 }
 
 

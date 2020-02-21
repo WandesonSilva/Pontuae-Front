@@ -51,7 +51,7 @@ export class RescueComponent {
       .rescue(resgatar) 
       .subscribe((data: any) => {
         
-        this.toastr.info(data.dado.message);
+        this.toastr.success(data.dado.message);
 
       }, (err) => {
         console.log(err);

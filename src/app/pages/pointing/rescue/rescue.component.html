@@ -7,27 +7,36 @@
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text">Contato (Celular)</label>
       <div class="uk-inline">
-      <div class="uk-form-controls">
-        <a class="uk-form-icon"><i class="material-icons">contact_phone</i></a>     
-        <input class="uk-input  uk-form-large uk-form-width-large"  mask="(00) 00000-0000"
-         formControlName="Telefone" id="form-stacked-text" type="text"
-          placeholder="Digite o celular do cliente">
-      </div>
+        <div class="uk-form-controls">
+          <a class="uk-form-icon"><i class="material-icons">contact_phone</i></a>
+          <input class="uk-input  uk-form-large uk-form-width-large" mask="(00) 00000-0000" formControlName="Telefone"
+            id="form-stacked-text" type="text" placeholder="Digite o celular do cliente">
+        </div>
       </div>
     </div>
-    
+
     <button class="uk-button uk-button-primary buttonSave" (click)="seach()">Buscar</button>
   </form>
 
   <div *ngFor="let item of ListAward$ | async">
-  <div class="uk-card  uk-card-default uk-card-bodyy uk-margin-top line-borderleft"> 
-    
-    <div><h4 class="uk-margin-remove">{{item.nome}}</h4></div>
-      <div class="uk-margin-remove"><strong class="uk-text-large uk-text-success ">{{item.saldo}}/</strong ><span class="uk-text-bold "> {{item.pontosNecessario}} </span></div>
-       
-     <progress id="js-progressbar" class="uk-progress "value="{{item.saldo}}" max="{{item.pontosNecessario}}"></progress>
-      <button class="uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child"  (click)="rescue([(item.id)],[(item.pontosNecessario)] )" >Resgatar</button>
+    <div class="uk-card  uk-card-default uk-card-body  uk-margin-top line-bordertop line-gold">
+
+
+      <div class="uk-width-auto">
+        <h4 class="uk-margin-remove">{{item.nome}}</h4>
+      </div>
+      <div uk-grid>
+
+        <div class="uk-margin-remove"><strong class="uk-text-large uk-text-success ">{{item.saldo}}/</strong><span
+            class="uk-text-bold "> {{item.pontosNecessario}} </span></div>
+        <div class="uk-width-auto"><button class=" uk-position-center uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child card-round"
+            (click)="rescue([(item.id)],[(item.pontosNecessario)] )">Resgatar</button> </div>
+      </div>
+      <progress id="js-progressbar" class="uk-progress " value="{{item.saldo}}"
+        max="{{item.pontosNecessario}}"></progress>
+
+
+    </div>
   </div>
-</div>
 
 </div>

@@ -49,7 +49,8 @@ export class AwardService {
     return this.http.delete(`${environment.UrlBase}v1/deletePremio/${IdPremio}/${IdEmpresa}`, {headers: this.composeHeaders()})
   }
 
-  rescue(data: rescueModels) {    
+  rescue(data: rescueModels) {   
+    console.log(data); 
     return this.http.put(`${environment.UrlBase}v1/Pontos`, data, { headers: this.composeHeaders() });
   }
   
