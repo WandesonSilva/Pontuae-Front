@@ -1,3 +1,4 @@
+
 <div class="uk-container">
     <div class="uk-card uk-card-default uk-card-bodyy uk-width-1-1@m  uk-margin-top uk-flex-center   line-borderleft ">
       <div uk-grid>
@@ -10,24 +11,30 @@
         </div>
       </div>
       <hr>
+
+      <div *ngIf="checkQtdContacts()"><p class="uk-label">Total selecionado:</p>{{totalContact}}</div>
+      <div><p class="uk-label">Crédito SMS:</p></div>
       <form [formGroup]="form" class="uk-form-stacked">
         <div class="uk-grid uk-grid-lager uk-child-width-expand@s " uk-grid>
 
           <div class="uk-width-1-4@s">
             <label class="uk-form-label" for="form-stacked-select">Segmento</label>
             <div class="uk-form-controls">
-              <select class="uk-select" id="form-stacked-select" formControlName="Segmento" >
+              <select class="uk-select" (change)="onChange($event.target.value)" id="form-stacked-select" formControlName="Segmento" >
                 <option>Selecione</option>
-                <option value="0">Vip</option>
-                <option value="1">Ouro</option>
-                <option value="2">Prata</option>
-                <option value="3">Bronze</option>
-                <option value="4">Recorrentes</option>
-                <option value="5">Eventuais</option>
-                <option value="6">Ativos</option>
+                <option value="1">Novos</option>
+                <option value="2">Vips(Ouro, Prata, Bronze)</option>
+                <option value="3">Eventuais</option>
+                <option value="4">Frequentes</option>
+                <option value="5">Inativos</option>
+                <option value="6">Ouros</option>
+                <option value="7">Pratas</option>
+                <option value="8">Bronzes</option>
+                <option value="9">Em Risco</option>
               </select>
             </div>
           </div>
+         
 
           <div hidden class="uk-width-1-4@s">
             <label  class="uk-form-label" for="form-stacked-select" >Canal de Comunicação</label>
@@ -59,9 +66,10 @@
 
         <div class="uk-margin">
           <label class="uk-form-label" for="form-stacked-text">Qual mensagem deseja enviar?</label>
-          <textarea class="uk-textarea" rows="5" formControlName="Conteudo"
+          <textarea class="uk-textarea" rows="5" formControlName="Conteudo"   id="textarea"   maxlength="160"
             placeholder="Digite sua mensagem com até 160 caracteres."></textarea>
         </div>
+
         <!--   
             <div class="uk-text-left">
               <button class="uk-button buttonSMS" routerLink="/model-message"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Modelos Prontos</button>
@@ -95,3 +103,16 @@
       </form>
     </div>
   </div>
+
+
+
+
+  <script>
+    var el_t = document.getElementById('textarea');
+    var length = el_t.getAttribute("maxlength");
+    var el_c = document.getElementById('count');
+    el_c.innerHTML = length;
+    el_t.onkeyup = function () {
+      document.getElementById('count').innerHTML = (length - this.value.length);
+    };
+    </script>

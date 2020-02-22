@@ -476,3 +476,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 
+
+
+
+
+
+
+.uk-label {
+    padding: 0 10px;
+    background: #f3e6ed;
+    line-height: 1.5;
+    font-size: 14px;
+    color:  rgba(71, 3, 85, 0.925);
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 2px;
+
+}

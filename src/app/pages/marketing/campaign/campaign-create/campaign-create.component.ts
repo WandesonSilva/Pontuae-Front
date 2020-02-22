@@ -3,6 +3,7 @@ import { CampaignService } from 'src/app/service/campaign.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-campaign-create',
@@ -13,6 +14,10 @@ export class CampaignCreateComponent {
   public form: FormGroup;
   public busy = false;
   public description;
+  public listContacts: string[];
+  public totalContact: number;
+   
+
 
   constructor(
     private router: Router,
@@ -28,10 +33,10 @@ export class CampaignCreateComponent {
         Validators.maxLength(60),
         Validators.required])],
 
-      dataEnvio: ['', Validators.compose([Validators.required])],
+      dataEnvio: ['', Validators.compose([Validators.nullValidator])],
       conteudo: ['', Validators.compose([Validators.required])],
       segmentacao: ['', Validators.compose([Validators.required])],
-
+      contacts: ['', Validators.compose([Validators.nullValidator])],
 
       agendamentoAtivo: ['', Validators.compose([Validators.nullValidator])],
       qtdSelecionado: ['', Validators.compose([Validators.nullValidator])],
@@ -51,6 +56,15 @@ export class CampaignCreateComponent {
   buscaContatos(){
     this.form.value.segmentacao
   }
+
+  onChangeGetContacts(eventValue) {
+    console.log(eventValue);
+    const id = Security.getUser().idEmpresa;
+    this.service.getListContacts(id, eventValue).subscribe(data => this.listContacts = data)
+    this.totalContact == this.listContacts.length;
+    this.form.value.contacts == this.listContacts;
+    
+}
  
 
   submit() {
@@ -69,6 +83,10 @@ export class CampaignCreateComponent {
       );
   }
 
+  checkQtdContacts(){
+    console.log(this.totalContact == null);
+    return this.totalContact == null;
+  }
 
   // backPage() {
   //   this.router.navigate(['/']);
