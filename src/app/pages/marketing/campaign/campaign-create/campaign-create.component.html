@@ -7,18 +7,39 @@
       <form [formGroup]="form" class="uk-form-stacked">
         <div class="uk-grid uk-grid-lager uk-child-width-expand@s " uk-grid>
 
-          <div class="uk-width-1-4@s">
+          <div class="uk-width-1-1@s">
+            <label class="uk-form-label" for="form-stacked-text">Nome da Campanha</label>
+            <div class="uk-form-controls">
+              <input class="uk-input " formControlName="Nome" type="text" placeholder="Exemplo: promoção dia das mães">
+            </div>
+          </div>
+
+
+          <div class="uk-width-1-3@s">
             <label class="uk-form-label" for="form-stacked-select">Segmento</label>
             <div class="uk-form-controls">
-              <select class="uk-select" id="form-stacked-select" formControlName="Segmento" >
-                <option>Selecione</option>
-                <option value="0">Vip</option>
-                <option value="1">Ouro</option>
-                <option value="2">Prata</option>
-                <option value="3">Bronze</option>
-                <option value="4">Recorrentes</option>
-                <option value="5">Eventuais</option>
-                <option value="6">Ativos</option>
+              <select  class="uk-select" formControlName="Segmento"  id="form-stacked-select">
+                <option>Todos Clientes</option>
+                <option value="1">Ativo</option>
+                <option value="2">Vip</option>
+                <option value="3">Eventual</option>
+                <option value="4">Frequente</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="uk-width-1-3@s">
+            <label class="uk-form-label" for="form-stacked-select">Seg. Customizado</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" formControlName="SegCustomizado" >
+                <option>Selecione uma opção</option>
+                <option value="1">Novo</option>
+                <option value="2">Ouro</option>
+                <option value="3">Prata</option>
+                <option value="4">Bronze</option>
+                <option value="5">Em Risco</option>
+                <option value="6">Perdido</option>
+                <option value="8">Inativo</option>
               </select>
             </div>
           </div>
@@ -32,13 +53,7 @@
             </div>
           </div>
 
-          <div class="uk-width-1-4@s">
-            <label class="uk-form-label" for="form-stacked-text">Nome da Campanha</label>
-            <div class="uk-form-controls">
-              <input class="uk-input " formControlName="Nome" type="text" placeholder="Exemplo: promoção dia das mães">
-            </div>
-          </div>
-
+         
         </div>
         <!--uk-grid-->
         <br>
