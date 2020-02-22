@@ -43,6 +43,10 @@ export class CampaignService {
   getListCampaign( idEmpresa: number) {
     return this.http.get<Campaign[]>(`${environment.UrlBase}/Campanha/${idEmpresa}`, { headers: this.composeHeaders() });
   }
+  
+  getListContacts( idEmpresa: number, value: number) {
+    return this.http.get<string[]>(`${environment.UrlBase}/Campanha/${idEmpresa}/${value}`, { headers: this.composeHeaders() });
+  }
 
   // lista, apura se vai precisa de dois parametros para fazer get
   getByIdCampaign(id: number, idEmpresa: number) {
