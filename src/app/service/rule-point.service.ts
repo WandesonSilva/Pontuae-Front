@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Injectable } from "@angular/core";
 import { Security } from '../utils/security.util';
 import { Point } from '../models/points.models';
-import { RuleProgram } from '../models/ruleProgram';
+import { RuleProgram } from '../models/ruleProgram.models';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -11,7 +11,6 @@ import { environment } from 'src/environments/environment';
 
 export class RulePointService {
 
-  public url = 'https://localhost:44311/';
   postIdSource = new  BehaviorSubject<number>(0);
   postIdData: any;
 

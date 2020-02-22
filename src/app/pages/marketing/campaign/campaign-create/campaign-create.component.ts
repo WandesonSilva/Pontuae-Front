@@ -16,6 +16,7 @@ export class CampaignCreateComponent {
   public description;
   public listContacts: string[];
   public totalContact: number;
+  public Credit: number;
    
 
 

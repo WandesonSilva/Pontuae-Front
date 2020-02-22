@@ -48,6 +48,7 @@ import { AwardEditComponent } from './pages/settings/program-loyalty/config-awar
 import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/program-loyalty.component';
 import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
+import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -86,6 +87,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PointEditComponent,
     ResetAccountComponent,
     RescueComponent,
+    MarketingComponent,
 
   ],
 

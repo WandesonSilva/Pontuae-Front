@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { RulePointService } from 'src/app/service/rule-point.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Security } from '../../../../../utils/security.util';
-import { RuleProgram } from '../../../../../models/ruleProgram';
+import { RuleProgram } from '../../../../../models/ruleProgram.models';
 
 
 @Component({

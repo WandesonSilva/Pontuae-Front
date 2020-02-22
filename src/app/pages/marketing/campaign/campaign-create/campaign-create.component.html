@@ -1,19 +1,19 @@
 
+
 <div class="uk-container">
     <div class="uk-card uk-card-default uk-card-bodyy uk-width-1-1@m  uk-margin-top uk-flex-center   line-borderleft ">
+
       <div uk-grid>
         <div class="uk-width-expand">
-
-          <h3 class="uk-card-title-small ukh3 uk-expand "><i class="iconback" uk-icon="icon:arrow-left; ratio:1.2 "
-              onClick="history.go(-1)"></i>
-            Criar Campanha
-          </h3>
         </div>
       </div>
+
       <hr>
 
       <div *ngIf="checkQtdContacts()"><p class="uk-label">Total selecionado:</p>{{totalContact}}</div>
       <div><p class="uk-label">Crédito SMS:</p></div>
+      <div>
+
       <form [formGroup]="form" class="uk-form-stacked">
         <div class="uk-grid uk-grid-lager uk-child-width-expand@s " uk-grid>
 
@@ -45,8 +45,6 @@
             </div>
           </div>
 
-
-
           <div class="uk-width-1-4@s">
             <label class="uk-form-label" for="form-stacked-text">Nome da Campanha</label>
             <div class="uk-form-controls">
@@ -55,10 +53,7 @@
           </div>
 
         </div>
-
-          
         <!--uk-grid-->
-           
         <br>
         <div class="uk-alert-warning" uk-alert>
           <p>Evite utilizar acentos e caracteres especiais na mensagem abaixo.</p>
@@ -98,10 +93,16 @@
             </div>
         <hr>
 
+        <!-- <div class="uk-position-center-right">
+          <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 "
+              routerLink="/Automation/Edit"></i> -->
+     <div class="uk-text-right">
         <button class="uk-button buttonSave" (click)="Submit()" [disabled]="form.invalid"><i class="fa fa-paper-plane"
             aria-hidden="true"></i> Enviar Campanhar!</button>
+      </div>
       </form>
     </div>
+
   </div>
 
 
@@ -116,3 +117,4 @@
       document.getElementById('count').innerHTML = (length - this.value.length);
     };
     </script>
+

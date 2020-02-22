@@ -1,7 +1,7 @@
 import { AuthService } from './Guards/auth.service';
 import { ClientGuard } from './guards/client.guard';
 import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { AdminGuard } from './guards/Admin.guard';
 import { MenuComponent } from './pages/shared/Menu.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
@@ -31,6 +31,7 @@ import { AwardCreateComponent } from './pages/settings/program-loyalty/config-aw
 import { AwardEditComponent } from './pages/settings/program-loyalty/config-awards/award-edit/award-edit.component';
 import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
+import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
 
 
 const routes: Routes = [
@@ -57,7 +58,7 @@ const routes: Routes = [
 
         path: 'Config', component: ProgramLoyaltyComponent,
         children: [
-         
+
           { path: 'Point/Create', component: PointCreateComponent },
           { path: 'Point/Edit', component: PointEditComponent },
           { path: 'Award/Create', component: AwardCreateComponent },
@@ -68,13 +69,19 @@ const routes: Routes = [
       },
 
 
-      { path: 'Automation/Create', component: AutomationCreateComponent },
-      { path: 'Automation/Edit', component: AutomationEditComponent },
-      { path: 'Automation/Index', component: AutomationListComponent },
+      {
+        path: 'Marketing', component: MarketingComponent,
+        children: [
+          { path: 'Automation/Create', component: AutomationCreateComponent },
+          { path: 'Automation/Edit', component: AutomationEditComponent },
+          { path: 'Automation', component: AutomationListComponent },
+          { path: 'Campaign/Create', component: CampaignCreateComponent },
+          { path: 'Campaign/Edit', component: CampaignEditComponent },
+          { path: 'Campaign', component: CampaignListComponent },
+        ]
 
-      { path: 'Campaign/Create', component: CampaignCreateComponent },
-      { path: 'Campaign/Edit', component: CampaignEditComponent },
-      { path: 'Campaign/Index', component: CampaignListComponent },
+      },
+
 
     ]
   },

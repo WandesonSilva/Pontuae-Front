@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Security } from '../utils/security.util';
-import { Campaign } from '../models/campaign';
+import { Campaign } from '../models/campaign.models';
 import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})

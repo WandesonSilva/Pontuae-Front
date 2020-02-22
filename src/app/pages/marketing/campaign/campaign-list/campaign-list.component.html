@@ -1,19 +1,15 @@
-<div class="uk-container">
-    <div class="uk-card uk-card-default  uk-card-bodyy uk-margin-top line-borderleft">
+
         <div uk-grid>
             <div class="uk-width-expand">
-                <h2 class="uk-card-title-small ukh3 uk-expand "><i class="iconback"
-                        uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
-                    Campanhas
+                <h2 class="uk-card-title-small ukh3 uk-expand ">
+                    
                 </h2>
             </div>
-            <div class="uk-width-auto"> <i class=" btn-custom uk-link uk-aling-center-right" type="button"
-                    uk-tooltip="title: Criar Novo" uk-icon="icon: plus-circle; ratio: 1.4 "
-                    routerLink="/Campaign/Create"></i>
+            <div class="uk-width-auto"> <button class=" btn-custom  uk-button uk-link uk-aling-center-right" type="button"
+                uk-tooltip="title: Criar Novo"   routerLink="/Marketing/Campaign/Create"> <i uk-icon="icon: plus-circle; ratio: 1.4 "></i> Nova Campanha</button> 
             </div>
         </div>
-        <hr>    
-        
+    
         <!-- <div *ngIf="!existList()">
             <span class="uk-text-center" colspan="5">
               <p >Comece</p>
@@ -113,5 +109,3 @@
 
 
         
-    </div>
-</div>
