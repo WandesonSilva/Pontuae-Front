@@ -1,9 +1,8 @@
 export class Automation
 {
     public id: number;
-    public idEmpresa: number;
     public tipoAutomacao: string;
-    public segmento: string;
+    public Segmentacao: string;
     public segCustomizado: string;
     public diaSemana: string;
     public diaMes: number;

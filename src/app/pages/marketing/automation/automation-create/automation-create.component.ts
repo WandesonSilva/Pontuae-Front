@@ -63,25 +63,25 @@ export class AutomationCreateComponent implements OnInit {
 
   selectInput(event) {
     let selected = event.target.value;
-    if (selected == "0") {
+    if (selected == "Aniversario") {
       this.isAniversarioSelected = true;
       this.isDiaMesSelected = false;
       this.isDiaSemanaSelected = false;
     }
 
-    if (selected == "1"){
+    if (selected == "Mes"){
       this.isDiaMesSelected = true;
       this.isAniversarioSelected = false;
       this.isDiaSemanaSelected = false;
     }
 
-    if (selected == "2"){
+    if (selected == "Semana"){
      this.isDiaSemanaSelected = true;
      this.isDiaMesSelected = false;
      this.isAniversarioSelected = false;
     }
 
-    if(selected == "3"){
+    if(selected == "Em Risco"){
       this.isDiaSemanaSelected = false;
       this.isDiaMesSelected = false;
       this.isAniversarioSelected = false;

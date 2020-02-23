@@ -53,11 +53,6 @@ export class CampaignCreateComponent {
 
   }
 
-  // IMCOMPLETO
-  buscaContatos(){
-    this.form.value.segmentacao
-  }
-
   onChangeGetContacts(eventValue) {
     console.log(eventValue);
     const id = Security.getUser().idEmpresa;

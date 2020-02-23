@@ -43,7 +43,10 @@ export class RegisterCustomerComponent implements OnInit {
         Validators.required
       ])],
       DataNascimento: [''],
-      Sexo: [''],
+      Cidade: ['',, Validators.compose([
+        Validators.minLength(11),
+        Validators.maxLength(11),
+      ])],
       Cpf: ['', Validators.compose([
         Validators.minLength(11),
         Validators.maxLength(11),

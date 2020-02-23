@@ -7,40 +7,49 @@
             <div class="uk-form-controls" >
               <select  id="form-stacked-select" class="uk-select" formControlName="Tipo"  (change)="selectInput($event)">
                 <option>Selecione uma opção</option>
-                <option value="0">Especial de Aniversário</option>
-                <option value="1">Dia do Mês</option>
-                <option value="2">Dia da Semana</option>
-                <option value="3">Clientes em risco</option>
+                <option value="Aniversariante">Especial de Aniversário</option>
+                <option value="Mes">Dia do Mês</option>
+                <option value="AutomacaoSemana">Dia da Semana</option>
+                <!-- <option value="Em Risco">Clientes em risco</option> -->
+                <!-- <option value="">Apos se torna Prata</option>
+                <option value="">Apos se torna Bronze</option> -->
               </select>
             </div>
           </div>
 
           <div class="uk-width-1-4@s">
-            <label class="uk-form-label" for="form-stacked-select">Segmento</label>
+            <label class="uk-form-label" for="form-stacked-select">Perfil</label>
             <div class="uk-form-controls">
-              <select class="uk-select" formControlName="Segmento"   id="form-stacked-select">
-                <option>Selecione</option>
-                <option value="1">Novos</option>
-                <option value="2">Vips(Ouro, Prata, Bronze)</option>
-                <option value="3">Eventuais</option>
-                <option value="4">Frequentes</option>
-                <option value="5">Inativos</option>
-                
-                <option value="6">Ouros</option>
-                <option value="7">Pratas</option>
-                <option value="8">Bronzes</option>
-                <option value="9">Em Risco</option>
+              <select class="uk-select" formControlName="Segmento"  id="form-stacked-select">
+                <option></option>
+                <option value="Novo">Novo</option>
+                <option value="Vip">Vip</option>
+                <option value="Eventual">Eventual</option>
+                <option value="Frequente">Frequente</option>
               </select>
             </div>
           </div>
 
-         
+          <div class="uk-width-1-4@s">
+            <label class="uk-form-label" for="form-stacked-select">Seg.Customizado</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" formControlName="SegCustomizado" >
+                <option></option>
+                <option value="Ativo">Ativo</option>
+                <option value="Ouro">Ouro</option>
+                <option value="Prata">Prata</option>
+                <option value="Bronze">Bronze</option>
+                <!-- <option value="Em Risco">Em Risco</option> -->
+                <option value="Inativo">Inativo</option>
+              </select>
+            </div>
+          </div>
 
           <div hidden class="uk-width-1-4@s">
             <label  class="uk-form-label" for="form-stacked-select" >Canal de Comunicação</label>
             <div class="uk-form-controls">
               <select  class="uk-select" id="form-stacked-select" formControlName="Tipo"  >
-                <option value="0">SMS</option>
+                <option value="SMS">SMS</option>
               </select>
             </div>
           </div>
@@ -49,7 +58,7 @@
         <br>
 
         <div  class="uk-width-1-5@s" *ngIf="isAniversarioSelected" >
-          <label class="uk-form-label" for="form-stacked-text">Dias Antes do Aniversário</label>
+          <label class="uk-form-label" for="form-stacked-text">Dias Antes do Aniversário  <a uk-tooltip="Crie uma oferta para que seu cliente venha celebrar o aniversário com você." uk-icon="icon: info; ratio: 1"></a></label>
           <div class="uk-form-controls">
             <input class="uk-input "  id="form-stacked-text" type="text" formControlName="DiasAntesAniversario" 
               placeholder="Exemplo: 7">
@@ -57,7 +66,7 @@
         </div>
 
         <div  class="uk-width-1-5@s" *ngIf="isDiaMesSelected" >
-          <label class="uk-form-label" for="form-stacked-text">Dia do Mês</label>
+          <label class="uk-form-label" for="form-stacked-text">Dia do Mês  <a uk-tooltip="Crie ofertas no modo automatico em Datas Especiais mensais." uk-icon="icon: info; ratio: 1"></a></label>
           <div class="uk-form-controls">
             <input class="uk-input "  id="form-stacked-text" type="text" formControlName="DiaMes" 
               placeholder="Digite o dia do Mês">
@@ -65,7 +74,7 @@
         </div>
 
         <div  class="uk-width-1-5@s" *ngIf="isDiaSemanaSelected" >
-          <label class="uk-form-label" for="form-stacked-text">Dia da Semana</label>
+          <label class="uk-form-label" for="form-stacked-text">Dia da Semana  <a uk-tooltip="Crie ofertas no modo automatico Semanais." uk-icon="icon: info; ratio: 1"></a></label>
           <div class="uk-form-controls">
             <input class="uk-input"  id="form-stacked-text" type="text" formControlName="DiaSemana" 
               placeholder="Digite o dia da Semana">

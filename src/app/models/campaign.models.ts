@@ -2,10 +2,9 @@ export class Campaign
 {
    public id: number;
    public nome: string;
-   public canal: string;
+   public tipoCanal: string;
    public conteudo: string;
-   public segmento: string;
-   public DataRecebida: string;
+   public segmentacao: string;
 
    public dataEnvio: string; 
    public estadoEnvio: string;

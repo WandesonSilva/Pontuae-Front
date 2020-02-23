@@ -37,8 +37,13 @@
 
 
                 <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Segmento:</strong></dt>
+                    <dt><strong>Perfil:</strong></dt>
                     <dd>{{ item.Segmento }}</dd>
+                </dl>
+
+                <dl class="uk-description-list uk-description-list-divider">
+                    <dt><strong>Seg.Customizado:</strong></dt>
+                    <dd>{{ item.SegCustomizado }}</dd>
                 </dl>
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Canal de Comunicação:</strong></dt>
@@ -48,6 +53,11 @@
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Enviada em:</strong></dt>
                     <dd>{{ item.DataEnvio | date : 'dd/MM/yyyy' }}</dd>
+                </dl>
+
+                <dl class="uk-description-list uk-description-list-divider">
+                    <dt><strong>Situacao:</strong></dt>
+                    <dd>{{ item.EstadoEnvio}}</dd>
                 </dl>
 
             </div>

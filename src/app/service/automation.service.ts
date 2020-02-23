@@ -18,7 +18,6 @@ export class AutomationService {
 
 }
 
-
   createAutomation(data: any) {
     // tslint:disable-next-line: radix
     const id = Security.getUser().idEmpresa;
@@ -32,13 +31,16 @@ export class AutomationService {
     return this.http.put(`${environment.UrlBase}/Automacao`, data, { headers: this.composeHeaders() });
   }
 
-    
+  desableAutomation(id: number) {
+    const idEmpresa = Security.getUser().idEmpresa;
+    return this.http.put(`${environment.UrlBase}v1/Automacao/${id}/${idEmpresa}`, {headers: this.composeHeaders()})
+  }
+
   deleteAutomation(id: number){
     const idEmpresa = Security.getUser().idEmpresa;   
     return this.http.delete(`${environment.UrlBase}v1/Automacao/${id}/${idEmpresa}`, {headers: this.composeHeaders()})
   }
-
-
+  
 
   getListAutomation( idEmpresa: number) {
     return this.http.get<Automation[]>(`${environment.UrlBase}/Automacao/${idEmpresa}`, { headers: this.composeHeaders() });
