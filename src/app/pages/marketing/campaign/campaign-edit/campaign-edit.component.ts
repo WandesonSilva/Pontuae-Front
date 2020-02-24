@@ -14,7 +14,10 @@ export class CampaignEditComponent implements OnInit {
 
   public form: FormGroup;
   public busy = false;
-//  event: EventEmitter<any> = new EventEmitter();
+  public credit: any;
+  public totalContact: number;
+  public listContacts: string[];
+
 
   constructor(
    private router: Router,
@@ -22,6 +25,7 @@ export class CampaignEditComponent implements OnInit {
    private fb: FormBuilder,
    private toastr: ToastrService,
    private activatedRoute: ActivatedRoute,
+   
 
  ) { 
 
@@ -55,14 +59,16 @@ export class CampaignEditComponent implements OnInit {
          this.form.controls['Id'].setValue(data.Id);
          this.form.controls['Nome'].setValue(data.TipoAutomacao);
          this.form.controls['Conteudo'].setValue(data.Conteudo);
-         this.form.controls['Segmento'].setValue(data.Segmentacao);
+         this.form.controls['Segmentacao'].setValue(data.Segmentacao);
          this.form.controls['DataEnvio'].setValue(data.DiaSemana);         
        },
        (Falhar) => {
          console.log(Falhar);
          this.busy = false;
-       }
+       },
      );
+
+     this.getCreditSMSCampany();
  }
 
  submit() {
@@ -82,5 +88,39 @@ export class CampaignEditComponent implements OnInit {
            this.toastr.error('Não foi salvo');
          }
        );
+       }
+
+        getCreditSMSCampany(){
+          this.service.getCreditSMS().subscribe(data => this.credit = data);
         }
+
+
+        onChangeGetContacts(eventValue) {
+          console.log(eventValue);
+          const id = Security.getUser().idEmpresa;
+          this.service.getListContacts(id, eventValue).subscribe(data => this.listContacts = data)
+          this.totalContact == this.listContacts.length;
+          this.form.value.contacts == this.listContacts;
+        }  
+        
+        remove(){
+          this.busy = true;
+          const id = this.activatedRoute.snapshot.params.id;
+          const idEmpresa = Security.getUser().idEmpresa;
+          this.service.removerCampaign(id, idEmpresa)
+          .subscribe(
+            (data: any) => {
+            this.busy = false;
+            this.toastr.success(data.message, 'Excluido');
+   
+          },
+   
+            (err) => {
+              console.log(err);
+              this.busy = false;
+              this.toastr.error('Error');
+            }
+          );
+        }
+
 }

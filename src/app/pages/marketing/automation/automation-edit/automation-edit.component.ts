@@ -50,15 +50,15 @@ export class AutomationEditComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.busy = false;
-          this.form.controls['Id'].setValue(data.Id);
-          this.form.controls['TipoAutomacao'].setValue(data.TipoAutomacao);
-          this.form.controls['Conteudo'].setValue(data.Conteudo);
-          this.form.controls['Segmentacao'].setValue(data.Segmentacao);
-          this.form.controls['SegCustomizado'].setValue(data.SegCustomizado);
-          this.form.controls['DiaSemana'].setValue(data.DiaSemana);
-          this.form.controls['DiaMes'].setValue(data.DiaMes);
-          this.form.controls['TipoCanal'].setValue(data.TipoCanal);
-          this.form.controls['DiasAntesAniversario'].setValue(data.DiasAntesAniversario);
+          this.form.controls['id'].setValue(data.Id);
+          this.form.controls['tipoAutomacao'].setValue(data.TipoAutomacao);
+          this.form.controls['conteudo'].setValue(data.Conteudo);
+          this.form.controls['segmentacao'].setValue(data.Segmentacao);
+          this.form.controls['segCustomizado'].setValue(data.SegCustomizado);
+          this.form.controls['diaSemana'].setValue(data.DiaSemana);
+          this.form.controls['diaMes'].setValue(data.DiaMes);
+          this.form.controls['tipoCanal'].setValue(data.TipoCanal);
+          this.form.controls['diasAntesAniversario'].setValue(data.DiasAntesAniversario);
         },
         (err) => {
           console.log(err);

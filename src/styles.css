@@ -112,7 +112,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .uk-divider-small::after {
   width: 100px;
   border-top: 3px solid #eb1dc8;
- border-image: linear-gradient(90deg,#f05ac3 0,#f348ce 35%,#af0aa1ec 100%);
+  border-image: linear-gradient(90deg,#f05ac3 0,#f348ce 35%,#af0aa1ec 100%);
   border-image-slice: 1;
 }
 
@@ -246,6 +246,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #fff;
   padding: 5px 5px  5px;
   text-shadow: none;
+  -webkit-box-shadow: 2px 5px 2px 0px rgba(126, 126, 126, 0.603);
+  -moz-box-shadow: 2px 5px 4px 0px rgba(121, 110, 110, 0.548);
+  box-shadow: 2px 3px 2px 0px rgba(134, 134, 134, 0.418);
 }
 
 
@@ -477,16 +480,9 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-
-
-
-
-
-
-
 .uk-label {
     padding: 0 10px;
-    background: #f3e6ed;
+    background: #f3e6edad;
     line-height: 1.5;
     font-size: 14px;
     color:  #970682;

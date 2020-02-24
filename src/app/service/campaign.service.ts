@@ -44,13 +44,23 @@ export class CampaignService {
     return this.http.get<Campaign[]>(`${environment.UrlBase}/Campanha/${idEmpresa}`, { headers: this.composeHeaders() });
   }
   
-  getListContacts( idEmpresa: number, value: number) {
-    return this.http.get<string[]>(`${environment.UrlBase}/Campanha/${idEmpresa}/${value}`, { headers: this.composeHeaders() });
+  getListContacts( idEmpresa: number, parametro: string) {
+    return this.http.get<string[]>(`${environment.UrlBase}/Campanha/${idEmpresa}/${parametro}`, { headers: this.composeHeaders() });
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get
   getByIdCampaign(id: number, idEmpresa: number) {
     return this.http.get<Campaign[]>(`${environment.UrlBase}/Campanha/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
+  }
+
+  getCreditSMS(){
+    const idEmpresa = Security.getUser().idEmpresa;
+    return this.http.get<any>(`${environment.UrlBase}/Campanha/${idEmpresa}`, { headers: this.composeHeaders() });
+
+  }
+
+  removerCampaign(id:number, idEmpresa: number){
+    return this.http.delete(`${environment.UrlBase}v1/Campanha/Agendada/${id}/${idEmpresa}`, {headers: this.composeHeaders()})
   }
   
 

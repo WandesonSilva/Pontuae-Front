@@ -21,14 +21,16 @@
           <div class="uk-grid uk-grid-large uk-child-width-expand@s " uk-grid>
               
             <div class="uk-width-1-4@s">
-            <label class="uk-form-label" for="form-stacked-select">Ação</label>
+            <label class="uk-form-label" for="form-stacked-select">Tipo Automação</label>
             <div class="uk-form-controls uk-form-controls-text">
-                <select class="uk-select" id="form-stacked-select">
-                  <option>Selecione uma Ação</option>
-                  <option value="1">Especial de Aniversário</option>
-                  <option value="2">Dia do Mês</option>
-                  <option value="3">Dia da Semana</option>
-                  <option value="4">Clientes em risco</option>
+                <select class="uk-select" id="form-stacked-select" formControlName="tipoAutomacao">
+                  <option>Selecione uma opção</option>
+                <option value="Aniversariante">Especial de Aniversário</option>
+                <option value="Mes">Dia do Mês</option>
+                <option value="AutomacaoSemana">Dia da Semana</option>
+                <!-- <option value="Em Risco">Clientes em risco</option> -->
+                <!-- <option value="">Apos se torna Prata</option>
+                <option value="">Apos se torna Bronze</option> -->
                 </select>
             </div>
         </div>
@@ -36,14 +38,14 @@
         
   
         <div class="uk-width-1-4@s">
-          <label class="uk-form-label" for="form-stacked-select">Segmento</label>
+          <label class="uk-form-label" for="form-stacked-select">Perfil</label>
           <div class="uk-form-controls">
-              <select class="uk-select" id="form-stacked-select">
-                  <option>Todos Clientes</option>
-                  <option value="1">Novo</option>
-                  <option value="2">Vip</option>
-                  <option value="3">Frequente</option>
-                  <option value="4">Eventual</option>
+              <select class="uk-select" id="form-stacked-select" formControlName="segmentacao">
+                <option></option>
+                <option value="Novo">Novo</option>
+                <option value="Vip">Vip</option>
+                <option value="Eventual">Eventual</option>
+                <option value="Frequente">Frequente</option>
               </select>
           </div>
       </div>
@@ -53,11 +55,14 @@
       <div class="uk-width-1-4@s">
         <label class="uk-form-label" for="form-stacked-select">Seg. Customizado</label>
         <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select">
-                  <option>Selecione uma opção</option>
-                  <option value="1">Ouro</option>
-                  <option value="2">Prata</option>
-                  <option value="3">Bronze</option>
+            <select class="uk-select" id="form-stacked-select" formControlName="segCustomizado">
+                  <option></option>
+                  <option value="Ativo">Ativo</option>
+                  <option value="Ouro">Ouro</option>
+                  <option value="Prata">Prata</option>
+                  <option value="Bronze">Bronze</option>
+                  <!-- <option value="Em Risco">Em Risco</option> -->
+                  <!-- <option value="Inativo">Inativo</option> -->
             </select>
         </div>
     </div>
@@ -66,35 +71,53 @@
     <div class="uk-width-1-4@s">
       <label class="uk-form-label" for="form-stacked-select">Canal de Comunicação</label>
       <div class="uk-form-controls">
-          <select class="uk-select" id="form-stacked-select">
-              <option value="1">SMS</option>     
+          <select class="uk-select" id="form-stacked-select" formControlName="tipoCanal" >
+              <option value="SMS">SMS</option>     
           </select>
       </div>
   </div>
   </div><!--uk-grid-->
         
-  
-  
   <br>                
-              <div class="uk-width-1-2@s">
-              <label class="uk-form-label ">Dias Antes do Aniversário</label>
-              <div class="uk-inline">
-                <div class="uk-form-controls">
-                <span class="uk-form-icon " uk-icon="icon: calendar"></span>              
-              <input class="uk-input " formControlName="Dia"  type="text" placeholder="quantidade">
-              
-              </div>
-              </div>
-              </div>
-  
-            <div class="uk-margin">
-              <label class="uk-form-label" for="form-stacked-text">mensagem</label>
-            <textarea class="uk-textarea" rows="5" formControlName="Conteudo"  placeholder="Textarea"></textarea>
-            </div>
-  
-            <div class="uk-text-left">
-              <button class="uk-button buttonSMS" routerLink="/Message/Index"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Mensagem Pronta</button>
-            </div>
+  <div  class="uk-width-1-5@s" *ngIf="isAniversarioSelected" >
+    <label class="uk-form-label" for="form-stacked-text">Dias Antes do Aniversário  <a uk-tooltip="Crie uma oferta para que seu cliente venha celebrar o aniversário com você." uk-icon="icon: info; ratio: 1"></a></label>
+    <div class="uk-form-controls">
+      <input class="uk-input "  id="form-stacked-text" type="text" formControlName="diasAntesAniversario" 
+        placeholder="Exemplo: 7">
+    </div>
+  </div>
+
+  <div  class="uk-width-1-5@s" *ngIf="isDiaMesSelected" >
+    <label class="uk-form-label" for="form-stacked-text">Dia do Mês  <a uk-tooltip="Crie ofertas no modo automatico em Datas Especiais mensais." uk-icon="icon: info; ratio: 1"></a></label>
+    <div class="uk-form-controls">
+      <input class="uk-input "  id="form-stacked-text" type="text" formControlName="diaMes" 
+        placeholder="Digite o dia do Mês">
+    </div>
+  </div>
+
+  <div  class="uk-width-1-5@s" *ngIf="isDiaSemanaSelected" >
+    <label class="uk-form-label" for="form-stacked-text">Dia da Semana  <a uk-tooltip="Crie ofertas no modo automatico Semanais." uk-icon="icon: info; ratio: 1"></a></label>
+    <div class="uk-form-controls">
+      <input class="uk-input"  id="form-stacked-text" type="text" formControlName="diaSemana" 
+        placeholder="Digite o dia da Semana">
+    </div>
+  </div>
+
+  <div class="uk-alert-warning" uk-alert>
+    <p>Evite utilizar acentos e caracteres especiais na mensagem abaixo.</p>
+  </div>
+
+
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-text">Qual mensagem deseja enviar?</label>
+    <textarea class="uk-textarea" rows="5" formControlName="conteudo" placeholder="Digite sua mensagem com até 160 "></textarea>
+  </div>
+
+  <!-- <div class="uk-text-left">
+    <button class="uk-button buttonSMS" routerLink="/Message/Index"> <i uk-icon="icon: commenting; ratio: 1.1">
+      </i> Mensagem Pronta</button>
+  </div> -->
+  <hr>
    <hr>          
             <div class="uk-text-right">
               <p uk-margin>

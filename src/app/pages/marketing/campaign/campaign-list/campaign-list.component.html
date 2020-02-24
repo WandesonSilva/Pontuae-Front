@@ -25,39 +25,39 @@
                             uk-scrollspy-class>Campanha:</strong></dt>
                     <dd>
                         <h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
-                            uk-scrollspy-class>{{ item.Nome }}</h4>
+                            uk-scrollspy-class>{{ item.nome }}</h4>
                         <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium"></div>
                     </dd>
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>N° Cliente:</strong></dt>
-                    <dd>{{ item.QtdSelecionado }}</dd>
+                    <dd>{{ item.qtdSelecionado }}</dd>
                 </dl>
 
 
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Perfil:</strong></dt>
-                    <dd>{{ item.Segmento }}</dd>
+                    <dd>{{ item.segmento }}</dd>
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Seg.Customizado:</strong></dt>
-                    <dd>{{ item.SegCustomizado }}</dd>
+                    <dd>{{ item.segCustomizado }}</dd>
                 </dl>
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Canal de Comunicação:</strong></dt>
-                    <dd>{{item.Canal}}</dd>
+                    <dd>{{item.tipoCanal}}</dd>
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Enviada em:</strong></dt>
-                    <dd>{{ item.DataEnvio | date : 'dd/MM/yyyy' }}</dd>
+                    <dd>{{ item.dataEnvio | date : 'dd/MM/yyyy' }}</dd>
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
                     <dt><strong>Situacao:</strong></dt>
-                    <dd>{{ item.EstadoEnvio}}</dd>
+                    <dd>{{ item.estadoEnvio}}</dd>
                 </dl>
 
             </div>
@@ -72,7 +72,7 @@
                         <div class="uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class=" uk-heading-small  uk-margin-remove-bottom">{{item.QtdEnviados}}</h3>
+                                <h3 class=" uk-heading-small  uk-margin-remove-bottom">{{item.qtdEnviados}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">SMS Enviados
 
                                 </div>
@@ -82,7 +82,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove- uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small  uk-margin-remove-bottom">{{item.ValorInvestido}}</h3>
+                                <h3 class="uk-heading-small  uk-margin-remove-bottom">{{item.valorInvestido}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Valor Investido
 
                                 </div>
@@ -92,7 +92,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom">{{item.QtdRetorno}}</h3>
+                                <h3 class="uk-heading-small uk-margin-remove-bottom">{{item.qtdRetorno}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Quantidade Retorno
 
                                 </div>
@@ -102,7 +102,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen">{{ (item.Vendas/100) | currency: 'BRL'}}</h3>
+                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen">{{ (item.vendas/100) | currency: 'BRL'}}</h3>
                                 <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Resultado
 
                                 </div>
@@ -111,10 +111,10 @@
                     </div>
                 </div>
             </div>
-            <div class="uk-position-center-right">
+            <!-- <div class="uk-position-center-right"> Não vai se usado nesse template
                 <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 "
                     routerLink="/Automation/Edit"></i>
-            </div>
+            </div> -->
         </div>
 
 

@@ -21,7 +21,7 @@ export class AutomationListComponent implements OnInit {
     this.ListAutomation$ = this.service.getListAutomation(idEmpresa);
   }
 
-  existList() {
+  existList(): boolean {
     return this.ListAutomation$ && this.ListAutomation$ != null;
   }
 

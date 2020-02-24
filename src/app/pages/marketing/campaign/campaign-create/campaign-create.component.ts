@@ -53,7 +53,7 @@ export class CampaignCreateComponent {
 
   }
 
-  onChangeGetContacts(eventValue) {
+  onChangeGetContacts(eventValue: string) { //verifica se precisa tipa esse parâmetro
     console.log(eventValue);
     const id = Security.getUser().idEmpresa;
     this.service.getListContacts(id, eventValue).subscribe(data => this.listContacts = data)

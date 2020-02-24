@@ -1,14 +1,6 @@
 
 
-<div class="uk-container">
-
-      <div uk-grid>
-        <div class="uk-width-expand">
-        </div>
-      </div>
-      <div *ngIf="checkQtdContacts()"><p class="uk-label">Total selecionado:</p>{{totalContact}}</div>
-      
-      <div>
+<div class="uk-container">   
 
       <form [formGroup]="form" class="uk-form-stacked">
         <div class="uk-grid uk-grid-lager uk-child-width-expand@s " uk-grid>
@@ -60,6 +52,7 @@
 
          
         </div>
+
         <!--uk-grid-->
         <br>
         <div class="uk-alert-warning uk-margin-remove" uk-alert>
@@ -77,7 +70,7 @@
               <button class="uk-button buttonSMS" routerLink="/model-message"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Modelos Prontos</button>
             </div> -->
 
-        <div uk-grid>
+        <!-- <div uk-grid>
         <div class="uk-width-1-2@s">
           <label class="uk-form-label" for="form-stacked-select">Agendar Campanhar?</label> <div>opcional</div>
         
@@ -85,7 +78,7 @@
             formControlName="DataEnvio" placeholder="">
           <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
           <mat-datepicker #myDatepicker color="accent"></mat-datepicker>
-        </div>
+        </div> -->
 
           <!-- <div class="uk-width-1-2@s">
             <label class="uk-form-label" for="form-stacked-select">Será enviada mais de uma vez?</label>
@@ -97,7 +90,8 @@
               </select>
           </div>
         </div> -->
-            </div>
+          
+          
         <hr>
 
         <!-- <div class="uk-position-center-right">
@@ -107,10 +101,12 @@
         <button class="uk-button buttonSave" (click)="Submit()" [disabled]="form.invalid"><i class="fa fa-paper-plane"
             aria-hidden="true"></i> Enviar Campanhar!</button>
       </div>
+
+
       </form>
     </div>
+    
 
-  </div>
 
 
 
