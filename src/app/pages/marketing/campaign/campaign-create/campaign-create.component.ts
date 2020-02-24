@@ -37,8 +37,7 @@ export class CampaignCreateComponent {
       dataEnvio: ['', Validators.compose([Validators.nullValidator])],
       conteudo: ['', Validators.compose([Validators.required])],
       segmentacao: ['', Validators.compose([Validators.required])],
-      contacts: ['', Validators.compose([Validators.nullValidator])],
-
+      contatos: ['', Validators.compose([Validators.nullValidator])],
       agendamentoAtivo: ['', Validators.compose([Validators.nullValidator])],
       qtdSelecionado: ['', Validators.compose([Validators.nullValidator])],
     });
@@ -50,7 +49,7 @@ export class CampaignCreateComponent {
     const id = Security.getUser().idEmpresa;
     this.service.getListContactsFromSegCustomization(id, eventValue).subscribe(data => this.listContacts = data)
     this.totalContact == this.listContacts.length;
-    this.form.value.contacts == this.listContacts;
+    this.form.value.contatos == this.listContacts;
 
   }
 
@@ -59,7 +58,7 @@ export class CampaignCreateComponent {
     const id = Security.getUser().idEmpresa;
     this.service.getListContactsFromSegmentation(id, eventValue).subscribe(data => this.listContacts = data)
     this.totalContact == this.listContacts.length;
-    this.form.value.contacts == this.listContacts;
+    this.form.value.contatos == this.listContacts;
 
   }
 
