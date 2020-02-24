@@ -44,8 +44,12 @@ export class CampaignService {
     return this.http.get<Campaign[]>(`${environment.UrlBase}/Campanha/${idEmpresa}`, { headers: this.composeHeaders() });
   }
   
-  getListContacts( idEmpresa: number, parametro: string) {
-    return this.http.get<string[]>(`${environment.UrlBase}/Campanha/${idEmpresa}/${parametro}`, { headers: this.composeHeaders() });
+  getListContactsFromSegmentation( idEmpresa: number, segmentacao: string) {
+    return this.http.get<string[]>(`${environment.UrlBase}/Campanha/${idEmpresa}/${segmentacao}`, { headers: this.composeHeaders() });
+  }
+
+  getListContactsFromSegCustomization( idEmpresa: number, segCustomizado: string) {
+    return this.http.get<string[]>(`${environment.UrlBase}/Campanha/${idEmpresa}/${segCustomizado}`, { headers: this.composeHeaders() });
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get

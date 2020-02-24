@@ -17,7 +17,7 @@ export class CampaignCreateComponent {
   public listContacts: string[];
   public totalContact: number;
   public Credit: number;
-   
+
 
 
   constructor(
@@ -43,25 +43,26 @@ export class CampaignCreateComponent {
       qtdSelecionado: ['', Validators.compose([Validators.nullValidator])],
     });
 
-    if(this.form.value.dataEnvio != null){
-      this.form.value.agendamentoAtivo = 1;
-    }
-    else{
-      (this.form.value.dataEnvio == null)
-      this.form.value.agendamentoAtivo = 0;
-    }
+  }
+
+  onChangeGetContactsOfSegCustomization(eventValue) { 
+    console.log(eventValue);
+    const id = Security.getUser().idEmpresa;
+    this.service.getListContactsFromSegCustomization(id, eventValue).subscribe(data => this.listContacts = data)
+    this.totalContact == this.listContacts.length;
+    this.form.value.contacts == this.listContacts;
 
   }
 
-  onChangeGetContacts(eventValue: string) { //verifica se precisa tipa esse parâmetro
+  onChangeGetContactsOfSegmentation(eventValue: string) { //verifica se precisa tipa esse parâmetro
     console.log(eventValue);
     const id = Security.getUser().idEmpresa;
-    this.service.getListContacts(id, eventValue).subscribe(data => this.listContacts = data)
+    this.service.getListContactsFromSegmentation(id, eventValue).subscribe(data => this.listContacts = data)
     this.totalContact == this.listContacts.length;
     this.form.value.contacts == this.listContacts;
-    
-}
- 
+
+  }
+
 
   submit() {
 
@@ -79,7 +80,7 @@ export class CampaignCreateComponent {
       );
   }
 
-  checkQtdContacts(){
+  checkQtdContacts() {
     console.log(this.totalContact == null);
     return this.totalContact == null;
   }

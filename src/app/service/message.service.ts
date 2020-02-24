@@ -17,7 +17,7 @@ export class MessageService {
     return headers;
 
 }
-
+ //pode deletar esta este arquivo
 getListModelMessage( idUser: number) {
   return this.http.get<Message[]>(`${this.url}/Mensagem/${idUser}`, { headers: this.composeHeaders() });
 }
