@@ -10,7 +10,7 @@
       <div class="uk-position-top-right uk-overlay "  style="margin-top: -15px; ">
                   
           <p uk-margin>
-                <a type="button" (click)="Delete()" uk-tooltip="title: Deletar; pos: bottom"><i class="uk-buttonDelte" uk-icon="icon:trash; ratio: 1.1"></i></a>          
+                <!-- <a type="button" (click)="Delete()" uk-tooltip="title: Deletar; pos: bottom"><i class="uk-buttonDelte" uk-icon="icon:trash; ratio: 1.1"></i></a>           -->
                 <a type="button" (click)="Desable()" uk-tooltip="title: Desativar; pos: bottom"><i class="uk-buttonDisable" uk-icon="icon: ban; ratio: 1.1 "></i></a>                    
           </p>
             
@@ -21,42 +21,41 @@
           <div class="uk-grid uk-grid-large uk-child-width-expand@s " uk-grid>
               
             <div class="uk-width-1-4@s">
-            <label class="uk-form-label" for="form-stacked-select">Tipo Automação</label>
-            <div class="uk-form-controls uk-form-controls-text">
-                <select class="uk-select" id="form-stacked-select" formControlName="tipoAutomacao">
+              <label class="uk-form-label" for="form-stacked-select">Tipo Automação</label>
+              <div class="uk-form-controls" >
+                <select  id="form-stacked-select" class="uk-select" formControlName="tipoAutomacao"  (change)="selectInput($event)">
                   <option>Selecione uma opção</option>
-                <option value="Aniversariante">Especial de Aniversário</option>
-                <option value="Mes">Dia do mês</option>
-                <option value="Dia semana">Dia da semana</option>
-                <option value="Em risco">Clientes em risco</option>
-                <!-- <option value="Em Risco">Clientes em risco</option> -->
-                <!-- <option value="">Apos se torna Prata</option>
-                <option value="">Apos se torna Bronze</option> -->
+                  <option value="Aniversariante">Especial de aniversário</option>
+                  <!-- <option value="Dia do Mes">Em um dia do mês</option> -->
+                  <option value="Dia da semana">Em um dia da semana</option>
+                  <option value="Inativo 15 dias">Clientes que não compram a 15 dias</option>
+                  <option value="Inativo um mês">Clientes que não compram a 1 mês</option>
+                  <option value="Ultima fidelizacao">Apos ultima fidelização</option>
+                  <!-- VERIFICA SE VAI SE USADO OS VALORES ABAIXO -->
+                  <!-- <option value="Em Risco">Clientes em risco</option> -->
+                  <!-- <option value="">Apos se torna Prata</option>
+                  <option value="">Apos se torna Bronze</option> -->
                 </select>
+              </div>
             </div>
-        </div>
   
-        
+            <div class="uk-width-1-4@s">
+              <label class="uk-form-label" for="form-stacked-select">Perfil</label>
+              <div class="uk-form-controls">
+                <select class="uk-select" formControlName="segmentacao"  id="form-stacked-select">
+                  <option></option>
+                  <option value="Novo">Novo</option>
+                  <option value="Vip">Vip</option>
+                  <option value="Eventual">Eventual</option>
+                  <option value="Frequente">Frequente</option>
+                </select>
+              </div>
+            </div>
   
-        <div class="uk-width-1-4@s">
-          <label class="uk-form-label" for="form-stacked-select">Perfil</label>
-          <div class="uk-form-controls">
-              <select class="uk-select" id="form-stacked-select" formControlName="segmentacao">
-                <option></option>
-                <option value="Novo">Novo</option>
-                <option value="Vip">Vip</option>
-                <option value="Eventual">Eventual</option>
-                <option value="Frequente">Frequente</option>
-              </select>
-          </div>
-      </div>
-  
-  
-  
-      <div class="uk-width-1-4@s">
-        <label class="uk-form-label" for="form-stacked-select">Seg. Customizado</label>
-        <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select" formControlName="segCustomizado">
+            <div class="uk-width-1-4@s">
+              <label class="uk-form-label" for="form-stacked-select">Seg.Customizado</label>
+              <div class="uk-form-controls">
+                <select class="uk-select" id="form-stacked-select" formControlName="segCustomizado" >
                   <option></option>
                   <option value="Ativo">Ativo</option>
                   <option value="Ouro">Ouro</option>
@@ -65,80 +64,94 @@
                   <option value="Em risco">Em risco</option>
                   <!-- <option value="Em Risco">Em Risco</option> -->
                   <!-- <option value="Inativo">Inativo</option> -->
-            </select>
-        </div>
-    </div>
+                </select>
+              </div>
+            </div>
   
-    
-    <div class="uk-width-1-4@s">
-      <label class="uk-form-label" for="form-stacked-select">Canal de Comunicação</label>
-      <div class="uk-form-controls">
-          <select class="uk-select" id="form-stacked-select" formControlName="tipoCanal" >
-              <option value="SMS">SMS</option>     
-          </select>
-      </div>
-  </div>
-  </div><!--uk-grid-->
-        
-  <br>                
-  <div  class="uk-width-1-5@s" *ngIf="isAniversarioSelected" >
-    <label class="uk-form-label" for="form-stacked-text">Dias Antes do Aniversário  <a uk-tooltip="Crie uma oferta para que seu cliente venha celebrar o aniversário com você." uk-icon="icon: info; ratio: 1"></a></label>
-    <div class="uk-form-controls">
-      <input class="uk-input "  id="form-stacked-text" type="text" formControlName="diasAntesAniversario" 
-        placeholder="Exemplo: 7">
-    </div>
-  </div>
-
-  <div  class="uk-width-1-5@s" *ngIf="isDiaMesSelected" >
-    <label class="uk-form-label" for="form-stacked-text">Dia do Mês  <a uk-tooltip="Crie ofertas no modo automatico em Datas Especiais mensais." uk-icon="icon: info; ratio: 1"></a></label>
-    <div class="uk-form-controls">
-      <input class="uk-input "  id="form-stacked-text" type="text" formControlName="diaMes" 
-        placeholder="Digite o dia do Mês">
-    </div>
-  </div>
-
-  <div  class="uk-width-1-5@s" *ngIf="isDiaSemanaSelected" >
-    <label class="uk-form-label" for="form-stacked-text">Dia da Semana  <a uk-tooltip="Crie ofertas no modo automatico Semanais." uk-icon="icon: info; ratio: 1"></a></label>
-    <div class="uk-form-controls">
-      <input class="uk-input"  id="form-stacked-text" type="text" formControlName="diaSemana" 
-        placeholder="Digite o dia da Semana">
-    </div>
-  </div>
-
-  <div class="uk-alert-warning" uk-alert>
-    <p>Evite utilizar acentos e caracteres especiais na mensagem abaixo.</p>
-  </div>
-
-
-  <div class="uk-margin">
-    <label class="uk-form-label" for="form-stacked-text">Qual mensagem deseja enviar?</label>
-    <textarea class="uk-textarea" rows="5" formControlName="conteudo" placeholder="Digite sua mensagem com até 160 "></textarea>
-  </div>
-
-  <!-- <div class="uk-text-left">
-    <button class="uk-button buttonSMS" routerLink="/Message/Index"> <i uk-icon="icon: commenting; ratio: 1.1">
-      </i> Mensagem Pronta</button>
-  </div> -->
-  <hr>
-   <hr>          
-            <div class="uk-text-right">
-              <p uk-margin>
-           
-            <button class="uk-button buttonSave" (click)="Submit()" style="margin-left: 8px;"  ><i uk-icon="icon: check; ratio: 1.1"></i>Salvar</button>
-              </p> 
+            <div hidden class="uk-width-1-4@s">
+              <label  class="uk-form-label" for="form-stacked-select" >Canal de Comunicação</label>
+              <div class="uk-form-controls">
+                <select  class="uk-select" id="form-stacked-select" formControlName="tipoCanal"  >
+                  <option value="SMS">SMS</option>
+                </select>
+              </div>
+            </div>
+          </div>
+  
+          <br>
+  
+          <div  class="uk-width-1-5@s" *ngIf="isAniversarioSelected" >
+            <label class="uk-form-label" for="form-stacked-text">Dias Antes do Aniversário  <a uk-tooltip="Crie uma oferta para que seu cliente venha celebrar o aniversário com você." uk-icon="icon: info; ratio: 1"></a></label>
+            <div class="uk-form-controls">
+              <input class="uk-input "  id="form-stacked-text" type="text" formControlName="diasAntesAniversario" 
+                placeholder="Exemplo: 7">
+            </div>
+          </div>
+  
+          <div  class="uk-width-1-5@s" *ngIf="isDiaMesSelected" >
+            <label class="uk-form-label" for="form-stacked-text">Dia do Mês  <a uk-tooltip="Crie ofertas no modo automatico em Datas Especiais mensais." uk-icon="icon: info; ratio: 1"></a></label>
+            <div class="uk-form-controls">
+              <input class="uk-input "  id="form-stacked-text" type="text" formControlName="diaMes" 
+                placeholder="Digite o dia do Mês">
+            </div>
+          </div>
+  
+          <div class="uk-width-1-5@s" *ngIf="isDiaSemanaSelected">
+            <label class="uk-form-label" for="form-stacked-text">Dia da Semana  <a uk-tooltip="Crie uma campanha pra se enviada em um dia da semana ." uk-icon="icon: info; ratio: 1"></a></label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" formControlName="TempoPorDiaDaSemana" >
+                <option></option>
+                <option value="Segunda-feira">Segunda-feira</option>
+                <option value="Terça-feira">Terça-feira</option>
+                <option value="Quarta-feira">Quarta-feira</option>
+                <option value="Quinta-feira">Quinta-feira</option>
+                <option value="Sexta-feira">Sexta-feira</option>
+                <option value="Sabado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+                
+                <!-- <option value="Em Risco">Em Risco</option> -->
+                <!-- <option value="Inativo">Inativo</option> -->
+              </select>
+            </div>
           </div>
   
   
   
-    </form>
+          <div  class="uk-width-1-5@s" *ngIf="isEmRiscoSelected" >
+            <label class="uk-form-label" for="form-stacked-text">Em Risco<a uk-tooltip="Crie ofertas no modo automatico Semanais." uk-icon="icon: info; ratio: 1"></a></label>
+            <div class="uk-form-controls">
+              <input class="uk-input"  id="form-stacked-text" type="text" formControlName="EmRisco" 
+                placeholder="Digite o dia da Semana">
+            </div>
+          </div>
   
+          <div  class="uk-width-1-5@s" *ngIf="isUltimaFidelizacaoSelected" >
+            <label class="uk-form-label" for="form-stacked-text">Apos ultima fidelização  <a uk-tooltip="Crie ofertas no modo automatico Semanais." uk-icon="icon: info; ratio: 1"></a></label>
+            <div class="uk-form-controls">
+              <input class="uk-input"  id="form-stacked-text" type="text" formControlName="diaSemana" 
+                placeholder="Digite o dia da Semana">
+            </div>
+          </div>
   
+          <div class="uk-alert-warning" uk-alert>
+            <p>Evite utilizar acentos e caracteres especiais na mensagem abaixo.</p>
+          </div>
+       
+  
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Qual mensagem deseja enviar?</label>
+            <textarea class="uk-textarea" rows="5" formControlName="conteudo" placeholder="Digite sua mensagem com até 160 "></textarea>
+          </div>
+  
+          <!-- <div class="uk-text-left">
+            <button class="uk-button buttonSMS" routerLink="/Message/Index"> <i uk-icon="icon: commenting; ratio: 1.1">
+              </i> Mensagem Pronta</button>
+          </div> -->
+          <hr>
+          <div class="uk-text-right"> 
+              <button class="uk-button buttonSave" (click)="Submit()"><i
+                  uk-icon="icon: check; ratio: 1.1"></i>Salvar</button>
+          </div>        
+        </form>
       </div>
-  </div>
-          
-          
-  
-           
-           
-  
   

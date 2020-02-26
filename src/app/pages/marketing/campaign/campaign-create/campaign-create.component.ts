@@ -44,7 +44,7 @@ export class CampaignCreateComponent {
 
   }
 
-  onChangeGetContactsOfSegCustomization(eventValue) { 
+  onChangeGetContactsOfSegCustomization(eventValue: string) { 
     console.log(eventValue);
     const id = Security.getUser().idEmpresa;
     this.service.getListContactsFromSegCustomization(id, eventValue).subscribe(data => this.listContacts = data)
