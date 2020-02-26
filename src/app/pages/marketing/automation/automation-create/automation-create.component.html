@@ -72,7 +72,7 @@
         <div  class="uk-width-1-5@s" *ngIf="isDiaMesSelected" >
           <label class="uk-form-label" for="form-stacked-text">Dia do Mês  <a uk-tooltip="Crie Campanha no modo automatico em Datas Especiais." uk-icon="icon: info; ratio: 1"></a></label>
           <div class="uk-form-controls">
-            <input class="uk-input "  id="form-stacked-text" type="text" formControlName="diaMes" 
+            <input class="uk-input "  id="form-stacked-text" type="text" formControlName="tempoPorDiaDoMes" 
               placeholder="Digite o dia do Mês">
           </div>
         </div>
@@ -80,7 +80,7 @@
         <div class="uk-width-1-5@s" *ngIf="isDiaSemanaSelected">
           <label class="uk-form-label" for="form-stacked-text">Dia da Semana  <a uk-tooltip="Crie uma campanha pra se enviada em um dia da semana." uk-icon="icon: info; ratio: 1"></a></label>
           <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select" formControlName="TempoPorDiaDaSemana" >
+            <select class="uk-select" id="form-stacked-select" formControlName="tempoPorDiaDaSemana" >
               <option>Selecione uma opção</option>
               <option value="Segunda-feira">Segunda-feira</option>
               <option value="Terça-feira">Terça-feira</option>
@@ -90,6 +90,14 @@
               <option value="Sabado">Sábado</option>
               <option value="Domingo">Domingo</option>
             </select>
+          </div>
+        </div>
+
+        <div  class="uk-width-1-5@s" *ngIf="isUltimaFidelizacaoSelected" >
+          <label class="uk-form-label" for="form-stacked-text"> Quantos dias? <a uk-tooltip="Determine a quantidade de dias para enviar uma mensagem.." uk-icon="icon: info; ratio: 1"></a></label>
+          <div class="uk-form-controls">
+            <input class="uk-input "  id="form-stacked-text" type="text" formControlName="aposUltimaFidelizacao" 
+              placeholder="exemplo: 60 ">
           </div>
         </div>
 

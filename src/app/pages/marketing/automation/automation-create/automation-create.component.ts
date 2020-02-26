@@ -38,11 +38,13 @@ export class AutomationCreateComponent implements OnInit {
       tipoAutomacao: ['', [Validators.required]],
       segmentacao: ['', [Validators.nullValidator]],
       segCustomizado: ['', [Validators.nullValidator]],
-      diaSemana: ['', [Validators.nullValidator]],
-      diaMes: ['', [Validators.nullValidator]],
+      tempoPorDiaDaSemana: ['', [Validators.nullValidator]],
+      tempoPorDiaDoMes: ['', [Validators.nullValidator]],
       diasAntesAniversario: ['', [Validators.nullValidator]],
-      tipoCanal: ['', [Validators.nullValidator]]
-
+      tipoCanal: ['', [Validators.nullValidator]],
+      tempoPorDia: ['', [Validators.nullValidator]],
+      aposUltimaFidelizacao: ['', [Validators.nullValidator]]
+      
     });
 
   }
@@ -115,8 +117,16 @@ export class AutomationCreateComponent implements OnInit {
       this.isDiaMesSelected = false;
       this.isAniversarioSelected = false;
       this.isdDisableSelected = false;
+      this.isUltimaFidelizacaoSelected = false;
     }
 
+    if(selected == "Trinta dias"){
+      this.isDiaSemanaSelected = false;
+      this.isDiaMesSelected = false;
+      this.isAniversarioSelected = false;
+      this.isdDisableSelected = false;
+      this.isUltimaFidelizacaoSelected = false;
+    }
   }
 
 }
