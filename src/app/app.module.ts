@@ -49,6 +49,8 @@ import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/progra
 import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
 import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
+import { CustomerComponent } from './customer-detail-page/Pages/customer/customer.component';
+import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -88,6 +90,8 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ResetAccountComponent,
     RescueComponent,
     MarketingComponent,
+    CustomerComponent,
+    ClientDetailPageComponent,
 
   ],
 
