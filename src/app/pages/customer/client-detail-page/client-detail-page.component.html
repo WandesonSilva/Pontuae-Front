@@ -1,1 +1,47 @@
-<p>client-detail-page works!</p>
+<div class="uk-container">
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m  line-borderleft uk-margin-top">
+      <h2 class="uk-card-title-small ukh3 uk-expand "><i class="iconback" uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
+        Dados do Cliente</h2>
+      <hr>
+
+         <div class="uk-card">          
+      
+                <div class="text-muted"><strong style="margin-top: 10px;">Nome: </strong>
+                <span>{{client.Nome}}</span></div>
+                 
+                <div class="text-muted"> <strong>Celular: </strong>
+                <span>{{client.Telefone}}</span ></div>
+                
+                <div class="text-muted"> <strong > Email: </strong>
+                <span>{{client.Email}}</span></div>
+         
+                <div class="text-muted">  <strong> Nascimento: </strong>
+                <span>{{client.Nascimento}}</span></div>
+
+                <div class="text-muted">  <strong > Sexo: </strong>
+                <span>{{client.Sexo}}</span></div>
+
+                <div class="text-muted">  <strong > Resgate: </strong>
+                <span>{{client.Resgate}}</span></div>
+
+                <div class="text-muted">  <strong > Saldo: </strong>
+                <span>{{client.Saldo}}</span></div>
+
+                <div class="text-muted">  <strong > Captação: </strong>
+                <span>{{ (client.Captado/100) | currency: 'BRL'}}</span></div>
+
+                <div class="text-muted">  <strong > Gasto Médio: </strong>
+                <span>{{ (client.GastoMedio/100) | currency: 'BRL'}}</span></div>
+
+                <div class="text-muted">  <strong > Ultima Visita: </strong>
+                    <span>{{client.UltimaVisita}}</span></div>
+
+                <div class="text-muted">  <strong > Perfil: </strong>
+                <span>{{client.Perfil}}</span></div>
+
+                <div class="text-muted">  <strong > Segmento: </strong>
+                <span>{{client.Segmento}}</span></div>
+    
+       </div>
+  </div>
+</div>

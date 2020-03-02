@@ -14,55 +14,60 @@
         </div>
         <hr>                  <!-- icon:arrow-left; ratio:1.2 -->
 
-        <div class="uk-card"> 
+        <div *ngIf="!existList()">
+            <span class="uk-text-center" colspan="5">
+              <p >Vazio</p>
+            </span>
+          </div>
 
-        
+         <div class="uk-card" *ngFor="let item of ListClient$ | async">
  
          <div class="uk-panel uk-width-1-1 ">
-            <div class="uk-margin-small  ">
+            <div class="uk-margin-small">
               
               <div class=" uk-grid-divider "uk-grid>
 
                 <div class=" uk-grid-margin uk-first-column  ">
                   <div class=" uk-scrollspy-inview uk-animation-slide-right-medium "uk-scrollspy-class>
-                            <strong class=" uk-heading-small uk-margin-remove-bottom ukh2">Wandeson Silva</strong>
-                            <!-- <p class="text-muted">992874455</p> -->
-                            <div class=" text-muted uk-margin-remove-bottom">92838383</div> 
+                            <strong class=" uk-heading-small uk-margin-remove-bottom ukh2">{{item.Nome}}</strong>
+                            <div class=" text-muted uk-margin-remove-bottom"> {{item.Telefone}}</div> 
 
-                              <!-- <span class="badge-vip" style="margin-right: 5px;"> Vip </span> -->
-                              <span class="badge-novo" style="margin-right: 5px;"> Novo </span>
-                              <span class="badge-ativo" style="margin-right: 5px;"> Ativo </span>
-                              <!-- <span class="badge-ouro" style="margin-right: 5px;"> Ouro </span>
-                              <span class="badge-prata" style="margin-right: 5px;"> Prata </span>
-                              <span class="badge-bronze" style="margin-right: 5px;"> Bronze </span> -->
+                              
+                              <span class="uk-badge badge-novo" style="margin-right: 5px;"> {{item.Novo}} </span> 
+                              <span class="uk-badge badge-ativo" style="margin-right: 5px;"> {{item.Ativo}} </span>
+                              <span class="uk-badge badge-bronze" style="margin-right: 5px;"> {{item.Bronze}} </span> 
+                              <span class="uk-badge badge-prata" style="margin-right: 5px;"> {{item.Prata}} </span>                        
+                              <span class="badge-ouro" style="margin-right: 5px;"><i class="fas fa-crown"></i>{{item.Ouro}}</span>
+                              <span class="badge-vip" style="margin-right: 5px;"> {{item.Vip}} </span>
+                              
 
                         </div>
                     </div>
 
                     <div class="uk-grid-margin uk-first-column" >  
                         <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
-                            <strong class=" uk-heading-small uk-margin-remove-bottom ukh3">R$ 100</strong>
+                            <strong class=" uk-heading-small uk-margin-remove-bottom ukh3">{{ (item.GastoMedio/100) | currency: 'BRL'}}</strong>
                              <div class=" text-margin-top uk-margin-remove-bottom">Gasto Médio</div>                                                           
                         </div>
                     </div>
 
                     <div class="uk-grid-margin uk-first-column" >
                       <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
-                          <strong class=" uk-heading-small uk-margin-remove-bottom ukh3">R$ 200</strong>
+                          <strong class=" uk-heading-small uk-margin-remove-bottom ukh3">{{ (item.ValorCaptado/100) | currency: 'BRL'}}</strong>
                           <div class="text-margin-top uk-margin-remove-bottom">Valor Captado</div>
                       </div>
                     </div>
 
                     <div class="uk-grid-margin uk-first-column" >
                       <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
-                          <strong class=" uk-heading-small uk-margin-remove-bottom ukh3">2</strong>
+                          <strong class=" uk-heading-small uk-margin-remove-bottom ukh3">{{item.Visitas}}</strong>
                           <div class=" text-margin-top uk-margin-remove-bottom">Visitas</div>
                       </div>
                     </div>
 
                     <div class="uk-grid-margin uk-first-column" >
                       <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
-                          <strong class=" uk-heading-small uk-margin-remove-bottom ukh3">25/01/2020</strong>
+                          <strong class=" uk-heading-small uk-margin-remove-bottom ukh3">{{item.ultimaVisita}}</strong>
                           <div class="text-margin-top uk-margin-remove-bottom">Ultima Visita</div>
                       </div>
                     </div>
@@ -77,7 +82,7 @@
           <div>
             
             <!-- <i class="fas fa-eye"></i> -->
-            <i (click)="ddddddddddd()" uk-tooltip="title: Visualiza detalhes; pos: bottom" class="fas fa-eye uk-button-visualiza "></i>
+            <i  routerLink="/detail-customer" uk-tooltip="title: Visualiza detalhes; pos: bottom" class="fas fa-eye uk-button-visualiza "></i>
             <!-- <i class="fab fa-whatsapp-square"></i>    -->
             <!-- <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5563992892283"> <i uk-tooltip="title: Acessa whatsapp; pos: bottom" class= "uk-btn-Whatssap uk-visible@m" uk-icon="icon: whatsapp; ratio: 1.7 "></i>                  </a> -->
           </div>

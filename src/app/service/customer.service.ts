@@ -64,4 +64,10 @@ export class CustomerService {
   UpdateProfileCustomer(data: any) {
     return this.http.put(`${environment.UrlBase}v1/Cliente/put`, data);
   }
+
+  GetDetails(id){
+    const idEmpresa = Security.getUser().idEmpresa;   
+    return this.http.get<any>(`${environment.UrlBase}v1/Cliente/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
+
+  }
 }

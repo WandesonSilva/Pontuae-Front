@@ -32,6 +32,7 @@ import { AwardEditComponent } from './pages/settings/program-loyalty/config-awar
 import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
 import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
+import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
 
 
 const routes: Routes = [
@@ -50,34 +51,33 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'pointing', component: PointingComponent },
 
-      { path: 'listClientPage', component: ListClientPageComponent },
-
-      { path: 'listClientPage', component: ListClientPageComponent },
+      { path: 'list-customer', component: ListClientPageComponent },
+      { path: 'detail-customer', component: ClientDetailPageComponent },
 
       {
 
-        path: 'Config', component: ProgramLoyaltyComponent,
+        path: 'config', component: ProgramLoyaltyComponent,
         children: [
 
-          { path: 'Point/Create', component: PointCreateComponent },
-          { path: 'Point/Edit', component: PointEditComponent },
-          { path: 'Award/Create', component: AwardCreateComponent },
-          { path: 'Award/Edit', component: AwardEditComponent },
-          { path: 'ListAward', component: AwardListComponent },
-          { path: '', redirectTo: '/Config', pathMatch: 'full' },
+          { path: 'point-create', component: PointCreateComponent },
+          { path: 'point-edit', component: PointEditComponent },
+          { path: 'award-create', component: AwardCreateComponent },
+          { path: 'award-edit', component: AwardEditComponent },
+          { path: 'list-award', component: AwardListComponent },
+          { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },
 
 
       {
-        path: 'Marketing', component: MarketingComponent,
+        path: 'marketing', component: MarketingComponent,
         children: [
-          { path: 'Automation/Create', component: AutomationCreateComponent },
-          { path: 'Automation/Edit', component: AutomationEditComponent },
-          { path: 'Automation', component: AutomationListComponent },
-          { path: 'Campaign/Create', component: CampaignCreateComponent },
-          { path: 'Campaign/Edit', component: CampaignEditComponent },
-          { path: 'Campaign', component: CampaignListComponent },
+          { path: 'automation-create', component: AutomationCreateComponent },
+          { path: 'automation-edit', component: AutomationEditComponent },
+          { path: 'list-automation', component: AutomationListComponent },
+          { path: 'campaign-create', component: CampaignCreateComponent },
+          { path: 'campaign-edit', component: CampaignEditComponent },
+          { path: 'list-campaign', component: CampaignListComponent },
         ]
 
       },

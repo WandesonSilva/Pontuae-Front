@@ -553,62 +553,57 @@ strong {
   background: linear-gradient(3deg, #3D3DFF 0%, #3939E8 100%);
   color: #fff;
   border-radius: 50px;
-  padding: 0px 6px 0px;
-  font-family: 'verdana', sans-serif;
-  font-size: 13px;
+  padding: 0px 5px 0px;
+  font-family: 'Robot', sans-serif;
+  font-size: 14px;
 }
 
 
-.badge-ouro {
+.badge-ouro  {
   background: #ffbb00;
-  background: -moz-linear-gradient(75deg, #ecb707 0%, #eecb03 100%);
-  background: -webkit-linear-gradient(75deg, #fcce02 0%, #eeca00 100%);
-  background: linear-gradient(3deg, #eeff00 0%, #fcd80c 100%);
+  background: -moz-linear-gradient(75deg, #ecb707 0%, #eed603 100%);
+  background: -webkit-linear-gradient(75deg, #fcce02 0%, #eeb600 100%);
+  background: linear-gradient(56deg, #ffd000 0%, #fcec0c 100%);
   color: #fff;
   border-radius: 50px;
-  padding: 0px 6px 0px;
-  font-family: 'verdana', sans-serif;
-  font-size: 13px;
+  padding: 0px 3px 0px;
+  font-family: 'Robot', sans-serif;
+  font-size: 14px;
 }
 
 .badge-prata {
   background: #929292;
-  ;
-  background: -moz-linear-gradient(75deg, #b9b8b3 0%, #b8b6aa 100%);
-  background: -webkit-linear-gradient(75deg, #a3a092 0%, #8a8983 100%);
-  background: linear-gradient(3deg, #ebeedf 0%, #cacac3 100%);
+  background: -moz-linear-gradient(75deg, #9b9892 0%, #949490 100%);
+  background: -webkit-linear-gradient(75deg, #9b9b96 0%, #aaaaa5 100%);
+  background: linear-gradient(3deg, #a1a399 0%, #a8a8a7 100%);
   color: #fff;
   border-radius: 50px;
-  padding: 0px 6px 0px;
-  border: 1px solid #dddbd2e0;
-  font-size: 13px;
-  font-family: 'verdana', sans-serif;
+  padding: 0px 3px 0px;
+  padding: 0px 3px 0px;
+  font-family: 'Robot', sans-serif;
 }
 
 .badge-bronze {
   background: rgb(143, 95, 6);
-  background: #929292;
   background: -moz-linear-gradient(75deg, #a37f08 0%, #b68f0f 100%);
   background: -webkit-linear-gradient(75deg, #9b7804 0%, #b48e10 100%);
   background: linear-gradient(3deg, #9c8740 0%, #af8809 100%);
-  font-size: 13px;
+  font-size: 14px;
   color: #fff;
   border-radius: 50px;
-  padding: 0px 6px 0px;
-  font-family: 'verdana', sans-serif;
+  padding: 0px 5px 0px;
+  font-family: 'Robot', sans-serif;
 }
 
 .badge-vip {
   background: #9a06ad;
-  background: -moz-linear-gradient(75deg, #970682 0%, #970682 100%);
-  background: -webkit-linear-gradient(75deg, #970682 0%, #970682 100%);
-  background: linear-gradient(3deg, #ee03b3 0%, #970682 100%);
+  background: -moz-linear-gradient(75deg, #c307a7 0%, #970682 100%);
+  background: -webkit-linear-gradient(75deg, #970682 0%, #bd05a1 100%);
+  background: linear-gradient(3deg, #a32283 0%, #c303a6ef 100%);
   color: #fff;
-  font-family: 'verdana', sans-serif;
-  font-size: 13px;
-  padding: 0px 6px 0px;
-  border: 1px solid #89068da4;
-  font-size: 13px;
+  font-family: 'Robot', sans-serif;
+  padding: 0px 5px 0px;
+  font-size: 14px;
   border-radius: 50px;
 }
 
@@ -616,11 +611,11 @@ strong {
   background: rgb(4, 144, 209);
   background: -moz-linear-gradient(75deg, rgb(8, 154, 221) 0%, rgb(5, 136, 197) 100%);
   background: -webkit-linear-gradient(75deg, rgb(6, 137, 197) 0%, rgb(0, 174, 255) 100%);
-  background: linear-gradient(3deg, #5cd1ee 0%, rgb(57, 173, 226) 100%);
+  background: linear-gradient(3deg, #00ccff 0%, rgb(57, 173, 226) 100%);
   color: #fff;
-  font-family: 'verdana', sans-serif;
-  font-size: 13px;
-  padding: 0px 6px 0px;
+  font-family: 'Robot', sans-serif;
+  font-size: 14px;
+  padding:   0px 5px 0px;
   border-radius: 50px;
 
 }
@@ -633,12 +628,10 @@ strong {
 }
 
 
-
-
 .text-muted {
   color: rgba(0, 0, 0, 0.835);
   line-height: 1.6;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
 
 
@@ -647,7 +640,7 @@ strong {
 margin-top: 15px;
 }
 
-.divider-color{
-  color: #750a0a;
-  background-color: #10D55B;
+.uk-badge-ouro{
+  background-color: rgb(255, 201, 25);
+
 }

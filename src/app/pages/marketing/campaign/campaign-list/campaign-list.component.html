@@ -6,15 +6,15 @@
                 </h2>
             </div>
             <div class="uk-width-auto"> <button class=" btn-custom  uk-button uk-link uk-aling-center-right" type="button"
-                uk-tooltip="title: Nova Campanha"   routerLink="/Marketing/Campaign/Create"> <i uk-icon="icon: plus-circle; ratio: 1.4 "></i> Nova Campanha</button> 
+                uk-tooltip="title: Nova Campanha"   routerLink="/marketing/campaign-create"> <i uk-icon="icon: plus-circle; ratio: 1.4 "></i> Nova Campanha</button> 
             </div>
         </div>
     
-        <!-- <div *ngIf="!existList()">
+        <div *ngIf="!existList()">
             <span class="uk-text-center" colspan="5">
-              <p >Comece</p>
+              <p >Vazio! comece criando Nova Campanha.</p>
             </span>
-          </div> -->
+          </div>
      
         <div *ngFor="let item of ListCampaign$ | async" class="uk-card">   
             <div class="uk-grid uk-grid-large uk-child-width-expand@s uk-margin-remove-bottom " uk-grid>
@@ -72,8 +72,8 @@
                         <div class="uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class=" uk-heading-small  uk-margin-remove-bottom">{{item.qtdEnviados}}</h3>
-                                <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">SMS Enviados
+                                <h3 class=" uk-heading-small  uk-margin-remove-bottom  ukh3">{{item.qtdEnviados}}</h3>
+                                <div class="text-margin-top uk-margin-remove-bottom">SMS Enviados
 
                                 </div>
                             </div>
@@ -82,8 +82,8 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove- uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small  uk-margin-remove-bottom">{{item.valorInvestido}}</h3>
-                                <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Valor Investido
+                                <h3 class="uk-heading-small  uk-margin-remove-bottom ukh3">{{item.valorInvestido}}</h3>
+                                <div class="text-margin-top uk-margin-remove-bottom">Valor Investido
 
                                 </div>
                             </div>
@@ -92,8 +92,8 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom">{{item.qtdRetorno}}</h3>
-                                <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Quantidade Retorno
+                                <h3 class="uk-heading-small uk-margin-remove-bottom ukh3">{{item.qtdRetorno}}</h3>
+                                <div class="text-margin-top uk-margin-remove-bottom">Quantidade Retorno
 
                                 </div>
                             </div>
@@ -102,8 +102,8 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen">{{ (item.vendas/100) | currency: 'BRL'}}</h3>
-                                <div class="el-meta uk-h6 uk-margin-top uk-margin-remove-bottom">Resultado
+                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen ukh3">{{ (item.vendas/100) | currency: 'BRL'}}</h3>
+                                <div class="text-margin-top uk-margin-remove-bottom">Resultado
 
                                 </div>
                             </div>

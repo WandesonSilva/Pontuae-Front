@@ -10,12 +10,18 @@ import { CustomerService } from 'src/app/service/customer.service';
   styleUrls: ['./list-client-page.component.css']
 })
 export class ListClientPageComponent implements OnInit {
-  ListClient$ : Observable<Customer> = null;
+  public ListClient$ : Observable<Customer[]> = null;
+
   constructor(private service: CustomerService) { }
 
   ngOnInit() {
     // tslint:disable-next-line: radix
-    const Id = Security.getUser().idCliente;
-     //this.ListClient$ = this.service.GetListCustomer(Id);
+    const IdEmpresa = Security.getUser().idEmpresa;
+      this.ListClient$ = this.service.GetListCustomer(IdEmpresa);
+
+  }
+
+  existList(): boolean {
+    return this.ListClient$ && this.ListClient$ != null;
   }
 }

@@ -5,19 +5,17 @@
             </div>
             <div class="uk-width-auto"> 
                 <button class=" btn-custom  uk-button uk-link uk-aling-center-right" type="button"
-                uk-tooltip="title: Nova Automação"  routerLink="/Marketing/Automation/Create"> <i uk-icon="icon: plus-circle; ratio: 1.4 "></i>Nova Campanha</button>              
+                uk-tooltip="title: Nova Automação"  routerLink="/marketing/automation-create"> <i uk-icon="icon: plus-circle; ratio: 1.4 "></i>Nova Campanha</button>              
             </div>
-        <!-- <div *ngIf="!existList()">
+        </div>
+
+
+         <div *ngIf="!existList()">
             <span class="uk-text-center" colspan="5">
-              <p >Comece</p>
+              <p >Vazio! Começe criando sua campanha no automatico.</p>
             </span>
-          </div> -->
+          </div>
 
-
-              
-                <!-- <p class="uk-column-span">
-                    <strong>Tipo:</strong><span>item.Tipo</span><span *ngIf="ListAutomation.Ativo==1">item.Ativo</span>                     
-                </p> --> 
 
  
         <div class="uk-card" *ngFor="let item of ListAutomation$ | async">
@@ -26,7 +24,7 @@
                 <dl class="uk-description-list uk-description-list-divider ">
                     <dt><strong
                             class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
-                            uk-scrollspy-class>Tipo:</strong></dt>
+                            uk-scrollspy-class>Tipo</strong></dt>
                     <dd>
                         <h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
                             uk-scrollspy-class>{{item.TipoAutomacao}}</h4>
@@ -35,23 +33,23 @@
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Perfil:</strong></dt>
-                    <dd>{{item.Segmento}},{{item.SegCustomizado}}</dd>
+                    <dt><strong>Perfil</strong></dt>
+                    <dd>{{item.Segmentacao}}</dd>
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Seg.Customizado:</strong></dt>
+                    <dt><strong>Seg.Customizado</strong></dt>
                     <dd>{{item.SegCustomizado}},{{item.SegCustomizado}}</dd>
                 </dl>
 
                 <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Status:</strong></dt>
+                    <dt><strong>Status</strong></dt>
                     <dd>{{item.Estado}},{{item.Estado}}</dd>
                 </dl>
 
 
                 <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Forma de Envio:</strong></dt>
+                    <dt><strong>Tipo Canal</strong></dt>
                     <dd>{{item.TipoCanal}}</dd>
                 </dl>
 
@@ -68,7 +66,7 @@
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
                                 <h3 class=" uk-heading-small  uk-margin-remove-bottom ukh3">{{item.QtdEnviados}}</h3>
-                                <div class="text-margin-top  uk-margin-remove-bottom ">SMS Enviados
+                                <div class=" text-margin-top uk-margin-remove-bottom">SMS Enviados
 
                                 </div>
                             </div>
@@ -78,7 +76,7 @@
                             <div class="el-item uk-panel uk-margin-remove- uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
                                 <h3 class="uk-heading-small  uk-margin-remove-bottom ukh3">{{item.ValorInvestido}}</h3>
-                                <div class="text-margin-top  uk-margin-remove-bottom">Valor Investido
+                                <div class=" text-margin-top uk-margin-remove-bottom">Valor Investido
 
                                 </div>
                             </div>
@@ -88,7 +86,7 @@
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
                                 <h3 class="uk-heading-small uk-margin-remove-bottom ukh3">{{item.QtdRetorno}}</h3>
-                                <div class=" text-margin-top uk-margin-remove-bottom">Quantidade Retorno
+                                <div class=" text-margin-top uk-margin-remove-bottom ">Quantidade Retorno
 
                                 </div>
                             </div>
@@ -97,8 +95,8 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
                                 uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom ukh3" style="color:limegreen">{{ (item.Vendas/100) | currency: 'BRL'}}</h3>
-                                <div class=" text-margin-top uk-margin-remove-bottom">Resultado
+                                <h3 class=" uk-heading-small uk-margin-remove-bottom ukh3 " style="color:limegreen">{{ (item.Vendas/100) | currency: 'BRL'}}</h3>
+                                <div class="  text-margin-top uk-margin-remove-bottom ">Resultado
 
                                 </div>
                             </div>
@@ -108,7 +106,7 @@
             </div>
             <div class="uk-position-center-right">
                 <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 "
-                    routerLink="/Automation/Edit"></i>
+                    routerLink="/automation-edit"></i>
             </div>
             <hr>
         </div>
