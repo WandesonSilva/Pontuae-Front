@@ -14,6 +14,12 @@ export class AutomationEditComponent implements OnInit {
 
   public form: FormGroup;
   public busy = false;
+  isAniversarioSelected: boolean;
+  isDiaSemanaSelected: boolean;
+  isDiaMesSelected: boolean;
+  isEmRiscoSelected: boolean;
+  isUltimaFidelizacaoSelected: boolean;
+  isdDisableSelected = true;
 
   constructor(
     private router: Router,
@@ -89,5 +95,73 @@ export class AutomationEditComponent implements OnInit {
         }
       );
   }
+  
+  selectInput(event) {
+    let selected = event.target.value;
+    if (selected == "Aniversariante") {
+      this.isAniversarioSelected = true;
+      this.isdDisableSelected = true;
+      this.isDiaMesSelected = false;
+      this.isDiaSemanaSelected = false;
+      this.isEmRiscoSelected = false;
+      this. isUltimaFidelizacaoSelected = false;
+    }
+
+    if (selected == "Dia do Mes"){
+      this.isDiaMesSelected = true;
+      this.isdDisableSelected = true;
+      this.isAniversarioSelected = false;
+      this.isDiaSemanaSelected = false;
+      this.isEmRiscoSelected = false;
+      this.isUltimaFidelizacaoSelected = false;
+    }
+
+    if (selected == "Dia da semana"){
+     this.isDiaSemanaSelected = true;
+     this.isdDisableSelected = true;
+     this.isDiaMesSelected = false;
+     this.isAniversarioSelected = false;
+     this.isEmRiscoSelected = false;
+     this.isUltimaFidelizacaoSelected = false;
+    }
+
+    if(selected == "Em Risco"){
+      this.isEmRiscoSelected = true;
+      this.isdDisableSelected = true;
+      this.isDiaSemanaSelected = false;
+      this.isDiaMesSelected = false;
+      this.isAniversarioSelected = false;
+      this.isUltimaFidelizacaoSelected = false;
+    }
+
+    if(selected == "Ultima fidelizacao"){
+      this.isUltimaFidelizacaoSelected = true;
+      this.isdDisableSelected = true;
+      this.isDiaSemanaSelected = false;
+      this.isDiaMesSelected = false;
+      this.isAniversarioSelected = false;
+    }
+
+    if(selected == "Quinze dias"){
+      this.isDiaSemanaSelected = false;
+      this.isDiaMesSelected = false;
+      this.isAniversarioSelected = false;
+      this.isdDisableSelected = false;
+      this.isUltimaFidelizacaoSelected = false;
+    }
+
+    if(selected == "Trinta dias"){
+      this.isDiaSemanaSelected = false;
+      this.isDiaMesSelected = false;
+      this.isAniversarioSelected = false;
+      this.isdDisableSelected = false;
+      this.isUltimaFidelizacaoSelected = false;
+    }
+  }
+
 }
+  
+
+
+
 

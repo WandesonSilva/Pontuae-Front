@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './client-detail-page.component.html',
   styleUrls: ['./client-detail-page.component.css']
 })
-export class ClientDetailPageComponent implements OnInit, OnChanges {
+export class ClientDetailPageComponent implements OnInit {
 public client: any = null;
 
   constructor(private service: CustomerService, private activatedRoute: ActivatedRoute) { }
