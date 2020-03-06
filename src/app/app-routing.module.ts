@@ -33,6 +33,9 @@ import { ProfileCustomerComponent } from './pages/account-customer/profile-custo
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
 import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
 import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
+import { AutomationClientReturnDetailComponent } from './pages/marketing/automation/automation-client-return-detail/automation-client-return-detail.component';
+import { CampaignClientReturnDetailComponent } from './pages/marketing/campaign/campaign-client-return-detail/campaign-client-return-detail.component';
+
 
 
 const routes: Routes = [
@@ -53,6 +56,8 @@ const routes: Routes = [
 
       { path: 'list-customer', component: ListClientPageComponent },
       { path: 'detail-customer', component: ClientDetailPageComponent },
+      
+     
 
       {
 
@@ -75,13 +80,18 @@ const routes: Routes = [
           { path: 'automation-create', component: AutomationCreateComponent },
           { path: 'automation-edit', component: AutomationEditComponent },
           { path: 'list-automation', component: AutomationListComponent },
+        
+
           { path: 'campaign-create', component: CampaignCreateComponent },
           { path: 'campaign-edit', component: CampaignEditComponent },
           { path: 'list-campaign', component: CampaignListComponent },
+
+          { path: 'detail-return-clients-automation', component: AutomationClientReturnDetailComponent},
+          { path: 'detail-return-clients-campaign', component:  CampaignClientReturnDetailComponent},
+        
         ]
 
-      },
-
+      }
 
     ]
   },

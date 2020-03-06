@@ -57,6 +57,13 @@ export class CampaignService {
     return this.http.get<Campaign[]>(`${environment.UrlBase}/Campanha/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
   }
 
+  getListReturnCustomerCampaign( id: number, idEmpresa: number){ //verifica se vai se usado
+    return this.http.get<any[]>(`${environment.UrlBase}/Automacao/${idEmpresa}`, { headers: this.composeHeaders() });
+  }
+
+
+
+
   getCreditSMS(){
     const idEmpresa = Security.getUser().idEmpresa;
     return this.http.get<any>(`${environment.UrlBase}/Campanha/${idEmpresa}`, { headers: this.composeHeaders() });

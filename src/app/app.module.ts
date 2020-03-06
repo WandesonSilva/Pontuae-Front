@@ -50,6 +50,13 @@ import { ProfileCustomerComponent } from './pages/account-customer/profile-custo
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
 import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
 import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
+import { CampaignClientReturnDetailComponent } from './pages/marketing/campaign/campaign-client-return-detail/campaign-client-return-detail.component';
+import { AutomationClientReturnDetailComponent } from './pages/marketing/automation/automation-client-return-detail/automation-client-return-detail.component';
+
+
+
+
+
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -90,6 +97,9 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     RescueComponent,
     MarketingComponent,
     ClientDetailPageComponent,
+    CampaignClientReturnDetailComponent,
+    AutomationClientReturnDetailComponent
+  
 
   ],
 

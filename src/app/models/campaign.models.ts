@@ -5,7 +5,7 @@ export class Campaign
    public tipoCanal: string;
    public conteudo: string;
    public segmentacao: string;
-
+   public segCustomizado: string;
    public dataEnvio: string; 
    public estadoEnvio: string;
    // public horaEnvio: string; 

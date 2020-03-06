@@ -41,14 +41,16 @@ export class AutomationService {
     return this.http.delete(`${environment.UrlBase}v1/Automacao/${id}/${idEmpresa}`, {headers: this.composeHeaders()})
   }
   
-
   getListAutomation( idEmpresa: number) {
     return this.http.get<Automation[]>(`${environment.UrlBase}/Automacao/${idEmpresa}`, { headers: this.composeHeaders() });
+  }
+  getListReturnCustomerAutomation( id: number, idEmpresa: number): any{ //verifica se vai se usado
+    return this.http.get<any[]>(`${environment.UrlBase}/Automacao/${idEmpresa}`, { headers: this.composeHeaders() });
   }
 
   // lista, apura se vai precisa de dois parametros para fazer get
   getByIdAutomation(id: number, idEmpresa: number) {
+
     return this.http.get<Automation[]>(`${environment.UrlBase}/Automacao/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
   }
-
 }

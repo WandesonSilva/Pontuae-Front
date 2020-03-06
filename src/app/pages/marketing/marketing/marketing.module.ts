@@ -11,6 +11,8 @@ import { CampaignListComponent } from '../campaign/campaign-list/campaign-list.c
 import { AutomationCreateComponent } from '../automation/automation-create/automation-create.component';
 import { AutomationEditComponent } from '../automation/automation-edit/automation-edit.component';
 import { AutomationListComponent } from '../automation/automation-list/automation-list.component';
+import { CampaignClientReturnDetailComponent } from '../campaign/campaign-client-return-detail/campaign-client-return-detail.component';
+import { AutomationClientReturnDetailComponent } from '../automation/automation-client-return-detail/automation-client-return-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,9 @@ import { AutomationListComponent } from '../automation/automation-list/automatio
     AutomationCreateComponent,
     AutomationEditComponent,
     AutomationListComponent,
+    CampaignClientReturnDetailComponent,
+    AutomationClientReturnDetailComponent
+
   
   ],
   imports: [

@@ -1,112 +1,81 @@
+<div uk-grid>
+    <div class="uk-width-expand">
 
-        <div uk-grid>
-            <div class="uk-width-expand">
-      
-            </div>
-            <div class="uk-width-auto"> 
-                <button class=" btn-custom  uk-button uk-link uk-aling-center-right" type="button"
-                uk-tooltip="title: Nova Automação"  routerLink="/marketing/automation-create"> <i uk-icon="icon: plus-circle; ratio: 1.4 "></i>Nova Campanha</button>              
-            </div>
-        </div>
+    </div>
+    <div class="uk-width-auto"  style="margin-top: -105px;" >
+        <button class=" btn-custom  uk-link uk-aling-center-top" type="button" uk-tooltip="title: Criar Automação"
+            routerLink="/marketing/automation-create"> <i uk-icon="icon: plus-circle; ratio: 1.4 "></i></button>
+    </div>
+</div>
 
-
-         <div *ngIf="!existList()">
+<!-- <div *ngIf="!existList()">
             <span class="uk-text-center" colspan="5">
               <p >Vazio! Começe criando sua campanha no automatico.</p>
             </span>
-          </div>
+          </div> -->
 
 
- 
-        <div class="uk-card" *ngFor="let item of ListAutomation$ | async">
-            <div class="uk-grid uk-grid-large uk-child-width-expand@s uk-margin-remove-bottom " uk-grid>
 
-                <dl class="uk-description-list uk-description-list-divider ">
-                    <dt><strong
-                            class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
-                            uk-scrollspy-class>Tipo</strong></dt>
-                    <dd>
-                        <h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
-                            uk-scrollspy-class>{{item.TipoAutomacao}}</h4>
-                        <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium"></div>
-                    </dd>
-                </dl>
+<!-- <div class="uk-card" *ngFor="let item of ListAutomation$ | async"> -->
 
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Perfil</strong></dt>
-                    <dd>{{item.Segmentacao}}</dd>
-                </dl>
+<div class="uk-card">
+    <div class="uk-panel uk-width-1-1 ">
+        <div class=" uk-margin-small">
+              
+             <div class="uk-child-width-1-2 uk-child-width-1-5@s uk-grid-divider " uk-grid>
+                    <div class="uk-first-column">
+                       <dl class=" uk-description-list  ">
+                         <dt><strong class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
+                            uk-scrollspy-class>Tipo de Automacão</strong> </dt>
+                             <dd><h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium" style="font-size: 17px; color: darkmagenta;"
+                                     uk-scrollspy-class>Dia da semana</h4>
+                            
+                                    <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium " style="margin-top: -10px;">
+                                    </div>
+                             </dd>
+                         </dl>
+                      </div>
 
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Seg.Customizado</strong></dt>
-                    <dd>{{item.SegCustomizado}},{{item.SegCustomizado}}</dd>
-                </dl>
-
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Status</strong></dt>
-                    <dd>{{item.Estado}},{{item.Estado}}</dd>
-                </dl>
-
-
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Tipo Canal</strong></dt>
-                    <dd>{{item.TipoCanal}}</dd>
-                </dl>
-
-            </div>
-            <hr>
-
-            <div class="uk-panel uk-width-1-2 uk-text-left">
-
-                <div class="uk-margin-large uk-text-center">
-                    <div class="uk-child-width-1-1 uk-child-width-1-4@s uk-grid-divider uk-grid-match uk-grid uk-grid-stack"
-                        uk-grid>
-
-                        <div class="uk-first-column">
-                            <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
-                                uk-scrollspy-class>
-                                <h3 class=" uk-heading-small  uk-margin-remove-bottom ukh3">{{item.QtdEnviados}}</h3>
-                                <div class=" text-margin-top uk-margin-remove-bottom">SMS Enviados
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uk-grid-margin uk-first-column">
-                            <div class="el-item uk-panel uk-margin-remove- uk-scrollspy-inview uk-animation-slide-right-medium"
-                                uk-scrollspy-class>
-                                <h3 class="uk-heading-small  uk-margin-remove-bottom ukh3">{{item.ValorInvestido}}</h3>
-                                <div class=" text-margin-top uk-margin-remove-bottom">Valor Investido
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uk-grid-margin uk-first-column">
-                            <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
-                                uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom ukh3">{{item.QtdRetorno}}</h3>
-                                <div class=" text-margin-top uk-margin-remove-bottom ">Quantidade Retorno
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uk-grid-margin uk-first-column">
-                            <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
-                                uk-scrollspy-class>
-                                <h3 class=" uk-heading-small uk-margin-remove-bottom ukh3 " style="color:limegreen">{{ (item.Vendas/100) | currency: 'BRL'}}</h3>
-                                <div class="  text-margin-top uk-margin-remove-bottom ">Resultado
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="uk-first-column">
+                <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
+                    <dl class="uk-description-list ">
+                         <dt><strong>Perfil</strong></dt>
+                         <dd>vip</dd>
+                    </dl>
                 </div>
             </div>
-            <div class="uk-position-center-right">
-                <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 "
-                    routerLink="/automation-edit"></i>
+
+            <div class="uk-first-column">
+                <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
+                    <dl class="uk-description-list ">
+                        <dt><strong>Segmento</strong></dt>
+                        <dd>ouro</dd>
+                     </dl>
+                </div>
             </div>
-            <hr>
+
+
+            <div class="uk-first-column">
+                <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
+                    <dl class="uk-description-list ">
+                         <dt><strong>Canal</strong></dt>
+                         <dd>Dia da semana</dd>
+                     </dl>
+                </div>                
+            </div>
         </div>
+      </div>
+     
+      
+        <div style="margin-top: -20px;" class=" uk-position-center-right  uk-scrollspy-inview uk-animation-slide-right-medium "  uk-scrollspy-class>
+              <div>
+                     <i  routerLink="/marketing/detail-return-clients-automation"  uk-tooltip="title: Visualiza Resultado do Retorno; pos: bottom" class=" fas fa-eye uk-button-visualiza "></i>      
+                     <i  routerLink="/marketing/automation-edit" uk-tooltip="title: Editar Automação; pos: bottom" class="fas fa-pen uk-button-Edit"></i>
+              </div>  
+        </div>
+    </div>          
+</div>
+<hr>
+
+
+

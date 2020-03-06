@@ -180,6 +180,17 @@ body {
  
 }
 
+.uk-button-Edit{
+ 
+  border: 3px solid rgb(52, 190, 34);
+  font-size: 18px;
+  border-radius: 50px;
+  padding: 5px 5px 5px;
+  margin-right: 5px;
+  color:  rgb(52, 190, 34);
+  
+}
+
 .uk-button-visualiza {
   
   border: 3px solid rgb(156, 5, 136);
@@ -279,7 +290,7 @@ body {
   border-radius: 50px;
   color: #fff;
   padding: 5px 5px 5px;
-  text-shadow: none;
+  border: 0px;
   -webkit-box-shadow: 2px 5px 2px 0px rgba(126, 126, 126, 0.603);
   -moz-box-shadow: 2px 5px 4px 0px rgba(121, 110, 110, 0.548);
   box-shadow: 2px 3px 2px 0px rgba(134, 134, 134, 0.418);
@@ -482,6 +493,19 @@ body {
   background-clip: padding-box;
 }
 
+.uk-textarea-show{
+  background-color: #f1f1f165;
+  height: 90px;
+  max-width: 100%;
+  padding: 6px 12px;
+  transition: all 300ms linear 0s;
+  color: #800691;
+  border: 1px solid #ADB5BD;
+  border-radius: .25rem;
+  background-clip: padding-box;
+
+}
+
 .placeholder {
   color: #868E96
 }
@@ -493,7 +517,6 @@ body {
   background-color: #fff;
   color: #666;
   border: 1px solid #970682;
-  ;
 }
 
 .uk-radio {
@@ -643,4 +666,13 @@ margin-top: 15px;
 .uk-badge-ouro{
   background-color: rgb(255, 201, 25);
 
+}
+
+
+
+.uk-tab>.uk-active>a {
+  color: rgb(107, 107, 107);
+  font-weight: 500;
+  border-color: #9a06ad;
+  
 }

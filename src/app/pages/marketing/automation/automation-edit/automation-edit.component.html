@@ -1,18 +1,28 @@
-<div>
+<!-- <div>
       <h3 class="uk-card-title-small ukh3 "> <a  class="iconback" uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)  "></a>
     
           Alterar Automação
         </h3>
-      <hr>
+      <hr> -->
+      <div class="uk-container">
 
-      <div class="uk-position-top-right uk-overlay "  style="margin-top: -15px; ">
+      <!-- <div class="uk-position-top-right uk-overlay " style="margin-top: -15px;">
                   
           <p uk-margin>
-                <!-- <a type="button" (click)="Delete()" uk-tooltip="title: Deletar; pos: bottom"><i class="uk-buttonDelte" uk-icon="icon:trash; ratio: 1.1"></i></a> -->
+                <a type="button" (click)="Delete()" uk-tooltip="title: Deletar; pos: bottom"><i class="uk-buttonDelte" uk-icon="icon:trash; ratio: 1.1"></i></a>
                 <a type="button" (click)="Desable()" uk-tooltip="title: Desativar; pos: bottom"><i class="uk-buttonDisable" uk-icon="icon: ban; ratio: 1.1 "></i></a>                    
           </p>
             
-          <div>
+          <div> -->
+
+
+
+            <div uk-grid>
+                    <div class="uk-width-expand "> <h4> Alterar Automação </h4>
+                    </div>
+                  <div class="uk-width-auto">  <a type="button" (click)="Desable()" uk-tooltip="title: Desativar; pos: bottom"><i class="uk-link uk-aling-center-right uk-buttonDisable" uk-icon="icon: ban; ratio: 1.1 "></i></a>                    </div>
+             </div>
+
             <form [formGroup]="form" class="uk-form-stacked ">
               <div class="uk-grid uk-grid-large uk-child-width-expand@s " uk-grid>
       
@@ -136,5 +146,6 @@
                       uk-icon="icon: check; ratio: 1.1"></i>Salvar</button>
               </div>        
             </form>
-          </div>
+          <!-- </div> -->
       
+      </div>

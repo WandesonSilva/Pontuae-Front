@@ -1,121 +1,110 @@
 
-        <div uk-grid>
-            <div class="uk-width-expand">
-                <h2 class="uk-card-title-small ukh3 uk-expand ">
-                    
-                </h2>
-            </div>
-            <div class="uk-width-auto"> <button class=" btn-custom  uk-button uk-link uk-aling-center-right" type="button"
-                uk-tooltip="title: Nova Campanha"   routerLink="/marketing/campaign-create"> <i uk-icon="icon: plus-circle; ratio: 1.4 "></i> Nova Campanha</button> 
-            </div>
-        </div>
+<div uk-grid>
+    <div class="uk-width-expand">
+
+    </div>
+    <div class="uk-width-auto"  style="margin-top: -105px;" >
+        <button class=" btn-custom  uk-link uk-aling-center-top" type="button" uk-tooltip="title: Criar Campanha"
+            routerLink="/marketing/campaign-create"> <i uk-icon="icon: plus-circle; ratio: 1.4 "></i></button>
+    </div>
+</div>
     
-        <div *ngIf="!existList()">
+        <!-- <div *ngIf="!existList()">
             <span class="uk-text-center" colspan="5">
               <p >Vazio! comece criando Nova Campanha.</p>
             </span>
-          </div>
+          </div> -->
      
-        <div *ngFor="let item of ListCampaign$ | async" class="uk-card">   
-            <div class="uk-grid uk-grid-large uk-child-width-expand@s uk-margin-remove-bottom " uk-grid>
-
-                <dl class="uk-description-list uk-description-list-divider ">
-                    <dt><strong
-                            class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
-                            uk-scrollspy-class>Campanha:</strong></dt>
-                    <dd>
-                        <h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
-                            uk-scrollspy-class>{{ item.nome }}</h4>
-                        <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium"></div>
-                    </dd>
-                </dl>
-
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>N° Cliente:</strong></dt>
-                    <dd>{{ item.qtdSelecionado }}</dd>
-                </dl>
+        <!-- <div *ngFor="let item of ListCampaign$ | async" class="uk-card">    -->
 
 
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Perfil:</strong></dt>
-                    <dd>{{ item.segmento }}</dd>
-                </dl>
+    <div class="uk-card">
+                <div class="uk-panel uk-width-1-1 ">
+                    <div class=" uk-margin-small">
 
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Seg.Customizado:</strong></dt>
-                    <dd>{{ item.segCustomizado }}</dd>
-                </dl>
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Canal de Comunicação:</strong></dt>
-                    <dd>{{item.tipoCanal}}</dd>
-                </dl>
 
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Enviada em:</strong></dt>
-                    <dd>{{ item.dataEnvio | date : 'dd/MM/yyyy' }}</dd>
-                </dl>
+                        <div class="uk-child-width-1-2 uk-child-width-1-6@s uk-grid-divider " uk-grid>
 
-                <dl class="uk-description-list uk-description-list-divider">
-                    <dt><strong>Situacao:</strong></dt>
-                    <dd>{{ item.estadoEnvio}}</dd>
-                </dl>
+                            <div class="uk-first-column uk-grid-small uk-margin-small ">
+                                
+                                <dl class=" uk-description-list  ">
+                                    <dt><strong class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
+                                       uk-scrollspy-class>Campanha</strong> </dt>
+                                        <dd><h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium" style="font-size: 17px; color: darkmagenta;"
+                                                uk-scrollspy-class>promoção do dia</h4>
+                                       
+                                               <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium " style="margin-top: -10px;">
+                                               </div>
+                                        </dd>
+                                    </dl>
+                                        
+                              </div>
+              
+                              <div class="uk-first-column uk-grid-small uk-margin-small">
+                                    <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
+                                        <dl class="uk-description-list ">
+                                          <dt><strong>Perfil</strong></dt>
+                                          <dd>vip</dd>
+                                        </dl>
+                                     </div>
+                              </div>
 
-            </div>
-            <hr>
+                              <div class="uk-first-column uk-grid-small uk-margin-small">
+                                    <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
+                                        <dl class="uk-description-list ">
+                                           <dt><strong>Segmento</strong></dt>
+                                           <dd>prata</dd>
+                                        </dl>
+                                    </div>
+                              </div>
 
-            <div class="uk-panel uk-width-1-2 uk-text-left">
+                          <div class="uk-first-column  uk-grid-small uk-margin-small">
+                                    <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
+                                        <dl class="uk-description-list ">
+                                            <dt><strong>Canal</strong></dt>
+                                            <dd>SMS</dd>
+                                        </dl>
+                                    </div>
+                          </div>
 
-                <div class="uk-margin-large uk-text-center">
-                    <div class="uk-child-width-1-1 uk-child-width-1-4@s uk-grid-divider uk-grid-match uk-grid uk-grid-stack"
-                        uk-grid>
+                           <div class="uk-first-column  uk-grid-small  uk-margin-small">
+                                    <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
+                                        <dl class="uk-description-list ">
+                                            <dt><strong>Enviada em</strong></dt>
+                                            <dd>23/09/2020</dd>
+                                        </dl>
+                                    </div>
+                          </div>
 
-                        <div class="uk-first-column">
-                            <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
-                                uk-scrollspy-class>
-                                <h3 class=" uk-heading-small  uk-margin-remove-bottom  ukh3">{{item.qtdEnviados}}</h3>
-                                <div class="text-margin-top uk-margin-remove-bottom">SMS Enviados
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uk-grid-margin uk-first-column">
-                            <div class="el-item uk-panel uk-margin-remove- uk-scrollspy-inview uk-animation-slide-right-medium"
-                                uk-scrollspy-class>
-                                <h3 class="uk-heading-small  uk-margin-remove-bottom ukh3">{{item.valorInvestido}}</h3>
-                                <div class="text-margin-top uk-margin-remove-bottom">Valor Investido
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uk-grid-margin uk-first-column">
-                            <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
-                                uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom ukh3">{{item.qtdRetorno}}</h3>
-                                <div class="text-margin-top uk-margin-remove-bottom">Quantidade Retorno
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uk-grid-margin uk-first-column">
-                            <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium"
-                                uk-scrollspy-class>
-                                <h3 class="uk-heading-small uk-margin-remove-bottom" style="color:limegreen ukh3">{{ (item.vendas/100) | currency: 'BRL'}}</h3>
-                                <div class="text-margin-top uk-margin-remove-bottom">Resultado
-
-                                </div>
-                            </div>
-                        </div>
+                           <div class="uk-first-column  uk-grid-small uk-margin-small ">
+                                    <div class="uk-scrollspy-inview uk-animation-slide-right-medium " uk-scrollspy-class>
+                                         <dl class="uk-description-list ">
+                                             <dt><strong>Situação</strong></dt>
+                                             <dd>concluida</dd>
+                                         </dl>
+                                    </div>
+                           </div>
                     </div>
-                </div>
-            </div>
-            <!-- <div class="uk-position-center-right"> Não vai se usado nesse template
-                <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 "
-                    routerLink="/Automation/Edit"></i>
-            </div> -->
-        </div>
+
+                    <div style="margin-top: -25px;" class=" uk-position-center-right  uk-scrollspy-inview uk-animation-slide-right-medium "  uk-scrollspy-class>
+                        <div>
+                               <i  routerLink="/marketing/detail-return-clients-campaign" uk-tooltip="title: Visualiza Resultado do Retorno; pos: bottom" class=" fas fa-eye uk-button-visualiza "></i>      
+                       
+                        </div>  
+                  </div>
+                <hr>         
+ </div>
 
 
-        
+
+
+
+   
+
+
+
+
+
+
+
+
