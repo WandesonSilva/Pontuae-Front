@@ -15,10 +15,9 @@
             </span>
           </div> -->
      
-        <!-- <div *ngFor="let item of ListCampaign$ | async" class="uk-card">    -->
+        <div *ngFor="let item of ListCampaign$ | async" class="uk-card">   
 
 
-    <div class="uk-card">
                 <div class="uk-panel uk-width-1-1 ">
                     <div class=" uk-margin-small">
 
@@ -27,11 +26,11 @@
 
                             <div class="uk-first-column uk-grid-small uk-margin-small ">
                                 
-                                <dl class=" uk-description-list  ">
+                                <dl class=" uk-description-list">
                                     <dt><strong class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
                                        uk-scrollspy-class>Campanha</strong> </dt>
                                         <dd><h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium" style="font-size: 17px; color: darkmagenta;"
-                                                uk-scrollspy-class>promoção do dia</h4>
+                                                uk-scrollspy-class>{{item.nome}}</h4>
                                        
                                                <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium " style="margin-top: -10px;">
                                                </div>
@@ -44,7 +43,7 @@
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                                         <dl class="uk-description-list ">
                                           <dt><strong>Perfil</strong></dt>
-                                          <dd>vip</dd>
+                                          <dd>{{item.segmentacao}}</dd>
                                         </dl>
                                      </div>
                               </div>
@@ -53,7 +52,7 @@
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                                         <dl class="uk-description-list ">
                                            <dt><strong>Segmento</strong></dt>
-                                           <dd>prata</dd>
+                                           <dd>{{item.segCustomizado}}</dd>
                                         </dl>
                                     </div>
                               </div>
@@ -62,7 +61,7 @@
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                                         <dl class="uk-description-list ">
                                             <dt><strong>Canal</strong></dt>
-                                            <dd>SMS</dd>
+                                            <dd>{{item.tipoCanal}}</dd>
                                         </dl>
                                     </div>
                           </div>
@@ -71,7 +70,7 @@
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                                         <dl class="uk-description-list ">
                                             <dt><strong>Enviada em</strong></dt>
-                                            <dd>23/09/2020</dd>
+                                            <dd>{{item.dataEnviada}}</dd>
                                         </dl>
                                     </div>
                           </div>
@@ -80,7 +79,7 @@
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium " uk-scrollspy-class>
                                          <dl class="uk-description-list ">
                                              <dt><strong>Situação</strong></dt>
-                                             <dd>concluida</dd>
+                                             <dd>{{item.estadoEnvio}}</dd>
                                          </dl>
                                     </div>
                            </div>
@@ -88,7 +87,7 @@
 
                     <div style="margin-top: -25px;" class=" uk-position-center-right  uk-scrollspy-inview uk-animation-slide-right-medium "  uk-scrollspy-class>
                         <div>
-                               <i  routerLink="/marketing/detail-return-clients-campaign" uk-tooltip="title: Visualiza Resultado do Retorno; pos: bottom" class=" fas fa-eye uk-button-visualiza "></i>      
+                               <i  routerLink="/marketing/detail-return-clients-campaign/{{item.id}}" uk-tooltip="title: Visualiza Desempenho Geral; pos: bottom" class=" fas fa-eye uk-button-visualiza "></i>      
                        
                         </div>  
                   </div>

@@ -10,15 +10,15 @@
 
 <!-- <div *ngIf="!existList()">
             <span class="uk-text-center" colspan="5">
-              <p >Vazio! Começe criando sua campanha no automatico.</p>
+              <p >Vazio! Começe a criar suas campanha no automatico.</p>
             </span>
           </div> -->
 
 
 
-<!-- <div class="uk-card" *ngFor="let item of ListAutomation$ | async"> -->
+<div class="uk-card" *ngFor="let item of ListAutomation$ | async">
 
-<div class="uk-card">
+
     <div class="uk-panel uk-width-1-1 ">
         <div class=" uk-margin-small">
               
@@ -28,7 +28,7 @@
                          <dt><strong class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium"
                             uk-scrollspy-class>Tipo de Automacão</strong> </dt>
                              <dd><h4 class="uk-heading-small uk-width-medium uk-scrollspy-inview uk-animation-slide-right-medium" style="font-size: 17px; color: darkmagenta;"
-                                     uk-scrollspy-class>Dia da semana</h4>
+                                     uk-scrollspy-class>{{item.tipoAutomacao}}</h4>
                             
                                     <div class="uk-divider-small uk-scrollspy-inview uk-animation-slide-bottom-medium " style="margin-top: -10px;">
                                     </div>
@@ -40,7 +40,7 @@
                 <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                     <dl class="uk-description-list ">
                          <dt><strong>Perfil</strong></dt>
-                         <dd>vip</dd>
+                         <dd>{{item.segmentacao}}</dd>
                     </dl>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                 <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                     <dl class="uk-description-list ">
                         <dt><strong>Segmento</strong></dt>
-                        <dd>ouro</dd>
+                        <dd>{{item.segCustomizado}}</dd>
                      </dl>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                     <dl class="uk-description-list ">
                          <dt><strong>Canal</strong></dt>
-                         <dd>Dia da semana</dd>
+                         <dd>{{item.tipoCanal}}</dd>
                      </dl>
                 </div>                
             </div>
@@ -67,10 +67,10 @@
       </div>
      
       
-        <div style="margin-top: -20px;" class=" uk-position-center-right  uk-scrollspy-inview uk-animation-slide-right-medium "  uk-scrollspy-class>
+        <div style="margin-top: -20px;" class=" uk-position-center-right  uk-scrollspy-inview uk-animation-slide-right-medium  "  uk-scrollspy-class>
               <div>
-                     <i  routerLink="/marketing/detail-return-clients-automation"  uk-tooltip="title: Visualiza Resultado do Retorno; pos: bottom" class=" fas fa-eye uk-button-visualiza "></i>      
-                     <i  routerLink="/marketing/automation-edit" uk-tooltip="title: Editar Automação; pos: bottom" class="fas fa-pen uk-button-Edit"></i>
+                     <i  routerLink="/marketing/detail-return-clients-automation/{{item.id}}"  uk-tooltip="title: Visualiza Desempenho Geral; pos: bottom" class=" fas fa-eye uk-button-visualiza "></i>      
+                     <i  routerLink="/marketing/automation-edit/{{item.id}}" uk-tooltip="title: Editar Automação; pos: bottom" class="fas fa-pen uk-button-Edit"></i>
               </div>  
         </div>
     </div>          

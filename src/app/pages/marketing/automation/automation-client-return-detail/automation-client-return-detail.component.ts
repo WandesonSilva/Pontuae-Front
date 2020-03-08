@@ -11,15 +11,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./automation-client-return-detail.component.css']
 })
 export class AutomationClientReturnDetailComponent implements OnInit, OnChanges {
-    
+  public automation : any = null;
   public ListReturnCustomerAutomation$: Observable<any> = null;
 
-  constructor(private service: AutomationService, private activatedRoute: ActivatedRoute, private toastr: ToastrService, ) { }
+  constructor(private data: AutomationService, private activatedRoute: ActivatedRoute, private toastr: ToastrService, ) { }
   
   ngOnInit() {
     const idEmpresa = Security.getUser().idEmpresa;
     const ID = this.activatedRoute.snapshot.params.id;
-    this.ListReturnCustomerAutomation$ = this.service.getListReturnCustomerAutomation(ID, idEmpresa);
+    this.ListReturnCustomerAutomation$ = this.data.getListReturnCustomerAutomation(ID, idEmpresa);
   }
 
   ngOnChanges() {
@@ -28,7 +28,13 @@ export class AutomationClientReturnDetailComponent implements OnInit, OnChanges 
 
   showDadosReturnCustomerDetails() {
     const idEmpresa = Security.getUser().idEmpresa;
-    this.service.getByIdAutomation(this.activatedRoute.snapshot.params.id, idEmpresa)
+    const ID =  this.activatedRoute.snapshot.params.id;
+        this.data.getByIdAutomation(ID, idEmpresa).subscribe((data: any) => {
+          this.automation = data;
+        }); 
+ 
   }
 
 }
+
+

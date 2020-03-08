@@ -6,12 +6,5 @@ export class Automation
     public segCustomizado: string;
     public tipoCanal: string;
 
-    public diaSemana: string; 
-    public diaMes: number;    
-    public diasAntesAniversario: number;
-    public conteudo: string;
-    public qtdEnviados: number;
-    public valorInvestido: string;
-    public qtdRetorno: number;
-    public resultado: number;
+
 }
