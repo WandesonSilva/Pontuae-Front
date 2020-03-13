@@ -27,9 +27,10 @@
       </div>
       <div uk-grid>
 
-        <div class="uk-margin-remove"><strong class="uk-text-large uk-text-success ">{{item.saldo}}/</strong><span
-        <div class="uk-width-auto"><button class=" uk-position-center uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child card-round"
-            (click)="rescue([(item.id)],[(item.pontosNecessario)] )">Resgatar</button> </div>
+        <div class="uk-margin-remove">
+          <strong class="uk-text-large uk-text-success ">{{item.saldo}}</strong>
+          <span class="uk-width-auto"><button class=" uk-position-center uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child card-round"
+              (click)="rescue([(item.id)],[(item.pontosNecessario)] )">Resgatar</button> </span>
       </div>
       <progress id="js-progressbar" class="uk-progress " value="{{item.saldo}}"
         max="{{item.pontosNecessario}}"></progress>

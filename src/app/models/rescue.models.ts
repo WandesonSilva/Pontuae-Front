@@ -4,5 +4,5 @@ export class rescueModels{
         public idEmpresa: number,
         public idUsuario: number,
         public valorDoPremio: number,
-    )
+    ){}
 }
