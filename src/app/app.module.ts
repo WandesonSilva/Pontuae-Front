@@ -7,9 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
 import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
-import { MenuComponent } from './pages/shared/Menu.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
 
@@ -52,11 +50,7 @@ import { MarketingComponent } from './pages/marketing/marketing/marketing.compon
 import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
 import { CampaignClientReturnDetailComponent } from './pages/marketing/campaign/campaign-client-return-detail/campaign-client-return-detail.component';
 import { AutomationClientReturnDetailComponent } from './pages/marketing/automation/automation-client-return-detail/automation-client-return-detail.component';
-
-
-
-
-
+import { PreRegisterComponent } from './pages/pointing/pre-register/pre-register.component';
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);

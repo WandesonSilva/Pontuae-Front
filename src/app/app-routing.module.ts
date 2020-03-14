@@ -11,7 +11,6 @@ import { ListCompanyComponent } from './pages/dashboard-customer/list-company/li
 import { AwardListComponent } from './pages/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { ListClientPageComponent } from './pages/customer/list-client-page/list-client-page.component';
 import { ProfileComponent } from './pages/account-company/profile/profile.component';
-import { PreRegisterComponent } from './pages/account-customer/pre-register/pre-register.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
@@ -35,6 +34,7 @@ import { MarketingComponent } from './pages/marketing/marketing/marketing.compon
 import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
 import { AutomationClientReturnDetailComponent } from './pages/marketing/automation/automation-client-return-detail/automation-client-return-detail.component';
 import { CampaignClientReturnDetailComponent } from './pages/marketing/campaign/campaign-client-return-detail/campaign-client-return-detail.component';
+import { PreRegisterComponent } from './pages/pointing/pre-register/pre-register.component';
 
 
 
@@ -57,9 +57,8 @@ const routes: Routes = [
       { path: 'list-customer', component: ListClientPageComponent },
       { path: 'detail-customer', component: ClientDetailPageComponent },
       
-     
-
       {
+        //clientes:  aqui vou  criar uma rotar com sub rotas para lista de cliete, lista de aniversariante
 
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
