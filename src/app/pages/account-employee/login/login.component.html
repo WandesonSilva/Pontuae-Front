@@ -1,0 +1,39 @@
+<div class="uk-flex-center FundoLogin autoHeight" uk-grid>
+    <div class="uk-width-1-3@s">
+      <div class="uk-text-center uk-margin-large-top uk-margin-medium-bottom uk-light ">
+        <a class=" uk-text-large uk-active uk-link-heading " style="font-family:Cocon">pontua <a
+            style="font-family:Lucida Handwriting"> Aê</a>
+        </a>
+      </div>
+  
+      <form [formGroup]="form">
+        
+        <div class="uk-card uk-card-default  uk-card-body uk-border-rounded">
+          <app-carregar *ngIf="carregando"></app-carregar>
+          <div *ngIf="!carregando">
+            <h3 class="uk-card-title">Autentique-se</h3>
+            <div class="uk-margin">
+              <input class="uk-input uk-form-large" formControlName="Email" type="text"
+                [ngClass]="{'uk-form-danger': (!form.controls.Email.valid && !form.controls.Email.pristine) }"
+                placeholder="Email">
+            </div>
+            <div class="uk-margin">
+              <input class="uk-input uk-form-large" formControlName="Senha" type="password"
+                [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+                placeholder="Senha">
+            </div>
+  
+            <a href="//////////////////" class="">Esqueci minha senha</a>
+            <div class="uk-margin uk-text-right">
+              <button class="uk-button uk-button-default" [disabled]="form.invalid" (click)="submit()"
+                (click)="displayBanner()">Entrar
+              </button>
+            </div>
+            
+          </div>
+        </div>
+      </form>
+  
+  
+    </div>
+  </div>

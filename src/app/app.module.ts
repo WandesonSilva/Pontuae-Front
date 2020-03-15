@@ -52,6 +52,10 @@ import { CampaignClientReturnDetailComponent } from './pages/marketing/campaign/
 import { AutomationClientReturnDetailComponent } from './pages/marketing/automation/automation-client-return-detail/automation-client-return-detail.component';
 import { PreRegisterComponent } from './pages/pointing/pre-register/pre-register.component';
 
+import { RegisterEmployeeComponent } from './pages/account-employee/register-employee/register-employee.component';
+import { EditEmployeeComponent } from './pages/account-employee/edit-employee/edit-employee.component';
+import { ListEmployeeComponent } from './pages/account-employee/list-employee/list-employee.component';
+
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -92,7 +96,10 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     MarketingComponent,
     ClientDetailPageComponent,
     CampaignClientReturnDetailComponent,
-    AutomationClientReturnDetailComponent
+    AutomationClientReturnDetailComponent,
+    RegisterEmployeeComponent,
+    EditEmployeeComponent,
+    ListEmployeeComponent
   
 
   ],

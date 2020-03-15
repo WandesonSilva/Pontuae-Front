@@ -22,9 +22,6 @@ import { CampaignCreateComponent } from './pages/marketing/campaign/campaign-cre
 import { CampaignEditComponent } from './pages/marketing/campaign/campaign-edit/campaign-edit.component';
 import { CampaignListComponent } from './pages/marketing/campaign/campaign-list/campaign-list.component';
 import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/program-loyalty.component';
-import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
-import { PointingComponent } from './pages/pointing/pointing/pointing.component';
-import { PointCreateComponent } from './pages/settings/program-loyalty/config-point.ts/point-create/point-create.component';
 import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
 import { AwardCreateComponent } from './pages/settings/program-loyalty/config-awards/award-create/award-create.component';
 import { AwardEditComponent } from './pages/settings/program-loyalty/config-awards/award-edit/award-edit.component';
@@ -35,6 +32,11 @@ import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/c
 import { AutomationClientReturnDetailComponent } from './pages/marketing/automation/automation-client-return-detail/automation-client-return-detail.component';
 import { CampaignClientReturnDetailComponent } from './pages/marketing/campaign/campaign-client-return-detail/campaign-client-return-detail.component';
 import { PreRegisterComponent } from './pages/pointing/pre-register/pre-register.component';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { RegisterEmployeeComponent } from './pages/account-employee/register-employee/register-employee.component';
+import { ListEmployeeComponent } from './pages/account-employee/list-employee/list-employee.component';
+import { EditEmployeeComponent } from './pages/account-employee/edit-employee/edit-employee.component';
+import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 
 
 
@@ -50,20 +52,23 @@ const routes: Routes = [
       { path: 'home', component: DashboardComponent },
 
 
-      { path: 'preCadastro', component: PreRegisterComponent },
+      { path: 'insert-point', component: PreRegisterComponent },
+      { path: 'rescue-point', component: RescueComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'pointing', component: PointingComponent },
-
+      // { path: 'pointing', component: PointingComponent },  agora será apenas rota de pontuacao, a tomada de desição de pre registra telefone fica no servidor
+      { path: 'new-employee', component: RegisterEmployeeComponent },
+      { path: 'edit-employee', component: EditEmployeeComponent},
+      { path: 'list-employee', component: ListEmployeeComponent},
       { path: 'list-customer', component: ListClientPageComponent },
       { path: 'detail-customer', component: ClientDetailPageComponent },
       
+ 
+      
       {
-        //clientes:  aqui vou  criar uma rotar com sub rotas para lista de cliete, lista de aniversariante
-
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
 
-          { path: 'point-create', component: PointCreateComponent },
+          //  
           { path: 'point-edit', component: PointEditComponent },
           { path: 'award-create', component: AwardCreateComponent },
           { path: 'award-edit', component: AwardEditComponent },
@@ -104,12 +109,23 @@ const routes: Routes = [
     ]
 
   },
+  {
+    path: 'home-employee', component: MenuComponent,
+    //canActivate: [AuthService, ClientGuard],
+    children: [
+      { path: '', component: DashboardModule },
+      { path: 'insert-point', component: PreRegisterComponent },
 
+    ]
+  },
+   
   { path: 'login', component: LoginComponent },
   { path: 'loginCliente', component: LoginClienteComponent },
   { path: 'cadastrar', component: RegisterCompanyComponent },
   { path: 'registerCustomer', component: RegisterCustomerComponent },
   { path: 'resetAccount', component: ResetAccountComponent },
+
+
 ];
 
 @NgModule({
