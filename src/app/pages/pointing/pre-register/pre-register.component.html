@@ -9,32 +9,32 @@
         <hr>
     </div>
     <form [formGroup]="form" class="uk-form-stacked">
-                  
+
             <!-- <div class="uk-margin">
               <div class="uk-form">
                 <input class="uk-input" formControlName="nomeCliente"
                 [ngClass]="{'uk-form-danger': (!form.controls.nomeCliente.valid && !form.controls.nomeCliente.pristine) }" id="form-stacked-text" type="text" placeholder="Nome cliente">
               </div>
             </div> -->
-          
+
 
             <div class="uk-width-1-1@s">
               <label class="uk-form-label">Contato (Celular)</label>
                  <div class="uk-inline">
                     <div class="uk-form-controls">
-                       <span class="uk-form-icon"><i class="material-icons">contact_phone</i></span>     
+                       <span class="uk-form-icon"><i class="material-icons">contact_phone</i></span>
                         <input class="uk-input uk-form-large uk-form-width-large " mask="(00) 00000-0000" formControlName="Telefone" type="text"
                         placeholder="Digite o celular do cliente">
                     </div>
                   </div>
             </div>
            <br>
-           
+
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text">Valor da Compra</label>
         <div class="uk-inline">
            <div class="uk-form-controls">
-             <a class="uk-form-icon"><i class="material-icons">monetization_on</i></a>  
+             <a class="uk-form-icon"><i class="material-icons">monetization_on</i></a>
              <input class="uk-input uk-form-large uk-form-width-large"  formControlName="ValorInfor" id="form-stacked-text" type="number"
              placeholder="Digite o valor da compra">
             </div>
@@ -42,12 +42,11 @@
  </div>
         <div class="uk-align-left@s ">
 
-          <button class=" buttonSave uk-button" (click)="submit()">Enviar <i class="fa fa-paper-plane"
-            aria-hidden="true"></i></button>
+          <button class=" buttonSave uk-button" (click)="submit()" >Enviar <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 
         </div>
- 
+
     </form>
     </div>
 </div>
- 
+

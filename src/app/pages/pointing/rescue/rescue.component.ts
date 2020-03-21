@@ -16,7 +16,7 @@ import { rescueModels } from 'src/app/models/rescue.models';
 })
 export class RescueComponent {
   public form: FormGroup;
-  public ListAward$: Observable<listAwardClient[]> 
+  public ListAward$: Observable<listAwardClient[]>;
   public contato: string;
 
   constructor(
@@ -34,13 +34,17 @@ export class RescueComponent {
 
   async seach() {
     const id = Security.getUser().idEmpresa;
-    //console.log(event.target.value);
-     const a = await this.service.getListAwardClient(id, this.form.value.Telefone);
+    // console.log(event.target.value);
+    const a = this.service.getListAwardClient(id, this.form.value.Telefone);
 
-     console.log(a);
-     this.ListAward$ = a;
+    this.newMethod(a);
+    this.ListAward$ = a;
   }
 
+
+  private newMethod(a: Observable<listAwardClient[]>) {
+    console.log(a);
+  }
 
   rescue( id: number, saldo: number) {
     const user = Security.getUser();
@@ -48,9 +52,9 @@ export class RescueComponent {
     console.log(resgatar);
     this.
       service
-      .rescue(resgatar) 
+      .rescue(resgatar)
       .subscribe((data: any) => {
-        
+
         this.toastr.success(data.dado.message);
 
       }, (err) => {

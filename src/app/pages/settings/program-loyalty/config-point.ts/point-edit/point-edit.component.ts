@@ -98,7 +98,7 @@ export class PointEditComponent implements OnInit {
   }
 
   backPage() {
-    this.router.navigate(['/listProgram']);
+    this.router.navigate(['/list-employee']);
   }
 }
 

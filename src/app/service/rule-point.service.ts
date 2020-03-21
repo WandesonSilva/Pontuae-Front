@@ -42,7 +42,6 @@ export class RulePointService {
     return this.http.get<RuleProgram[]>(`${environment.UrlBase}v1/Config/${id}`);
   }
 
-
   updateProgramLoyalty(data: any) {
     return this.http.put(`${environment.UrlBase}v1/Config/edit`, data, { headers: this.composeHeaders() });
   }

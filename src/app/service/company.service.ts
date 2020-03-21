@@ -28,7 +28,6 @@ export class DataService {
     
       }
     
-
     CriarPerfil(data) {
         data.Id = Security.getUser().idEmpresa;
         return this.http.post(`${environment.UrlBase}v1/PerfilEmpresa`, data);

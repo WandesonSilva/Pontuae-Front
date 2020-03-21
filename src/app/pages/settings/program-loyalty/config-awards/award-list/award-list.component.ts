@@ -4,6 +4,7 @@ import { AwardService } from 'src/app/service/award.service';
 import { Security } from 'src/app/utils/security.util';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -32,14 +33,33 @@ export class AwardListComponent implements OnInit {
     this.service.getListAward(id).subscribe(data => this.List = data);
   }
 
+      //  Testa este metodo
+  // alertDelete(idPonto: number) {
+  //   const idEmpresa = Security.getUser().idEmpresa;
+  //   Swal.fire({
+  //     text: "Deseja realmente Excluir?",
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#17CC8D',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Confimar'
+  //   }).then((result) => {
+  //     if (result.value) {
+  //       this.service.deleteAward(idEmpresa, idPonto )
+  //       .subscribe((data: any) => {  this.toastr.success(data.message, 'Deletado com sucesso');
+  //       }, (err) => { this.toastr.warning('Erro na Operação'); });
+  //     }
+  //   });
+  // }
+
+
+
 
   
   Delete(idPonto: number) {
     const id = Security.getUser().idEmpresa;
     if (confirm("Deseja realmente Excluir?")) {
       this.busy = true;
-      this.service
-        .deleteAward(id, idPonto )
+      this.service.deleteAward(id, idPonto )
         .subscribe((data: any) => {
           this.busy = false;
           this.ListAward(); 
@@ -49,7 +69,6 @@ export class AwardListComponent implements OnInit {
         (err) => {
           console.log(err);
         });
-  }
-
+   }
   }
 }

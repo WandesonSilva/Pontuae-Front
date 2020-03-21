@@ -6,48 +6,47 @@
      
       
         <div class="uk-text-right">
-          <!--<h4 style="text-align:left">campanha!</h4>-->
           <div class="uk-width-auto"  style="margin-top: -55px;"> <i class=" btn-custom uk-link uk-aling-center-right uk-margin" type="button"
               uk-tooltip="title: Novo Usuário" uk-icon="icon:  plus-circle; ratio: 1.4 "
               routerLink="/new-employee"></i>
           </div>
         </div>
          <hr>
-        <div >
-         <div class="uk-card">
-            <table class="uk-table uk-table-striped">
+
+
+        <div>
+         <div class=" uk-card">
+            <table class=" uk-table uk-table-striped">
               <tbody>
-                <tr>
+                <tr *ngFor=" let item of ListUserEmployee$ | async" >
                     <td>
                         <div class=" uk-first-column">                            
-                           <div class="uk-margin-remove-bottom "><span class="uk-text-bold">Wandeson</span></div>
-                           <div ><span>Email</span></div>                        
+                           <div class=" uk-margin-remove-bottom "><span class="uk-text-bold">{{item.nomeCompleto}</span></div>
+                           <div ><span>item.email</span></div>                        
                         </div>
-
-                        
                           <div class=" uk-width-1-4@m uk-first-column" >    
                             <div  class="uk-position-center-right" >
                                 <div>
-                                     <i uk-tooltip="title: Excluir Usuário; pos: bottom" class=" fas fa-trash-alt uk-buttonDelte "></i>      
-                                     <i routerLink="/edit-employee" uk-tooltip="title: Alter dados; pos: bottom" class="fas fa-pen uk-button-Edit"></i>
+                                     <i (click)=" alertDelete(item.id)" uk-tooltip="title: Excluir Usuário; pos: bottom" class=" fas fa-trash-alt uk-buttonDelte "></i>
+                                     <i routerLink="/edit-employee/{{item.id}}" uk-tooltip="title: Alter dados; pos: bottom" class="fas fa-pen uk-button-Edit"></i>
                                 </div>  
                             </div>
 
                           </div>
                     
-                    
-                     
-                    
                     </td>                  
                   </tr>
-                 
-                  
-              
-      
               </tbody>
             </table>  
         
         </div>
       </div> 
-       </div>
+      
+
+
+
+
   </div>
+       
+ </div>
+  

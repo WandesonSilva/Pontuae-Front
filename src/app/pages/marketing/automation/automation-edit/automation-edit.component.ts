@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AutomationService } from 'src/app/service/automation.service';
 import { ToastrService } from 'ngx-toastr';
 import { Security } from 'src/app/utils/security.util';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-automation-edit',
@@ -95,6 +96,27 @@ export class AutomationEditComponent implements OnInit {
         }
       );
   }
+   
+  alertDeleteAutomation(id: any) {
+    const idAutomation = this.form.value.Id;
+    Swal.fire({
+      text: "Deseja remover esta automação?",
+      showCancelButton: true,
+      confirmButtonColor: '#17CC8D',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confimar'
+    }).then((result) => {
+      if (result.value) {
+        this.service.deleteAutomation(idAutomation)
+        .subscribe((data: any) => { this.toastr.success('Automação Excluida com sucesso');
+        }, (err) => { this.toastr.warning('Erro na Operação'); });
+      }
+    });
+  }
+
+
+
+
   
   selectInput(event) {
     let selected = event.target.value;

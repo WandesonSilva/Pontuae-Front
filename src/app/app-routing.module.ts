@@ -37,6 +37,7 @@ import { RegisterEmployeeComponent } from './pages/account-employee/register-emp
 import { ListEmployeeComponent } from './pages/account-employee/list-employee/list-employee.component';
 import { EditEmployeeComponent } from './pages/account-employee/edit-employee/edit-employee.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
+import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 
 
 
@@ -45,30 +46,32 @@ const routes: Routes = [
   {
     path: '',
     component: MenuComponent,
-    //canActivate: [AuthService, AdminGuard],
+    // canActivate: [AuthService, AdminGuard],
     children: [
-
+   
       { path: '', component: DashboardComponent },
       { path: 'home', component: DashboardComponent },
+      
 
 
       { path: 'insert-point', component: PreRegisterComponent },
       { path: 'rescue-point', component: RescueComponent },
       { path: 'profile', component: ProfileComponent },
+      // tslint:disable-next-line: max-line-length
       // { path: 'pointing', component: PointingComponent },  agora será apenas rota de pontuacao, a tomada de desição de pre registra telefone fica no servidor
       { path: 'new-employee', component: RegisterEmployeeComponent },
       { path: 'edit-employee', component: EditEmployeeComponent},
       { path: 'list-employee', component: ListEmployeeComponent},
       { path: 'list-customer', component: ListClientPageComponent },
       { path: 'detail-customer', component: ClientDetailPageComponent },
-      
- 
-      
+
+
+
       {
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
 
-          //  
+        
           { path: 'point-edit', component: PointEditComponent },
           { path: 'award-create', component: AwardCreateComponent },
           { path: 'award-edit', component: AwardEditComponent },
@@ -84,7 +87,7 @@ const routes: Routes = [
           { path: 'automation-create', component: AutomationCreateComponent },
           { path: 'automation-edit', component: AutomationEditComponent },
           { path: 'list-automation', component: AutomationListComponent },
-        
+
 
           { path: 'campaign-create', component: CampaignCreateComponent },
           { path: 'campaign-edit', component: CampaignEditComponent },
@@ -92,7 +95,7 @@ const routes: Routes = [
 
           { path: 'detail-return-clients-automation', component: AutomationClientReturnDetailComponent},
           { path: 'detail-return-clients-campaign', component:  CampaignClientReturnDetailComponent},
-        
+
         ]
 
       }
@@ -101,7 +104,7 @@ const routes: Routes = [
   },
   {
     path: 'home-client', component: MenuComponent,
-    //canActivate: [AuthService, ClientGuard],
+    // canActivate: [AuthService, ClientGuard],
     children: [
       { path: '', component: DashboardCustomerComponent },
       { path: 'list', component: ListCompanyComponent },
@@ -111,22 +114,24 @@ const routes: Routes = [
   },
   {
     path: 'home-employee', component: MenuComponent,
-    //canActivate: [AuthService, ClientGuard],
+    // canActivate: [AuthService, ClientGuard],
     children: [
       { path: '', component: DashboardModule },
       { path: 'insert-point', component: PreRegisterComponent },
+      { path: 'rescue-point', component: RescueComponent },
 
     ]
   },
-   
+
   { path: 'login', component: LoginComponent },
   { path: 'loginCliente', component: LoginClienteComponent },
   { path: 'cadastrar', component: RegisterCompanyComponent },
   { path: 'registerCustomer', component: RegisterCustomerComponent },
   { path: 'resetAccount', component: ResetAccountComponent },
 
-
+  { path: 'password-recovery', component: PasswordRecoveryComponent },// rota para recuperação de senha
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

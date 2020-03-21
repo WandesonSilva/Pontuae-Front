@@ -55,6 +55,8 @@ import { PreRegisterComponent } from './pages/pointing/pre-register/pre-register
 import { RegisterEmployeeComponent } from './pages/account-employee/register-employee/register-employee.component';
 import { EditEmployeeComponent } from './pages/account-employee/edit-employee/edit-employee.component';
 import { ListEmployeeComponent } from './pages/account-employee/list-employee/list-employee.component';
+import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
+
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -99,7 +101,9 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     AutomationClientReturnDetailComponent,
     RegisterEmployeeComponent,
     EditEmployeeComponent,
-    ListEmployeeComponent
+    ListEmployeeComponent,
+    PasswordRecoveryComponent
+
   
 
   ],

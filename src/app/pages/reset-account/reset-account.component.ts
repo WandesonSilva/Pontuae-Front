@@ -4,14 +4,13 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../service/authentication.service';
 import { ToastrService } from 'ngx-toastr';
 import { Security } from '../../utils/security.util';
-import { User } from 'src/app/models/user.model';
-
 
 @Component({
   selector: 'app-reset-account',
   templateUrl: './reset-account.component.html',
   styleUrls: ['./reset-account.component.css']
 })
+
 export class ResetAccountComponent implements OnInit {
   public form: FormGroup;
   public carregando = false;
@@ -73,8 +72,6 @@ export class ResetAccountComponent implements OnInit {
         }
       );
   }
-
-
 
   ToReturn() {
     if (this.claimOfUser) {

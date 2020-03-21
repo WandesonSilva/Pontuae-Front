@@ -5,8 +5,6 @@ export class User {
         public idUsuario: number,
         public email: string,
         public claimValue: string,
-    ) {
-
-    }
+    ) { }
 
 }
