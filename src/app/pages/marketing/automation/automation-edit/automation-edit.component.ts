@@ -108,8 +108,21 @@ export class AutomationEditComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.service.deleteAutomation(idAutomation)
-        .subscribe((data: any) => { this.toastr.success('Automação Excluida com sucesso');
-        }, (err) => { this.toastr.warning('Erro na Operação'); });
+        
+        .subscribe((data: any) => {
+          
+          if(data.sucesso != true){
+            this.toastr.info(data.mensage)
+          } if (data.sucesso === true){
+            this.toastr.success(data.mensage, '');
+          }
+
+        }, 
+        (err) => {
+          console.log(err);
+          this.toastr.warning(err.mensage);
+        });
+      
       }
     });
   }

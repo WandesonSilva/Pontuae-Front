@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AwardService } from 'src/app/service/award.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -20,28 +20,53 @@ export class AwardEditComponent implements OnInit {
     private fb: FormBuilder,
     private toastr: ToastrService,
     private activatedRoute: ActivatedRoute,
-  ) { }
-  ngOnInit() {
+  ) { 
 
-    // tslint:disable-next-line: radix
-    //const idCliente = Security.getUser().idEmpresa;
+
+    this.form = this.fb.group({
+
+      Id: ['', null],
+
+      Nome: ['', Validators.compose([
+        Validators.minLength(3),
+        Validators.maxLength(50),
+        Validators.required
+      ])],
+
+      Descricao: ['', Validators.compose([
+        Validators.minLength(10),
+        Validators.maxLength(150),
+        Validators.required
+      ])],
+      QtdPontos: ['', Validators.compose([
+        Validators.required
+      ])],
+    });
+
+  }
+
+  ngOnInit() {
+  
+    const id_empresa = Security.getUser().idEmpresa;
+    const idAward = this.activatedRoute.snapshot.params.id;
     this.busy = true;
-    // this
-    //   .service
-    //   .getByIdAward(idCliente, this.form.value.ID)
-    //   .subscribe(
-    //     (data: any) => {
-    //       this.busy = false;
-    //       this.form.controls[' Id '].setValue(data.Id);
-    //       this.form.controls[' Nome '].setValue(data.Nome);
-    //       this.form.controls[' Descricao '].setValue(data.Descricao);
-    //       this.form.controls[' PontosNecessario '].setValue(data.PontosNecessario);
-    //     },
-    //     (err) => {
-    //       console.log(err);
-    //       this.busy = false;
-    //     }
-    //   );
+    this
+       .service
+       .getByIdAward(idAward, id_empresa)
+       .subscribe(
+         (data: any) => {
+           this.busy = false;
+           this.form.controls.Id.setValue(data.id);
+           this.form.controls.Nome.setValue(data.nome);
+           this.form.controls.Descricao.setValue(data.descricao);
+           this.form.controls.PontosNecessario.setValue(data.pontosNecessario);
+
+         },
+         (err) => {
+           console.log(err);
+           this.busy = false;
+         }
+       );
   }
 
   submit() {
@@ -52,12 +77,16 @@ export class AwardEditComponent implements OnInit {
       .updateAward(this.form.value)
       .subscribe((data: any) => {
         this.busy = false;
-        this.toastr.success(data.message, 'Salvo com sucesso');
+        if(data.sucesso != true){
+          this.toastr.info(data.mensage)
+        } if (data.sucesso === true){
+          this.toastr.success(data.mensage, '');
+        }
         this.backPage();
       }, (err) => {
         this.busy = false;
         console.log(err);
-        this.toastr.warning(err.data);
+        this.toastr.warning(err.mensage);
       }
       );
   }

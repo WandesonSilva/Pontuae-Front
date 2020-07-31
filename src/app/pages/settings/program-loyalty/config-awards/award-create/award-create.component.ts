@@ -58,16 +58,18 @@ export class AwardCreateComponent implements OnInit {
     this.service
       .createAward(this.form.value)
       .subscribe((data: any) => {
-        console.log(data);
-        this.busy = false;
-        this.backPage();
-        this.toastr.success(data.message, 'Salvo com sucesso');
-       
+        if(data.sucesso != true){
+          this.toastr.info(data.mensage);
+        } if (data.sucesso === true){
+          this.toastr.success(data.mensage, '🎁');
+          this.router.navigate(['/']);
+        }
+        
+  
       }, (err) => {
         console.log(err);
-        this.busy = false;
-      }
-      );
+        this.toastr.warning(err.mensage, '');
+      });
   }
   backPage() {
     this.router.navigate(['/Config/ListAward']);  }

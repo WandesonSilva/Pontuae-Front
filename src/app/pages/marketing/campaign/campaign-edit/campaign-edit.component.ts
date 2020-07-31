@@ -96,23 +96,23 @@ export class CampaignEditComponent implements OnInit {
 
 
        
-  onChangeGetContactsOfSegCustomization(eventValue: string) { 
-    console.log(eventValue);
-    const id = Security.getUser().idEmpresa;
-    this.service.getListContactsFromSegCustomization(id, eventValue).subscribe(data => this.listContacts = data)
-    this.totalContact == this.listContacts.length;
-    this.form.value.contatos == this.listContacts;
+  // onChangeGetContactsOfSegCustomization(eventValue: string) { 
+  //   console.log(eventValue);
+  //   const id = Security.getUser().idEmpresa;
+  //   this.service.getListContacts(eventValue).subscribe(data => this.listContacts = data)
+  //   // this.totalContact == this.listContacts.length;
+  //   this.form.value.contatos == this.listContacts;
 
-  }
+  // }
 
-  onChangeGetContactsOfSegmentation(eventValue: string) { //verifica se precisa tipa esse parâmetro
-    console.log(eventValue);
-    const id = Security.getUser().idEmpresa;
-    this.service.getListContactsFromSegmentation(id, eventValue).subscribe(data => this.listContacts = data)
-    this.totalContact == this.listContacts.length;
-    this.form.value.contatos == this.listContacts;
+  // onChangeGetContactsOfSegmentation(eventValue: string) { //verifica se precisa tipa esse parâmetro
+  //   console.log(eventValue);
+  //   const id = Security.getUser().idEmpresa;
+  //   this.service.getListContactsFromSegmentation(id, eventValue).subscribe(data => this.listContacts = data)
+  //   this.totalContact == this.listContacts.length;
+  //   this.form.value.contatos == this.listContacts;
 
-  }
+  // }
 
         remove(){
           this.busy = true;

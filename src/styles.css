@@ -27,13 +27,30 @@
 }
 
 .BotaoSucesso {
-  background-color: #3fa845;
+
+  border: 1px solid rgb(14, 187, 86);
   color: white;
+  box-shadow: 0px 5px 8px 0px rgba(29, 212, 84, 0.657);
+  background-image: linear-gradient(to right, rgb(31, 216, 130) 15%, rgb(14, 187, 120));
+
+  
+
+}
+
+.BotaoCadastro {
+
+  border: 1px solid rgb(196, 3, 202);
+  color: rgb(177, 5, 162);
+  box-shadow: 0px 5px 8px 0px rgba(215, 213, 216, 0.657);
+  background-image: linear-gradient(to right, rgb(247, 244, 247) 15%, rgb(236, 236, 236));
 }
 
 .botaoResgatar {
   background-color: #32D296;
   color: white;
+
+
+  
 }
 
 .buttonAdd {
@@ -140,7 +157,7 @@ body {
 .ukh3,
 .ukh2 {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 600;
   line-height: 30px;
   font-style: normal;
@@ -186,12 +203,12 @@ body {
 
 .uk-button-Edit{
  
-  border: 3px solid #10D55B;
+  border: 3px solid #13a8e2;
   font-size: 18px;
   border-radius: 50px;
   padding: 5px 5px 5px;
   margin-right: 5px;
-  color:  #10D55B;
+  color:  #13a8e2;
   
 }
 
@@ -266,6 +283,8 @@ body {
 
 .buttonSave {
   background-color: #17CC8D;
+  border-style: solid;
+  border: 1px solid #12ca8a;
   padding: 2px;
   border-radius: 4px;
   color: #ffff;
@@ -283,7 +302,23 @@ body {
 .buttonSave:hover {
   background-color: #19D87F;
   color: #ffff;
+}
 
+
+.buttonResgate {
+
+
+
+
+  border-style: solid;
+  border: 1px solid #970682;
+  border-color: #970682;
+  border-radius: 4px; 
+  color: #970682;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: transparent;
+  box-shadow: inset 2px 2px 7px rgba(236, 17, 207, 0.2), 2px 2px 7px rgba(231, 20, 221, 0.2);
 
 }
 
@@ -292,12 +327,14 @@ body {
 .btn-custom {
   background-color: #970682;
   border-radius: 50px;
-  color: #fff;
+  color: white;
   padding: 5px 5px 5px;
   border: 0px;
-  -webkit-box-shadow: 2px 5px 2px 0px rgba(126, 126, 126, 0.603);
-  -moz-box-shadow: 2px 5px 4px 0px rgba(121, 110, 110, 0.548);
-  box-shadow: 2px 3px 2px 0px rgba(134, 134, 134, 0.418);
+   -webkit-box-shadow: 2px 5px 2px 0px rgba(192, 7, 177, 0.295);
+   -moz-box-shadow: 2px 5px 4px 0px rgba(192, 7, 177, 0.295);
+  border: 1px solid rgba(170, 11, 175, 0.863);
+  box-shadow: 0px 5px 8px 0px rgba(192, 7, 177, 0.295);
+  background-image: linear-gradient(to right, rgba(182, 17, 141, 0.808) 15%, rgb(123, 11, 151));
 }
 
 
@@ -428,12 +465,15 @@ body {
 
 
 .buttonSMS {
-  background: #9a06ad;
-  background: -moz-linear-gradient(75deg, #800691 0%, #800691 100%);
-  background: -webkit-linear-gradient(75deg, #800691 0%, #800691 100%);
-  background: linear-gradient(75deg, #e20f83 0%, #800691 100%);
+  /* background: #9a06ad; */
+  /* background: -moz-linear-gradient(75deg, #800691 0%, #800691 100%);
+  background: -webkit-linear-gradient(75deg, #800691 0%, #800691 100%); */
+  /* background: linear-gradient(75deg, #e20f83 0%, #800691 100%); */
   color: #fff;
   border-radius: 50px;
+  border: 1px solid #860397;
+  box-shadow: 0px 5px 8px 0px rgba(167, 15, 172, 0.425);
+  background-image: linear-gradient(to right,  #ce1179  5%, #800691);
 }
 
 .iconMSMStyle {
@@ -574,64 +614,68 @@ strong {
 
 
 .badge-ativo {
-  background: #0053A5;
-  background: -moz-linear-gradient(75deg, #0053A5 0%, #0053A5 100%);
-  background: -webkit-linear-gradient(75deg, #0053A5 0%, #0053A5 100%);
-  background: linear-gradient(3deg, #3D3DFF 0%, #3939E8 100%);
-  color: #fff;
+  border: 1px solid #2a0374;
+  box-shadow: 0px 2px 2px 0px rgba(33, 181, 240, 0.425);
+  background-image: linear-gradient(to right,  #34d1e6  5%, #0d9ad1);
+  color: #FFF;
+  border: 1px solid #6284e2;
+  border-color: #7171f5;
   border-radius: 50px;
-  padding: 0px 5px 0px;
+  padding: 0px 10px 0px;
   font-family: 'Robot', sans-serif;
-  font-size: 14px;
+
+
 }
 
 
 .badge-ouro  {
-  background: #ffbb00;
-  background: -moz-linear-gradient(75deg, #ecb707 0%, #eed603 100%);
-  background: -webkit-linear-gradient(75deg, #fcce02 0%, #eeb600 100%);
-  background: linear-gradient(56deg, #ffd000 0%, #fcec0c 100%);
+
   color: #fff;
+  border: 1px solid #f1ba04;
+  box-shadow: 0px 2px 2px 0px #ffbb00;
+  background-image: linear-gradient(to right,  #ffd000  5%, #eeb600);
   border-radius: 50px;
-  padding: 0px 3px 0px;
+  padding: 0px 5px 0px;
   font-family: 'Robot', sans-serif;
-  font-size: 14px;
+
 }
 
 .badge-prata {
-  background: #929292;
-  background: -moz-linear-gradient(75deg, #9b9892 0%, #949490 100%);
-  background: -webkit-linear-gradient(75deg, #9b9b96 0%, #aaaaa5 100%);
-  background: linear-gradient(3deg, #a1a399 0%, #a8a8a7 100%);
-  color: #fff;
   border-radius: 50px;
-  padding: 0px 3px 0px;
-  padding: 0px 3px 0px;
+  padding: 0px 10px 0px;
   font-family: 'Robot', sans-serif;
+  border: 1px solid #3a393b;
+  box-shadow: 0px 2px 2px 0px rgba(189, 184, 184, 0.425);
+  background-image: linear-gradient(to right,  #cac7c7  5%, #bbbbb8);
+  color: #FFF;
+
+
+  
 }
 
 .badge-bronze {
-  background: rgb(143, 95, 6);
-  background: -moz-linear-gradient(75deg, #a37f08 0%, #b68f0f 100%);
-  background: -webkit-linear-gradient(75deg, #9b7804 0%, #b48e10 100%);
-  background: linear-gradient(3deg, #9c8740 0%, #af8809 100%);
-  font-size: 14px;
   color: #fff;
   border-radius: 50px;
-  padding: 0px 5px 0px;
-  font-family: 'Robot', sans-serif;
+  padding: 0px 10px 0px;
+  font-family: 'Robot', sans-serif;  
+  border: 1px solid rgb(88, 77, 25);
+  box-shadow: 0px 2px 2px 0px #f5ebbe;
+  background-image: linear-gradient(to right,  #b68f0f  5%, #c59907ec);
+  color: #FFF;
+
 }
 
 .badge-vip {
-  background: #9a06ad;
-  background: -moz-linear-gradient(75deg, #c307a7 0%, #970682 100%);
-  background: -webkit-linear-gradient(75deg, #970682 0%, #bd05a1 100%);
-  background: linear-gradient(3deg, #a32283 0%, #c303a6ef 100%);
-  color: #fff;
-  font-family: 'Robot', sans-serif;
-  padding: 0px 5px 0px;
-  font-size: 14px;
+
   border-radius: 50px;
+  padding: 0px 10px 0px;
+  font-family: 'Robot', sans-serif;
+
+  border: 1px solid #c303a6ef;
+  box-shadow: 0px 2px 2px 0px #9a06ad;
+  background-image: linear-gradient(to right,  #a32283  5%, #970682);
+  color: #FFF;
+
 }
 
 .badge-novo {
@@ -641,8 +685,7 @@ strong {
   background: linear-gradient(3deg, #00ccff 0%, rgb(57, 173, 226) 100%);
   color: #fff;
   font-family: 'Robot', sans-serif;
-  font-size: 14px;
-  padding:   0px 5px 0px;
+  padding:   0px 10px 0px;
   border-radius: 50px;
 
 }
@@ -680,3 +723,63 @@ margin-top: 15px;
   border-color: #9a06ad;
   
 }
+
+
+
+
+
+
+
+/* ------------------------------------------------------- */
+
+.liga-desliga__checkbox {
+  position: absolute;
+  left: -9999px;
+}
+
+.liga-desliga__botao {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+
+.liga-desliga__botao::before,
+.liga-desliga__botao::after {
+  content: "";
+  box-shadow: 0 0 0 1px #CCC;
+  transition: all 0.2s ease;
+}
+
+.liga-desliga__botao::before {
+  display: inline-block;
+  border-radius: 1em;
+  height: 1em;
+  width: 2em;
+  left: 1em;
+  bottom: 1em;
+  margin-right: 0.5em;
+  background: rgb(155, 153, 153);
+}
+
+.liga-desliga__botao::after {
+  position: absolute;
+  top: 0.025em;
+  left: 0.025em;
+  width: 0.95em;
+  height: 0.95em;
+  border-radius: 100%;
+  background: #FFF;
+}
+
+.liga-desliga__checkbox:checked + .liga-desliga__botao::before {
+  background: #23d36c;
+}
+
+.liga-desliga__checkbox:checked + .liga-desliga__botao::after {
+  left: 1.025em;
+}
+
+/* .liga-desliga__checkbox:focus + .liga-desliga__botao::before {
+  outline: 3px dotted #CCC;
+} */

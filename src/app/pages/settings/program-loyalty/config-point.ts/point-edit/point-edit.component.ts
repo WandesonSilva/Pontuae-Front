@@ -6,8 +6,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-point-edit',
   templateUrl: './point-edit.component.html',
@@ -19,7 +17,6 @@ export class PointEditComponent implements OnInit {
   public busy = false;
   //  event: EventEmitter<any> = new EventEmitter();
 
-
   constructor(
     private router: Router,
     private service: RulePointService,
@@ -29,37 +26,61 @@ export class PointEditComponent implements OnInit {
 
   ) {
 
-
     this.form = this.fb.group({
 
-      Nome: ['', Validators.compose([
+      idEmpresa: ['', null],
+  
+      nome: ['', Validators.compose([
         Validators.minLength(3),
-        Validators.maxLength(80),
+        Validators.maxLength(50),
+        Validators.required
+      ])],
+    
+
+      // // Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
+      reais: ['', Validators.compose([
         Validators.required
       ])],
 
-      Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
-      Valor: ['', [Validators.required]],
-      Ponto: ['', [Validators.required]],
-      Validacao: ['', [Validators.required]],
+      pontosFidelidade:  ['', Validators.compose([
+        Validators.required
+      ])],
+
+       validadePontos: ['', Validators.compose([
+        Validators.required
+      ])],
+     
 
     });
 
-
-
   }
   ngOnInit() {
-    this.busy = true;
-    this.GetProfile();
+      this.busy = true;
+      this.GetRule();
+  
   }
 
-  submit() {
-    this.busy = true;
+submit(){
+  if(this.form.value.reais === 0){
+    this.post();
+  }
+  else{
+    this.put();
+  }
+
+
+  }
+  
+
+post() {
+  const id = Security.getUser().idEmpresa;
+    this.form.value.idEmpresa = id;
+
     this.service
-      .updateProgramLoyalty(this.form.value)
+      .createRule(this.form.value)
       .subscribe(
         (data: any) => {
-          this.busy = false;
+          //  console.log(data);
           this.toastr.success(data.message, 'Salvo com sucesso');
           this.router.navigate(['/']);
 
@@ -67,38 +88,60 @@ export class PointEditComponent implements OnInit {
 
         (err) => {
           console.log(err);
-          this.busy = false;
-          this.toastr.success('Salvo com sucesso');
+          this.toastr.warning('Falha');
         }
       );
   }
 
-  GetProfile() {
+   put() {
+    this.busy = true;
+    this.service
+    .updateProgramLoyalty(this.form.value)
+    .subscribe(
+             (data: any) => {
+    this.busy = false;
+    this.toastr.success(data.message, 'Salvo com sucesso');
+    this.router.navigate(['/']);
 
-    const idEmpresa = Security.getUser().idEmpresa;
+      },
 
-    this
-      .service
-      .getByIdProgramLoyalty(idEmpresa)
-      .subscribe(
-        (data: any) => {
-          this.busy = false;
-          this.form.controls.Id.setValue(data.Id);
-          this.form.controls.Nome.setValue(data.Nome);
-          this.form.controls.Descricao.setValue(data.Descricao);
-          this.form.controls.Valor.setValue(data.Valor);
-          this.form.controls.Ponto.setValue(data.Ponto);
-          this.form.controls.Validacao.setValue(data.Validacao);
-        },
-        (err) => {
-          console.log(err);
-          this.busy = false;
-        }
-      );
+    (err) => {
+           console.log(err);
+         this.busy = false;
+        this.toastr.success('Salvo com sucesso');
+       }
+     );
   }
+ 
 
-  backPage() {
-    this.router.navigate(['/list-employee']);
-  }
+ GetRule() {
+
+   const idEmpresa = Security.getUser().idEmpresa;
+
+   this
+    .service
+     .getByIdProgramLoyalty(idEmpresa)
+     .subscribe(
+       (data: any) => {
+         this.busy = false;
+         this.form.controls.nome.setValue(data.nome);
+         this.form.controls.reais.setValue(data.reais);
+         this.form.controls.pontosFidelidade.setValue(data.pontosFidelidade);
+         this.form.controls.validadePontos.setValue(data.validadePontos);
+       },
+       (err) => {
+         console.log(err);
+         this.busy = false;
+       }
+     );
+}
+
+
+
+  
+
+ backPage() {
+ this.router.navigate(['/home']);
+ }
 }
 

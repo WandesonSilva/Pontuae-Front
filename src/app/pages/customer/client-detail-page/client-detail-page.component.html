@@ -6,41 +6,41 @@
 
          <div class="uk-card">          
       
-                <div class="text-muted"><strong style="margin-top: 10px;">Nome: </strong>
-                <span>{{client.Nome}}</span></div>
+                <div class="text-muted"><strong style="margin-top: 10px;">Nome : </strong>
+                <span>{{customer.nomeCompleto}}</span></div>
                  
-                <div class="text-muted"> <strong>Celular: </strong>
-                <span>{{client.Telefone}}</span ></div>
+                <div class="text-muted"> <strong>Celular : </strong>
+                <span>{{customer.contato}}</span ></div>
                 
-                <div class="text-muted"> <strong > Email: </strong>
-                <span>{{client.Email}}</span></div>
+                <div class="text-muted"> <strong > Email : </strong>
+                <span>{{customer.email}}</span></div>
          
                 <div class="text-muted">  <strong> Nascimento: </strong>
-                <span>{{client.Nascimento}}</span></div>
+                <span>{{customer.dataNascimeto | date:'dd/MM/yyyy'}}</span></div>
 
-                <div class="text-muted">  <strong > Sexo: </strong>
-                <span>{{client.Sexo}}</span></div>
+                <!-- <div class="text-muted">  <strong > Sexo: </strong>
+                <span>{{client.Sexo}}</span></div> -->
 
-                <div class="text-muted">  <strong > Resgate: </strong>
-                <span>{{client.Resgate}}</span></div>
+                <!-- <div class="text-muted">  <strong > Resgate: </strong>
+                <span>{{client.Resgate}}</span></div> -->
 
-                <div class="text-muted">  <strong > Saldo: </strong>
-                <span>{{client.Saldo}}</span></div>
+                <div class="text-muted">  <strong > Saldo : </strong>
+                <span>{{customer.saldo}}</span></div>
 
-                <div class="text-muted">  <strong > Captação: </strong>
-                <span>{{ (client.Captado/100) | currency: 'BRL'}}</span></div>
+                <div class="text-muted">  <strong > Captação : </strong>
+                <span>{{ (customer.captado) | currency: 'BRL'}}</span></div>
 
-                <div class="text-muted">  <strong > Gasto Médio: </strong>
-                <span>{{ (client.GastoMedio/100) | currency: 'BRL'}}</span></div>
+                <div class="text-muted">  <strong > Gasto Médio : </strong>
+                <span>{{ (customer.gastoMedio) | currency: 'BRL'}}</span></div>
 
-                <div class="text-muted">  <strong > Ultima Visita: </strong>
-                    <span>{{client.UltimaVisita}}</span></div>
+                <div class="text-muted">  <strong > Ultima Visita : </strong>
+                <span>{{customer.ultimaVisita | date:'dd/MM/yyyy HH:mm:ss'}}</span></div>
 
-                <div class="text-muted">  <strong > Perfil: </strong>
-                <span>{{client.Perfil}}</span></div>
+                <div class="text-muted">  <strong > Perfil : </strong>
+                <span>{{customer.segmentacao}}</span></div>
 
-                <div class="text-muted">  <strong > Segmento: </strong>
-                <span>{{client.Segmento}}</span></div>
+                <div class="text-muted">  <strong > Segmento : </strong>
+                <span>{{customer.segCustomizado}}</span></div>
     
        </div>
   </div>

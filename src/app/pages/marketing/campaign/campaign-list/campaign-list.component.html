@@ -15,7 +15,7 @@
             </span>
           </div> -->
      
-        <div *ngFor="let item of ListCampaign$ | async" class="uk-card">   
+        <div class="uk-card"  *ngFor="let item of ListCampaign$ | async">   
 
 
                 <div class="uk-panel uk-width-1-1 ">
@@ -39,14 +39,7 @@
                                         
                               </div>
               
-                              <div class="uk-first-column uk-grid-small uk-margin-small">
-                                    <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
-                                        <dl class="uk-description-list ">
-                                          <dt><strong>Perfil</strong></dt>
-                                          <dd>{{item.segmentacao}}</dd>
-                                        </dl>
-                                     </div>
-                              </div>
+                
 
                               <div class="uk-first-column uk-grid-small uk-margin-small">
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
@@ -57,14 +50,14 @@
                                     </div>
                               </div>
 
-                          <div class="uk-first-column  uk-grid-small uk-margin-small">
+                          <!-- <div class="uk-first-column  uk-grid-small uk-margin-small">
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                                         <dl class="uk-description-list ">
                                             <dt><strong>Canal</strong></dt>
                                             <dd>{{item.tipoCanal}}</dd>
                                         </dl>
                                     </div>
-                          </div>
+                          </div> -->
 
                            <div class="uk-first-column  uk-grid-small  uk-margin-small">
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>

@@ -1,12 +1,12 @@
 <div uk-sticky>
-  <nav class="uk-navbar uk-navbar-container uk-light " id="menuColor" uk-navbar>
+  <nav class="uk-navbar uk-navbar-container uk-light " id="menuColor" uk-navbar style="box-shadow: 0px 0px 4px 2px rgba(53, 20, 48, 0.164);">
     <div class="uk-navbar-left">
       <a *ngIf="this.claimOfUser" class="uk-navbar-toggle uk-margin-small-right uk-margin-small-left" uk-toggle="target: #offcanvas-overlay"
         href="#">
         <span uk-navbar-toggle-icon></span>
       </a>
-      <a (click)="GoHome()" class=" uk-text-large uk-active uk-link-heading uk-margin-small-left" style="font-family:Cocon">pontua <a
-          style="font-family:Lucida Handwriting"> Aê</a></a>
+      <a (click)="GoHome()" class=" uk-text-large uk-active uk-link-heading uk-margin-small-left  uk-visible@m" style="font-family:Cocon; color: white;" >pontua
+         <a style="font-family:Lucida Handwriting; color: white;"> Aê</a></a>
     </div>
     <!--  --MENU HORIZONTAL--   -->
     <div class="uk-navbar-right">
@@ -17,46 +17,50 @@
         <li class="uk-active">
         </li>
         <li>
-          <a href="#"> <span class="uk-icon-button uk-icon" uk-icon="icon: cog"></span></a>
+          <a href="#"> <span class="uk-icon-button uk-icon" uk-icon="icon: cog" style="background-color: rgba(255, 255, 245, 0.24); color:rgb(53, 2, 75);"></span></a>
           <div uk-dropdown="mode: click">
             <ul class="uk-nav uk-navbar-dropdown-nav">
-              <li class="uk-active"><a href="">Menu</a></li>
+              <li class="uk-active"><a href="">Configurações</a></li>
               <li><a (click)="ToProfile()">Perfil</a></li>
-              <li><a href="#">Item</a></li>
+              <!-- <li><a href="#">Item</a></li> -->
               <li class="uk-nav-divider"></li>
-              <li><a id="red" (click)="GoOut()">Sair</a></li>
+              <li><a id="red" (click)="GoOut()" 
+                style="border: 1px solid #c51111;
+                background: rgb(196, 19, 19);
+                color: #FFF;
+                border-radius: 50px;
+                padding: 0px 10px 0px;
+                font-family: 'Robot', sans-serif;">Sair</a></li>
             </ul>
           </div>
         </li>
       </ul>
     </div>
 
+              <!-- Barra Lateral do lado esquerdo -->
+              
+          
     <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
-      <div class="uk-offcanvas-bar">
+      <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+
         <button class="uk-offcanvas-close" type="button" uk-close></button>
         <h3>Menu</h3>
-        <ul class="uk-nav uk-nav-default">
+        <ul class="uk-nav-primary uk-nav-parent-icon uk-nav">
 
-          <!--<li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> </a>  </li>-->
+          <!-- <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> </a>  </li> -->
+          
+          <li class="uk-margin-small-bottom" style="font-size: 17px;"><a 
+            routerLink="/home"><span><h5>Home</h5></span></a></li>
 
-          <li class="uk-margin-small-bottom" uk-tooltip="title: home; delay: 100; pos: right"><a
-              routerLink="/home"><span>Home </span></a></li>
 
+          <li class="uk-margin-small-bottom" style="font-size: 17px;"><a
+            routerLink="/list-customer"><span> <h5>Clientes</h5></span></a></li>
 
-          <li class="uk-margin-small-bottom" uk-tooltip="title: Clientes; delay: 100; pos: right"><a
-              routerLink="/listClientPage"><span>Clientes </span></a></li>
+          <li class="uk-margin-small-bottom" style="font-size: 17px;"><a
+              routerLink="/WHATSAPP"><span> <h5>Precisa de Ajuda?</h5></span></a></li>
 
-          <li class="uk-margin-small-bottom" uk-tooltip="title: Automações; delay: 100; pos: right"><a
-              routerLink="/Campaign/Index"><span>Automações </span></a></li>
-
-          <li class="uk-margin-small-bottom" uk-tooltip="title: Fidelidade; delay: 100; pos: right"><a
-              routerLink="/Config/Point/Create"><span>Fidelidade</span></a></li>
-          <li class="uk-margin-small-bottom" uk-tooltip="title: Precisa de Ajuda?; delay: 100; pos: right"><a
-              routerLink="/home"><span>Ajuda </span></a></li>
-
-          <li class="uk-margin-small-bottom" uk-tooltip="title: Controle de Usuários; delay: 100; pos: right">
-            <a routerLink="/home"><span>Controle de Usuários </span>
-            </a>
+          <li class="uk-margin-small-bottom" style="font-size: 17px;">
+            <a routerLink="/list-employee"><span><h5>Controle de Usuários</h5></span></a>
           </li>
         </ul>
       </div>

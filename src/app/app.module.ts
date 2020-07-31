@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
-import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
 
 import { PointCreateComponent } from './pages/settings/program-loyalty/config-point.ts/point-create/point-create.component';
 import { AwardListComponent } from './pages/settings/program-loyalty/config-awards/award-list/award-list.component';
@@ -56,6 +55,8 @@ import { RegisterEmployeeComponent } from './pages/account-employee/register-emp
 import { EditEmployeeComponent } from './pages/account-employee/edit-employee/edit-employee.component';
 import { ListEmployeeComponent } from './pages/account-employee/list-employee/list-employee.component';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
 
 
 
@@ -102,7 +103,8 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     RegisterEmployeeComponent,
     EditEmployeeComponent,
     ListEmployeeComponent,
-    PasswordRecoveryComponent
+    PasswordRecoveryComponent,
+    ForgotPasswordComponent
 
   
 

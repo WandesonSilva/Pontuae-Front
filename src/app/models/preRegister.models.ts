@@ -1,4 +1,7 @@
 export class PreRegisterModels{
+    public idEmpresa: number;
+    public id: number;
+    public valorInfor: number;
     public nome: string;
-    public telefone: number;
+    public contato: string;
 }

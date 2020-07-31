@@ -73,21 +73,25 @@ export class PointCreateComponent implements OnInit {
         console.log(err);
         this.carregando = false;
       });
-  }
-
+  }          
+              
   submit() {
     this.carregando = true;
-    this.service
-      .updateProgramLoyalty(this.form.value)
-      .subscribe((data: any) => {
-        this.carregando = false;
-        this.toastr.success('Salvo com sucesso');
-        this.backPage();
-      },
+    this.service 
+      .updateProgramLoyalty(this.form.value) 
+      .subscribe((data: any) => {   
+        this.carregando = false; 
+        if(data.sucesso != true){
+          this.toastr.info(data.mensage)
+        } if (data.sucesso === true){
+          this.toastr.success(data.mensage, '');
+        }
+        this.backPage();  
+      },  
         (err) => {
           console.log(err);
           this.carregando = false;
-          this.toastr.success('Salvo com sucesso');
+          this.toastr.success(err.mensage,'');  
         }
       );
   }

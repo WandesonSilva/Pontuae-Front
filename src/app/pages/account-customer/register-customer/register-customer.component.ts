@@ -24,17 +24,17 @@ export class RegisterCustomerComponent implements OnInit {
   ) { 
         this.form = this.fb.group({
         
-      ClaimType: ['', null],
-      ClaimValue: ['', null],
-      IdUsuario: ['', null],
+      // // ClaimType: ['', null],
+      // // ClaimValue: ['', null],
+      // // IdUsuario: ['', null],
       Email: ['', Validators.compose([
         Validators.minLength(4),
         Validators.maxLength(55),
         Validators.required
-      ])],
+       ])],
       Senha: ['', Validators.compose([
         Validators.minLength(4),
-        Validators.maxLength(30),
+        Validators.maxLength(20),
         Validators.required
       ])],
       Nome: ['', Validators.compose([
@@ -43,15 +43,17 @@ export class RegisterCustomerComponent implements OnInit {
         Validators.required
       ])],
       DataNascimento: [''],
-      Cidade: ['',, Validators.compose([
-        Validators.minLength(11),
-        Validators.maxLength(11),
-      ])],
+
+      // Cidade: ['',, Validators.compose([
+      //   Validators.minLength(11),
+      //   Validators.maxLength(11),
+      // ])],
       Cpf: ['', Validators.compose([
         Validators.minLength(11),
         Validators.maxLength(11),
       ])],
       Telefone: ['', Validators.compose([
+        Validators.minLength(9),
         Validators.required
       ])],
 
@@ -70,7 +72,11 @@ export class RegisterCustomerComponent implements OnInit {
       .subscribe(
         (data: any) => {
         console.log(this.form.value);
-      }, (err) => {
+        this.toastr.info(data.dado.message);
+        this.router.navigate(['/loginCliente']);
+      }, 
+      
+      (err: any) => {
         console.log(err);
         this.carregando = false;
         console.log(err);

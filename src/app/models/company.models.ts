@@ -1,4 +1,3 @@
-
 export class Empresa {
  
   public idUsuario: number;

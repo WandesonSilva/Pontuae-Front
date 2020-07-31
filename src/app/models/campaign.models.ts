@@ -1,13 +1,13 @@
-export class Campaign 
-{
-   public id: number;
-   public nome: string;
-   public tipoCanal: string;
-   public segmentacao: string;
-   public segCustomizado: string;
-   public dataEnviada: string; 
-   public estadoEnvio: string;
-}
+export class  Campaign {
+   constructor(
+   public nome: string,
+   public idEmpresa: number,
+   public contatos: string[],
+   public segmentacao: string,
+   public segCustomizado: string,
+   public qtdSelecionado: number,
+   public conteudo: string,
+){}
 
-
+   }
 

@@ -13,18 +13,18 @@
                 <div class="uk-width-expand">
                     <h3 class="uk-card-title-small ukh3 uk-expand "><i class="iconback"
                             uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
-                            Alterar dados de login
+                            Atualizar Credenciais de login
                     </h3>
                 </div>
                
             </div>
-          <app-carregar *ngIf="carregando"></app-carregar>
-          <div *ngIf="!carregando">
+          <!-- <app-carregar *ngIf="carregando"></app-carregar> -->
+          <!-- <div *ngIf="!carregando"> -->
             <h3 class="uk-card-title"></h3>
             <div class="uk-margin">
               <input class="uk-input uk-form-large" formControlName="Email" type="text"
                 [ngClass]="{'uk-form-danger': (!form.controls.Email.valid && !form.controls.Email.pristine) }"
-                placeholder="Novo Email">
+                placeholder="Novo e-mail">
             </div>
             <div class="uk-margin">
               <input class="uk-input uk-form-large" formControlName="Senha" type="password"
@@ -44,7 +44,7 @@
               </div>
             
            
-          </div>
+          <!-- </div> -->
         </div>
       </form>
   

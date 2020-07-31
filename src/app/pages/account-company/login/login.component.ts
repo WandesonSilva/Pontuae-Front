@@ -66,15 +66,15 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.carregando = false;
-          this.setUser(data.users, data.token);
-          this.toastr.success(data.mensage);
-          this.router.navigate(['/']);
+          this.setUser(data.user, data.token);
+          this.toastr.success(data.mensage,'Seja bem vindo');
+          this.router.navigate(['']);
 
         },
         (err) => {
           this.carregando = false;
           console.log(err);
-          this.toastr.warning(err.data, 'erro ao logar');
+          this.toastr.warning(err.mensage, 'erro ao logar');
         }
       );
   }

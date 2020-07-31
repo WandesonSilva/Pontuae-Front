@@ -24,32 +24,31 @@ export class EditEmployeeComponent implements OnInit {
 ) {
   this.form = this.fb.group({
     
-    Id: ['', [Validators.required]],
-    NomeCompleto: ['', [Validators.required]],
-    Email: ['', [Validators.required]],
-    Senha: ['', [Validators.required]],
-    TipoFuncionario: ['', [Validators.required]],
+    id: [],
+    nomeCompleto: ['', [Validators.required]],
+    email: ['', [Validators.required]],
+    senha: ['', [Validators.required]],
+    controleUsuario: [[Validators.required]],
 
   });
 
 }
 
-ngOnInit() {
+  async ngOnInit() {
 
   const idEmpresa = Security.getUser().idEmpresa;
 
   this.busy = true;
-  this
-    .service.getByIdEmployee
-    (this.activatedRoute.snapshot.params.id, idEmpresa)
+  (await this
+    .service.getByIdEmployee(this.activatedRoute.snapshot.params.id, idEmpresa))
     .subscribe(
       (data: any) => {
         this.busy = false;
-        this.form.controls['id'].setValue(data.Id);
-        this.form.controls['nomeCompleto'].setValue(data.NomeCompleto);
-        this.form.controls['email'].setValue(data.Email);
-        this.form.controls['senha'].setValue(data.Senha);
-        this.form.controls['tipoFuncionario'].setValue(data.TipoFuncionario);
+        this.form.controls['id'].setValue(data.id);
+        this.form.controls['nomeCompleto'].setValue(data.nomeCompleto);
+        this.form.controls['email'].setValue(data.email);
+        this.form.controls['senha'].setValue(data.senha);
+        this.form.controls['controleUsuario'].setValue(data.controleUsuario);
 
       },
       (err) => {
@@ -59,10 +58,10 @@ ngOnInit() {
     );
 }
 
-submit() {
+  async submit() {
   this.busy = true;
-  this.service
-    .updateUserEmployee(this.form.value)
+  (await this.service
+    .updateUserEmployee(this.form.value))
     .subscribe(
       (data: any) => {
         this.busy = false;

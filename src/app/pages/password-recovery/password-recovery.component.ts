@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl, ValidatorFn } from '@angular/forms';
 import { MustMatch } from './validate-password/validate-password';
 import { ToastrService } from 'ngx-toastr';
-import { PasswordRecoveryService } from 'src/app/service/password-recovery.service';
 import { ActivatedRoute } from '@angular/router';
+import { PasswordRecoveryService } from 'src/app/service/password-recovery.service';
 
 @Component({
   selector: 'app-password-recovery',
@@ -43,7 +43,7 @@ export class PasswordRecoveryComponent implements OnInit{
           return;
       }
       
-      this.service.updatePassword( this.registerForm.value.novaSenha, this.activatedRoute.snapshot.params.id).subscribe((data: any) => {
+      this.service.put( this.registerForm.value.novaSenha, this.activatedRoute.snapshot.params.id).subscribe((data: any) => {
         this.toastr.success(data.message, 'Salvo com sucesso');
       });
 

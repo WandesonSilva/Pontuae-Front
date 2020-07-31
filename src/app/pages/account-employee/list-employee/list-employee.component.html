@@ -18,23 +18,25 @@
          <div class=" uk-card">
             <table class=" uk-table uk-table-striped">
               <tbody>
-                <tr *ngFor=" let item of ListUserEmployee$ | async" >
+                <tr  class="uk-card" *ngFor=" let item of ListUserEmployee$ | async" >
+                  <div class="uk-panel uk-width-1-1">
                     <td>
                         <div class=" uk-first-column">                            
-                           <div class=" uk-margin-remove-bottom "><span class="uk-text-bold">{{item.nomeCompleto}</span></div>
-                           <div ><span>item.email</span></div>                        
+                           <div class=" uk-margin-remove-bottom "><span class="uk-text-bold">{{item.nomeCompleto}}</span></div>
+                           <div ><span>{{item.email}}</span></div>                        
                         </div>
                           <div class=" uk-width-1-4@m uk-first-column" >    
                             <div  class="uk-position-center-right" >
-                                <div>
-                                     <i (click)=" alertDelete(item.id)" uk-tooltip="title: Excluir Usuário; pos: bottom" class=" fas fa-trash-alt uk-buttonDelte "></i>
-                                     <i routerLink="/edit-employee/{{item.id}}" uk-tooltip="title: Alter dados; pos: bottom" class="fas fa-pen uk-button-Edit"></i>
-                                </div>  
+                                <div>  
+                                    <i routerLink="/edit-employee/{{item.id}}" uk-tooltip="title: Alter dados; pos: bottom" class="fas fa-pen uk-button-Edit"></i>
+                                    <i (click)="Delete(item.id)" uk-tooltip="title: Excluir Usuário; pos: bottom" class=" fas fa-trash-alt uk-buttonDelte "></i>
+                                </div> 
                             </div>
 
                           </div>
                     
-                    </td>                  
+                    </td>   
+                  </div>               
                   </tr>
               </tbody>
             </table>  

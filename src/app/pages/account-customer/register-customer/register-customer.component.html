@@ -6,19 +6,23 @@
           style="font-family:Lucida Handwriting"> Aê</a>
       </a>
     </div>
-    <app-carregar *ngIf="carregando"></app-carregar>
+    <!-- <app-carregar *ngIf="carregando"></app-carregar>    *ngIf="!carregando"-->  
 
-    <form [formGroup]="form" *ngIf="!carregando">
+    <form [formGroup]="form" > 
       
         <div class="uk-card uk-card-default  uk-card-body  uk-border-rounded">
+
+
+
           <a (click)="ToLogin()"><span uk-icon="icon:arrow-left" class=""></span> Voltar</a>
+
           <h3 class="uk-card-title uk-position-top-center"> Cadastro</h3>
   
           <div class="uk-margin">
               <input class="uk-input uk-form-large" formControlName="Email" 
                type="text" 
                [ngClass]="{'uk-form-danger': (!form.controls.Email.valid && !form.controls.Email.pristine) }"
-               placeholder="Email">
+               placeholder="nome@gmail.com">
             </div>
 
             <div class="uk-margin">
@@ -30,8 +34,9 @@
           <div class="uk-margin">
             <input class="uk-input uk-form-large" type="text" formControlName="Nome"
               [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }"
-              placeholder="Nome" />
+              placeholder="Nome Completo" />
           </div>
+          
           <div class="uk-margin">
             <input class="uk-input uk-form-large" type="date" formControlName="DataNascimento"
               [ngClass]="{'uk-form-danger': (!form.controls.DataNascimento.valid && !form.controls.DataNascimento.pristine) }"
@@ -39,23 +44,25 @@
           </div>
          
           <div class="uk-margin">
-            <input class="uk-input uk-form-large" mask="(00) 0000-0000"  type="text" formControlName="Telefone"
+            <input class="uk-input uk-form-large" mask="(00) 0000-00000"  type="text" formControlName="Telefone"
               [ngClass]="{'uk-form-danger': (!form.controls.Telefone.valid && !form.controls.Telefone.pristine) }"
-              placeholder="Telefone">
+              placeholder="(99)99999999">
           </div>
          
          
-          <div class="uk-margin">
+          <!-- <div class="uk-margin">
             <input class="uk-input uk-form-large" type="text" formControlName="Cidade"
               [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Horario.pristine) }"
               placeholder="Cidade">
-          </div> 
+          </div> -->
+
           <div class="uk-margin uk-text-right">
             <button class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoSucesso" [disabled]="form.invalid"
               (click)="submit()">Salvar</button>
           </div>
+          
         </div>
 
       </form>
-</div>
+  </div>
 </div>

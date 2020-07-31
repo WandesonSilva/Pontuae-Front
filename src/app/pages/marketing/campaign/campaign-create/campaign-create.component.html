@@ -1,87 +1,132 @@
+<div class="uk-container">
 
+  <form [formGroup]="form" class="uk-form-stacked">
+    <div class="uk-grid uk-grid-lager uk-child-width-expand@s " uk-grid>
 
-<div class="uk-container">   
+      <div class="uk-width-1-1@s">
+        <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Nome da Campanha</label>
+        <div class="uk-form-controls">
+          <input class="uk-input " formControlName="nome" type="text" placeholder="Exemplo: promoção dia das mães">
+        </div>
+      </div>
 
-      <form [formGroup]="form" class="uk-form-stacked">
-        <div class="uk-grid uk-grid-lager uk-child-width-expand@s " uk-grid>
-
-          <div class="uk-width-1-1@s">
-            <label class="uk-form-label" for="form-stacked-text">Nome da Campanha</label>
-            <div class="uk-form-controls">
-              <input class="uk-input " formControlName="Nome" type="text" placeholder="Exemplo: promoção dia das mães">
-            </div>
-          </div>
-
-
-          <div class="uk-width-1-3@s">
+      <!-- <div class="uk-width-1-3@s">
             <label class="uk-form-label" for="form-stacked-select">Perfil</label>
             <div class="uk-form-controls">
-              <select  class="uk-select" (change)="onChangeGetContacts($event.target.value)" formControlName="Segmento"  id="form-stacked-select">
+              <select  class="uk-select" (change)="onChangeGetContacts($event.target.value)" formControlName="segmentacao"  id="form-stacked-select">
                 <option>Selecione uma opção</option>
                 <option value="Novo">Novo</option>
                 <option value="Vip">Vip</option>
-                <!-- <option value="Eventual">Eventual</option>
-                <option value="Frequente">Frequente</option> -->
               </select>
             </div>
-          </div>
-         
+          </div> -->
 
-          <div class="uk-width-1-3@s ">
-            <label class="uk-form-label" for="form-stacked-select">Seg.Customizado</label>
-            <div class="uk-form-controls">
-              <select class="uk-select" (change)="onChangeGetContacts($event.target.value)" id="form-stacked-select" formControlName="SegCustomizado" >
-                <option>Selecione uma opção</option>
-                <option value="Ativo">Ativo</option>
-                <option value="Ouro">Ouro</option>
-                <option value="Prata">Prata</option>
-                <option value="Bronze">Bronze</option>
-                <!-- <option value="Em Risco">Em Risco</option> -->
-              </select>
+
+      <div class="uk-width-1-3@s ">
+        <label class="uk-form-label" for="form-stacked-select" style="font-weight: 500;">Seg.Customizado</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" (change)="onChangeGetContactsOfSegCustomization($event.target.value)"
+            id="form-stacked-select" formControlName="segCustomizado">
+            <option>Selecione uma opção</option>
+            <option value="Ativo">Ativo</option>
+            <option value="Ouro">Ouro</option>
+            <option value="Prata">Prata</option>
+            <option value="Bronze">Bronze</option>
+            <!-- <option value="Em Risco">Em Risco</option> -->
+          </select>
+        </div>
+      </div>
+
+
+      <!-- <div class="uk-width-1-1@s "><p class="uk-label">Crédito SMS: {{credit}}</p></div> -->
+
+
+
+    </div>
+
+
+    <HR>
+    <div class="uk-panel uk-width-1-1 uk-text-left">
+      <div class=" uk-margin-small">
+        <div class="uk-child-width-1-2 uk-child-width-1-2@s  uk-grid-divider " uk-grid>
+          <div class="uk-first-column">
+            <div
+              class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium uk-text-center "
+              uk-scrollspy-class>
+
+
+              <strong class=" uk-heading-small uk-margin-remove-bottom   "
+                style="font-size: 24px; font-family: ubuntu;">{{qtdSelecionados.length}}</strong>
+              <div class="uk-text-justif uk-margin-remove-bottom " style="font-size: 15px; font-weight: 500;">
+                Selecionados
+              </div>
             </div>
           </div>
-          <div class="uk-width-1-1@s "><p class="uk-label">Crédito SMS:</p></div>
-          <div hidden class="uk-width-1-4@s">
-            <label  class="uk-form-label" for="form-stacked-select" >Canal de Comunicação</label>
-            <div class="uk-form-controls">
-              <select  class="uk-select" id="form-stacked-select" formControlName="Tipo"  >
-                <option value="SMS">SMS</option>
-              </select>
+
+
+
+          <div class="uk-first-column">
+            <div
+              class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium uk-text-center "
+              uk-scrollspy-class>
+              <strong class=" uk-heading-small uk-margin-remove-bottom  "
+                style="color:rgb(107, 206, 112); font-size: 24px; font-family: Ubuntu;">{{credit}}</strong>
+              <div class=" uk-text-justif  uk-margin-remove-bottom " style="font-size: 15px; font-weight: 500;">Credito
+                SMS
+
+              </div>
             </div>
           </div>
-
-         
         </div>
 
-        <!--uk-grid-->
-        <br>
-        <div class="uk-alert-warning" uk-alert>
-          <p><i class="fas fa-exclamation-triangle"></i> Evite utilizar acentos e caracteres especiais na mensagem abaixo.</p>
-        </div>
-     
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Qual mensagem deseja enviar?</label>
-          <textarea class="uk-textarea" rows="5" formControlName="Conteudo"   id="textarea"   maxlength="160"
-            placeholder="Digite sua mensagem com até 160 caracteres."></textarea>
-        </div>
+      </div>
+      <hr>
+    </div>
+    <!--uk-grid-->
+    <br>
+    <div class="uk-alert-warning" uk-alert>
+      <p><i class="fas fa-exclamation-triangle"></i> Evite utilizar acentos e caracteres especiais na mensagem abaixo.
+      </p>
+    </div>
 
-        <!--   
-            <div class="uk-text-left">
+
+
+    <div class="uk-margin">
+      <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Qual mensagem deseja
+        enviar?</label>
+      <textarea class="uk-textarea" rows="5" formControlName="conteudo" id="campoMSM"  maxlength="160"
+        placeholder="Digite sua mensagem com até 160 caracteres."></textarea>
+    </div>
+
+  
+
+    <!-- <div class="uk-text-right">
               <button class="uk-button buttonSMS" routerLink="/model-message"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Modelos Prontos</button>
-            </div> -->
+            </div>   -->
 
-        <!-- <div uk-grid>
-        <div class="uk-width-1-2@s">
-          <label class="uk-form-label" for="form-stacked-select">Agendar Campanhar?</label> <div>opcional</div>
+    <div uk-grid>
+
+      <div class="liga-desliga" style=" font-size: 22px">
+        <input  type="checkbox" class="liga-desliga__checkbox" id="liga-desliga" formControlName="agendamentoAtivo" (click)="checkBoxAgend()">
+        <label for="liga-desliga" class="liga-desliga__botao" style="font-size: 15px; font-weight: 500;">Agendar Campanhar?</label>
+      </div>
+
+      <div class="uk-width-1-3@s" *ngIf="showInputAgenda">
+ 
+
+        <input [matDatepicker]="myDatepicker" class="uk-input "  class="uk-form-controls  formDatepicke" type="text"
+          formControlName="dataEnvio">
+        <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker color="accent"></mat-datepicker>
+      </div>
+
+      <div class="uk-width-1-6@s" *ngIf="showInputAgenda">
         
-          <input [matDatepicker]="myDatepicker" class="uk-input" class="uk-form-controls  formDatepicke"
-            formControlName="DataEnvio" placeholder="">
-          <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
-          <mat-datepicker #myDatepicker color="accent"></mat-datepicker>
-        </div> -->
-
-          <!-- <div class="uk-width-1-2@s">
+         <input class="uk-input "   type="time"   
+          formControlName="horaEnvio" >
+      </div>
+      <!-- <div class="uk-width-1-2@s">
             <label class="uk-form-label" for="form-stacked-select">Será enviada mais de uma vez?</label>
             <div class="uk-form-controls">
               <select class="uk-select" id="form-stacked-select" formControlName="Reenviar" placeholder="Selecione">
@@ -89,36 +134,26 @@
                 <option value="0">Não</option>
                 <option value="1">Sim</option>
               </select>
-          </div>
-        </div> -->
-          
-          
-        <hr>
-
-        <!-- <div class="uk-position-center-right">
-          <i class="iconNext" type="button" uk-icon="icon:arrow-right; ratio: 1.4 "
-              routerLink="/Automation/Edit"></i> -->
-     <div class="uk-text-right">
-        <button class="uk-button buttonSave" (click)="Submit()" [disabled]="form.invalid"><i class="fa fa-paper-plane"
-            aria-hidden="true"></i> Enviar Campanhar!</button>
-      </div>
-
-
-      </form>
+           </div>
+         </div> -->
     </div>
-    
+<br>
+    <div class="uk-text-right">
+      <!-- [disabled]="form.invalid" -->
+      <button class="uk-button BotaoSucesso uk-border-rounded" (click)="submit()"><i class="fa fa-paper-plane"
+          aria-hidden="true"></i> Enviar Campanhar!</button>
+    </div>
+  </form>
+</div>
 
 
+<script>
+  var el_t = document.getElementById('campoMSM');
+  var length = el_t.getAttribute("maxlength");
+  var el_c = document.getElementById('count');
+  el_c.innerHTML = length;
+  el_t.onkeyup = function () {
+    document.getElementById('count').innerHTML = (length - maxlength.value.length);
+  };
 
-
-
-  <script>
-    var el_t = document.getElementById('textarea');
-    var length = el_t.getAttribute("maxlength");
-    var el_c = document.getElementById('count');
-    el_c.innerHTML = length;
-    el_t.onkeyup = function () {
-      document.getElementById('count').innerHTML = (length - this.value.length);
-    };
-    </script>
-
+</script>

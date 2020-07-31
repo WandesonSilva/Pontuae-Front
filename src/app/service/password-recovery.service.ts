@@ -16,8 +16,8 @@ export class PasswordRecoveryService {
     return headers;
 
   }
-    updatePassword(password: string, id: number) {
-    return this.http.put(`${environment.UrlBase}v1/Usuario/${password}/${id}`, { headers: this.composeHeaders() });
+    put(email: string, id: any) {
+    return this.http.put(`${environment.UrlBase}/v1/Usuario/${email}/${id}`, { headers: this.composeHeaders() });
 }
 
 

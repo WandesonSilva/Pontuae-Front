@@ -1,52 +1,91 @@
 <div class="uk-container ">
-    <div class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-margin-top uk-position-center  line-borderleft ">
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-margin-top uk-position-center  line-borderleft ">
 
-      <div class="uk-width-expand">
-        <h2 class="uk-card-title-small ukh3 uk-expand "><i class="iconback"
-                uk-icon="icon:arrow-left; ratio:1.2 " onClick="history.go(-1)"></i>
-            Pontuar Cliente
-        </h2>
-        <hr>
+    <div class="uk-width-expand">
+      <h2 class="uk-card-title-small ukh3 uk-expand "><i class="iconback" uk-icon="icon:arrow-left; ratio:1.2 "
+          onClick="history.go(-1)"></i>
+        Pontuar Cliente
+      </h2>
+      <hr>
     </div>
     <form [formGroup]="form" class="uk-form-stacked">
 
-            <!-- <div class="uk-margin">
+      <!-- <div class="uk-margin">
               <div class="uk-form">
                 <input class="uk-input" formControlName="nomeCliente"
                 [ngClass]="{'uk-form-danger': (!form.controls.nomeCliente.valid && !form.controls.nomeCliente.pristine) }" id="form-stacked-text" type="text" placeholder="Nome cliente">
               </div>
             </div> -->
+      <div class="uk-aling-center-right uk-margin">
+        <a uk-tooltip="😀 Utilize os campos abaixo para pontuar e resgatar os prêmios de seus consumidores."
+          uk-icon="icon: info; ratio: 1.4"></a>
+      </div>
 
-
-            <div class="uk-width-1-1@s">
-              <label class="uk-form-label">Contato (Celular)</label>
-                 <div class="uk-inline">
-                    <div class="uk-form-controls">
-                       <span class="uk-form-icon"><i class="material-icons">contact_phone</i></span>
-                        <input class="uk-input uk-form-large uk-form-width-large " mask="(00) 00000-0000" formControlName="Telefone" type="text"
-                        placeholder="Digite o celular do cliente">
-                    </div>
-                  </div>
-            </div>
-           <br>
-
-    <div class="uk-margin">
-      <label class="uk-form-label" for="form-stacked-text">Valor da Compra</label>
+      <div class="uk-width-1-1@s">
+        <label class="uk-form-label" style="font-weight: 500;">Contato (Celular)</label>
         <div class="uk-inline">
-           <div class="uk-form-controls">
-             <a class="uk-form-icon"><i class="material-icons">monetization_on</i></a>
-             <input class="uk-input uk-form-large uk-form-width-large"  formControlName="ValorInfor" id="form-stacked-text" type="number"
-             placeholder="Digite o valor da compra">
-            </div>
+          <div class="uk-form-controls">
+            <span class="uk-form-icon"><i class="material-icons">contact_phone</i></span>
+            <input class="uk-input uk-form-large uk-form-width-large" mask="(00) 00000-0000" formControlName="Contato"
+              type="text" placeholder="(DDD) + número"
+              [ngClass]="{'uk-form-danger': (!form.controls.Contato.valid && !form.controls.Contato.pristine)}">
           </div>
- </div>
-        <div class="uk-align-left@s ">
-
-          <button class=" buttonSave uk-button" (click)="submit()" >Enviar <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-
         </div>
+      </div>
+      <br>
+
+      <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Valor da Compra</label>
+        <div class="uk-inline">
+          <div class="uk-form-controls">
+            <a class="uk-form-icon"><i class="material-icons">monetization_on</i></a>
+            <input class="uk-input uk-form-large uk-form-width-large" formControlName="ValorInfor"
+              id="form-stacked-text" type="text" placeholder="valor">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="uk-text-right">
+
+        <button class=" uk-button BotaoSucesso uk-border-rounded" [disabled]="form.invalid" (click)="submit()">Enviar <i
+            class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        <button class=" buttonResgate uk-button" uk-toggle="target: #modal-close-default" (click)="seach()"
+          style="margin-left: 10px;">Resgate</button>
+
+      </div>
 
     </form>
-    </div>
-</div>
 
+    <div id="modal-close-default" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-background-muted">
+        <button class="uk-modal-close-default " type="button" uk-close></button>
+
+        <!-- page-Resgata Prêmio -->
+        <div *ngFor="let item of ListAward$ | async">
+          <!-- line-bordertop  -->
+          <div class="uk-card uk-card-body uk-card-default uk-margin-top">
+
+
+
+            <h4>{{item.nome}}</h4>
+
+
+            <div class="uk-text-center">
+              <button class="uk-button BotaoSucesso uk-border-rounded uk-button-small   card-round"
+                (click)="rescue([(item.id)],[(item.pontosNecessario)])">Resgatar </button>
+            </div>
+
+            <progress id="js-progressbar" class="uk-progress " value="{{item.saldo}}"
+              max="{{item.pontosNecessario}}"></progress>
+
+            <p class="uk-text-left" style="margin-top: -20px; font-weight: 400px;">saldo: {{item.saldo}}</p>
+            <p class="uk-text-right" style="margin-top: -40px; font-weight: 400px;">{{item.pontosNecessario}} pts</p>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

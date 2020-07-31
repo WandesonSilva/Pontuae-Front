@@ -3,7 +3,7 @@
     <!--<h4 style="text-align:left">campanha!</h4>-->
     <div class="uk-width-auto"> <i class=" btn-custom uk-link uk-aling-center-right uk-margin" type="button"
         uk-tooltip="title: Adicionar Novo" uk-icon="icon:  plus-circle; ratio: 1.4 "
-        routerLink="/Config/Award/Create"></i>
+        routerLink="/config/award-create"></i>
 
     </div>
 
@@ -16,23 +16,24 @@
           <tr>
             <th>Premio</th>
             <th>Pontos</th>
-            <th>Quantidade</th>
+        
             <th> </th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let Award of List" class="uk-text-uppercase">
             <td>{{Award.nome}}</td>
-            <td>{{Award.descricao}}</td>
             <td>{{Award.pontosNecessario}}</td>
-            <td> <a (click)="Delete(Award.id)"  style="margin-left: 20px;"><i class=" Small material-icons" style="color:#c52626">delete</i></a></td>
+           
+            <td> <a routerLink="/award-edit/{{Award.id}}"  style="margin-left: 0px;"><i class=" Small material-icons" style="color:#13a8e2">edit</i></a></td>
+            <td> <a (click)="Delete(Award.id)"  style="margin-left: 5x;"><i class=" Small material-icons" style="color:#c52626">delete</i></a></td>
           </tr>
 
-          <tr *ngIf="!List">
+          <!-- <tr *ngIf="!List">
             <h5 class="uk-text-center" >
               Adicioner Reconpensas ao seu programa de fidelidade! 😃 🎁
             </h5>
-          </tr>
+          </tr> -->
 
         </tbody>
       </table>

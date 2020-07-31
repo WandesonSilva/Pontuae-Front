@@ -27,12 +27,6 @@ export class ResetAccountComponent implements OnInit {
     private toastr: ToastrService,
   ) {
     this.form = this.fb.group({
-      IdEmpresa: ['', Validators.compose([
-        
-      ])],
-      IdCliente: ['', Validators.compose([
-       
-      ])],
       Email: ['', Validators.compose([
         Validators.required
       ])],
@@ -48,22 +42,20 @@ export class ResetAccountComponent implements OnInit {
 
   ngOnInit() {
     this.User = Security.getUser();
-    this.claimOfUser = this.User.claimValue === 'Admin';
+    this.claimOfUser = this.User.claimValue === 'Administrador';
   }
 
   submit() {
-    const user = Security.getUser();
+    console.log(this.form.value);
     this.carregando = true;
     this
       .service
-      .UpdateUsuario(this.form.value)
+      .UpdateUsuario(this.form.value) 
       .subscribe(
-        (data: any) => {
-          this.form.controls.IdCliente.setValue(user.idCliente);
-          this.form.controls.IdEmpresa.setValue(user.idEmpresa);
+        (data: any) => {                   
           this.carregando = false;
-
           this.toastr.success(data.mensage);
+          this.ToReturn();
         },
         (err) => {
           this.carregando = false;

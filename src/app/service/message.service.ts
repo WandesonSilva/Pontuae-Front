@@ -6,7 +6,7 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
   providedIn: 'root'
 })
 export class MessageService {
-
+// pode deleta este arquivo
   public url = 'https://localhost:44311/';
   constructor(private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class MessageService {
     const headers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
 
     return headers;
-
+ // ----------------Não está sendo utilizado
 }
  //pode deletar esta este arquivo
 getListModelMessage( idUser: number) {

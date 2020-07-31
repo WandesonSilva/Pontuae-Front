@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  UrlBase: 'https://localhost:44311/',
+  UrlBase: 'https://localhost:44387'
+ 
 };
 
 /*

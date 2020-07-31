@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserEmployeeService } from 'src/app/service/user-employee.service';
 import { ToastrService } from 'ngx-toastr';
+import { Security } from 'src/app/utils/security.util';
 
 @Component({
   selector: 'app-register-employee',
@@ -11,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterEmployeeComponent implements OnInit {
   public form: FormGroup;
-  public carregando = false;
+  // public carregando = false;
   public message: string;
   constructor(
     private router: Router,
@@ -21,23 +22,29 @@ export class RegisterEmployeeComponent implements OnInit {
 
   ) {
     this.form = this.fb.group({
-      NomeCompleto: ['', Validators.compose([
+
+      idEmpresa: [],
+
+      contato: ['', Validators.compose([
+        Validators.required
+      ])],
+      nomeCompleto: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(35),
-        Validators.required,
+        Validators.required
       ])],
-      Email: ['', Validators.compose([
+      email: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(30),
-        Validators.required,
+        Validators.required
       ])],
       
-      Senha: ['', Validators.compose([
+      senha: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(10),
-        Validators.required,
+        Validators.required
       ])],
-      TipoFuncionario: ['', [Validators.required]],
+      controleUsuario: [],
     });
   }
 
@@ -45,20 +52,33 @@ export class RegisterEmployeeComponent implements OnInit {
   
   }
 
-  submit() {
-    this.carregando = true;
-    this.service
-      .createUserEmployee(this.form.value)
+   submit() {
+    // this.carregando = true;
+    console.log(this.form.value);
+    const id = Security.getUser().idEmpresa;
+    this.form.value.idEmpresa = id;
+    console.log(this.form.value);
+    let valueSelect =  parseInt(this.form.value.controleUsuario);
+    this.form.value.controleUsuario = valueSelect;
+    
+    ( this.service
+      .createUserEmployee(this.form.value))
       .subscribe(
         (data: any) => {
-          console.log(this.form.value);
-          this.toastr.info(data.dado.message);
-
-        },
-        (err: any) => {
-          this.toastr.warning(err.dado.message);
-          console.log(this.form.value);
-        }
-      );
+          if(data.sucesso != true){
+            this.toastr.info(data.mensage)
+          } if (data.sucesso === true){
+            this.toastr.success(data.mensage, '');
+            this.backPage();
+          }
+          
+    
+        }, (err) => {
+          console.log(err);
+          this.toastr.warning(err.mensage, '');
+        });
+      
   }
+  backPage() {
+    this.router.navigate(['/list-employee']);  }
 }

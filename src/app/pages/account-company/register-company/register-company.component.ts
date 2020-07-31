@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, Ng
 import { Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Security } from 'src/app/utils/security.util';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/service/company.service';
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
@@ -20,18 +19,14 @@ export class RegisterCompanyComponent implements OnInit {
 
   @Input()
   responses: Array<any>;
-
   private hasBaseDropZoneOver = false;
   private uploader: FileUploader;
   private title: string;
-
   public form: FormGroup;
   public carregando = false;
-  // public url = 'https://localhost:44311/';
   public message: string;
   public selectedFile: File = null;
 
-  // tslint:disable-next-line: no-output-on-prefix
   @Output() public onUploadFinished = new EventEmitter();
 
 
@@ -42,15 +37,13 @@ export class RegisterCompanyComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private cd: ChangeDetectorRef,
-    private http: HttpClient,
+
 
   ) {
 
-
-
     this.form = this.fb.group({
       Senha: ['', Validators.compose([
-        Validators.minLength(4),
+        Validators.minLength(4 ),
         Validators.maxLength(20),
         Validators.required,
       ])],
@@ -87,7 +80,7 @@ export class RegisterCompanyComponent implements OnInit {
       ])],
       Seguimento: ['', Validators.compose([
         Validators.minLength(4),
-        Validators.maxLength(30),
+        Validators.maxLength(35),
         Validators.required,
 
       ])],
@@ -154,7 +147,7 @@ export class RegisterCompanyComponent implements OnInit {
         Validators.required,
 
       ])],
-      Logo: ['', Validators.length],
+      //Logo: ['', Validators.length],
 
     });
 
@@ -177,22 +170,22 @@ export class RegisterCompanyComponent implements OnInit {
     this.carregando = true;
     this
       .service
-      .createUser(this.form.value)
+      .CriarPerfilEmpresa(this.form.value)
       .subscribe(
         (data: any) => {
-          console.log(this.form.value);
-          this.carregando = false;
-          this.toastr.info(data.dado.message);
-          this.router.navigate(['/login']);
+            if(data.sucesso != true){
+        this.toastr.info(data.mensage)
+        this.carregando = false;
+      } if (data.sucesso === true){
+        this.toastr.success('Obá, cadastro recebido! 💜');
+        this.router.navigate(['/login']);
+      }
+      
 
-        },
-        (err: any) => {
-          this.carregando = false;
-          this.toastr.warning(err.dado.message);
-          this.router.navigate(['/login']);
-          console.log(this.form.value);
-        }
-      );
+    }, (err) => {
+      console.log(err);
+      this.toastr.warning(err.mensage, '');
+    });
   }
 
   onUploadImagem(event: any) {

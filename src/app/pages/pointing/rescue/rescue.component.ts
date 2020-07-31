@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PointService } from 'src/app/service/point.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AwardService } from 'src/app/service/award.service';
 import { Security } from 'src/app/utils/security.util';
@@ -14,52 +14,57 @@ import { rescueModels } from 'src/app/models/rescue.models';
   templateUrl: './rescue.component.html',
   styleUrls: ['./rescue.component.css']
 })
-export class RescueComponent {
+export class RescueComponent implements OnInit {
   public form: FormGroup;
   public ListAward$: Observable<listAwardClient[]>;
-  public contato: string;
+  //public parametroContato: any;
 
   constructor(
     private fb: FormBuilder,
     private service: AwardService,
     private toastr: ToastrService,
+    private route: ActivatedRoute 
+
   ) {
     this.form = this.fb.group({
-      Telefone: ['', Validators.compose([
+      Contato: ['', Validators.compose([
         Validators.required
       ])],
       IdUsuario: ['', Validators.required],
     });
   }
+  ngOnInit() {
+    //this.parametroContato = this.route.snapshot.params.contato;
+  }
+
 
   async seach() {
     const id = Security.getUser().idEmpresa;
     // console.log(event.target.value);
-    const a = this.service.getListAwardClient(id, this.form.value.Telefone);
+    const list = this.service.getListAwardClient(id, this.form.value.Contato);
 
-    this.newMethod(a);
-    this.ListAward$ = a;
-  }
-
-
-  private newMethod(a: Observable<listAwardClient[]>) {
-    console.log(a);
+    this.ListAward$ = list;
   }
 
   rescue( id: number, saldo: number) {
     const user = Security.getUser();
-    const resgatar = new rescueModels(id[0], user.idEmpresa, user.idUsuario, saldo[0]);
+    const resgatar = new rescueModels(id[0], user.idEmpresa, user.id, saldo[0]);
     console.log(resgatar);
     this.
       service
       .rescue(resgatar)
       .subscribe((data: any) => {
 
-        this.toastr.success(data.dado.message);
-
+        if(data.sucesso != true){
+          this.toastr.info(data.mensage);
+        } if (data.sucesso === true){
+          this.toastr.success(data.mensage, '🎁');
+        }
+        
+  
       }, (err) => {
         console.log(err);
-        this.toastr.warning(err.dado.message);
+        this.toastr.warning(err.mensage, '');
       });
   }
 }

@@ -9,18 +9,23 @@ import { Security } from '../../../utils/security.util';
 })
 export class CardGeneratedRecipeComponent implements OnInit {
 
+  totalVendas: any;  
   constructor(private service: ReportDataService) { }
-valorRetido: any;
+
   ngOnInit() {
+    this.TotalRecipe();
+    
+
   }
 
-  RetainedCustomers(){
-    const usuario =  Security.getUser();
-    this
-    .service
-    .GetRetained(usuario)
-    .subscribe(data => this.valorRetido = data);
+   TotalRecipe() {
+
+    const id = Security.getUser().idEmpresa;
+    // var result = await
+     this
+      .service
+      .GetGeneratedRecipe(id)
+      .subscribe(data => this.totalVendas = data);
   }
- 
 
 }

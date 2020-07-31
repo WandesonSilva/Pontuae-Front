@@ -7,7 +7,7 @@ import { Security } from 'src/app/utils/security.util';
 })
 export class NavComponent implements OnInit {
   show: boolean;
-private claimValid;
+  private claimValid;
   constructor() { }
 
   ngOnInit() {

@@ -21,7 +21,7 @@
                         <div class="  uk-first-column  ">
                              <div class=" uk-scrollspy-inview uk-animation-slide-right-medium "uk-scrollspy-class>                                      
                                 <div class="text-muted">  <strong > Tipo Automacao: </strong>
-                                <span>{{item.tipoAutomacao}}</span></div>
+                                <span>{{automation.tipoAutomacao}}</span></div>
                                 
                                 <div class="uk-margin ">
                                     <div><i class="fas fa-envelope"  style="font-size: 20px;"></i><label style="font-weight: 500;"> SMS</label></div>
@@ -38,14 +38,14 @@
                                 <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium uk-text-center  " uk-scrollspy-class>
                                     
                                       <strong class=" uk-heading-small uk-margin-remove-bottom  " style="font-size: 24px; font-family: ubuntu;">{{automation.qtdEnviada}}</strong>
-                                      <div class="uk-text-justif uk-margin-remove-bottom" uk-tooltip="title: LEMBRA DE COLOCA A DATA DESTE 20/09/2020 DO ENVIO AQUI NO TOOLTIP" style="font-size: 15px;"  >SMS Enviados               
+                                      <div class="uk-text-justif uk-margin-remove-bottom"  style="font-size: 15px;"  >SMS Enviados               
                                     </div>
                                 </div>
                             </div>
 
                     <div class=" uk-first-column" >
                         <div class="uk-scrollspy-inview uk-animation-slide-right-medium uk-text-center " uk-scrollspy-class>
-                            <strong class="uk-heading-small  uk-margin-remove-bottom "  style="font-size: 24px; font-family: Ubuntu;">{{automation.valorInvestido}}</strong>
+                            <strong class="uk-heading-small  uk-margin-remove-bottom "  style="font-size: 24px; font-family: Ubuntu;">{{automation.valorInvestido | currency: 'BRL'}}</strong>
                             <div class="uk-text-justif uk-margin-remove-bottom" style="font-size: 15px; ">Valor Investido</div> 
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                     <div class="uk-first-column">
                         <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium uk-text-center "
                             uk-scrollspy-class>
-                            <strong class=" uk-heading-small uk-margin-remove-bottom  " style="color:limegreen; font-size: 24px; font-family: Ubuntu;">{{automation.totalVendas}}</strong>
+                            <strong class=" uk-heading-small uk-margin-remove-bottom  " style="color:limegreen; font-size: 24px; font-family: Ubuntu;">{{automation.totalVendas | currency: 'BRL'}}</strong>
                             <div class=" uk-text-justif  uk-margin-remove-bottom " style="font-size: 15px;">Resultado
 
                             </div>
@@ -89,14 +89,15 @@
                             <div class=" uk-grid-margin uk-first-column ">
                                     <div class=" uk-scrollspy-inview uk-animation-slide-right-medium "uk-scrollspy-class>
                                            <strong class=" uk-heading-small uk-margin-remove-bottom">{{item.nome}} </strong>
-                                               <div class=" text-muted uk-margin-remove-bottom">{{item.contato}} </div> 
+                                               <div class=" text-muted uk-margin-remove-bottom">{{item.contatos}} </div> 
                                  
-                                              <span class="uk-badge badge-novo" style="margin-right: 5px; font-size: 12px;"> {{item.novo}}  </span> 
-                                              <span class="uk-badge badge-ativo" style="margin-right: 5px; font-size: 12px;"> {{item.ativo}}   </span>
-                                              <span class="uk-badge badge-bronze" style="margin-right: 5px;"> {{item.bronze}} </span> 
-                                              <span class="uk-badge badge-prata" style="margin-right: 5px;"> {{item.prata}} </span>                        
-                                              <span class="badge-ouro" style="margin-right: 5px;"><i class="fas fa-crown"></i>{{item.ouro}}</span>
-                                              <span class="badge-vip" style="margin-right: 5px;"> {{item.vip}} </span>
+                          <span class="uk-badge badge-novo" *ngIf="item.segmentacao == 'Novo'" style="margin-right: 5px; font-size: 12px;"> {{item.segmentacao}}  </span> 
+                          <span class="badge-vip badge-vip" *ngIf="item.segmentacao == 'Vip'" style="margin-right: 5px;"> {{item.segmentacao}} </span> 
+                          <span class="uk-badge badge-ativo" *ngIf="item.segCustomizado == 'Ativo'" style="margin-right: 5px; font-size: 12px;"> {{item.segCustomizado}}   </span>
+                          <span class="uk-badge badge-bronze" *ngIf="item.segCustomizado == 'Bronze'" style="margin-right: 5px;"> {{item.segCustomizado}} </span> 
+                          <span class="uk-badge badge-prata" *ngIf="item.segCustomizado == 'Prata'" style="margin-right: 5px;"> {{item.segCustomizado}} </span>                        
+                          <span class="badge-ouro" *ngIf="item.segCustomizado == 'Ouro'" style="color: #000; margin-right: 5px; "><i class="fas fa-crown"></i> {{item.segCustomizado}}</span>
+                         
                                     </div>
                              </div>
 
@@ -105,7 +106,7 @@
                         <div class="uk-grid-margin uk-first-column">
                             <div class="el-item uk-panel uk-margin-remove uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                                 <strong class=" uk-heading-small uk-margin-remove-bottom ">Última Visita</strong>
-                                <div class=" uk-text-justif  uk-margin-remove-bottom " style="font-size: 14px;">{{item.dataCompra}}
+                                <div class=" uk-text-justif  uk-margin-remove-bottom " style="font-size: 14px;">{{item.dataRetorno | date:'dd/MM/yyyy HH:mm:ss'}}
 
                                 </div>
                             </div>

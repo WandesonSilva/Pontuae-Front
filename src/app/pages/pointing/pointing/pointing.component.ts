@@ -5,13 +5,15 @@ import { Award } from '../../../models/award.models';
 import { Observable } from 'rxjs';
 import { Security } from '../../../utils/security.util';
 
+
+  //Lembra de remove este component
 @Component({
   selector: 'app-pointing',
   templateUrl: './pointing.component.html',
   styleUrls: ['./pointing.component.css']
 })
 export class PointingComponent implements OnInit {
-Awards: Award[];
+  Awards: Award[];
   constructor(private service: AwardService) { }
 
   ngOnInit() {

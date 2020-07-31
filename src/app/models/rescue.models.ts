@@ -1,8 +1,9 @@
 export class rescueModels{
     constructor(
-        public idCliente: number,
-        public idEmpresa: number,
         public idUsuario: number,
+        public idPreCadastro: number,
+        public idEmpresa: number,
         public valorDoPremio: number,
+
     ){}
 }

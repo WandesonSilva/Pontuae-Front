@@ -3,19 +3,20 @@
 
     <h3 class="uk-card-title uk-text-uppercase uk-text-center">Total de Clientes</h3>
     <p>
-      <p class="uk-text-bolder uk-text-center text-l1">{{Total}} </p>
+      <p class="uk-text-bolder uk-text-center text-l1">{{total}} </p>
 
       <div class="uk-text-center" uk-grid>
         <div class="uk-width-1-2">
-          <span class="size-text-md"> {{TaxaDeRecorrente - Total }}</span>
+          <span class="size-text-md"> {{ resultRetained }}</span>
+      
           <div class="uk-text-meta uk-text-nowrap line-border-button line-primary">Não Recorrente</div>
         </div>
-        <div class="uk-width-1-2 ">
+        <!-- <div class="uk-width-1-2 ">
           <span class="size-text-md"> {{TaxaDeRecorrente}}</span>
           <div class="uk-text-meta uk-text-nowrap line-border-button line-secondary">
               Recorrentes
             </div>
-        </div>
+        </div> -->
 
       </div>
 

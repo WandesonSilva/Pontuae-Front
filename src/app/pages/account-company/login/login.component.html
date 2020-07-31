@@ -10,6 +10,7 @@
       
       <div class="uk-card uk-card-default  uk-card-body uk-border-rounded">
         <app-carregar *ngIf="carregando"></app-carregar>
+        
         <div *ngIf="!carregando">
           <h3 class="uk-card-title">Autentique-se</h3>
           <div class="uk-margin">
@@ -23,16 +24,16 @@
               placeholder="Senha">
           </div>
 
-          <a href="" class="">Esqueci minha senha</a>
-          <div class="uk-margin uk-text-right">
-            <button class="uk-button uk-button-default" [disabled]="form.invalid" (click)="submit()"
+          <a href="/forgot-password" class="">Esqueceu a senha?</a>
+          <div class="uk-margin uk-text-right"  >
+            <button class="uk-button uk-border-rounded BotaoSucesso" [disabled]="form.invalid" (click)="submit()" style="margin-top: -50px;"
               (click)="displayBanner()">Entrar
             </button>
           </div>
           <div class="uk-padding-small-bottom">
             <p class="uk-text-center">
-              <a href="/cadastrar"
-                class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoSucesso">Quero me Cadastrar</a>
+              <a href="/registerCampany"
+                class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoCadastro">Quero me Cadastrar</a>
               <br>
 
             </p>

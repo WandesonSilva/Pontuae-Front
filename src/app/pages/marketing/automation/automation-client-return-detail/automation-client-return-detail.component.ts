@@ -12,26 +12,27 @@ import { Observable } from 'rxjs';
 })
 export class AutomationClientReturnDetailComponent implements OnInit, OnChanges {
   public automation : any = null;
-  public ListReturnCustomerAutomation$: Observable<any> = null;
+  public ListReturnCustomerAutomation$: Observable<any[]> = null;
 
   constructor(private data: AutomationService, private activatedRoute: ActivatedRoute, private toastr: ToastrService, ) { }
   
   ngOnInit() {
     const idEmpresa = Security.getUser().idEmpresa;
-    const ID = this.activatedRoute.snapshot.params.id;
-    this.ListReturnCustomerAutomation$ = this.data.getListReturnCustomerAutomation(ID, idEmpresa);
+    const routeId = this.activatedRoute.snapshot.params.id;
+    this.ListReturnCustomerAutomation$ = this.data.getListReturnCustomerAutomation(routeId, idEmpresa);
+    this.showDadosReturnCustomerDetails(routeId);
   }
 
   ngOnChanges() {
-    this.showDadosReturnCustomerDetails();
+    //  this.showDadosReturnCustomerDetails();
   }
 
-  showDadosReturnCustomerDetails() {
+  showDadosReturnCustomerDetails(id: number) {
     const idEmpresa = Security.getUser().idEmpresa;
-    const ID =  this.activatedRoute.snapshot.params.id;
-        this.data.getByIdAutomation(ID, idEmpresa).subscribe((data: any) => {
-          this.automation = data;
+        this.data.getByIdAutomation(id, idEmpresa).subscribe((data: any) => {
+           this.automation = data;
         }); 
+        console.log(this.automation)
  
   }
 

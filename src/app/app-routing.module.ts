@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { AdminGuard } from './guards/Admin.guard';
 import { MenuComponent } from './pages/shared/Menu.component';
-import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
 import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
 import { LoginComponent } from './pages/account-company/login/login.component';
 import { ListCompanyComponent } from './pages/dashboard-customer/list-company/list-company.component';
@@ -38,6 +37,8 @@ import { ListEmployeeComponent } from './pages/account-employee/list-employee/li
 import { EditEmployeeComponent } from './pages/account-employee/edit-employee/edit-employee.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
 
 
 
@@ -46,24 +47,28 @@ const routes: Routes = [
   {
     path: '',
     component: MenuComponent,
-    // canActivate: [AuthService, AdminGuard],
+    canActivate: [AuthService, AdminGuard],
     children: [
    
       { path: '', component: DashboardComponent },
       { path: 'home', component: DashboardComponent },
       
-
-
       { path: 'insert-point', component: PreRegisterComponent },
+      //{ path: 'rescue/:contato', component: RescueComponent },
+      // {
+      // children:[
+      //   { path: 'rescue/:id', component: RescueComponent },
+      // ]
+      // },
       { path: 'rescue-point', component: RescueComponent },
       { path: 'profile', component: ProfileComponent },
       // tslint:disable-next-line: max-line-length
       // { path: 'pointing', component: PointingComponent },  agora será apenas rota de pontuacao, a tomada de desição de pre registra telefone fica no servidor
       { path: 'new-employee', component: RegisterEmployeeComponent },
-      { path: 'edit-employee', component: EditEmployeeComponent},
+      { path: 'edit-employee/:id', component: EditEmployeeComponent},
       { path: 'list-employee', component: ListEmployeeComponent},
       { path: 'list-customer', component: ListClientPageComponent },
-      { path: 'detail-customer', component: ClientDetailPageComponent },
+      { path: 'detail-customer/:id', component: ClientDetailPageComponent },
 
 
 
@@ -71,11 +76,10 @@ const routes: Routes = [
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
 
-        
           { path: 'point-edit', component: PointEditComponent },
           { path: 'award-create', component: AwardCreateComponent },
-          { path: 'award-edit', component: AwardEditComponent },
           { path: 'list-award', component: AwardListComponent },
+          { path: 'award-edit', component: AwardEditComponent },         
           { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },
@@ -85,7 +89,7 @@ const routes: Routes = [
         path: 'marketing', component: MarketingComponent,
         children: [
           { path: 'automation-create', component: AutomationCreateComponent },
-          { path: 'automation-edit', component: AutomationEditComponent },
+          { path: 'automation-edit/:id', component: AutomationEditComponent },
           { path: 'list-automation', component: AutomationListComponent },
 
 
@@ -93,8 +97,8 @@ const routes: Routes = [
           { path: 'campaign-edit', component: CampaignEditComponent },
           { path: 'list-campaign', component: CampaignListComponent },
 
-          { path: 'detail-return-clients-automation', component: AutomationClientReturnDetailComponent},
-          { path: 'detail-return-clients-campaign', component:  CampaignClientReturnDetailComponent},
+          { path: 'detail-return-clients-automation/:id', component: AutomationClientReturnDetailComponent},
+          { path: 'detail-return-clients-campaign/:id', component:  CampaignClientReturnDetailComponent},
 
         ]
 
@@ -124,12 +128,15 @@ const routes: Routes = [
   },
 
   { path: 'login', component: LoginComponent },
-  { path: 'loginCliente', component: LoginClienteComponent },
-  { path: 'cadastrar', component: RegisterCompanyComponent },
-  { path: 'registerCustomer', component: RegisterCustomerComponent },
+  { path: 'registerCampany', component: RegisterCompanyComponent },
   { path: 'resetAccount', component: ResetAccountComponent },
+  { path: 'loginCliente', component: LoginClienteComponent },
+  { path: 'registerCustomer', component: RegisterCustomerComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
 
-  { path: 'password-recovery', component: PasswordRecoveryComponent },// rota para recuperação de senha
+
+  //Não esta sendo utilizado no momento
+  { path: 'password-recovery', component: PasswordRecoveryComponent },// rota para alteracao de senha
 ];
 
 

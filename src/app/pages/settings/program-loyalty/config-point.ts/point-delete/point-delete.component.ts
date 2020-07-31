@@ -1,3 +1,8 @@
+
+//REMOVER ESTE COMPONENT
+
+
+
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { RulePointService } from 'src/app/service/rule-point.service';

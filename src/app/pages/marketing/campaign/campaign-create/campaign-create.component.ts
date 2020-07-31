@@ -1,22 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from 'src/app/service/campaign.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, Form, FormArray } from '@angular/forms';
+import { Router, convertToParamMap } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Security } from 'src/app/utils/security.util';
+import { AwardService } from 'src/app/service/award.service';
+import { ListContact } from 'src/app/models/ListContact.models';
+import { Observable } from 'rxjs';
+import { Contact } from 'src/app/models/contact.models';
+import { Campaign } from 'src/app/models/campaign.models';
+import { ParseSpan } from '@angular/compiler';
+import {DateAdapter,   NativeDateAdapter,   MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/pages/shared/format-datepicker';
+
 
 @Component({
   selector: 'app-campaign-create',
   templateUrl: './campaign-create.component.html',
-  styleUrls: ['./campaign-create.component.css']
+  styleUrls: ['./campaign-create.component.css'],
+  providers: [
+    {provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}
+  ]
 })
-export class CampaignCreateComponent {
+export class CampaignCreateComponent implements OnInit {
   public form: FormGroup;
   public busy = false;
   public description;
-  public listContacts: string[];
-  public totalContact: number;
-  public Credit: number;
+  public qtdSelecionados: any[];
+  public credit: number;
+  public showInputAgenda: boolean;
 
 
 
@@ -24,68 +37,99 @@ export class CampaignCreateComponent {
     private router: Router,
     private service: CampaignService,
     private fb: FormBuilder,
+    private builder: FormBuilder,
     private toastr: ToastrService,
   ) {
 
     this.form = this.fb.group({
 
-      Nome: ['', Validators.compose([
-        Validators.minLength(8),
+      nome: ['', Validators.compose([
+        Validators.minLength(2),
         Validators.maxLength(60),
         Validators.required])],
-
-      dataEnvio: ['', Validators.compose([Validators.nullValidator])],
-      conteudo: ['', Validators.compose([Validators.required])],
-      segmentacao: ['', Validators.compose([Validators.required])],
-      contatos: ['', Validators.compose([Validators.nullValidator])],
-      agendamentoAtivo: ['', Validators.compose([Validators.nullValidator])],
-      qtdSelecionado: ['', Validators.compose([Validators.nullValidator])],
+      agendamentoAtivo:[],
+      dataEnvio: [],
+      horaEnvio: [],
+      conteudo: ['', Validators.compose([Validators.nullValidator])],
+      segCustomizado: ['', Validators.compose([Validators.nullValidator])],
+    
     });
 
   }
-
-  onChangeGetContactsOfSegCustomization(eventValue: string) { 
-    console.log(eventValue);
-    const id = Security.getUser().idEmpresa;
-    this.service.getListContactsFromSegCustomization(id, eventValue).subscribe(data => this.listContacts = data)
-    this.totalContact == this.listContacts.length;
-    this.form.value.contatos == this.listContacts;
+  ngOnInit() {
+   console.log(this.form.value);
+   this.service.getCreditSMS().subscribe(data => this.credit = data);
 
   }
 
-  onChangeGetContactsOfSegmentation(eventValue: string) { //verifica se precisa tipa esse parâmetro
-    console.log(eventValue);
+  onChangeGetContactsOfSegCustomization(eventValue: string) {
+    this.form.value.segCustomizado = eventValue;
     const id = Security.getUser().idEmpresa;
-    this.service.getListContactsFromSegmentation(id, eventValue).subscribe(data => this.listContacts = data)
-    this.totalContact == this.listContacts.length;
-    this.form.value.contatos == this.listContacts;
-
+    this.service.a(id, eventValue).subscribe(r => {
+    this.qtdSelecionados = r;
+    });
   }
-
+  //1 campo desativado, e nullos
+  //2 campo ativa 
+  checkBoxAgend() {  
+    var result =this.form.value.agendamentoAtivo != true? this.showInputAgenda = true : this.showInputAgenda = false;
+  //  this.form.value.dataEnvio = '';
+  //  this.form.value.horaEnvio = '';
+  }
 
   submit() {
+     const t = this.form.value.horaEnvio;
+     var h = new Object(t);  
+    this.form.value.horaEnvio = h;
 
     this.service
       .createCampaign(this.form.value)
       .subscribe((data: any) => {
         this.busy = false;
-        this.toastr.success('Salvo com sucesso');
+        this.toastr.success(data.mensage, '');
+        this.backPage();
       },
         (err) => {
           console.log(err);
           this.busy = false;
-          this.toastr.error('Não foi Salvo');
+          this.toastr.error(err.mensage, '');
         }
       );
   }
 
-  checkQtdContacts() {
-    console.log(this.totalContact == null);
-    return this.totalContact == null;
+
+  backPage() {
+    this.router.navigate(['/']);
   }
 
-  // backPage() {
-  //   this.router.navigate(['/']);
-  // }
-}
 
+  // setarContact() {  AVERIGUAR ESTE METODO
+
+  //   // this.form.get('te').setValue(['testes'])
+  //   this.form.value.te.setValue([this.testes]);
+  // }
+
+//   InseriContato(): void {
+ 
+//     this.form.value.contatos =this.testes;
+//     console.log(this.form.value.contatos);
+// }
+
+  // onChangeGetContactsOfSegmentation(eventValue: string) { //verifica se precisa tipa esse parâmetro
+  //   console.log(eventValue);
+  //   const id = Security.getUser().idEmpresa;
+  //   // this.service.getListContactsFromSegmentation(id, eventValue).subscribe(data => this.listContacts = data)
+  //   this.service.getListContactsFromSegmentation(id, eventValue)
+  //   this.totalContact == this.listContacts.length;
+  //   this.form.value.contatos == this.listContacts;
+
+  // 
+
+
+
+    
+
+
+
+
+}

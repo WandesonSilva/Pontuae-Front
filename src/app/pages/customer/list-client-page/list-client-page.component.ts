@@ -14,11 +14,11 @@ export class ListClientPageComponent implements OnInit {
 
   constructor(private service: CustomerService) { }
 
-  ngOnInit() {
+  ngOnInit() {  
     // tslint:disable-next-line: radix
     const IdEmpresa = Security.getUser().idEmpresa;
-      this.ListClient$ = this.service.GetListCustomer(IdEmpresa);
-
+      this.ListClient$ = this.service.GetListCustomer(IdEmpresa);  
+       
   }
 
   existList(): boolean {

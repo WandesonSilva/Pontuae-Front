@@ -2,49 +2,55 @@
   <div class="uk-card uk-card-default uk-card-body uk-width-1-1  uk-position-center  line-borderleft ">
 
     <h2 class="uk-card-title-small ukh3 uk-expand "><i class="iconback" uk-icon="icon:arrow-left; ratio:1.2 "
-    onClick="history.go(-1)"></i>
-    Resgatar 
-     </h2>
-  
-  <form [formGroup]="form" class="uk-form-stacked">
+        onClick="history.go(-1)"></i>
+      Bonificar
+    </h2>
 
+    <form [formGroup]="form" class="uk-form-stacked">
 
-    <div class="uk-margin">
-      <label class="uk-form-label" for="form-stacked-text">Contato (Celular)</label>
-      <div class="uk-inline">
-        <div class="uk-form-controls">
-          <a class="uk-form-icon"><i class="material-icons">contact_phone</i></a>
-          <input class="uk-input  uk-form-large uk-form-width-large" mask="(00) 00000-0000" formControlName="Telefone"
-            id="form-stacked-text" type="text" placeholder="(99)99999999">
+      <div class="uk-margin">
+        <label class="uk-form-label" style="font-weight: 500;">Contato (Celular)</label>
+        <div class="uk-inline">
+          <div class="uk-form-controls">
+            <span class="uk-form-icon"><i class="material-icons">contact_phone</i></span>
+            <input class="uk-input uk-form-large uk-form-width-large" mask="(00) 00000-0000" formControlName="Contato"
+              type="text" placeholder="(DDD) + número"
+              [ngClass]="{'uk-form-danger': (!form.controls.Contato.valid && !form.controls.Contato.pristine)}">
+          </div>
         </div>
       </div>
-    </div>
-
-    <button class="uk-button uk-button-primary buttonSave" (click)="seach()">Buscar</button>
-  </form>
-
-  <div *ngFor="let item of ListAward$ | async">
-    <div class="uk-card uk-card-body  uk-margin-top line-bordertop line-gold">
-
-
-      <div class="uk-width-auto">
-        <h4 class="uk-margin-remove">{{item.nome}}</h4>
+      <div class="uk-text-right">
+        <button class=" buttonResgate uk-button" uk-toggle="target: #modal-close-default" (click)="seach()"> Resgate</button>
       </div>
-      <div uk-grid>
+    </form>
 
-        <div class="uk-margin-remove">
-          <strong class="uk-text-large uk-text-success ">{{item.saldo}}</strong>
-          <span class="uk-width-auto"><button class=" uk-position-center uk-button botaoResgatar uk-button-small  uk-margin-remove-last-child card-round"
-              (click)="rescue([(item.id)],[(item.pontosNecessario)] )">Resgatar</button> </span>
+    <div id="modal-close-default" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-background-muted">
+        <button class="uk-modal-close-default " type="button" uk-close></button>
+
+        <!-- page-Resgata Prêmio -->
+        <div *ngFor="let item of ListAward$ | async">
+          <div class="uk-card uk-card-body uk-card-default uk-margin-top">
+
+            <h4>{{item.nome}}</h4>
+
+            <div class="uk-text-center">
+              <button class="uk-button BotaoSucesso uk-border-rounded uk-button-small   card-round"
+                (click)="rescue([(item.id)],[(item.pontosNecessario)])">Resgatar </button>
+            </div>
+
+            <progress id="js-progressbar" class="uk-progress " value="{{item.saldo}}"
+              max="{{item.pontosNecessario}}"></progress>
+
+            <p class="uk-text-left" style="margin-top: -20px; font-weight: 400px;">saldo: {{item.saldo}}</p>
+            <p class="uk-text-right" style="margin-top: -40px; font-weight: 400px;">{{item.pontosNecessario}} pts</p>
+
+
+          </div>
+        </div>
+
+
+
+
       </div>
-      <progress id="js-progressbar" class="uk-progress " value="{{item.saldo}}"
-        max="{{item.pontosNecessario}}"></progress>
-
-
     </div>
-  </div>
-
-</div>
-
-  </div>
-</div>

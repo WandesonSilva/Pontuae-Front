@@ -11,31 +11,31 @@ import { Observable } from 'rxjs';
 })
 export class CampaignClientReturnDetailComponent implements OnInit {
 
-  public ListReturnCustomerCampaign$: Observable<any> = null;
+  public ListReturnCustomerCampaign$: Observable<any[]> = null;
   public campaign : any = null;
-
-
+ 
   constructor(private data: CampaignService, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit() {
     const idEmpresa = Security.getUser().idEmpresa;
-    const ID = this.activatedRoute.snapshot.params.id;
-    this.ListReturnCustomerCampaign$ = this.data.getListReturnCustomerCampaign( ID, idEmpresa);
+    const routeId = this.activatedRoute.snapshot.params.id;
+    this.ListReturnCustomerCampaign$ = this.data.getListReturnCustomerCampaign( routeId, idEmpresa);
+    this.showDadosReturnCustomerDetails(routeId);
   }
 
-  ngOnChanges() {
-    this.showDadosReturnCustomerDetails();
-  }
+  // ngOnChanges() {
+  //   this.showDadosReturnCustomerDetails();
+
+  // }
 
 
-  showDadosReturnCustomerDetails() {
-    const idEmpresa = Security.getUser().idEmpresa;
-    const ID =  this.activatedRoute.snapshot.params.id;
-        this.data.getByIdCampaign(ID, idEmpresa).subscribe((data: any) => {
+
+  showDadosReturnCustomerDetails(id: number) {  
+    const idEmpresa = Security.getUser().idEmpresa;  
+        this.data.getByIdCampaign(id, idEmpresa).subscribe((data: any) => {
           this.campaign = data;
         }); 
  
   }
-
 
 }

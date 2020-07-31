@@ -5,49 +5,46 @@ import { Point } from '../models/points.models';
 import { RuleProgram } from '../models/ruleProgram.models';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ConfigPoint } from '../models/configPoint.models';
 
 
 @Injectable({ providedIn: 'root' })
 
 export class RulePointService {
 
-  postIdSource = new  BehaviorSubject<number>(0);
-  postIdData: any;
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   public composeHeaders() {
     const tokem = localStorage.getItem('tokenPontuaae');
-    const headeers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
+    const headers = new HttpHeaders().set('autorization', 'token');
 
-    return headeers;
+    return headers;
 
   }
+//ok  
+  createRule(data) {   
+    return this.http.post(`${environment.UrlBase}/v1/ajuste/v1/post`, data);
+  } 
 
-  createRule(data: any) {
-    // tslint:disable-next-line: radix
+//ok
+  updateProgramLoyalty(data: ConfigPoint) { 
     const id = Security.getUser().idEmpresa;
-    data.IdUsuario = id;
-    return this.http.post(`${environment.UrlBase}v1/Pontos`, data, { headers: this.composeHeaders() });
-
+    data.idEmpresa = id;
+    return this.http.put(`${environment.UrlBase}/v1/ajuste/v1/put`, data, { headers: this.composeHeaders() });
   }
 
+  //averigua se pode remover  NÃO ESTOU UTILIZANDO
   getListProgramLoyalty( id: number) {
     return this.http.get<RuleProgram[]>(`${environment.UrlBase}/Pontos/${id}`, { headers: this.composeHeaders() });
   }
 
-  // lista, apura se vai precisa de dois parametros para fazer get
-  getByIdProgramLoyalty(id: number) {
-    return this.http.get<RuleProgram[]>(`${environment.UrlBase}v1/Config/${id}`);
+//ok
+  getByIdProgramLoyalty(idEmpresa: number) {
+    return this.http.get<any[]>(`${environment.UrlBase}/v1/ajuste/v1/detalhe/${idEmpresa}`,  { headers: this.composeHeaders() });   
   }
-
-  updateProgramLoyalty(data: any) {
-    return this.http.put(`${environment.UrlBase}v1/Config/edit`, data, { headers: this.composeHeaders() });
-  }
-
+  //averigua se pode remover
   deleteLoyalty(id: number){
-    return this.http.delete(`${environment.UrlBase}v1/Pontos/${id}`, {headers: this.composeHeaders()})
+    return this.http.delete(`${environment.UrlBase}v1/Pontos/${id}`, {headers: this.composeHeaders()});
   }
 
 }

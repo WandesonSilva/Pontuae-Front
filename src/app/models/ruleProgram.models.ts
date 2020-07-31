@@ -5,5 +5,4 @@ export class RuleProgram{
     public descricao: string;
     public validacao: string;
     
-
 }

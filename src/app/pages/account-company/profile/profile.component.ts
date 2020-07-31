@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProfileComponent implements OnInit {
   public form: FormGroup;
-  public url = 'https://localhost:44311/';
   public empresa: Empresa;
   public carregando = false;
   public message: string;
@@ -31,9 +30,6 @@ export class ProfileComponent implements OnInit {
   ) {
     this.form = this.fb.group({
 
-      IdUsuario: ['', Validators.compose([
-        Validators.required,
-      ])],
       NomeFantasia: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(20),
@@ -55,40 +51,41 @@ export class ProfileComponent implements OnInit {
         Validators.minLength(4),
         Validators.required
       ])],
+
       Telefone: ['', Validators.compose([
         Validators.required,
 
       ])],
 
-      Seguimentos: ['', Validators.compose([
-        Validators.maxLength(30),
+      Seguimento: ['', Validators.compose([
+        Validators.maxLength(35),
         Validators.required,
 
       ])],
       Horario: ['', Validators.compose([
         Validators.minLength(3),
-        Validators.maxLength(30),
-        Validators.required,
+        Validators.maxLength(100),
+        
 
       ])],
       Facebook: ['', Validators.compose([
         Validators.maxLength(60),
-        Validators.required,
+        
 
       ])],
       WebSite: ['', Validators.compose([
         Validators.maxLength(60),
-        Validators.required,
+      
 
       ])],
       Instagram: ['', Validators.compose([
         Validators.maxLength(60),
-        Validators.required,
+       
 
       ])],
       Delivery: ['', Validators.compose([
         Validators.maxLength(60),
-        Validators.required,
+       
 
       ])],
       Bairro: ['', Validators.compose([
@@ -136,20 +133,20 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
   
-    const id = Security.getUser().idEmpresa;
+    const idEmpresa = Security.getUser().idEmpresa;
 
     this
       .service
-      .GetPerfil(id)
+      .GetPerfil(idEmpresa)
       .subscribe((data: any) => {
-        this.form.controls.IdUsuario.setValue(id);
         this.form.controls.Email.setValue(data.email);
         this.form.controls.NomeFantasia.setValue(data.nomeFantasia);
         this.form.controls.Descricao.setValue(data.descricao);
         this.form.controls.NomeResponsavel.setValue(data.nomeResponsavel);
         this.form.controls.Telefone.setValue(data.telefone);
         this.form.controls.Documento.setValue(data.documento);
-        this.form.controls.Seguimentos.setValue(data.seguimento);
+
+        this.form.controls.Seguimento.setValue(data.seguimento);
         this.form.controls.Horario.setValue(data.horario);
         this.form.controls.Facebook.setValue(data.facebook);
         this.form.controls.Instagram.setValue(data.instagram);
@@ -163,12 +160,12 @@ export class ProfileComponent implements OnInit {
         this.form.controls.Estado.setValue(data.estado);
         this.form.controls.Complemento.setValue(data.complemento);
 
-        console.log(data);
+        console.log(this.form.value);
         // this.form.controls.NomeResponsavel= data.NomeResponsavel;
 
       },
         (err) => {
-          console.log(err);
+          console.log(err.mensage);
         }
       );
 
@@ -180,16 +177,18 @@ export class ProfileComponent implements OnInit {
       .service
       .UpdatePerfil(this.form.value)
       .subscribe((data: any) => {
-        console.log(this.form.value);
-        this.carregando = false;
-        this.toastr.success('Salvo com sucesso');
+      if(data.sucesso != true){
+        this.toastr.info(data.mensage)
+      } if (data.sucesso === true){
+        this.toastr.success('Obá, cadastro recebido! 💜');
         this.router.navigate(['/']);
-      }, (err) => {
-        this.carregando = false;
-        console.log(err)
-        this.toastr.warning(err.data);
       }
-      );
+      
+
+    }, (err) => {
+      console.log(err);
+      this.toastr.warning(err.mensage, '');
+    });
 
   }
 

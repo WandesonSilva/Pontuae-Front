@@ -1,3 +1,9 @@
+// AVERIGUAR SE ESTE COMPONENTE ESTÁ EM USO
+
+
+
+
+
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Security } from 'src/app/utils/security.util';
@@ -17,6 +23,9 @@ export class ListProgramLoyaltyComponent implements OnInit {
   public busy = false;
   
   constructor(private service: RulePointService, private activatedRoute: ActivatedRoute, private toastr: ToastrService,) { }
+
+
+
 
 
   

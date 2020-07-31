@@ -41,12 +41,12 @@ export class PointComponent implements OnInit {
   ngOnInit() {
   }
 
-  Submit(){
+  submit(){
 
     const a = Security.getUser();
        
     this.form.value.IdEmpresa = a.idEmpresa;
-    this.form.value.IdUsuario = a.idUsuario;
+    this.form.value.IdUsuario = a.id;
         console.log(a);
     this
     .service

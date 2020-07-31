@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./client-detail-page.component.css']
 })
 export class ClientDetailPageComponent implements OnInit {
-public client: any = null;
+public customer: any = null;
 
   constructor(private service: CustomerService, private activatedRoute: ActivatedRoute) { }
 
@@ -21,8 +21,8 @@ public client: any = null;
   // }
   
   showClientDetails() {
-    const ID = this.activatedRoute.snapshot.params.id;
-    this.service.GetDetails(ID).subscribe((data: any) => {this.client = data;});
+    const Id = this.activatedRoute.snapshot.params.id;
+    this.service.GetDetails(Id).subscribe((data: any) => {this.customer = data;});
 
   }
 }
