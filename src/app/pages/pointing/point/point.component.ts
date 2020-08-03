@@ -48,10 +48,10 @@ export class PointComponent implements OnInit {
     this.form.value.IdEmpresa = a.idEmpresa;
     this.form.value.IdUsuario = a.id;
         console.log(a);
-     await this
-    .service
-    .pointPost(this.form.value)
-    .then((data: any) => {
+    (await this
+      .service
+      .pointPost(this.form.value))
+    .subscribe((data: any) => {
       
       this.toastr.success('Operação finalizada com sucesso');
       console.log(data);
