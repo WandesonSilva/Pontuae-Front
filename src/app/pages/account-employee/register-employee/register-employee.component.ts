@@ -23,46 +23,49 @@ export class RegisterEmployeeComponent implements OnInit {
   ) {
     this.form = this.fb.group({
 
-      idEmpresa: [],
+      IdEmpresa: [],
+      ControleUsuario: [],
 
-      contato: ['', Validators.compose([
+      Contato: ['', Validators.compose([
         Validators.required
       ])],
-      nomeCompleto: ['', Validators.compose([
+      NomeCompleto: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(35),
         Validators.required
       ])],
-      email: ['', Validators.compose([
+      Email: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(30),
         Validators.required
       ])],
       
-      senha: ['', Validators.compose([
+      Senha: ['', Validators.compose([
         Validators.minLength(3),
-        Validators.maxLength(10),
+        Validators.maxLength(12),
         Validators.required
       ])],
-      controleUsuario: [],
+   
     });
   }
 
   ngOnInit() {
-  
+   
   }
 
-   submit() {
+    submit() {
+  
     // this.carregando = true;
-    console.log(this.form.value);
+
     const id = Security.getUser().idEmpresa;
-    this.form.value.idEmpresa = id;
-    console.log(this.form.value);
-    let valueSelect =  parseInt(this.form.value.controleUsuario);
-    this.form.value.controleUsuario = valueSelect;
-    
-    ( this.service
-      .createUserEmployee(this.form.value))
+    this.form.value.IdEmpresa = id;
+  
+    var valueSelect =  parseInt(this.form.value.ControleUsuario);
+    this.form.value.ControleUsuario = valueSelect;
+    console.log(this.form.value, "dddddddd");
+
+      this.service
+       .createUserEmployee(this.form.value)
       .subscribe(
         (data: any) => {
           if(data.sucesso != true){

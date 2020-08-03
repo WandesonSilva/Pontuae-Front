@@ -26,13 +26,19 @@
     </div>
   
     <div class="uk-margin">
-      <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Descricao</label>
-      <div class="uk-form-controls">
-        <input class="uk-input uk-form-default uk-padding"  formControlName="Descricao" type="text"
+      <div class="uk-margin">
+        <label class="uk-form-label" style="font-weight: 500;">Descrição</label>
+        <textarea class="uk-textarea uk-form-large" rows="5"type="text" formControlName="Descricao"
           placeholder="Descreva sobre o prêmio"
-          [ngClass]="{'uk-form-danger': (!form.controls.Descricao.valid && !form.controls.Descricao.pristine) }">
-      </div>
+          [ngClass]="{'uk-form-danger': (!form.controls.Descricao.valid && !form.controls.Descricao.pristine)}"> 
+        </textarea>
+        </div>
     </div>
+
+   
+
+
+
   
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Equivalem a quantos pontos</label>

@@ -7,3 +7,5 @@ export class Employee {
     public controleUsuario: number;
 
 }
+
+

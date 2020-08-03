@@ -40,6 +40,7 @@ export class LoginClienteComponent implements OnInit {
     if (token) {
 
       console.log(' altenticado ');
+      console.log(Security.getUser());
     } else {
       localStorage.clear();
     }
