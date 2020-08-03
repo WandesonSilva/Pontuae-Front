@@ -52,6 +52,7 @@ export class AutomationService {
 
 //ok
   getByIdAutomation(id: number, idEmpresa: number) {
-    return this.http.get<any>(`${environment.UrlBase}/v1/automacao/v1/relatorio/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
+    console.log(`${environment.UrlBase}/v1/automacao/v1/relatorio/${id}/${idEmpresa}`);
+    return this.http.get<any>(`${environment.UrlBase}v1/automacao/v1/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
   }
 }

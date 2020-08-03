@@ -79,7 +79,7 @@ const routes: Routes = [
           { path: 'point-edit', component: PointEditComponent },
           { path: 'award-create', component: AwardCreateComponent },
           { path: 'list-award', component: AwardListComponent },
-          { path: 'award-edit', component: AwardEditComponent },         
+          { path: 'award-edit/:id', component: AwardEditComponent },         
           { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },

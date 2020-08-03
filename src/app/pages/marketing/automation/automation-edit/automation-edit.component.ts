@@ -57,18 +57,19 @@ export class AutomationEditComponent implements OnInit {
       .getByIdAutomation(this.activatedRoute.snapshot.params.id, idEmpresa)
       .subscribe(
         (data: any) => {
+          console.log(data);
           this.busy = false;
-          this.form.controls['id'].setValue(data.Id);
-          this.form.controls['tipoAutomacao'].setValue(data.TipoAutomacao);
-          this.form.controls['conteudo'].setValue(data.Conteudo);
-          this.form.controls['segmentacao'].setValue(data.Segmentacao);
-          this.form.controls['segCustomizado'].setValue(data.SegCustomizado);
-          this.form.controls['diaSemana'].setValue(data.DiaSemana);
-          this.form.controls['diaMes'].setValue(data.DiaMes);
-          this.form.controls['tipoCanal'].setValue(data.TipoCanal);
-          this.form.controls['diasAntesAniversario'].setValue(data.DiasAntesAniversario);
-          this.form.controls['tempoPorDia'].setValue(data.TempoPorDia);
-          this.form.controls['aposUltimaFidelizacao'].setValue(data.AposUltimaFidelizacao);
+          this.form.controls['id'].setValue(data.id);
+          this.form.controls['tipoAutomacao'].setValue(data.tipoAutomacao);
+          this.form.controls['conteudo'].setValue(data.conteudo);
+          this.form.controls['segmentacao'].setValue(data.segmentacao);
+          this.form.controls['segCustomizado'].setValue(data.segCustomizado);
+          this.form.controls['diaSemana'].setValue(data.diaSemana);
+          this.form.controls['diaMes'].setValue(data.diaMes);
+          this.form.controls['tipoCanal'].setValue(data.tipoCanal);
+          this.form.controls['diasAntesAniversario'].setValue(data.diasAntesAniversario);
+          this.form.controls['tempoPorDia'].setValue(data.tempoPorDia);
+          this.form.controls['aposUltimaFidelizacao'].setValue(data.aposUltimaFidelizacao);
         },
         (err) => {
           console.log(err);

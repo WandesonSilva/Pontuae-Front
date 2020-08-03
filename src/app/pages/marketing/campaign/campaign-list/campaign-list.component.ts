@@ -18,7 +18,7 @@ export class CampaignListComponent implements OnInit {
   ngOnInit() {
     const idEmpresa = Security.getUser().idEmpresa;
     this.ListCampaign$ = this.service.getListCampaign(idEmpresa);
-    console.log(this.ListCampaign$);
+    console.log(this.service.getListCampaign(idEmpresa));
   }
 
   existList() {

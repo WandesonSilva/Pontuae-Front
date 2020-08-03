@@ -121,10 +121,14 @@
         <mat-datepicker #myDatepicker color="accent"></mat-datepicker>
       </div>
 
-      <div class="uk-width-1-6@s" *ngIf="showInputAgenda">
+      <div class="uk-width-1-5@s" *ngIf="showInputAgenda">
         
-         <input class="uk-input "   type="time"   
+         <input class="uk-input "  placeholder="" type="time"   
           formControlName="horaEnvio" >
+          <div class="uk-alert-warning" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p>Formato 12 horas</p>
+        </div>
       </div>
       <!-- <div class="uk-width-1-2@s">
             <label class="uk-form-label" for="form-stacked-select">Será enviada mais de uma vez?</label>

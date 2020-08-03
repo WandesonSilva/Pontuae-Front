@@ -41,17 +41,17 @@ export class PointComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit(){
+  async submit() {
 
     const a = Security.getUser();
        
     this.form.value.IdEmpresa = a.idEmpresa;
     this.form.value.IdUsuario = a.id;
         console.log(a);
-    this
+     await this
     .service
     .pointPost(this.form.value)
-    .subscribe((data: any) => {
+    .then((data: any) => {
       
       this.toastr.success('Operação finalizada com sucesso');
       console.log(data);
@@ -59,7 +59,7 @@ export class PointComponent implements OnInit {
     (err) => {
       console.log(err)
       this.toastr.warning('Erro na Operação');
-      })
+      });
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Award } from 'src/app/models/award.models';
 import { AwardService } from 'src/app/service/award.service';
 import { Security } from 'src/app/utils/security.util';
@@ -14,7 +14,7 @@ import { ObjectAward } from 'src/app/models/ObjectAward.models';
   styleUrls: ['./award-list.component.css'],
 
 })
-export class AwardListComponent implements OnInit {
+export class AwardListComponent implements OnInit{
   public List: Award[];
   public busy = false;
   public object: ObjectAward;
@@ -23,12 +23,16 @@ export class AwardListComponent implements OnInit {
     private toastr: ToastrService,
 
     private router: Router) { }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   this.busy = true;
+  //   this.ListAward(); 
+  // }
   
-  ngOnInit() {
-    this.busy = true;
-    this.ListAward(); 
+    ngOnInit() {
+     this.busy = true;
+     this.ListAward(); 
     
-  }
+   }
 
 
   ListAward(){      
@@ -51,9 +55,13 @@ export class AwardListComponent implements OnInit {
 
       var dados =  new ObjectAward(idPonto, Id_Empresa);
         this.service.deleteAward(dados )
-        .subscribe((data: any) => {  this.toastr.success(data.message, 'Deletado com sucesso');
+        .subscribe((data: any) => {  
+          this.ListAward(); 
+          this.toastr.success(data.message, 'Deletado com sucesso');
+        
         }, (err) => { this.toastr.warning('Erro na Operação'); });
       }
+     
     });
   }
 

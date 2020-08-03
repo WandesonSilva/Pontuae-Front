@@ -38,6 +38,7 @@ export class PreRegisterComponent implements OnInit {
       ValorInfor: ['', Validators.compose([
         Validators.required
       ])],
+      IdPreCadastro : [],  
 
 
     });
@@ -66,11 +67,12 @@ export class PreRegisterComponent implements OnInit {
     this.form.controls.IdEmpresa.setValue(idEmpresa);
     // this.form.value.IdEmpresa = idEmpresa;
     // this.form.value.Id = id;
-    this.form.controls.Id.setValue(id);
+   this.form.controls.Id.setValue(id);
+   this.form.controls.IdPreCadastro.setValue(1);
 
     console.log(this.form.value);
 
-    (await this
+     (await this
       .service
       .pointPost(this.form.value))
       .subscribe((data: any) => {

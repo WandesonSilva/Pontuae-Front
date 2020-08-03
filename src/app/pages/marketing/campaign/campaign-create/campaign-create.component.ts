@@ -57,8 +57,8 @@ export class CampaignCreateComponent implements OnInit {
 
   }
   ngOnInit() {
-   console.log(this.form.value);
    this.service.getCreditSMS().subscribe(data => this.credit = data);
+   this.showInputAgenda = true 
 
   }
 
@@ -72,7 +72,7 @@ export class CampaignCreateComponent implements OnInit {
   //1 campo desativado, e nullos
   //2 campo ativa 
   checkBoxAgend() {  
-    var result =this.form.value.agendamentoAtivo != true? this.showInputAgenda = true : this.showInputAgenda = false;
+    var result =this.form.value.agendamentoAtivo != true ? this.showInputAgenda = true : this.showInputAgenda = false;
   //  this.form.value.dataEnvio = '';
   //  this.form.value.horaEnvio = '';
   }
@@ -81,12 +81,13 @@ export class CampaignCreateComponent implements OnInit {
      const t = this.form.value.horaEnvio;
      var h = new Object(t);  
     this.form.value.horaEnvio = h;
-
+    
     this.service
       .createCampaign(this.form.value)
       .subscribe((data: any) => {
         this.busy = false;
         this.toastr.success(data.mensage, '');
+        
         this.backPage();
       },
         (err) => {

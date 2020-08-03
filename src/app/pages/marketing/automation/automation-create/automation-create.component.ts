@@ -60,21 +60,22 @@ export class AutomationCreateComponent implements OnInit {
 
    
     if(this.form.value.tempoPorDia == null  ){
-      this.form.value.tempoPorDia = this.number;
+      this.form.value.tempoPorDia = 0;
     }
     
 
     if(this.form.value.diasAntesAniversario  == null){
-      this.form.value.diasAntesAniversario = this.number;
+      this.form.value.diasAntesAniversario = 0;
     }
   
     if(this.form.value.tempoPorDiaDoMes  == null){
-      this.form.value.diasAntesAniversario = this.number ;
+      this.form.value.tempoPorDiaDoMes = 0 ;
     }
-
+    console.log(this.form.value);
     this.service
       .createAutomation(this.form.value)      
       .subscribe((data: any) => {
+       
         this.busy = false;
         console.log(data)
         if(data.sucesso != true){

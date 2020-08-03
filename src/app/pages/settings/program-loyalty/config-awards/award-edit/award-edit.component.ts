@@ -26,14 +26,14 @@ export class AwardEditComponent implements OnInit {
     this.form = this.fb.group({
 
       Id: ['', null],
-
+      IdEmpresa: ['', null],
       Nome: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(50),
         Validators.required
       ])],
 
-      Descricao: ['', Validators.compose([
+      Texto: ['', Validators.compose([
         Validators.minLength(10),
         Validators.maxLength(150),
         Validators.required
@@ -41,6 +41,7 @@ export class AwardEditComponent implements OnInit {
       QtdPontos: ['', Validators.compose([
         Validators.required
       ])],
+      
     });
 
   }
@@ -55,11 +56,12 @@ export class AwardEditComponent implements OnInit {
        .getByIdAward(idAward, id_empresa)
        .subscribe(
          (data: any) => {
+           console.log(data);
            this.busy = false;
            this.form.controls.Id.setValue(data.id);
            this.form.controls.Nome.setValue(data.nome);
-           this.form.controls.Descricao.setValue(data.descricao);
-           this.form.controls.PontosNecessario.setValue(data.pontosNecessario);
+           this.form.controls.Texto.setValue(data.texto);
+           this.form.controls.QtdPontos.setValue(data.pontosNecessario);
 
          },
          (err) => {
@@ -70,12 +72,14 @@ export class AwardEditComponent implements OnInit {
   }
 
   submit() {
-
+   this.form.value.IdEmpresa = Security.getUser().idEmpresa;
     this.busy = true;
+    console.log(this.form.value);
     this
       .service
       .updateAward(this.form.value)
       .subscribe((data: any) => {
+   
         this.busy = false;
         if(data.sucesso != true){
           this.toastr.info(data.mensage)
@@ -83,15 +87,17 @@ export class AwardEditComponent implements OnInit {
           this.toastr.success(data.mensage, '');
         }
         this.backPage();
+        
       }, (err) => {
         this.busy = false;
         console.log(err);
         this.toastr.warning(err.mensage);
       }
       );
+     
   }
   backPage(){
-    this.router.navigate(['/config/listProgram']);
+    this.router.navigate(['/config/list-award']);
   }
 }
 

@@ -26,11 +26,11 @@
     </div>
   
     <div class="uk-margin">
-      <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Descricao</label>
+      <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Texto</label>
       <div class="uk-form-controls">
-        <input class="uk-input uk-form-default uk-padding"  formControlName="Descricao" type="text"
+        <input class="uk-input uk-form-default uk-padding"  formControlName="Texto" type="text"
           placeholder="Descreva sobre o prêmio"
-          [ngClass]="{'uk-form-danger': (!form.controls.Descricao.valid && !form.controls.Descricao.pristine) }">
+          [ngClass]="{'uk-form-danger': (!form.controls.Texto.valid && !form.controls.Texto.pristine) }">
       </div>
     </div>
   
@@ -46,7 +46,7 @@
     <!--Button-->
   
     <div class="uk-text-right">
-      <button class="uk-button BotaoSucesso uk-border-rounded" [disabled]="form.invalid"  (click)="submit()"><i i uk-icon="icon: check; ratio: 1.1"></i>Salvar</button> 
+      <button class="uk-button BotaoSucesso uk-border-rounded" (click)="submit()"><i i uk-icon="icon: check; ratio: 1.1"></i>Salvar</button> 
     </div>
   
   </form>
