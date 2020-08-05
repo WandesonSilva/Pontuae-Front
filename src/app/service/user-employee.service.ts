@@ -21,9 +21,9 @@ export class UserEmployeeService {
 
 
   }
-   createUserEmployee(data: Employee) {
-     console.log('tttt : ', data );
-    return this.http.post(`${environment.UrlBase}​/v1/funcionario/v1/postFuncionario`, data);
+    createUserEmployee(data: Employee) {
+     console.log( data );
+    return this.http.post(`https://localhost:44387​/v1/funcionario/v1/postFuncionario`, data);
 
   }
 

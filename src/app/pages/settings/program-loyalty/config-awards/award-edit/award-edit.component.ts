@@ -58,7 +58,7 @@ export class AwardEditComponent implements OnInit {
          (data: any) => {
            console.log(data);
            this.busy = false;
-           this.form.controls.Id.setValue(data.id);
+           this.form.controls.Id.setValue(data.iD);
            this.form.controls.Nome.setValue(data.nome);
            this.form.controls.Texto.setValue(data.texto);
            this.form.controls.QtdPontos.setValue(data.pontosNecessario);

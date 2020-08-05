@@ -28,20 +28,18 @@ export class AwardCreateComponent implements OnInit {
   ) {
     this.form = this.fb.group({
 
-      IdEmpresa: ['', null],
-
-      Nome: ['', Validators.compose([
+      idEmpresa: [''],
+      nome: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(50),
         Validators.required
       ])],
-
-      Descricao: ['', Validators.compose([
+      descricao: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(150),
         Validators.required
       ])],
-      QtdPontos: ['', Validators.compose([
+      qtdPontos: ['', Validators.compose([
         Validators.required
       ])],
     });
@@ -50,7 +48,7 @@ export class AwardCreateComponent implements OnInit {
 
   submit() {
     const id = Security.getUser().idEmpresa;
-    this.form.value.IdEmpresa = id;
+    this.form.value.idEmpresa = id;
 
     console.log(this.form.value);
 
