@@ -11,11 +11,9 @@ export class NavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
-    this.claimValid = Security.getUser().claimValue;
-    console.log(Security.getUser().claimValue);
-    if (this.claimValid ==="Cliente") {
-      console.log("meu aqui");
+     console.log( Security.getUser());
+    this.claimValid = Security.getUser().claimValue === 'Cliente';
+    if (this.claimValid) {
      this.show = true;
    }
   }

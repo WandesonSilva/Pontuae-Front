@@ -27,14 +27,14 @@ export class UserEmployeeService {
 
   }
 
- async updateUserEmployee(data: any) {
+  updateUserEmployee(data: any) {
     const id = Security.getUser().idEmpresa;
     data.idEmpresa = id;
-    return this.http.put(`${environment.UrlBase}/v1/funcionario/v1/puddddat`, data);
+    return this.http.put(`${environment.UrlBase}/v1/funcionario/v1/put`, data);
   }
 
   getListUserEmployee( idEmpresa: number) {
-    return this.http.get<any[]>(`${environment.UrlBase}/api/`, {headers: this.composeHeaders() });
+    return this.http.get<any[]>(`${environment.UrlBase}/v1/lista/${idEmpresa}`, {headers: this.composeHeaders() });
   }
 
  async  deleteEmployee(data: ObjectEmployee){

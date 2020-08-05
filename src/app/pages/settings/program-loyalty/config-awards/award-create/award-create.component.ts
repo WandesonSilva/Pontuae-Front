@@ -59,7 +59,7 @@ export class AwardCreateComponent implements OnInit {
         if(data.sucesso != true){
           this.toastr.info(data.mensage);
         } if (data.sucesso === true){
-          this.toastr.success(data.mensage, '🎁');
+          this.toastr.success('🎁', data.mensage);
           this.router.navigate(['/config/list-award']);
         }
         

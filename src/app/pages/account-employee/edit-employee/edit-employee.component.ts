@@ -58,10 +58,10 @@ export class EditEmployeeComponent implements OnInit {
     );
 }
 
-  async submit() {
+   submit() {
   this.busy = true;
-  (await this.service
-    .updateUserEmployee(this.form.value))
+  this.service
+    .updateUserEmployee(this.form.value)
     .subscribe(
       (data: any) => {
         this.busy = false;

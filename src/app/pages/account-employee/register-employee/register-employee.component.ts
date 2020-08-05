@@ -27,12 +27,12 @@ export class RegisterEmployeeComponent implements OnInit {
       contato: ['', Validators.compose([
         Validators.required
       ])],
-      nomeCompleto: ['', Validators.compose([
+      NomeCompleto: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(35),
         Validators.required
       ])],
-      email: ['', Validators.compose([
+      Email: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(30),
         Validators.required
@@ -40,18 +40,19 @@ export class RegisterEmployeeComponent implements OnInit {
     
       senha: ['', Validators.compose([
         Validators.minLength(3),
-        Validators.maxLength(10),
+        Validators.maxLength(12),
         Validators.required
       ])],
-      controleUsuario: [],
+   
     });
   }
 
   ngOnInit() {
-  
+   
   }
 
-   submit() {
+    submit() {
+  
     // this.carregando = true;
   
  
