@@ -24,6 +24,7 @@
 
 .FundoLogin {
   background: linear-gradient(60deg, #d6085e 25%, #800691 100%);
+  height: 100%;
 }
 
 .BotaoSucesso {

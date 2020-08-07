@@ -28,7 +28,7 @@ export class EditEmployeeComponent implements OnInit {
     nomeCompleto: ['', [Validators.required]],
     email: ['', [Validators.required]],
     senha: ['', [Validators.required]],
-    controleUsuario: [[Validators.required]],
+    controleUsuario: ['',[Validators.required]],
 
   });
 
@@ -43,6 +43,7 @@ export class EditEmployeeComponent implements OnInit {
     .service.getByIdEmployee(this.activatedRoute.snapshot.params.id, idEmpresa))
     .subscribe(
       (data: any) => {
+        console.log(data);
         this.busy = false;
         this.form.controls['id'].setValue(data.id);
         this.form.controls['nomeCompleto'].setValue(data.nomeCompleto);

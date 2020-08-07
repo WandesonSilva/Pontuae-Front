@@ -4,10 +4,10 @@
   
     <div class="uk-margin">
       <!--OBS: adicionar hidden no input abaixo para oculta campo-->
-      <input hidden class="uk-input uk-form-default"  formControlName="Id" type="text"
+      <!-- <input hidden class="uk-input uk-form-default"  formControlName="Id" type="text"
         placeholder="Id do Programa de fidelidade"
-        >
-    </div>
+        >-->
+    </div> 
 
 
     <div class="uk-alert-primary" uk-alert>
@@ -20,25 +20,25 @@
       <div class="uk-form-controls">
         
         <input class="uk-input uk-form-default uk-padding" 
-          formControlName="Nome" type="text" placeholder="Informe o Nome do prêmio"
-          [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }">
+          formControlName="nome" type="text" placeholder="Informe o Nome do prêmio"
+          [ngClass]="{'uk-form-danger': (!form.controls.nome.valid && !form.controls.nome.pristine) }">
       </div>
     </div>
   
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Texto</label>
       <div class="uk-form-controls">
-        <input class="uk-input uk-form-default uk-padding"  formControlName="Texto" type="text"
+        <input class="uk-input uk-form-default uk-padding"  formControlName="texto" type="text"
           placeholder="Descreva sobre o prêmio"
-          [ngClass]="{'uk-form-danger': (!form.controls.Texto.valid && !form.controls.Texto.pristine) }">
+          [ngClass]="{'uk-form-danger': (!form.controls.texto.valid && !form.controls.texto.pristine) }">
       </div>
     </div>
   
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Equivalem a quantos pontos</label>
       <div class="uk-form-controls">
-        <input class="uk-input uk-form-default uk-padding"  type="number" formControlName="QtdPontos"
-          [ngClass]="{'uk-form-danger': (!form.controls.QtdPontos.valid && !form.controls.QtdPontos.pristine)}"
+        <input class="uk-input uk-form-default uk-padding"  type="number" formControlName="qtdPontos"
+          [ngClass]="{'uk-form-danger': (!form.controls.qtdPontos.valid && !form.controls.qtdPontos.pristine)}"
           placeholder="Pontos necessários para resgate do prêmio">
       </div>
       <!--span *ngIf="this.GetRule() == null" formControlName="Validade"></span-->

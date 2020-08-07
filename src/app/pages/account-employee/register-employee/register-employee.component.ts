@@ -23,16 +23,16 @@ export class RegisterEmployeeComponent implements OnInit {
   ) {
     this.form = this.fb.group({
 
-      idEmpresa: [],
+      idEmpresa: [null],
       contato: ['', Validators.compose([
         Validators.required
       ])],
-      NomeCompleto: ['', Validators.compose([
+      nomeCompleto: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(35),
         Validators.required
       ])],
-      Email: ['', Validators.compose([
+      email: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(30),
         Validators.required
@@ -41,6 +41,10 @@ export class RegisterEmployeeComponent implements OnInit {
       senha: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(12),
+        Validators.required
+      ])],
+      controleUsuario: ['', Validators.compose([
+        
         Validators.required
       ])],
    
@@ -52,15 +56,11 @@ export class RegisterEmployeeComponent implements OnInit {
   }
 
     submit() {
-  
     // this.carregando = true;
-  
- 
     this.form.value.idEmpresa = Security.getUser().idEmpresa;
-  
-    let valueSelect =  parseInt(this.form.value.controleUsuario);
+      let valueSelect =  parseInt(this.form.value.controleUsuario);
     this.form.value.controleUsuario = valueSelect;
-    
+    console.log(this.form.value);
      this.service
       .createUserEmployee(this.form.value)
       .subscribe(

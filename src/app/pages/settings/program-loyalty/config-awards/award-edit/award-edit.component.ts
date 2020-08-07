@@ -25,20 +25,20 @@ export class AwardEditComponent implements OnInit {
 
     this.form = this.fb.group({
 
-      Id: ['', null],
-      IdEmpresa: ['', null],
-      Nome: ['', Validators.compose([
+      id: [''],
+      idEmpresa: [],
+      mome: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(50),
         Validators.required
       ])],
 
-      Texto: ['', Validators.compose([
+      texto: ['', Validators.compose([
         Validators.minLength(10),
         Validators.maxLength(150),
         Validators.required
       ])],
-      QtdPontos: ['', Validators.compose([
+      qtdPontos: ['', Validators.compose([
         Validators.required
       ])],
       
@@ -58,10 +58,10 @@ export class AwardEditComponent implements OnInit {
          (data: any) => {
            console.log(data);
            this.busy = false;
-           this.form.controls.Id.setValue(data.iD);
-           this.form.controls.Nome.setValue(data.nome);
-           this.form.controls.Texto.setValue(data.texto);
-           this.form.controls.QtdPontos.setValue(data.pontosNecessario);
+           this.form.controls.id.setValue(data.id);
+           this.form.controls.nome.setValue(data.nome);
+           this.form.controls.texto.setValue(data.texto);
+           this.form.controls.qtdPontos.setValue(data.pontosNecessario);
 
          },
          (err) => {
@@ -72,7 +72,9 @@ export class AwardEditComponent implements OnInit {
   }
 
   submit() {
-   this.form.value.IdEmpresa = Security.getUser().idEmpresa;
+    const idAward = this.activatedRoute.snapshot.params.id;
+    this.form.value.id = idAward;
+   this.form.value.idEmpresa = Security.getUser().idEmpresa;
     this.busy = true;
     console.log(this.form.value);
     this

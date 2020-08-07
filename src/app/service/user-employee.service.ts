@@ -21,9 +21,10 @@ export class UserEmployeeService {
 
 
   }
-    createUserEmployee(data: Employee) {
+  createUserEmployee(data:Employee):Observable<any>{
      console.log( data );
-    return this.http.post(`https://localhost:44387​/v1/funcionario/v1/postFuncionario`, data);
+     return this.http.post(`${environment.UrlBase}/v1/funcionario/v1/post`, data);
+     
 
   }
 
@@ -34,7 +35,7 @@ export class UserEmployeeService {
   }
 
   getListUserEmployee( idEmpresa: number) {
-    return this.http.get<any[]>(`${environment.UrlBase}/v1/lista/${idEmpresa}`, {headers: this.composeHeaders() });
+    return this.http.get<any[]>(`${environment.UrlBase}/v1/funcionario/v1/lista/${idEmpresa}`, {headers: this.composeHeaders() });
   }
 
  async  deleteEmployee(data: ObjectEmployee){
