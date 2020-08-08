@@ -36,8 +36,9 @@
 
             <div class="uk-text-center">
               <button class="uk-button BotaoSucesso uk-border-rounded uk-button-small   card-round"
-                (click)="rescue([(item.id)],[(item.pontosNecessario)])">Resgatar </button>
-            </div>
+                (click)="rescue([(item.id)],[(item.pontosNecessario)])"  *ngIf="item.saldo >= item.pontosNecessario">Resgatar </button>
+                <span class=" uk-border-rounded uk-button-small   card-round" *ngIf="item.saldo < item.pontosNecessario">Indisponível</span>
+              </div>
 
             <progress id="js-progressbar" class="uk-progress " value="{{item.saldo}}"
               max="{{item.pontosNecessario}}"></progress>
