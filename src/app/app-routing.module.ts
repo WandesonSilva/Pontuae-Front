@@ -1,5 +1,4 @@
-import { AuthService } from './guards/auth.service';
-import { ClientGuard } from './guards/client.guard';
+
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { MenuComponent } from './pages/shared/Menu.component';
@@ -37,8 +36,9 @@ import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
-import { AdminGuard } from './guards/Admin.guard';
-import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
+import { AdminGuard } from './guards/admin.guard';
+import { ClientDetailPageComponent } from './pages/customer/client-detail-page/client-detail-page.component';
+import { AuthService } from './guards/auth.service';
 
 
 
@@ -48,7 +48,7 @@ const routes: Routes = [
   {
     path: '',
     component: MenuComponent,
-    canActivate: [AuthService, AdminGuard],
+     canActivate: [AuthService, AdminGuard],
     children: [
    
       { path: '', component: DashboardComponent },
