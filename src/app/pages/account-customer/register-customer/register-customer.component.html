@@ -36,6 +36,12 @@
               [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }"
               placeholder="Nome Completo" />
           </div>
+
+          <div class="uk-margin">
+            <input class="uk-input uk-form-large" type="text" formControlName="Cidade"
+              [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Cidade.pristine) }"
+              placeholder="Cidade" />
+          </div>
           
           <div class="uk-margin">
             <input class="uk-input uk-form-large" type="date" formControlName="DataNascimento"

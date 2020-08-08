@@ -22,9 +22,7 @@ export class ProfileCustomerComponent implements OnInit {
 
   ) {
     this.form = this.fb.group({
-      Id: ['', Validators.compose([
-        Validators.required,
-      ])],
+      IdUsuario: [''],
       Nome: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(20),
@@ -32,12 +30,13 @@ export class ProfileCustomerComponent implements OnInit {
       ])],
       Email: ['', Validators.compose([
         Validators.minLength(3),
-        Validators.maxLength(20),
         Validators.required,
       ])],
-      Telefone: ['', Validators.compose([
-        Validators.minLength(3),
-        Validators.maxLength(20),
+      DataNascimento: ['', Validators.compose([
+        
+        Validators.required,
+      ])],
+      Contato: ['', Validators.compose([
         Validators.required,
       ])],
     });
@@ -67,6 +66,7 @@ export class ProfileCustomerComponent implements OnInit {
 
   Submit() {
     this.carregando = true;
+    this.form.value.IdUsuario = Security.getUser().id;
     this
       .service
       .UpdateProfileCustomer(this.form.value)

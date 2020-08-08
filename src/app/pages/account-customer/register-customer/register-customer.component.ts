@@ -42,21 +42,16 @@ export class RegisterCustomerComponent implements OnInit {
         Validators.maxLength(60),
         Validators.required
       ])],
+      Cidade: ['', Validators.compose([
+        Validators.required
+      ])],
       DataNascimento: [''],
 
       // Cidade: ['',, Validators.compose([
       //   Validators.minLength(11),
       //   Validators.maxLength(11),
       // ])],
-      Cpf: ['', Validators.compose([
-        Validators.minLength(11),
-        Validators.maxLength(11),
-      ])],
-      Telefone: ['', Validators.compose([
-        Validators.minLength(9),
-        Validators.required
-      ])],
-
+      
     }
     )
   }
@@ -80,7 +75,7 @@ export class RegisterCustomerComponent implements OnInit {
         console.log(err);
         this.carregando = false;
         console.log(err);
-        this.toastr.warning(err.dado.message, 'Erro no dados');
+        this.toastr.warning(err, 'Erro no dados');
       }
       );
   }

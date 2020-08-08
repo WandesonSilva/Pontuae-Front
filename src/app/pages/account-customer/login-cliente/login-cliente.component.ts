@@ -37,7 +37,7 @@ export class LoginClienteComponent implements OnInit {
   ngOnInit() {
     const token = localStorage.getItem('tokenPontuaae');
 
-    if (token) {
+    if(token) {
 
       console.log(' altenticado ');
       console.log(Security.getUser());
@@ -54,7 +54,7 @@ export class LoginClienteComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.carregando = false;
-          this.setUser(data.users, data.token);
+          this.setUser(data.user, data.token);
           this.toastr.success(data);
          
 

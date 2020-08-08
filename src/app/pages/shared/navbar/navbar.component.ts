@@ -52,10 +52,14 @@ export class NavbarComponent implements OnInit {
   }
 
   ToProfile() {
-    if (this.claimOfUser) {
+    if (this.claimOfUser === "Administrador") {
       console.log('aqui');
       this.router.navigate(['/profile']);
-    } else {
+    } if (this.claimOfUser === "Funcionario") {
+      console.log('aqui3');
+      this.router.navigate(['/profile']);
+    } 
+    else {
       console.log('aqui2');
       this.router.navigate(['/home-client/profile-customer']);
     }
