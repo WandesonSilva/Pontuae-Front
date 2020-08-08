@@ -38,7 +38,7 @@ export class PreRegisterComponent implements OnInit {
       ValorInfor: ['', Validators.compose([
         Validators.required
       ])],
-      IdPreCadastro : [],  
+      IdPreCadastro: [],
 
 
     });
@@ -65,14 +65,12 @@ export class PreRegisterComponent implements OnInit {
     const idEmpresa = Security.getUser().idEmpresa;
     const id = Security.getUser().id;
     this.form.controls.IdEmpresa.setValue(idEmpresa);
-    // this.form.value.IdEmpresa = idEmpresa;
-    // this.form.value.Id = id;
-   this.form.controls.Id.setValue(id);
-   this.form.controls.IdPreCadastro.setValue(1);
+    this.form.controls.Id.setValue(id);
+    this.form.controls.IdPreCadastro.setValue(1);
 
     console.log(this.form.value);
 
-     (await this
+    (await this
       .service
       .pointPost(this.form.value))
       .subscribe((data: any) => {
@@ -99,9 +97,14 @@ export class PreRegisterComponent implements OnInit {
     const id = Security.getUser().idEmpresa;
     // console.log(event.target.value);
 
-    const list = this.serviceAward.getListAwardClient(id, this.form.value.Contato);
+    if (this.form.value.Contato != '') {
+      const list = this.serviceAward.getListAwardClient(id, this.form.value.Contato);
+      this.ListAward$ = list;
 
-    this.ListAward$ = list;
+    }
+    else {
+      this.toastr.info('Informe o Celular do cliente para Consultar Prêmios');
+    }
   }
 
 

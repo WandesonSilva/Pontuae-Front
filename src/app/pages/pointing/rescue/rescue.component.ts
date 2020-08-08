@@ -41,9 +41,16 @@ export class RescueComponent implements OnInit {
   async seach() {
     const id = Security.getUser().idEmpresa;
     // console.log(event.target.value);
-    const list = this.service.getListAwardClient(id, this.form.value.Contato);
 
-    this.ListAward$ = list;
+    if (this.form.value.Contato != '') {
+      const list = this.service.getListAwardClient(id, this.form.value.Contato);
+      this.ListAward$ = list;
+
+    }
+    else {
+      this.toastr.info('Informe o Celular do cliente para Consultar Prêmios');
+    }
+  
   }
 
   rescue( id: number, saldo: number) {
