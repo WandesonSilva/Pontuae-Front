@@ -25,9 +25,9 @@ export class EditEmployeeComponent implements OnInit {
   this.form = this.fb.group({
     
     id: [],
+    idEmpresa:[],
     nomeCompleto: ['', [Validators.required]],
     email: ['', [Validators.required]],
-    senha: ['', [Validators.required]],
     controleUsuario: ['',[Validators.required]],
 
   });
@@ -36,11 +36,11 @@ export class EditEmployeeComponent implements OnInit {
 
   async ngOnInit() {
 
-  const idEmpresa = Security.getUser().idEmpresa;
+  const idEmpresa_ = Security.getUser().idEmpresa;
 
   this.busy = true;
   (await this
-    .service.getByIdEmployee(this.activatedRoute.snapshot.params.id, idEmpresa))
+    .service.getByIdEmployee(this.activatedRoute.snapshot.params.id, idEmpresa_))
     .subscribe(
       (data: any) => {
         console.log(data);
@@ -48,7 +48,6 @@ export class EditEmployeeComponent implements OnInit {
         this.form.controls['id'].setValue(data.id);
         this.form.controls['nomeCompleto'].setValue(data.nomeCompleto);
         this.form.controls['email'].setValue(data.email);
-        this.form.controls['senha'].setValue(data.senha);
         this.form.controls['controleUsuario'].setValue(data.controleUsuario);
 
       },
@@ -60,6 +59,8 @@ export class EditEmployeeComponent implements OnInit {
 }
 
    submit() {
+    const idEmpresa_ = Security.getUser().idEmpresa;
+     this.form.value.idEmpresa =  idEmpresa_;
   this.busy = true;
   this.service
     .updateUserEmployee(this.form.value)

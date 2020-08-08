@@ -4,7 +4,6 @@ export class Employee {
     public nomeCompleto: string;
     public email: string;
     public senha: string;
-    public contato: string;
     public controleUsuario: number;
 
 }

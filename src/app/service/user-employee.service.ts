@@ -22,24 +22,22 @@ export class UserEmployeeService {
 
   }
   createUserEmployee(data:Employee):Observable<any>{
-     console.log( data );
+ 
      return this.http.post(`${environment.UrlBase}/v1/funcionario/v1/post`, data);
      
 
   }
 
-  updateUserEmployee(data: any) {
-    const id = Security.getUser().idEmpresa;
-    data.idEmpresa = id;
-    return this.http.put(`${environment.UrlBase}/v1/funcionario/v1/put`, data);
+  updateUserEmployee(data: Employee) {
+    return this.http.put(`${environment.UrlBase}/v1/funcionario/v1/updateFuncionario`, data);
   }
 
   getListUserEmployee( idEmpresa: number) {
     return this.http.get<any[]>(`${environment.UrlBase}/v1/funcionario/v1/lista/${idEmpresa}`, {headers: this.composeHeaders() });
   }
 
- async  deleteEmployee(data: ObjectEmployee){
-    return this.http.post(`${environment.UrlBase}/api/funcionario/v1/Deletar`, data, {headers: this.composeHeaders() });
+ async  deleteEmployee(id: number, idEmpresa: number){
+    return this.http.delete(`${environment.UrlBase}/api/funcionario/v1/Deletar/${id}/${idEmpresa}`, {headers: this.composeHeaders() });
   }
 
   async getByIdEmployee(id: number, idEmpresa: number) {
