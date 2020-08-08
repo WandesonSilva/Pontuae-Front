@@ -1,8 +1,7 @@
-import { AuthService } from './Guards/auth.service';
+import { AuthService } from './guards/auth.service';
 import { ClientGuard } from './guards/client.guard';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
-import { AdminGuard } from './guards/Admin.guard';
 import { MenuComponent } from './pages/shared/Menu.component';
 import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
 import { LoginComponent } from './pages/account-company/login/login.component';
@@ -27,7 +26,6 @@ import { AwardEditComponent } from './pages/settings/program-loyalty/config-awar
 import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
 import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
-import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
 import { AutomationClientReturnDetailComponent } from './pages/marketing/automation/automation-client-return-detail/automation-client-return-detail.component';
 import { CampaignClientReturnDetailComponent } from './pages/marketing/campaign/campaign-client-return-detail/campaign-client-return-detail.component';
 import { PreRegisterComponent } from './pages/pointing/pre-register/pre-register.component';
@@ -39,6 +37,9 @@ import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
+import { AdminGuard } from './guards/Admin.guard';
+import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
+
 
 
 

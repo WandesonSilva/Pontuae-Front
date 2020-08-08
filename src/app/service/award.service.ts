@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { listAwardClient } from '../models/listAwardClient.models';
 import { rescueModels } from '../models/rescue.models';
 import { ObjectAward } from '../models/ObjectAward.models';
-import { ListContact } from '../models/ListContact.models';
+
 
 
 @Injectable({ providedIn: 'root' })

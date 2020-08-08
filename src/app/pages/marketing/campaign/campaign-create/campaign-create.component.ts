@@ -5,7 +5,6 @@ import { Router, convertToParamMap } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Security } from 'src/app/utils/security.util';
 import { AwardService } from 'src/app/service/award.service';
-import { ListContact } from 'src/app/models/ListContact.models';
 import { Observable } from 'rxjs';
 import { Contact } from 'src/app/models/contact.models';
 import { Campaign } from 'src/app/models/campaign.models';
