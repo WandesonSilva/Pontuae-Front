@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Security } from '../utils/security.util';
 import { environment } from 'src/environments/environment';
-import { ListContact } from '../models/ListContact.models';
 import { Contact } from '../models/contact.models';
 import { ListCampaign } from '../models/listCampaign.models';
 

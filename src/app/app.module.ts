@@ -18,8 +18,7 @@ import { ListClientPageComponent } from './pages/customer/list-client-page/list-
 
 import { AuthenticationService } from './service/authentication.service';
 import { ClientGuard } from './guards/client.guard';
-import { AdminGuard } from './guards/Admin.guard';
-import { AuthService } from './Guards/auth.service';
+
 
 import { LoginComponent } from './pages/account-company/login/login.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
@@ -46,7 +45,7 @@ import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/progra
 import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
 import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
-import { ClientDetailPageComponent } from './Pages/customer/client-detail-page/client-detail-page.component';
+import { ClientDetailPageComponent } from './pages/customer/client-detail-page/client-detail-page.component';
 import { CampaignClientReturnDetailComponent } from './pages/marketing/campaign/campaign-client-return-detail/campaign-client-return-detail.component';
 import { AutomationClientReturnDetailComponent } from './pages/marketing/automation/automation-client-return-detail/automation-client-return-detail.component';
 import { PreRegisterComponent } from './pages/pointing/pre-register/pre-register.component';
@@ -57,6 +56,8 @@ import { ListEmployeeComponent } from './pages/account-employee/list-employee/li
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
+import { AdminGuard } from './guards/admin.guard';
+import { AuthService } from './guards/auth.service';
 
 
 
