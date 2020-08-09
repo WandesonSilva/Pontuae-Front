@@ -26,7 +26,7 @@ export class RegisterCustomerComponent implements OnInit {
         
       // // ClaimType: ['', null],
       // // ClaimValue: ['', null],
-      // // IdUsuario: ['', null],
+       IdUsuario: [''],
       Email: ['', Validators.compose([
         Validators.minLength(4),
         Validators.maxLength(55),
@@ -45,6 +45,9 @@ export class RegisterCustomerComponent implements OnInit {
       Cidade: ['', Validators.compose([
         Validators.required
       ])],
+      Contato: ['', Validators.compose([
+        Validators.required
+      ])],
       DataNascimento: [''],
 
       // Cidade: ['',, Validators.compose([
@@ -61,6 +64,7 @@ export class RegisterCustomerComponent implements OnInit {
 
   submit() {
     this.carregando = true;
+    this.form.value.Id
     this
       .service
       .cadastrarCliente(this.form.value)
