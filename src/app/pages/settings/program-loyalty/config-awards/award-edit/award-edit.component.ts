@@ -47,7 +47,11 @@ export class AwardEditComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+  this.GeByIDAwaed();
+   
+  }
+
+  GeByIDAwaed(){
     const id_empresa = Security.getUser().idEmpresa;
     const idAward = this.activatedRoute.snapshot.params.id;
     this.busy = true;

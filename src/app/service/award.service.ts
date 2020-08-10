@@ -47,7 +47,7 @@ export class AwardService {
 
 
   getByIdAward(id: number, idEmpresa: number,) {
-    return this.http.get<Award[]>(`${environment.UrlBase}/v1/Premio/v1/detalhe/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
+    return this.http.get<Award[]>(`${environment.UrlBase}/v1/Premio/v1/detalhe/${id}/${idEmpresa}`);
   }
   
   deleteAward( data : ObjectAward){

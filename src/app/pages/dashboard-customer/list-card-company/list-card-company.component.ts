@@ -28,9 +28,7 @@ export class ListCardCompanyComponent implements OnInit {
       this.ListaEmpresas = data;
       console.log(data);
     });
-    
-
-    console.log(this.ListaEmpresas);
+  
   }
 
 

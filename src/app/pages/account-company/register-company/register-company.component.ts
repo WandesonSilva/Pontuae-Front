@@ -168,6 +168,7 @@ export class RegisterCompanyComponent implements OnInit {
 
   submit() {
     this.carregando = true;
+    console.log(this.form.value);
     this
       .service
       .CriarPerfilEmpresa(this.form.value)

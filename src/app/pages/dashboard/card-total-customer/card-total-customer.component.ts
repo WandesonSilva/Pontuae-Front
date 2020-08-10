@@ -31,7 +31,8 @@ export class CardTotalCustomerComponent implements OnInit {
       .subscribe(data => this.totalRecorrentes = data);
 
         const numberResult = this.totalCustomer - this.totalRecorrentes;
-        this.NotResultRetained =  numberResult;
+        this.NotResultRetained = numberResult;
+        console.log(this.NotResultRetained);
       } 
       
     

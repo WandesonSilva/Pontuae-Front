@@ -14,7 +14,7 @@ export class CardTicketMediumComponent implements OnInit {
 
   ngOnInit() {
     this.TotalTicket();
-
+console.log(this.TicketNumber);
   }
 
    TotalTicket() {

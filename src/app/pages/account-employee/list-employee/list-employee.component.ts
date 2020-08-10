@@ -15,8 +15,8 @@ import { ObjectEmployee } from 'src/app/models/ObjectEmployee';
 export class ListEmployeeComponent implements OnInit {
 
   public ListUserEmployee$: Observable<Employee[]> = null;
-  
-  
+
+
 
   constructor(
 
@@ -26,41 +26,15 @@ export class ListEmployeeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const idEmpresa = Security.getUser().idEmpresa;
-    this.ListUserEmployee$ = this.service.getListUserEmployee(idEmpresa);
+   
+    this.getLista();
   }
 
-  // Deletddde(id: number) {
-  //   console.log(id);
-  //   const user = Security.getUser();
-  
-  //   if(id != user.id ){
-  //   const idEmpresa = user.idEmpresa;
-  //   Swal.fire({
-  //     text: "Deseja remover este usuário?",
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#17CC8D',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Confimar'
-  //   }).then((result) => { if (result.value) {
+getLista(){
+  const idEmpresa = Security.getUser().idEmpresa;
+  this.ListUserEmployee$ = this.service.getListUserEmployee(idEmpresa);
+}
 
-    // const iduser = Security.getUser().id;
-    // var dados = new ObjectEmployee(id, idEmpresa);
-
-  //       this.service.deleteEmployee(dados)
-  //       .subscribe((data: any) => { this.toastr.success(data.mensage);
-  //       }, 
-  //       (err) => { this.toastr.warning(err.mensage); });
-  //     }
-  //   });
-  // }
-  //  else{
-  //   this.toastr.warning('Não pode remover a si mesmo');
-
-  // }
-
-
- 
   async Delete(id: any) {
     const idEmpresa = Security.getUser().idEmpresa;
     Swal.fire({
@@ -73,31 +47,33 @@ export class ListEmployeeComponent implements OnInit {
       if (result.value) {
         const Id_Empresa = Security.getUser().idEmpresa;
 
-      var dados =  new ObjectEmployee(id, Id_Empresa);
+        var dados = new ObjectEmployee(id, Id_Empresa);
 
-      (await this.service.deleteEmployee(dados))
-        .subscribe((data: any) => {  this.toastr.success(data.mensage,);
-        }, (err) => { this.toastr.warning('Erro na Operação'); });
+        (await this.service.deleteEmployee(dados))
+          .subscribe((data: any) => {
+            this.toastr.success(data.mensage,);
+            this.getLista();
+          }, (err) => { this.toastr.warning('Erro na Operação'); });
       }
     });
   }
 
 
 
-  
+
   // async Delete(id: number) {
-    
- 
+
+
 
   //   if (confirm("Deseja realmente Excluir?")) {
   //     // this.busy = true;
-  
+
   //     console.log(id);
   //     const idEmpresa = Security.getUser().idEmpresa;
   //     const iduser = Security.getUser().id;
   //     var dados = new ObjectEmployee(id, idEmpresa);
 
-   
+
   //     (await this.service.deleteEmployee(dados))
   //       .subscribe((data: any) => {
 
@@ -106,7 +82,7 @@ export class ListEmployeeComponent implements OnInit {
   //       } if (data.sucesso === true){
   //         this.toastr.success(data.mensage, '');
   //       }
-          
+
   //       },
   //       (err) => {
   //         console.log(err);

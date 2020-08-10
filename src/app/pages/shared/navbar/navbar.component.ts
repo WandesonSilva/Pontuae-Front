@@ -11,12 +11,16 @@ import { Security } from 'src/app/utils/security.util';
 export class NavbarComponent implements OnInit {
   public user: User;
   public claimOfUser;
+  public profileShow: Boolean = false;
   constructor(private router: Router) {
 
   }
   ngOnInit() {
     this.user = Security.getUser();
     this.claimOfUser = this.user.claimValue;
+    if (this.claimOfUser === "Funcionario") {
+      this.profileShow = true;
+    }
   }
 
 
@@ -31,21 +35,18 @@ export class NavbarComponent implements OnInit {
 
   GoOut() {
     Security.clear();
-    if (this.claimOfUser === "Administrador") {
+    if(this.claimOfUser === "Administrador") {
       this.router.navigate(['/login']);
-    } if (this.claimOfUser === "Funcionario") {
+    } if(this.claimOfUser === "Funcionario") {
       this.router.navigate(['/login']);
-    }  else {
+    } if(this.claimOfUser === "Cliente") {
       this.router.navigate(['/loginCliente']);
     }
   }
   ToProfile() {
     if (this.claimOfUser === "Administrador") {
           this.router.navigate(['/profile']);
-    } if (this.claimOfUser === "Funcionario") {
-      this.router.navigate(['/profile']);
-    }
-    else {
+    } if (this.claimOfUser === "Cliente") {
       this.router.navigate(['/home-client/profile-customer']);
     }
   }

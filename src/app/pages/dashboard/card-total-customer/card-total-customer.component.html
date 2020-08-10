@@ -3,16 +3,16 @@
 
     <h3 class="uk-card-title uk-text-uppercase uk-text-center">Total de Clientes</h3>
     <p>
-      <p class="uk-text-bolder uk-text-center text-l1">{{totalCustomer}} </p>
+      <p class="uk-text-bolder uk-text-center text-l1">{{totalCustomer == null ? 0: totalCustomer}} </p>
 
       <div class="uk-text-center" uk-grid>
         <div class="uk-width-1-2">
-          <span class="size-text-md" style="font-size: 20px;">{{NotResultRetained}}</span>
+          <span class="size-text-md" style="font-size: 16px;">{{ this.totalCustomer - this.totalRecorrentes }}</span>
           <div class="uk-text-meta uk-text-nowrap line-border-button line-primary">Não Recorrente</div>
         </div>
 
         <div class="uk-width-1-2 ">
-          <span class="size-text-md" style="font-size: 20px;"> {{totalRecorrentes}}</span>
+          <span class="size-text-md" style="font-size: 16px;"> {{totalRecorrentes}}</span>
           <div class="uk-text-meta uk-text-nowrap line-border-button line-secondary"> Recorrentes</div>
         </div>
 

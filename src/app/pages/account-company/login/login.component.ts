@@ -73,13 +73,8 @@ export class LoginComponent implements OnInit {
           this.carregando = false;
           this.setUser(data.user, data.token);
           this.toastr.success(data.mensage,'Seja bem vindo');
-<<<<<<< HEAD
-  
-
-=======
           
           this.router.navigate(['/']);
->>>>>>> 1ff0dabd4b440413f525717c8b6c4be232f6adde
         },
         (err) => {
           this.carregando = false;
