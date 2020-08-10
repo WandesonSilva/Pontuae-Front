@@ -18,11 +18,15 @@ Balances: ScoreComapanyModels[];
   }
 
   BalanceCustomer() {
-    const id = Security.getUser().id;
+    const contato = Security.getUser();
+    console.log(contato);
     this
     .service
-    .GetBalanceOfCompany('1')
-    .subscribe(data => this.Balances = data);
+    .GetBalanceOfCompany(contato.contato)
+    .subscribe(data => {
+      this.Balances = data
+      console.log(data);
+    });
   }
 
 }

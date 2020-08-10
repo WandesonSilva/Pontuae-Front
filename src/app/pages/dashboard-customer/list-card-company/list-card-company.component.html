@@ -1,43 +1,34 @@
-
 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
 
   <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-grid">
-   
+
     <div *ngFor="let ListaEmpresa of ListaEmpresas">
-      <li >
-      <div class="uk-panel ">
-        <div class="uk-border-rounded colorCard uk-card  uk-card-body ">
-          <div class="uk-card-badge uk-label">{{ListaEmpresa.seguimento}}</div>
+      <li>
+        <div class="uk-panel ">
+          <div class="uk-border-rounded colorCard uk-card  uk-card-body ">
+            <div class="uk-card-badge uk-label">{{ListaEmpresa.seguimento}}</div>
             <h3 class="uk-card-title">{{ListaEmpresa.nomeFantasia}}</h3>
             <p>{{ListaEmpresa.telefone}}</p>
+          </div>
         </div>
+      </li>
     </div>
-  </li>
-      <!-- <li>
-    
-        <div class="uk-inline" ></div>
-          <div class="uk-overlay uk-light uk-position-bottom">
-            <p class="uk-text-lead uk-text-truncate" style="color: white;   -webkit-text-stroke-width: 1px; -webkit-text-stroke-color:white;">
-              {{ ListaEmpresa.nomeFantasia }}
-            </p>
-            </div>
-        
-      </li> -->
-      </div>
-    
-     
-      
-   
+
+
+
+
   </ul>
 
-  <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-  <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+  <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+    uk-slider-item="previous"></a>
+  <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+    uk-slider-item="next"></a>
 </div>
 
 <button class="uk-button  mg">Visualizar todas empresas</button>
 
- 
- <!-- <div class="uk-flex-center uk-child-width-1-5@m uk-padding" uk-grid>
+
+<!-- <div class="uk-flex-center uk-child-width-1-5@m uk-padding" uk-grid>
   <div *ngFor="let ListaSaldo of ListaSaldos | slice: 0:5">
     <div class="uk-card uk-card-large  uk-card-default uk-card-body">
       <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
@@ -51,7 +42,7 @@
       <p class=" uk-text-right  uk-h4 uk-margin">
         <span class="uk-text-success">
           sadsadsa -->
-          <!-- {{ ListaSaldo.saldo + " pontos " }} -->
+<!-- {{ ListaSaldo.saldo + " pontos " }} -->
 <!--         </span>
       </p>
     </div>

@@ -8,11 +8,11 @@ import { async } from '@angular/core/testing';
 
 
 @Component({
-  selector: 'app-list-company',
-  templateUrl: './list-company.component.html',
-  styleUrls: ['./list-company.component.css']
+  selector: 'app-list-card-company',
+  templateUrl: './list-card-company.component.html',
+  styleUrls: ['./list-card-company.component.css']
 })
-export class ListCompanyComponent implements OnInit {
+export class ListCardCompanyComponent implements OnInit {
   ListaEmpresas: Empresa [];
   public URL_IMG = 'https://localhost:44311';
   public carregando = false;
@@ -24,7 +24,10 @@ export class ListCompanyComponent implements OnInit {
     this
     .service
     .listarEmpresas()
-    .subscribe(datas => this.ListaEmpresas = datas);
+    .subscribe(data => {
+      this.ListaEmpresas = data;
+      console.log(data);
+    });
     
 
     console.log(this.ListaEmpresas);

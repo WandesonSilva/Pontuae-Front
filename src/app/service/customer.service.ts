@@ -54,8 +54,8 @@ export class CustomerService {
   GetByIdCustomer(idUsuario: number) {
     return this.http.get<any[]>(`${environment.UrlBase}/v1/cliente/v1/detalhe/${idUsuario}`, { headers: this.composeHeaders() });
   }
-                       GetBalanceOfCompany(id: string){
-    return this.http.get<Observable<Empresa>[]>(`${environment.UrlBase}v1/Cliente/ListaSaldo/${id}`, { headers: this.composeHeaders() })
+  GetBalanceOfCompany(contato: string) {
+    return this.http.get<Observable<Empresa>[]>(`${environment.UrlBase}/v1/cliente/v1/clienteSaldo/${contato}`, { headers: this.composeHeaders() })
     .pipe(  
         tap(console.log)  
     );

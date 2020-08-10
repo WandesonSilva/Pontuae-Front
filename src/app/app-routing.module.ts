@@ -4,7 +4,7 @@ import { NgModule, Component } from '@angular/core';
 import { MenuComponent } from './pages/shared/Menu.component';
 import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
 import { LoginComponent } from './pages/account-company/login/login.component';
-import { ListCompanyComponent } from './pages/dashboard-customer/list-company/list-company.component';
+import { ListCardCompanyComponent } from './pages/dashboard-customer/list-card-company/list-card-company.component';
 import { AwardListComponent } from './pages/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { ListClientPageComponent } from './pages/customer/list-client-page/list-client-page.component';
 import { ProfileComponent } from './pages/account-company/profile/profile.component';
@@ -114,7 +114,7 @@ const routes: Routes = [
      canActivate: [AuthService, ClientGuard],
     children: [
       { path: '', component: DashboardCustomerComponent },
-      { path: 'list', component: ListCompanyComponent },
+      { path: 'list', component: ListCardCompanyComponent },
       { path: 'profile-customer', component: ProfileCustomerComponent },
     ]
 
