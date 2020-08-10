@@ -36,8 +36,8 @@ export class UserEmployeeService {
     return this.http.get<any[]>(`${environment.UrlBase}/v1/funcionario/v1/lista/${idEmpresa}`, {headers: this.composeHeaders() });
   }
 
- async  deleteEmployee(id: number, idEmpresa: number){
-    return this.http.delete(`${environment.UrlBase}/api/funcionario/v1/Deletar/${id}/${idEmpresa}`, {headers: this.composeHeaders() });
+ async  deleteEmployee(dado: ObjectEmployee){
+    return this.http.delete<ObjectEmployee>(`${environment.UrlBase}/v1/funcionario/v1/${dado.id}/${dado.idEmpresa}`, {headers: this.composeHeaders() });
   }
 
   async getByIdEmployee(id: number, idEmpresa: number) {

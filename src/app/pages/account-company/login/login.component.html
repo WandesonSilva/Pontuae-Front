@@ -23,17 +23,21 @@
               [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
               placeholder="Senha">
           </div>
-
-          <a href="/forgot-password" class="">Esqueceu a senha?</a>
-          <div class="uk-margin uk-text-right"  >
-            <button class="uk-button uk-border-rounded BotaoSucesso" [disabled]="form.invalid" (click)="submit()" style="margin-top: -50px;"
+    
+          
+          <div  class="uk-text-hight">            
+          <a href="/forgot-password" class="uk-text-left">Esqueceu a senha?</a>
+          
+            <button class="uk-button uk-border-rounded BotaoSucesso uk-margin-large-left" [disabled]="form.invalid" (click)="submit()"
               (click)="displayBanner()">Entrar
             </button>
           </div>
+      <hr>
+          
           <div class="uk-padding-small-bottom">
             <p class="uk-text-center">
               <a href="/registerCampany"
-                class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoCadastro">Quero me Cadastrar</a>
+                class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded uk-button-primary">Quero me Cadastrar</a>
               <br>
 
             </p>
@@ -41,7 +45,5 @@
         </div>
       </div>
     </form>
-
-
   </div>
 </div>

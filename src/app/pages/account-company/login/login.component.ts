@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
           this.carregando = false;
           this.setUser(data.user, data.token);
           this.toastr.success(data.mensage,'Seja bem vindo');
-          this.router.navigate(['']);
+  
 
         },
         (err) => {
@@ -81,6 +81,15 @@ export class LoginComponent implements OnInit {
 
   setUser(users, token) {
     Security.set(users, token);
+   
+  
+  if( Security.getUser().claimValue == 'Administrador'){
+    this.router.navigate(['']);
+  }
+  if( Security.getUser().claimValue == 'Funcionario'){
+    this.router.navigate(['/home-employee/insert-point']);
+  }
+    
 
   }
 

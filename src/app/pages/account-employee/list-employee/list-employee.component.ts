@@ -73,9 +73,9 @@ export class ListEmployeeComponent implements OnInit {
       if (result.value) {
         const Id_Empresa = Security.getUser().idEmpresa;
 
-      // var dados =  new ObjectEmployee(id, Id_Empresa);
+      var dados =  new ObjectEmployee(id, Id_Empresa);
 
-      (await this.service.deleteEmployee(id, Id_Empresa  ))
+      (await this.service.deleteEmployee(dados))
         .subscribe((data: any) => {  this.toastr.success(data.mensage,);
         }, (err) => { this.toastr.warning('Erro na Operação'); });
       }

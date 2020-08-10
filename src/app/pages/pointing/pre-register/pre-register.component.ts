@@ -49,22 +49,13 @@ export class PreRegisterComponent implements OnInit {
 
   }
 
-  //Não está sendo utilizado
-  // NextPage() {
-  //   // this.form.value.Telefone;
-  //   //this.aa = "222"  //ss.toString() ;//this.form.value.Telefone;
-  //   };
-  //   this.router.navigate(['/rescue'], {queryParams: this.item}); 
-
-
-  // }
 
   async submit() {
 
 
-    const idEmpresa = Security.getUser().idEmpresa;
+    const idEmpresa_ = Security.getUser().idEmpresa;
     const id = Security.getUser().id;
-    this.form.controls.IdEmpresa.setValue(idEmpresa);
+    this.form.controls.IdEmpresa.setValue(idEmpresa_);
     this.form.controls.Id.setValue(id);
     this.form.controls.IdPreCadastro.setValue(1);
 
