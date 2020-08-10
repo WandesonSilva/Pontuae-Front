@@ -9,7 +9,7 @@ import { Security } from 'src/app/utils/security.util';
 })
 export class CardTicketMediumComponent implements OnInit {
 
-  public totalTicket: any;  
+  public TicketNumber: any;  
   constructor(private service: ReportDataService) { }
 
   ngOnInit() {
@@ -18,12 +18,13 @@ export class CardTicketMediumComponent implements OnInit {
   }
 
    TotalTicket() {
-
+  
     const idEmpresa = Security.getUser().idEmpresa;
      this
       .service
       .GetTicketMedium(idEmpresa)
-      .subscribe(data => this.totalTicket = data);
+      .subscribe(data => this.TicketNumber = data);
+   
   }
 
 }

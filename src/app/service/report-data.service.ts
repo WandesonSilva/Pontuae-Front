@@ -22,12 +22,12 @@ export class ReportDataService {
 
   //ok
   GetTotalCustomer(idEmpresa: number) {
-    return this.http.get<any>(`${environment.UrlBase}/v1/cliente/v1/totalclientes/${idEmpresa}`, { headers: this.composeHeaders() });
+    return this.http.get<number>(`${environment.UrlBase}/v1/cliente/v1/totalclientes/${idEmpresa}`, { headers: this.composeHeaders() });
   }
 
 
-  GetTicketMedium(idNegocio: number) {
-    return this.http.get<any>(`${environment.UrlBase}/v1/receita/v1/ticketMedioMes/${idNegocio}​`, { headers: this.composeHeaders() });
+  GetTicketMedium(idEmpresa: number) {
+    return this.http.get<any>(`${environment.UrlBase}/v1/receita/v1/ticketMedioMes/${idEmpresa}`, { headers: this.composeHeaders() });
   }
 
   GetGeneratedRecipe(idEmpresa: number) {

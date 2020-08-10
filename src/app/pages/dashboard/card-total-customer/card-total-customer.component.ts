@@ -9,47 +9,31 @@ import { async } from '@angular/core/testing';
   styleUrls: ['./card-total-customer.component.css']
 })
 export class CardTotalCustomerComponent implements OnInit {
-  public total: any;  
-  public totalRecorrentes: any ;
-  public resultRetained : any ;
+  public totalCustomer: number;
+  public totalRecorrentes: number = 0;
+  public NotResultRetained: number = 0;
   public isEnableSelected = false;
-  
+
   constructor(private service: ReportDataService) { }
 
   ngOnInit() {
-    this.TotalCustomer();
-    this.RetainedCustomers();
-     // this.CalcRetained();
-
-   
-
-
-  }
-
-   TotalCustomer() {
 
     const idEmpresa = Security.getUser().idEmpresa;
-        this
+    this
       .service
       .GetTotalCustomer(idEmpresa)
-      .subscribe(data => this.total = data);
-      console.log(this.total);
-  }
+      .subscribe(data => this.totalCustomer = data);
+    console.log(this.totalCustomer); 
 
-  
+    this
+      .service
+      .GetRetained(idEmpresa)                 
+      .subscribe(data => this.totalRecorrentes = data);
 
-   RetainedCustomers(){
-    const idEmpresa =  Security.getUser().idEmpresa;
-  
-     this
-    .service
-    .GetRetained(idEmpresa)
-    .subscribe(data => this.totalRecorrentes = data);
+        const numberResult = this.totalCustomer - this.totalRecorrentes;
+        this.NotResultRetained =  numberResult;
+      } 
+      
     
   }
-  CalcRetained() : void{
 
-      this.resultRetained = this.total - this.totalRecorrentes;
-    }
- 
-}
