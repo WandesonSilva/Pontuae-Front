@@ -19,48 +19,33 @@ export class NavbarComponent implements OnInit {
     this.claimOfUser = this.user.claimValue;
   }
 
-  GoOut() {
-    // tslint:disable-next-line: no-conditional-assignment
-    if (this.claimOfUser) {
-     this.Logout();
-    } else {
-      this.LogoutCliente();
-    }
-  }
 
   GoHome() {
-    const userLog =  this.claimOfUser 
-    if( userLog === 'Administrador'){
+    const userLog = this.claimOfUser
+    if (userLog === 'Administrador' || userLog === 'Funcionario') {
       this.router.navigate(['/home']);
-    }
-    if( userLog === 'Colaborador'){
-      this.router.navigate(['/homeFuncionario']);
-    }
-    if( userLog === 'Cliente'){
+    } if (userLog === 'Cliente') {
       this.router.navigate(['/home-client']);
     }
   }
 
-  Logout() {
+  GoOut() {
     Security.clear();
-    this.router.navigate(['/login']);
+    if (this.claimOfUser === "Administrador") {
+      this.router.navigate(['/login']);
+    } if (this.claimOfUser === "Funcionario") {
+      this.router.navigate(['/login']);
+    }  else {
+      this.router.navigate(['/loginCliente']);
+    }
   }
-                     
-  LogoutCliente() {
-    Security.clear();
-    this.router.navigate(['/loginCliente']);
-  }
-
   ToProfile() {
     if (this.claimOfUser === "Administrador") {
-      console.log('aqui');
-      this.router.navigate(['/profile']);
+          this.router.navigate(['/profile']);
     } if (this.claimOfUser === "Funcionario") {
-      console.log('aqui3');
       this.router.navigate(['/profile']);
-    } 
+    }
     else {
-      console.log('aqui2');
       this.router.navigate(['/home-client/profile-customer']);
     }
   }

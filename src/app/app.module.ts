@@ -58,6 +58,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
 import { AdminGuard } from './guards/admin.guard';
 import { AuthService } from './guards/auth.service';
+import { EmployeeGuard } from './guards/employee.guard';
 
 
 
@@ -126,7 +127,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     CarregarModule
   ],
   exports: [],
-  providers: [AuthenticationService, AuthService, ClientGuard, AdminGuard],
+  providers: [AuthenticationService, AuthService, ClientGuard, AdminGuard, EmployeeGuard],
   bootstrap: [AppComponent],
   entryComponents: [
   ],

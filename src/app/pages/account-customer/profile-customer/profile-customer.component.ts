@@ -52,10 +52,10 @@ export class ProfileCustomerComponent implements OnInit {
       .service
       .getProfileCustomer(id)
       .subscribe((data: any) => {
-        this.form.controls.Id.setValue(id);
+        this.form.controls.IdUsuario.setValue(id);
         this.form.controls.Nome.setValue(data.nome);
         this.form.controls.Email.setValue(data.email);
-        this.form.controls.Telefone.setValue(data.telefone);
+        this.form.controls.Contato.setValue(data.telefone);
         console.log(data);
       },
         (err) => {

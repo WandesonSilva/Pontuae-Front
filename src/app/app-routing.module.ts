@@ -39,6 +39,8 @@ import { RegisterCustomerComponent } from './pages/account-customer/register-cus
 import { AdminGuard } from './guards/admin.guard';
 import { ClientDetailPageComponent } from './pages/customer/client-detail-page/client-detail-page.component';
 import { AuthService } from './guards/auth.service';
+import { EmployeeGuard } from './guards/employee.guard';
+import { ClientGuard } from './guards/client.guard';
 
 
 
@@ -48,13 +50,13 @@ const routes: Routes = [
   {
     path: '',
     component: MenuComponent,
-     canActivate: [AuthService, AdminGuard],
+     canActivate: [AuthService],
     children: [
    
       { path: '', component: DashboardComponent },
       { path: 'home', component: DashboardComponent },
-      
-      { path: 'insert-point', component: PreRegisterComponent },
+      { path: 'insert-point-employee', component: PreRegisterComponent ,  canActivate: [EmployeeGuard], },
+      { path: 'insert-point', component: PreRegisterComponent , canActivate: [AdminGuard], },
       //{ path: 'rescue/:contato', component: RescueComponent },
       // {
       // children:[
@@ -109,7 +111,7 @@ const routes: Routes = [
   },
   {
     path: 'home-client', component: MenuComponent,
-    // canActivate: [AuthService, ClientGuard],
+     canActivate: [AuthService, ClientGuard],
     children: [
       { path: '', component: DashboardCustomerComponent },
       { path: 'list', component: ListCompanyComponent },

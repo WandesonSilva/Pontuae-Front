@@ -7,6 +7,6 @@ import { Security } from '../utils/security.util';
 export class AdminGuard implements CanActivate {
 
     canActivate() {
-        return Security.isInRole('Admin');
+        return Security.isInRole('Administrador');
     }
 }
