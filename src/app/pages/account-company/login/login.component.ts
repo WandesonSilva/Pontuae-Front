@@ -39,6 +39,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
+ 
+
   displayBanner() {
     // tslint:disable-next-line: triple-equals
     this.enable = this.enable == false ? true : false;
@@ -50,12 +53,22 @@ export class LoginComponent implements OnInit {
     const token = localStorage.getItem('tokenPontuaae');
 
     if (token) {
-
+      this.goNavigateHomeRole();
       console.log('altenticado');
     } else {
       localStorage.clear();
     }
 
+   
+  }
+
+  goNavigateHomeRole(){
+    const user = Security.getUser(); 
+    if(user.claimValue === "Cliente"){
+      this.router.navigate(['/home-client']);
+    } if(user.claimValue === "Administrador" || user.claimValue === "Funcionario" ){
+      this.router.navigate(['/home']);
+    }
   }
 
   submit() {
