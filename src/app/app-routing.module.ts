@@ -4,7 +4,7 @@ import { NgModule, Component } from '@angular/core';
 import { MenuComponent } from './pages/shared/Menu.component';
 import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
 import { LoginComponent } from './pages/account-company/login/login.component';
-import { ListCompanyComponent } from './pages/dashboard-customer/list-company/list-company.component';
+import { ListCardCompanyComponent } from './pages/dashboard-customer/list-card-company/list-card-company.component';
 import { AwardListComponent } from './pages/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { ListClientPageComponent } from './pages/customer/list-client-page/list-client-page.component';
 import { ProfileComponent } from './pages/account-company/profile/profile.component';
@@ -39,6 +39,8 @@ import { RegisterCustomerComponent } from './pages/account-customer/register-cus
 import { AdminGuard } from './guards/admin.guard';
 import { ClientDetailPageComponent } from './pages/customer/client-detail-page/client-detail-page.component';
 import { AuthService } from './guards/auth.service';
+import { EmployeeGuard } from './guards/employee.guard';
+import { ClientGuard } from './guards/client.guard';
 
 
 
@@ -48,13 +50,13 @@ const routes: Routes = [
   {
     path: '',
     component: MenuComponent,
-     canActivate: [AuthService, AdminGuard],
+     canActivate: [AuthService],
     children: [
    
       { path: '', component: DashboardComponent },
       { path: 'home', component: DashboardComponent },
-      
-      { path: 'insert-point', component: PreRegisterComponent },
+      { path: 'insert-point-employee', component: PreRegisterComponent ,  canActivate: [EmployeeGuard], },
+      { path: 'insert-point', component: PreRegisterComponent , canActivate: [AdminGuard], },
       //{ path: 'rescue/:contato', component: RescueComponent },
       // {
       // children:[
@@ -109,10 +111,10 @@ const routes: Routes = [
   },
   {
     path: 'home-client', component: MenuComponent,
-    // canActivate: [AuthService, ClientGuard],
+     canActivate: [AuthService, ClientGuard],
     children: [
       { path: '', component: DashboardCustomerComponent },
-      { path: 'list', component: ListCompanyComponent },
+      { path: 'list', component: ListCardCompanyComponent },
       { path: 'profile-customer', component: ProfileCustomerComponent },
     ]
 

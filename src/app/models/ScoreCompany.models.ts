@@ -1,6 +1,6 @@
 export class  ScoreComapanyModels {
     idEmpresa: number;
-    nomeEmpresa: string;
+    nomeFantasia: string;
     saldo: string;
 
 }

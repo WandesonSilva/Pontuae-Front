@@ -61,7 +61,7 @@ export class Security {
         }
 
         // tslint:disable-next-line: triple-equals
-        if (!user.claimValue || user.claimValue.length == 0) {
+        if (!user.claimValue || user.claimValue != role) {
             return false;
         }
 

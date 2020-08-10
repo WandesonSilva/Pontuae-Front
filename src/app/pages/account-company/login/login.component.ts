@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
     const token = localStorage.getItem('tokenPontuaae');
 
     if (token) {
-      this.goNavigateHomeRole();
       console.log('altenticado');
     } else {
       localStorage.clear();
@@ -62,14 +61,7 @@ export class LoginComponent implements OnInit {
    
   }
 
-  goNavigateHomeRole(){
-    const user = Security.getUser(); 
-    if(user.claimValue === "Cliente"){
-      this.router.navigate(['/home-client']);
-    } if(user.claimValue === "Administrador" || user.claimValue === "Funcionario" ){
-      this.router.navigate(['/home']);
-    }
-  }
+
 
   submit() {
     this.carregando = true;
@@ -81,8 +73,13 @@ export class LoginComponent implements OnInit {
           this.carregando = false;
           this.setUser(data.user, data.token);
           this.toastr.success(data.mensage,'Seja bem vindo');
+<<<<<<< HEAD
   
 
+=======
+          
+          this.router.navigate(['/']);
+>>>>>>> 1ff0dabd4b440413f525717c8b6c4be232f6adde
         },
         (err) => {
           this.carregando = false;

@@ -42,7 +42,6 @@ export class LoginClienteComponent implements OnInit {
       console.log(' altenticado ');
       console.log(Security.getUser());
       
-    this.goNavigateHomeRole();
     } else {
       localStorage.clear();
     }
@@ -51,15 +50,7 @@ export class LoginClienteComponent implements OnInit {
 
   }
 
-  goNavigateHomeRole(){
-    const user = Security.getUser(); 
-    if(user.claimValue === "Cliente"){
-      this.router.navigate(['/home-client']);
-    } if(user.claimValue === "Administrador" || user.claimValue === "Funcionario" ){
-      this.router.navigate(['/home']);
-    }
-  }
-
+ 
   submit() {
     this.carregando = true;
     this
@@ -69,7 +60,7 @@ export class LoginClienteComponent implements OnInit {
         (data: any) => {
           this.carregando = false;
           this.setUser(data.user, data.token);
-          this.toastr.success(data);
+          this.toastr.success(data.menssage);
          
 
         },
