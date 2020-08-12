@@ -78,6 +78,18 @@ export class AutomationEditComponent implements OnInit {
       );
   }
 
+  Desable(){
+
+    const idEmpresa = Security.getUser().idEmpresa;
+    this.service
+    .desableAutomation(this.activatedRoute.snapshot.params.id, idEmpresa)
+    .subscribe(
+      (data: any) => {
+        this.busy = false; 
+        this.toastr.success(data.mensage);
+  });
+}
+
   submit() {
     this.busy = true;
     this.service

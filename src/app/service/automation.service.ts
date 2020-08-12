@@ -32,9 +32,8 @@ export class AutomationService {
   }
 
   //averiguar este metodo
-  desableAutomation(id: number) {
-    const idEmpresa = Security.getUser().idEmpresa;
-    return this.http.put(`${environment.UrlBase}/v1/automacao/v1/DesativarAutomacao`, { headers: this.composeHeaders() })
+  desableAutomation(id: number, idEmpresa: number) {
+    return this.http.put(`${environment.UrlBase}/v1/automacao/v1/Desativar/${id}/${idEmpresa}`, { headers: this.composeHeaders() })
   }
 //ok
   deleteAutomation(id: number) {
@@ -42,8 +41,8 @@ export class AutomationService {
     return this.http.delete(`${environment.UrlBase}/v1/automacao/v1/${id}/${idEmpresa}`, { headers: this.composeHeaders() })
   }
 //ok
-  getListAutomation(idEmpresa: number) {
-    return this.http.get<Automation[]>(`${environment.UrlBase}/v1/automacao/v1/${idEmpresa}`, { headers: this.composeHeaders() });
+  getListAutomation(idEmpresa: number, estado: number) {
+    return this.http.get<Automation[]>(`${environment.UrlBase}/v1/automacao/v1/Lista/${idEmpresa}/${estado}`, { headers: this.composeHeaders() });
   }
 //ok
   getListReturnCustomerAutomation(id: number, idEmpresa: number): any { //verifica se vai se usado

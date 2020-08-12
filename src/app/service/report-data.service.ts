@@ -15,9 +15,8 @@ export class ReportDataService {
 
   }
   //ok
-  GetRetained(idEmpresa: any) {
-
-    return this.http.get<any>(`${environment.UrlBase}​/v1/cliente/v1/recorrentes/${idEmpresa}`, { headers: this.composeHeaders() });
+  GetRetained(idEmpresa: number) {
+    return this.http.get<number>(`${environment.UrlBase}​/v1/cliente/v1/recorrentes/${idEmpresa}`, { headers: this.composeHeaders() });
   }
 
   //ok
