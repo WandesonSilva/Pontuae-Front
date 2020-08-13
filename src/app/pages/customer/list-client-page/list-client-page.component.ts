@@ -9,8 +9,8 @@ import { CustomerService } from 'src/app/service/customer.service';
   templateUrl: './list-client-page.component.html',
   styleUrls: ['./list-client-page.component.css']
 })
-export class ListClientPageComponent implements OnInit {
-  public ListClient$ : Observable<Customer[]> = null;
+export class ListClientPageComponent implements OnInit { 
+  public ListClient$ : Observable<any> = null;
 
   constructor(private service: CustomerService) { }
 

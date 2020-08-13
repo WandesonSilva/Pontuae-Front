@@ -44,8 +44,12 @@
                               <div class="uk-first-column uk-grid-small uk-margin-small">
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                                         <dl class="uk-description-list ">
-                                           <dt><strong>Segmento</strong></dt>
-                                           <dd>{{item.segCustomizado}}</dd>
+                                           <dt><strong>Segmento</strong></dt>                                                                   
+                                           <dd class="uk-badge badge-ativo" *ngIf="item.segCustomizado == 'Ativo'" > {{item.segCustomizado}}   </dd>
+                                           <dd class="uk-badge badge-bronze" *ngIf="item.segCustomizado == 'Bronze'" > {{item.segCustomizado}} </dd> 
+                                           <dd class="uk-badge badge-prata" *ngIf="item.segCustomizado == 'Prata'" > {{item.segCustomizado}} </dd>                        
+                                           <dd class="uk-badge badge-ouro" *ngIf="item.segCustomizado == 'Ouro'" style="color: rgba(46, 43, 43, 0.89); margin-right: 5px; "><i class="fas fa-crown"></i> {{item.segCustomizado}}</dd>
+                                          
                                         </dl>
                                     </div>
                               </div>
@@ -63,19 +67,11 @@
                                     <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                                         <dl class="uk-description-list ">
                                             <dt><strong>Enviada em</strong></dt>
-                                            <dd>{{item.dataEnviada}}</dd>
+                                            <dd>{{item.dataEnvio}}</dd>
                                         </dl>
                                     </div>
                           </div>
 
-                           <div class="uk-first-column  uk-grid-small uk-margin-small ">
-                                    <div class="uk-scrollspy-inview uk-animation-slide-right-medium " uk-scrollspy-class>
-                                         <dl class="uk-description-list ">
-                                             <dt><strong>Situação</strong></dt>
-                                             <dd>{{item.estadoEnvio}}</dd>
-                                         </dl>
-                                    </div>
-                           </div>
                     </div>
 
                     <div style="margin-top: -25px;" class=" uk-position-center-right  uk-scrollspy-inview uk-animation-slide-right-medium "  uk-scrollspy-class>

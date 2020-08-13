@@ -1,5 +1,6 @@
 export class Automation
 {
+    public id: number;
     public idEmpresa: number;
     public tipoAutomacao: string;
     public segmentacao: string;
