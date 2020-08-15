@@ -38,6 +38,7 @@ export class PreRegisterComponent implements OnInit {
       ValorInfor: ['', Validators.compose([
         Validators.required
       ])],
+      IdPreCadastro: [] // esté atributo não tem utilidade aqui no front
   
 
 
@@ -57,6 +58,7 @@ export class PreRegisterComponent implements OnInit {
     const id = Security.getUser().id;
     this.form.controls.IdEmpresa.setValue(idEmpresa_);
     this.form.controls.Id.setValue(id);
+    this.form.controls.IdPreCadastro.setValue(1);  //está linha não tem utilidade
     
 
     console.log(this.form.value);
