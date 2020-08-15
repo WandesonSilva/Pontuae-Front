@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  UrlBase: 'https://localhost:44387'
+  UrlBase: 'https://canvas-pontuae.azurewebsites.net',
+  UrlLocal: 'https://localhost:44387'
  
 };
 
