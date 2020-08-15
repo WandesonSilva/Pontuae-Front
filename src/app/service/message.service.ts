@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
 // pode deleta este arquivo
-  public url = 'https://localhost:44311/';
+  
   constructor(private http: HttpClient) { }
 
   public composeHeaders() {
@@ -19,6 +20,6 @@ export class MessageService {
 }
  //pode deletar esta este arquivo
 getListModelMessage( idUser: number) {
-  return this.http.get<Message[]>(`${this.url}/Mensagem/${idUser}`, { headers: this.composeHeaders() });
+  return this.http.get<Message[]>(`${environment.UrlBase}/Mensagem/${idUser}`, { headers: this.composeHeaders() });
 }
 }

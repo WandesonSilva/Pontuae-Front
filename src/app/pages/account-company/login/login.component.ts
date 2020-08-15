@@ -42,13 +42,6 @@ export class LoginComponent implements OnInit {
 
  
 
-  displayBanner() {
-    // tslint:disable-next-line: triple-equals
-    this.enable = this.enable == false ? true : false;
-    this.buttonClick.emit(this.enable);
-  }
-
-
   ngOnInit() {
     const token = localStorage.getItem('tokenPontuaae');
 
