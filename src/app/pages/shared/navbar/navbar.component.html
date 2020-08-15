@@ -17,11 +17,19 @@
         <li class="uk-active">
         </li>
         <li>
-          <a href="#"> <span class="uk-icon-button uk-icon" uk-icon="icon: cog" style="background-color: rgba(255, 255, 245, 0.24); color:rgb(53, 2, 75);"></span></a>
+          <a href="#"> <span class="uk-icon-button uk-icon" uk-icon="icon: cog" style="background-color: rgba(255, 255, 245, 0.24); color:rgb(255, 255, 255);"></span></a>
           <div uk-dropdown="mode: click">
             <ul class="uk-nav uk-navbar-dropdown-nav">
-              <li class="uk-active"><a href="">Configurações</a></li>
-              <li><a [hidden]="profileShow" (click)="ToProfile()">Perfil</a></li>
+              <li class="uk-active"><a href="" uk-tooltip="Configurações"  ></a></li>
+              <li><a [hidden]="profileShow" (click)="ToProfile()"
+                style="border: 1px solid #970682;
+                background: #970682;
+                color: #FFF;
+                border-radius: 50px;
+                padding: 0px 10px 0px;
+                font-family: 'Robot', sans-serif;"
+                
+                >Perfil</a></li>
               <!-- <li><a href="#">Item</a></li> -->
               <li class="uk-nav-divider"></li>
               <li><a id="red"  (click)="GoOut()" 

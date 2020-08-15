@@ -615,15 +615,15 @@ strong {
 
 
 .badge-ativo {
-  border: 1px solid #2a0374;
-  box-shadow: 0px 2px 2px 0px rgba(33, 181, 240, 0.425);
-  background-image: linear-gradient(to right,  #34d1e6  5%, #0d9ad1);
-  color: #FFF;
-  border: 1px solid #6284e2;
-  border-color: #7171f5;
+
+  color: rgb(1, 141, 32);
   border-radius: 50px;
   padding: 0px 10px 0px;
-  font-family: 'Robot', sans-serif;
+  font-family: 'Robot', sans-serif;  
+  border: 1px solid rgba(3, 182, 3, 0.562);
+  box-shadow: 0px 2px 2px 0px  rgba(33, 240, 33, 0.562);
+  background-image: linear-gradient(to right,  #66e634  5%, #13e659);
+  color: #FFF;
 
 
 }
@@ -633,8 +633,8 @@ strong {
 
   color: #fff;
   border: 1px solid #f1ba04;
-  box-shadow: 0px 2px 2px 0px #ffbb00;
-  background-image: linear-gradient(to right,  #ffd000  5%, #eeb600);
+  box-shadow: 0px 2px 3px 0px rgba(255, 251, 2, 0.801);
+  background-image: linear-gradient(to right,  #fcd62c  5%, #f8be00);
   border-radius: 50px;
   padding: 0px 5px 0px;
   font-family: 'Robot', sans-serif;
@@ -646,7 +646,7 @@ strong {
   padding: 0px 10px 0px;
   font-family: 'Robot', sans-serif;
   border: 1px solid #3a393b;
-  box-shadow: 0px 2px 2px 0px rgba(189, 184, 184, 0.425);
+  box-shadow: 0px 3px 3px 0px rgba(189, 184, 184, 0.425);
   background-image: linear-gradient(to right,  #cac7c7  5%, #bbbbb8);
   color: #FFF;
 
@@ -659,35 +659,32 @@ strong {
   border-radius: 50px;
   padding: 0px 10px 0px;
   font-family: 'Robot', sans-serif;  
-  border: 1px solid rgb(88, 77, 25);
-  box-shadow: 0px 2px 2px 0px #f5ebbe;
+  border: 1px solid  rgb(88, 77, 25);
+  box-shadow: 0px 2px 3px 0px rgba(65, 56, 34, 0.466);
   background-image: linear-gradient(to right,  #b68f0f  5%, #c59907ec);
   color: #FFF;
 
 }
 
 .badge-vip {
-
   border-radius: 50px;
   padding: 0px 10px 0px;
   font-family: 'Robot', sans-serif;
-
-  border: 1px solid #c303a6ef;
-  box-shadow: 0px 2px 2px 0px #9a06ad;
-  background-image: linear-gradient(to right,  #a32283  5%, #970682);
+  border: 1px solid #970682;
+  box-shadow: 0px 3px 3px 0px rgba(170, 5, 143, 0.582);
+  background-image: linear-gradient(to right,  #c303a6ef  5%, #970682);
   color: #FFF;
 
 }
 
 .badge-novo {
-  background: rgb(4, 144, 209);
-  background: -moz-linear-gradient(75deg, rgb(8, 154, 221) 0%, rgb(5, 136, 197) 100%);
-  background: -webkit-linear-gradient(75deg, rgb(6, 137, 197) 0%, rgb(0, 174, 255) 100%);
-  background: linear-gradient(3deg, #00ccff 0%, rgb(57, 173, 226) 100%);
   color: #fff;
-  font-family: 'Robot', sans-serif;
-  padding:   0px 10px 0px;
+  border: 1px solid #0443f1;
+  box-shadow: 0px 2px 3px 0px rgba(2, 196, 255, 0.685);
+  background-image: linear-gradient(to right, rgb(57, 173, 226) 100% ,  rgb(0, 174, 255) 100%);
   border-radius: 50px;
+  padding: 0px 5px 0px;
+  font-family: 'Robot', sans-serif;
 
 }
 

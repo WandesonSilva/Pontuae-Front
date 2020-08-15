@@ -13,14 +13,16 @@ import Swal from 'sweetalert2';
 })
 export class AutomationEditComponent implements OnInit {
 
+ 
   public form: FormGroup;
-  public busy = false;
-  isAniversarioSelected: boolean;
-  isDiaSemanaSelected: boolean;
-  isDiaMesSelected: boolean;
-  isEmRiscoSelected: boolean;
-  isUltimaFidelizacaoSelected: boolean;
-  isdDisableSelected = true;
+  public busy = false; 
+  public isAniversarioSelected: boolean;
+  public isDiaSemanaSelected: boolean;
+  public isDiaMesSelected: boolean;
+  public isEmRiscoSelected: boolean;
+  public isUltimaFidelizacaoSelected: boolean;
+  public isdDisableSelected = true;
+  public number = 0;
 
   constructor(
     private router: Router,
@@ -31,17 +33,15 @@ export class AutomationEditComponent implements OnInit {
 
   ) {
     this.form = this.fb.group({
-      
+      id:[null],
+      tipoAutomacao:['', Validators.compose([ Validators.required ])],
+      segmentacao: ['', Validators.compose([ null ])],
+      segCustomizado:['', Validators.compose([  null ])],
+      tempoPorDiaDoMes: [ null],
+      tempoPorDia: [ null],
+      tempoPorDiaDaSemana: ['', null],
       conteudo: ['', Validators.compose([Validators.maxLength(160), Validators.required])],
-      tipoAutomacao: ['', [Validators.required]],
-      segmentacao: ['', [Validators.nullValidator]],
-      segCustomizado: ['', [Validators.nullValidator]],
-      tempoPorDiaDaSemana: ['', [Validators.nullValidator]],
-      tempoPorDiaDoMes: ['', [Validators.nullValidator]],
-      diasAntesAniversario: ['', [Validators.nullValidator]],
-      tipoCanal: ['', [Validators.nullValidator]],
-      tempoPorDia: ['', [Validators.nullValidator]],
-      aposUltimaFidelizacao: ['', [Validators.nullValidator]]
+      diasAntesAniversario: [ null],
     });
 
 
@@ -59,17 +59,15 @@ export class AutomationEditComponent implements OnInit {
         (data: any) => {
           console.log(data);
           this.busy = false;
-          this.form.controls['id'].setValue(data.id);
-          this.form.controls['tipoAutomacao'].setValue(data.tipoAutomacao);
-          this.form.controls['conteudo'].setValue(data.conteudo);
-          this.form.controls['segmentacao'].setValue(data.segmentacao);
-          this.form.controls['segCustomizado'].setValue(data.segCustomizado);
-          this.form.controls['diaSemana'].setValue(data.diaSemana);
-          this.form.controls['diaMes'].setValue(data.diaMes);
-          this.form.controls['tipoCanal'].setValue(data.tipoCanal);
-          this.form.controls['diasAntesAniversario'].setValue(data.diasAntesAniversario);
-          this.form.controls['tempoPorDia'].setValue(data.tempoPorDia);
-          this.form.controls['aposUltimaFidelizacao'].setValue(data.aposUltimaFidelizacao);
+        
+          this.form.controls.tipoAutomacao.setValue(data.tipoAutomacao);
+          this.form.controls.conteudo.setValue(data.conteudo);
+          this.form.controls.segmentacao.setValue(data.segmentacao);
+          this.form.controls.segCustomizado.setValue(data.segCustomizado);
+          this.form.controls.tempoPorDia.setValue(data.tempoPorDia);
+          this.form.controls.tempoPorDiaDaSemana.setValue(data.tempoPorDiaDaSemana);
+          this.form.controls.tempoPorDiaDoMes.setValue(data.tempoPorDiaDoMes);
+          this.form.controls.diasAntesAniversario.setValue(data.diasAntesAniversario);        
         },
         (err) => {
           console.log(err);
@@ -78,37 +76,61 @@ export class AutomationEditComponent implements OnInit {
       );
   }
 
+ 
+
   submit() {
-    this.busy = true;
+    const valor_id =  this.activatedRoute.snapshot.params.id;
+    this.form.value.id =  parseInt(valor_id);
+    
+    if(this.form.value.tempoPorDia == null  ){
+      this.form.value.tempoPorDia = 0;
+    }
+    
+
+    if(this.form.value.diasAntesAniversario  == null){
+      this.form.value.diasAntesAniversario = 0;
+    }
+  
+    if(this.form.value.tempoPorDiaDoMes  == null){
+      this.form.value.tempoPorDiaDoMes = 0 ;
+    }
+    console.log(this.form.value);
     this.service
-      .updateAutomation(this.form.value)
-      .subscribe(
-        (data: any) => {
-          this.busy = false;
-          this.toastr.success(data.message, 'Salvo com sucesso');
-          this.router.navigate(['/']);
-
-        },
-
+      .updateAutomation(this.form.value)      
+      .subscribe((data: any) => {
+       
+        this.busy = false;
+        console.log(data)
+        if(data.sucesso != true){
+          this.toastr.info(data.mensage)
+        } if (data.sucesso === true){
+          this.toastr.success(data.mensage, '');
+                   
+          this.router.navigate(['/marketing/list-automation']);
+       
+        }
+      },
         (err) => {
           console.log(err);
           this.busy = false;
-          this.toastr.error('Não foi salvo');
+          this.toastr.error(err.mensage);
         }
       );
   }
    
-  alertDeleteAutomation(id: any) {
-    const idAutomation = this.form.value.Id;
+  alertDesableAutomation() {
+    const idEmpresa = Security.getUser().idEmpresa;
+    const id =  this.activatedRoute.snapshot.params.id;
+
     Swal.fire({
-      text: "Deseja remover esta automação?",
+      text: "Deseja desativa esta automação?",
       showCancelButton: true,
       confirmButtonColor: '#17CC8D',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Confimar'
     }).then((result) => {
       if (result.value) {
-        this.service.deleteAutomation(idAutomation)
+        this.service.desableAutomation(id, idEmpresa)
         
         .subscribe((data: any) => {
           
@@ -116,6 +138,7 @@ export class AutomationEditComponent implements OnInit {
             this.toastr.info(data.mensage)
           } if (data.sucesso === true){
             this.toastr.success(data.mensage, '');
+            this.router.navigate(['/marketing/list-automation']);
           }
 
         }, 
@@ -127,10 +150,6 @@ export class AutomationEditComponent implements OnInit {
       }
     });
   }
-
-
-
-
   
   selectInput(event) {
     let selected = event.target.value;

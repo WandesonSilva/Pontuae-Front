@@ -25,25 +25,19 @@ export class AutomationService {
   }
 
 //ok
-  updateAutomation(data: any) {
+  updateAutomation(data: Automation) {
     const id = Security.getUser().idEmpresa;
-    data.IdEmpresa = id;
-    return this.http.put(`${environment.UrlBase}/v1/automacao/v1/put`, data, { headers: this.composeHeaders() });
+    data.idEmpresa = id;
+    return this.http.put(`${environment.UrlBase}/v1/automacao/v1/put`, data);
   }
 
   //averiguar este metodo
-  desableAutomation(id: number) {
-    const idEmpresa = Security.getUser().idEmpresa;
-    return this.http.put(`${environment.UrlBase}/v1/automacao/v1/DesativarAutomacao`, { headers: this.composeHeaders() })
+  desableAutomation(id: number, idEmpresa: number) {
+    return this.http.put(`${environment.UrlBase}/v1/automacao/v1/Desativar/${id}/${idEmpresa}`, { headers: this.composeHeaders() })
   }
 //ok
-  deleteAutomation(id: number) {
-    const idEmpresa = Security.getUser().idEmpresa;
-    return this.http.delete(`${environment.UrlBase}/v1/automacao/v1/${id}/${idEmpresa}`, { headers: this.composeHeaders() })
-  }
-//ok
-  getListAutomation(idEmpresa: number) {
-    return this.http.get<Automation[]>(`${environment.UrlBase}/v1/automacao/v1/${idEmpresa}`, { headers: this.composeHeaders() });
+  getListAutomation(idEmpresa: number, estado: number) {
+    return this.http.get<Automation[]>(`${environment.UrlBase}/v1/automacao/v1/Lista/${idEmpresa}/${estado}`, { headers: this.composeHeaders() });
   }
 //ok
   getListReturnCustomerAutomation(id: number, idEmpresa: number): any { //verifica se vai se usado
@@ -52,7 +46,6 @@ export class AutomationService {
 
 //ok
   getByIdAutomation(id: number, idEmpresa: number) {
-    console.log(`${environment.UrlBase}/v1/automacao/v1/relatorio/${id}/${idEmpresa}`);
-    return this.http.get<any>(`${environment.UrlBase}v1/automacao/v1/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
+    return this.http.get<any>(`${environment.UrlBase}/v1/automacao/v1/Detalhe/${id}/${idEmpresa}`, { headers: this.composeHeaders() });
   }
 }

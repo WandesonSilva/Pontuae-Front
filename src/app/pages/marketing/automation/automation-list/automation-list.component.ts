@@ -18,8 +18,10 @@ export class AutomationListComponent implements OnInit {
 
   ngOnInit() {
     const idEmpresa = Security.getUser().idEmpresa;
-    this.ListAutomation$ = this.service.getListAutomation(idEmpresa);
+    // estao ativo da automacao  =1
+    this.ListAutomation$ = this.service.getListAutomation(idEmpresa, 1);
   }
+
 
   existList(): boolean {
     return this.ListAutomation$ && this.ListAutomation$ != null;

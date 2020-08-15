@@ -77,9 +77,8 @@
          
 <!-- abaixo, card Clientes que voltaram apos receber a mensagem -->
 <div class="uk-card  uk-margin-top">
-    <div *ngFor="let item of ListReturnCustomerCampaign$ | async" >
-        
-       <h4 class="ukh3">Retorno da Campanha  <a uk-tooltip="Veja os clientes que receberam a campanha e que compraram em seu estabelecimento após receberem a mensagem." uk-icon="icon: info; ratio: 1"></a></h4>
+    <h4 class="ukh3">Retorno da Campanha  <a uk-tooltip="Veja os clientes que receberam a campanha e que compraram em seu estabelecimento após receberem a mensagem." uk-icon="icon: info; ratio: 1"></a></h4>
+    <div *ngFor="let item of ListReturnCustomerCampaign$ | async" >     
        <hr>
           <div class="uk-panel uk-width-1-1 uk-text-left">
                <div class=" uk-margin-small">

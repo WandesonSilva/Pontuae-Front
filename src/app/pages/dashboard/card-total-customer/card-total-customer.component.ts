@@ -10,30 +10,28 @@ import { async } from '@angular/core/testing';
 })
 export class CardTotalCustomerComponent implements OnInit {
   public totalCustomer: number;
-  public totalRecorrentes: number = 0;
-  public NotResultRetained: number = 0;
-  public isEnableSelected = false;
+  public totalRecorrentes: number;
 
   constructor(private service: ReportDataService) { }
 
   ngOnInit() {
 
+    this.recorrentes();
     const idEmpresa = Security.getUser().idEmpresa;
     this
       .service
       .GetTotalCustomer(idEmpresa)
-      .subscribe(data => this.totalCustomer = data);
-    console.log(this.totalCustomer); 
-
-    this
-      .service
-      .GetRetained(idEmpresa)                 
-      .subscribe(data => this.totalRecorrentes = data);
-
-        const numberResult = this.totalCustomer - this.totalRecorrentes;
-        this.NotResultRetained = numberResult;
-        console.log(this.NotResultRetained);
+      .subscribe(dd => this.totalCustomer = dd);
+  
+  
       } 
+      recorrentes(){
+        const idEmpresa = Security.getUser().idEmpresa;
+        this
+        .service
+        .GetRetained(idEmpresa)                 
+        .subscribe(s => this.totalRecorrentes = s);
+      }
       
     
   }
