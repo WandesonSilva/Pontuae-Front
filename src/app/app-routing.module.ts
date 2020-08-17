@@ -63,15 +63,15 @@ const routes: Routes = [
       //   { path: 'rescue/:id', component: RescueComponent },
       // ]
       // },
-      { path: 'rescue-point', component: RescueComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'rescue-point', component: RescueComponent,  canActivate: [AdminGuard], },
+      { path: 'profile', component: ProfileComponent,  canActivate: [AdminGuard], },
       // tslint:disable-next-line: max-line-length
       // { path: 'pointing', component: PointingComponent },  agora será apenas rota de pontuacao, a tomada de desição de pre registra telefone fica no servidor
-      { path: 'new-employee', component: RegisterEmployeeComponent },
-      { path: 'edit-employee/:id', component: EditEmployeeComponent},
-      { path: 'list-employee', component: ListEmployeeComponent},
-      { path: 'list-customer', component: ListClientPageComponent },
-      { path: 'detail-customer/:id', component: ClientDetailPageComponent },
+      { path: 'new-employee', component: RegisterEmployeeComponent,  canActivate: [AdminGuard], },
+      { path: 'edit-employee/:id', component: EditEmployeeComponent,  canActivate: [AdminGuard],},
+      { path: 'list-employee', component: ListEmployeeComponent,  canActivate: [AdminGuard],},
+      { path: 'list-customer', component: ListClientPageComponent ,  canActivate: [AdminGuard],},
+      { path: 'detail-customer/:id', component: ClientDetailPageComponent ,  canActivate: [AdminGuard],},
 
 
 
@@ -79,10 +79,10 @@ const routes: Routes = [
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
 
-          { path: 'point-edit', component: PointEditComponent },
-          { path: 'award-create', component: AwardCreateComponent },
-          { path: 'list-award', component: AwardListComponent },
-          { path: 'award-edit/:id', component: AwardEditComponent },         
+          { path: 'point-edit', component: PointEditComponent, canActivate: [AdminGuard],},
+          { path: 'award-create', component: AwardCreateComponent, canActivate: [AdminGuard], },
+          { path: 'list-award', component: AwardListComponent, canActivate: [AdminGuard], },
+          { path: 'award-edit/:id', component: AwardEditComponent , canActivate: [AdminGuard],},         
           { path: '', redirectTo: '/config', pathMatch: 'full' },
         ]
       },
@@ -91,17 +91,17 @@ const routes: Routes = [
       {
         path: 'marketing', component: MarketingComponent,
         children: [
-          { path: 'automation-create', component: AutomationCreateComponent },
-          { path: 'automation-edit/:id', component: AutomationEditComponent },
-          { path: 'list-automation', component: AutomationListComponent },
+          { path: 'automation-create', component: AutomationCreateComponent, canActivate: [AdminGuard], },
+          { path: 'automation-edit/:id', component: AutomationEditComponent,  canActivate: [AdminGuard], },
+          { path: 'list-automation', component: AutomationListComponent, canActivate: [AdminGuard], },
 
 
-          { path: 'campaign-create', component: CampaignCreateComponent },
-          { path: 'campaign-edit', component: CampaignEditComponent },
-          { path: 'list-campaign', component: CampaignListComponent },
+          { path: 'campaign-create', component: CampaignCreateComponent, canActivate: [AdminGuard], },
+          { path: 'campaign-edit', component: CampaignEditComponent, canActivate: [AdminGuard], },
+          { path: 'list-campaign', component: CampaignListComponent , canActivate: [AdminGuard],},
 
-          { path: 'detail-return-clients-automation/:id', component: AutomationClientReturnDetailComponent},
-          { path: 'detail-return-clients-campaign/:id', component:  CampaignClientReturnDetailComponent},
+          { path: 'detail-return-clients-automation/:id', component: AutomationClientReturnDetailComponent, canActivate: [AdminGuard],},
+          { path: 'detail-return-clients-campaign/:id', component:  CampaignClientReturnDetailComponent, canActivate: [AdminGuard],},
 
         ]
 
@@ -121,7 +121,7 @@ const routes: Routes = [
   },
   {
     path: 'home-employee', component: MenuComponent,
-    // canActivate: [AuthService, ClientGuard],
+     canActivate: [AuthService, EmployeeGuard],
     children: [
       { path: '', component: DashboardModule },
       { path: 'insert-point', component: PreRegisterComponent },

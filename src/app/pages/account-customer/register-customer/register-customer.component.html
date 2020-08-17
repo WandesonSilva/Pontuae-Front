@@ -12,8 +12,6 @@
       
         <div class="uk-card uk-card-default  uk-card-body  uk-border-rounded">
 
-
-
           <a (click)="ToLogin()"><span uk-icon="icon:arrow-left" class=""></span> Voltar</a>
 
           <h3 class="uk-card-title uk-position-top-center"> Cadastro</h3>
@@ -36,19 +34,7 @@
               [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }"
               placeholder="Nome Completo" />
           </div>
-
-          <div class="uk-margin">
-            <input class="uk-input uk-form-large" type="text" formControlName="Cidade"
-              [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Cidade.pristine) }"
-              placeholder="Cidade" />
-          </div>
           
-          <div class="uk-margin">
-            <input class="uk-input uk-form-large" type="date" formControlName="DataNascimento"
-              [ngClass]="{'uk-form-danger': (!form.controls.DataNascimento.valid && !form.controls.DataNascimento.pristine) }"
-              placeholder="Data de nascimento">
-          </div>
-         
           <div class="uk-margin">
             <input class="uk-input uk-form-large" mask="(00) 0000-00000"  type="text" formControlName="Contato"
               [ngClass]="{'uk-form-danger': (!form.controls.Contato.valid && !form.controls.Contato.pristine) }"
@@ -56,6 +42,19 @@
           </div>
          
          
+          <div class="uk-margin">
+            <input class="uk-input uk-form-large" type="date" formControlName="DataNascimento"
+              [ngClass]="{'uk-form-danger': (!form.controls.DataNascimento.valid && !form.controls.DataNascimento.pristine) }"
+              placeholder="Data de nascimento">
+          </div>
+         
+          
+          <div class="uk-margin">
+            <input class="uk-input uk-form-large" type="text" formControlName="Cidade"
+              [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Cidade.pristine) }"
+              placeholder="Cidade" />
+          </div>
+          
           <!-- <div class="uk-margin">
             <input class="uk-input uk-form-large" type="text" formControlName="Cidade"
               [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Horario.pristine) }"

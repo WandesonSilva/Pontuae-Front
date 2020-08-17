@@ -1,23 +1,29 @@
+<<<<<<< HEAD
 <div class="uk-flex-center " uk-grid>
   <div class="uk-width-1-1@s  FundoLogin autoHeight">
     
+=======
+
+<div class=" FundoLogin  margin uk-width-expand@s">
+<div class="  uk-flex-center" uk-grid>
+  <div class="uk-width-1-1@s ">
+>>>>>>> ee29f67cbbc16e59b543d7920c41b0784b1541a7
     <div class="uk-text-center uk-margin-medium-top uk-light ">
       <a class=" textPontuae uk-active uk-link-heading " style="font-family:Cocon">pontua <a
           style="font-family:Lucida Handwriting"> Aê</a>
       </a>
     </div>
-    <form [formGroup]="form" class="uk-padding ">
-      <div class="">
+    <form [formGroup]="form" class=" ">
+      <div class=" ">
       <div class="uk-card uk-card-default  uk-card-body uk-border-rounded  ">
-        <app-carregar *ngIf="carregando"></app-carregar>
-        
-        <div *ngIf="!carregando" uk-grid>
+      
+        <div uk-grid>
 
-         <div class="uk-width-expand@m" uk-grid>    
+         <div class="uk-width-expand@s">    
 
          <div class="uk-text-center">
-            <div class="imgheigth uk-text-left "><h3 class="textBanner">Aumente suas vendas e seja lembrado!</h3></div>
-            <img src="assets/img/loginAdmin.svg" class="imgWith " alt="Banner Login" uk-img />
+            <div class="   responsiva"><h3 class="textBanner ">Aumente suas vendas e seja lembrado!</h3></div>
+            <div class="imgheigth"></div><img src="assets/img/loginAdmin.svg" class="imgWith " alt="Banner Login" uk-img />
           
          </div>
          </div>   
@@ -36,12 +42,14 @@
           </div>
     
           
-          <div  class="uk-text-hight">            
-          <a href="/forgot-password" class="uk-text-left">Esqueceu a senha?</a>
-          
-            <button class="uk-button uk-border-rounded BotaoSucesso uk-margin-large-left uk-text-right" [disabled]="form.invalid" (click)="submit()"
-            >Entrar
+          <div  class="uk-text-height uk-grid-large uk-child-width-expand@s uk-text-center"uk-grid>            
+         <div class="uk-width-1-2@m"> <a href="/forgot-password" class="uk-text-left">Esqueceu a senha?</a></div>
+          <div class="uk-width-1-2@m">
+            <button class="uk-button uk-border-rounded BotaoSucesso uk-text-right"  [disabled]="form.invalid" (click)="submit()">
+                <span *ngIf="!carregando">Entrar</span>
+                <app-carregar *ngIf="carregando"></app-carregar>
             </button>
+          </div>
           </div>
       <hr>
           
@@ -60,4 +68,5 @@
     </div>
     </form>
   </div>
+</div>
 </div>

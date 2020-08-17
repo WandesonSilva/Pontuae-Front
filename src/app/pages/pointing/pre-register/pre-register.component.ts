@@ -15,7 +15,7 @@ import { AwardService } from 'src/app/service/award.service';
   styleUrls: ['./pre-register.component.css']
 })
 export class PreRegisterComponent implements OnInit {
-
+  public carregando = false;
   public form: FormGroup;
   public ListAward$: Observable<listAwardClient[]>;
 
@@ -52,7 +52,7 @@ export class PreRegisterComponent implements OnInit {
 
 
   async submit() {
-
+this.carregando = true;
 
     const idEmpresa_ = Security.getUser().idEmpresa;
     const id = Security.getUser().id;
@@ -67,16 +67,17 @@ export class PreRegisterComponent implements OnInit {
       .service
       .pointPost(this.form.value))
       .subscribe((data: any) => {
-
+        this.carregando = false;
         if (data.sucesso != true) {
           this.toastr.info(data.mensage);
-        } if (data.sucesso === true) {
+        } if (data.sucesso == true) {
           this.toastr.success(data.mensage);
         }
       },
         (err) => {
+          this.carregando = false;
           console.log(err)
-          this.toastr.warning('Erro na operação');
+          this.toastr.warning(err,'Erro na operação');
         })
   }
 

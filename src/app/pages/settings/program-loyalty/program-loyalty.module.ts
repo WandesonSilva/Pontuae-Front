@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AwardListComponent } from './config-awards/award-list/award-list.component';
 import { AwardCreateComponent } from './config-awards/award-create/award-create.component';
@@ -13,20 +12,30 @@ import { PointDeleteComponent } from './config-point.ts/point-delete/point-delet
 import { ListProgramLoyaltyComponent } from './config-point.ts/list-program-loyalty/list-program-loyalty.component';
 import { ProgramLoyaltyComponent } from './program-loyalty.component';
 import { PointEditComponent } from './config-point.ts/point-edit/point-edit.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgModule } from '@angular/core';
+import { HistoricLoyaltyComponent } from '../../customer/historic-loyalty/historic-loyalty.component';
+import { MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
 
 
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
+
+ 
 
 @NgModule({
   declarations: [
     ProgramLoyaltyComponent,
     ListProgramLoyaltyComponent,
-    
+    HistoricLoyaltyComponent,
     AwardListComponent,
     AwardCreateComponent,
     AwardEditComponent,
-
+    AwardDeleteComponent,
     PointCreateComponent,
-    PointEditComponent
+    PointEditComponent,
+    PointDeleteComponent
   
   ],
   imports: [
@@ -35,7 +44,8 @@ import { PointEditComponent } from './config-point.ts/point-edit/point-edit.comp
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    NgxMaskModule.forRoot(maskConfig),
   ]
 })
 export class ProgramLoyaltyModule { }
