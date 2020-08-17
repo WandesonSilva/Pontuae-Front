@@ -67,7 +67,7 @@ export class LoginClienteComponent implements OnInit {
         (err) => {
           this.carregando = false;
           console.log(err);
-          this.toastr.warning(err.message, 'erro ao logar');
+          this.toastr.warning('E-mail ou senha está incorreto');
         }
       );
   }

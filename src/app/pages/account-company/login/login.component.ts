@@ -65,14 +65,17 @@ export class LoginComponent implements OnInit {
         (data: any) => {
           this.carregando = false;
           this.setUser(data.user, data.token);
-          this.toastr.success(data.mensage,'Seja bem vindo');
+          console.log(data.success);
+        
+            this.toastr.success(data.mensage,'Seja bem vindo');
+          
+         
           
           this.router.navigate(['/']);
         },
         (err) => {
           this.carregando = false;
-          console.log(err);
-          this.toastr.warning(err.mensage, 'erro ao logar');
+          this.toastr.warning('E-mail ou senha está incorreto');
         }
       );
   }

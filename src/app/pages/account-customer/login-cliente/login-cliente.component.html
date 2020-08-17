@@ -4,7 +4,7 @@
       <a class=" textPontuae uk-active uk-link-heading " style="font-family:Cocon">pontua <a style="font-family:Lucida Handwriting"> Aê</a>
     </a>
     </div>
-<app-carregar *ngIf="carregando" ></app-carregar>
+
 
    <form [formGroup]="form">
     <div class="uk-card uk-card-default   uk-card-body uk-border-rounded">
@@ -18,7 +18,9 @@
 
       <a href="/forgot-password" class="">Esqueceu a senha?</a>
       <div class="uk-margin uk-text-right">
-        <button  class="uk-button uk-border-rounded BotaoSucesso" [disabled]="form.invalid" (click)="submit()" style="margin-top: -50px;">Entrar 
+        <button  class="uk-button uk-border-rounded BotaoSucesso" [disabled]="form.invalid" (click)="submit()" style="margin-top: -50px;"> 
+          <span *ngIf="!carregando" >Entrar</span>
+          <app-carregar *ngIf="carregando"  ></app-carregar>
         </button>
       </div>
       <div class="uk-padding-small-bottom">
