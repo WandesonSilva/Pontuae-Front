@@ -51,10 +51,18 @@
 
       <div class="uk-text-right">
 
-        <button class=" uk-button BotaoSucesso uk-border-rounded" [disabled]="form.invalid" (click)="submit()">Enviar <i
-            class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        <button class=" uk-button BotaoSucesso uk-border-rounded" [disabled]="form.invalid" (click)="submit()"> 
+          <span *ngIf="!carregando">Enviar  <i
+            class="fa fa-paper-plane" aria-hidden="true"></i></span>
+         
+            <app-carregar *ngIf="carregando"  ></app-carregar>
+          </button>
         <button class=" buttonResgate uk-button" uk-toggle="target: #modal-close-default" (click)="seach()"
-          style="margin-left: 10px;">Resgate</button>
+          style="margin-left: 10px;">
+          <span *ngIf="!carregando">Resgate</span>
+        
+          <app-carregar *ngIf="carregando"  ></app-carregar>
+        </button>
 
       </div>
 
@@ -76,7 +84,10 @@
 
             <div class="uk-text-center">
               <button class="uk-button BotaoSucesso uk-border-rounded uk-button-small   card-round"
-                (click)="rescue([(item.id)],[(item.pontosNecessario)])"  *ngIf="item.saldo >= item.pontosNecessario">Resgatar </button>
+                (click)="rescue([(item.id)],[(item.pontosNecessario)])"  *ngIf="item.saldo >= item.pontosNecessario">Resgatar
+               
+              
+              </button>
                  <span class=" uk-border-rounded uk-button-small   card-round" *ngIf="item.saldo < item.pontosNecessario">Indisponível</span>
               </div>
 
