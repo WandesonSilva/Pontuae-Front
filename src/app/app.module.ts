@@ -40,6 +40,7 @@ import { EmployeeGuard } from './guards/employee.guard';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
 import { ProgramLoyaltyModule } from './pages/settings/program-loyalty/program-loyalty.module';
 import { MarketingModule } from './pages/marketing/marketing/marketing.module';
+import { HistoricLoyaltyComponent } from './pages/customer/historic-loyalty/historic-loyalty.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -64,7 +65,7 @@ const maskConfig: Partial<IConfig> = {
     ResetAccountComponent,
     RescueComponent,
     ClientDetailPageComponent,
-
+    HistoricLoyaltyComponent,
     RegisterEmployeeComponent,
     EditEmployeeComponent,
     ListEmployeeComponent,

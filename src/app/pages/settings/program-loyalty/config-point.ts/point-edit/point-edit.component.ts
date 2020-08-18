@@ -14,7 +14,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 export class PointEditComponent implements OnInit {
 
   public form: FormGroup;
-  public busy = false;
+  public carregando = false;
   //  event: EventEmitter<any> = new EventEmitter();
 
   constructor(
@@ -55,7 +55,7 @@ export class PointEditComponent implements OnInit {
 
   }
   ngOnInit() {
-      this.busy = true;
+      this.carregando = true;
       this.GetRule();
   
   }
@@ -94,12 +94,12 @@ post() {
   }
 
    put() {
-    this.busy = true;
+    this.carregando = true;
     this.service
     .updateProgramLoyalty(this.form.value)
     .subscribe(
              (data: any) => {
-    this.busy = false;
+    this.carregando = false;
     this.toastr.success(data.message, 'Salvo com sucesso');
     this.router.navigate(['/']);
 
@@ -107,7 +107,7 @@ post() {
 
     (err) => {
            console.log(err);
-         this.busy = false;
+         this.carregando = false;
         this.toastr.success('Salvo com sucesso');
        }
      );
@@ -123,7 +123,7 @@ post() {
      .getByIdProgramLoyalty(idEmpresa)
      .subscribe(
        (data: any) => {
-         this.busy = false;
+         this.carregando = false;
          this.form.controls.nome.setValue(data.nome);
          this.form.controls.reais.setValue(data.reais);
          this.form.controls.pontosFidelidade.setValue(data.pontosFidelidade);
@@ -131,7 +131,7 @@ post() {
        },
        (err) => {
          console.log(err);
-         this.busy = false;
+         this.carregando = false;
        }
      );
 }
