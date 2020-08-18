@@ -1,4 +1,3 @@
-import { Component, OnInit } from '@angular/core';
 import { CampaignService } from 'src/app/service/campaign.service';
 import { FormGroup, FormBuilder, Validators, Form, FormArray } from '@angular/forms';
 import { Router, convertToParamMap } from '@angular/router';
@@ -9,8 +8,9 @@ import { Observable } from 'rxjs';
 import { Contact } from 'src/app/models/contact.models';
 import { Campaign } from 'src/app/models/campaign.models';
 import { ParseSpan } from '@angular/compiler';
-import {DateAdapter,   NativeDateAdapter,   MAT_DATE_FORMATS } from '@angular/material';
+import {DateAdapter,   NativeDateAdapter,   MAT_DATE_FORMATS, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/pages/shared/format-datepicker';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -18,8 +18,8 @@ import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/pages/shared/format-da
   templateUrl: './campaign-create.component.html',
   styleUrls: ['./campaign-create.component.css'],
   providers: [
-    {provide: DateAdapter, useClass: AppDateAdapter},
-    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}
+    MatDatepickerModule, MatNativeDateModule,
+   
   ]
 })
 export class CampaignCreateComponent implements OnInit {

@@ -1,7 +1,7 @@
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ComponentFactoryResolver } from '@angular/core';
+import { NgModule, ComponentFactoryResolver  } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
@@ -10,10 +10,8 @@ import { AppComponent } from './app.component';
 import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 
-import { PointCreateComponent } from './pages/settings/program-loyalty/config-point.ts/point-create/point-create.component';
-import { AwardListComponent } from './pages/settings/program-loyalty/config-awards/award-list/award-list.component';
+
 import { ProfileComponent } from './pages/account-company/profile/profile.component';
-import { AwardCreateComponent } from './pages/settings/program-loyalty/config-awards/award-create/award-create.component';
 import { ListClientPageComponent } from './pages/customer/list-client-page/list-client-page.component';
 
 import { AuthenticationService } from './service/authentication.service';
@@ -22,32 +20,18 @@ import { ClientGuard } from './guards/client.guard';
 
 import { LoginComponent } from './pages/account-company/login/login.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
-import { PointEditComponent } from './pages/settings/program-loyalty/config-point.ts/point-edit/point-edit.component';
-import { FormPointComponent } from './pages/settings/program-loyalty/form-shared/form-point/form-point.component';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { PointingComponent } from './pages/pointing/pointing/pointing.component';
 import { PointComponent } from './pages/pointing/point/point.component';
 import { DashboardCustomerModule } from './pages/dashboard-customer/dashboard-customer.module';
-import { ProgramLoyaltyModule } from './pages/settings/program-loyalty/program-loyalty.module';
-import { PointDeleteComponent } from './pages/settings/program-loyalty/config-point.ts/point-delete/point-delete.component';
-import { AutomationCreateComponent } from './pages/marketing/automation/automation-create/automation-create.component';
-import { AutomationEditComponent } from './pages/marketing/automation/automation-edit/automation-edit.component';
-import { AutomationListComponent } from './pages/marketing/automation/automation-list/automation-list.component';
-import { CampaignCreateComponent } from './pages/marketing/campaign/campaign-create/campaign-create.component';
-import { CampaignEditComponent } from './pages/marketing/campaign/campaign-edit/campaign-edit.component';
-import { CampaignListComponent } from './pages/marketing/campaign/campaign-list/campaign-list.component';
 
-import { MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
+import {  MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
+
 import { CarregarModule } from './pages/shared/carregar/carregar.module';
-import { ListProgramLoyaltyComponent } from './pages/settings/program-loyalty/config-point.ts/list-program-loyalty/list-program-loyalty.component';
-import { AwardEditComponent } from './pages/settings/program-loyalty/config-awards/award-edit/award-edit.component';
-import { ProgramLoyaltyComponent } from './pages/settings/program-loyalty/program-loyalty.component';
 import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
 import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
 import { ClientDetailPageComponent } from './pages/customer/client-detail-page/client-detail-page.component';
-import { CampaignClientReturnDetailComponent } from './pages/marketing/campaign/campaign-client-return-detail/campaign-client-return-detail.component';
-import { AutomationClientReturnDetailComponent } from './pages/marketing/automation/automation-client-return-detail/automation-client-return-detail.component';
 import { PreRegisterComponent } from './pages/pointing/pre-register/pre-register.component';
 
 import { RegisterEmployeeComponent } from './pages/account-employee/register-employee/register-employee.component';
@@ -59,11 +43,13 @@ import { RegisterCustomerComponent } from './pages/account-customer/register-cus
 import { AdminGuard } from './guards/admin.guard';
 import { AuthService } from './guards/auth.service';
 import { EmployeeGuard } from './guards/employee.guard';
+import { HelpPageComponent } from './pages/help-page/help-page.component';
 
 
 
-export let options: Partial<IConfig> | (() => Partial<IConfig>);
-
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -79,36 +65,23 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     AppComponent,
     ProfileComponent,
     ProfileCustomerComponent,
-    FormPointComponent,
+    
     ListClientPageComponent,
     PointingComponent,
     PointComponent,
-    AutomationCreateComponent,
-    AutomationEditComponent,
-    AutomationListComponent,
-    CampaignCreateComponent,
-    CampaignEditComponent,
-    CampaignListComponent,
-    ProgramLoyaltyComponent,
-    ListProgramLoyaltyComponent,
-    AwardListComponent,
-    AwardCreateComponent,
-    AwardEditComponent,
-    PointCreateComponent,
-    PointEditComponent,
+    HelpPageComponent,
     ResetAccountComponent,
     RescueComponent,
     MarketingComponent,
     ClientDetailPageComponent,
-    CampaignClientReturnDetailComponent,
-    AutomationClientReturnDetailComponent,
+
     RegisterEmployeeComponent,
     EditEmployeeComponent,
     ListEmployeeComponent,
     PasswordRecoveryComponent,
     ForgotPasswordComponent
 
-  
+    
 
   ],
 
@@ -122,12 +95,12 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     BrowserAnimationsModule, // required animations module
     MatDatepickerModule, MatNativeDateModule, MatInputModule,
     ToastrModule.forRoot(), // ToastrModule added
-    NgxMaskModule.forRoot(options),
+    NgxMaskModule.forRoot(maskConfig),
     ReactiveFormsModule,
     CarregarModule
   ],
   exports: [],
-  providers: [AuthenticationService, AuthService, ClientGuard, AdminGuard, EmployeeGuard],
+  providers: [ MatDatepickerModule, MatNativeDateModule, MatInputModule, AuthenticationService, AuthService, ClientGuard, AdminGuard, EmployeeGuard, ],
   bootstrap: [AppComponent],
   entryComponents: [
   ],

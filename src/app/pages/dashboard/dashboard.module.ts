@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MenuModule } from '../shared/menu.module';
 import { CardGeneratedRecipeComponent } from './card-generated-recipe/card-generated-recipe.component';
 import { CardGroupComponent } from './card-group/card-group.component';
+import { CardPeakSalesComponent } from './card-peak-sales/card-peak-sales.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CardGroupComponent } from './card-group/card-group.component';
     CardTicketMediumComponent,
     CardTotalCustomerComponent,
     CardPeakDayWeekComponent,
-    CardGeneratedRecipeComponent
+    CardGeneratedRecipeComponent,
+    CardPeakSalesComponent
     
   ],
   imports: [
