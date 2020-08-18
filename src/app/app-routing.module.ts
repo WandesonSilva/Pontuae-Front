@@ -33,7 +33,6 @@ import { RegisterEmployeeComponent } from './pages/account-employee/register-emp
 import { ListEmployeeComponent } from './pages/account-employee/list-employee/list-employee.component';
 import { EditEmployeeComponent } from './pages/account-employee/edit-employee/edit-employee.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
-import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
 import { AdminGuard } from './guards/admin.guard';
@@ -137,11 +136,7 @@ const routes: Routes = [
   { path: 'registerCustomer', component: RegisterCustomerComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
 
-
-  //Não esta sendo utilizado no momento
-  { path: 'password-recovery', component: PasswordRecoveryComponent },// rota para alteracao de senha
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

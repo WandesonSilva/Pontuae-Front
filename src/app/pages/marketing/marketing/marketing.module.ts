@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -13,17 +12,20 @@ import { AutomationEditComponent } from '../automation/automation-edit/automatio
 import { AutomationListComponent } from '../automation/automation-list/automation-list.component';
 import { CampaignClientReturnDetailComponent } from '../campaign/campaign-client-return-detail/campaign-client-return-detail.component';
 import { AutomationClientReturnDetailComponent } from '../automation/automation-client-return-detail/automation-client-return-detail.component';
+import { MarketingComponent } from './marketing.component';
+import { MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
+    MarketingComponent,
     CampaignCreateComponent,
     CampaignEditComponent,
     CampaignListComponent,
     AutomationCreateComponent,
     AutomationEditComponent,
-    AutomationListComponent,
+    AutomationListComponent,    
     CampaignClientReturnDetailComponent,
-    AutomationClientReturnDetailComponent
+    AutomationClientReturnDetailComponent,   
 
   
   ],
@@ -33,7 +35,10 @@ import { AutomationClientReturnDetailComponent } from '../automation/automation-
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
+    MatInputModule
   ]
 })
 export class MarketingModule { }
