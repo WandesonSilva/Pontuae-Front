@@ -10,19 +10,15 @@ import { AppComponent } from './app.component';
 import { LoginClienteComponent } from './pages/account-customer/login-cliente/login-cliente.component';
 import { RescueComponent } from './pages/pointing/rescue/rescue.component';
 
-
 import { ProfileComponent } from './pages/account-company/profile/profile.component';
 import { ListClientPageComponent } from './pages/customer/list-client-page/list-client-page.component';
 
 import { AuthenticationService } from './service/authentication.service';
 import { ClientGuard } from './guards/client.guard';
 
-
 import { LoginComponent } from './pages/account-company/login/login.component';
 import { RegisterCompanyComponent } from './pages/account-company/register-company/register-company.component';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
-import { PointingComponent } from './pages/pointing/pointing/pointing.component';
-import { PointComponent } from './pages/pointing/point/point.component';
 import { DashboardCustomerModule } from './pages/dashboard-customer/dashboard-customer.module';
 
 import {  MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
@@ -30,22 +26,20 @@ import {  MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angu
 import { CarregarModule } from './pages/shared/carregar/carregar.module';
 import { ProfileCustomerComponent } from './pages/account-customer/profile-customer/profile-customer.component';
 import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
-import { MarketingComponent } from './pages/marketing/marketing/marketing.component';
 import { ClientDetailPageComponent } from './pages/customer/client-detail-page/client-detail-page.component';
 import { PreRegisterComponent } from './pages/pointing/pre-register/pre-register.component';
 
 import { RegisterEmployeeComponent } from './pages/account-employee/register-employee/register-employee.component';
 import { EditEmployeeComponent } from './pages/account-employee/edit-employee/edit-employee.component';
 import { ListEmployeeComponent } from './pages/account-employee/list-employee/list-employee.component';
-import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { RegisterCustomerComponent } from './pages/account-customer/register-customer/register-customer.component';
 import { AdminGuard } from './guards/admin.guard';
 import { AuthService } from './guards/auth.service';
 import { EmployeeGuard } from './guards/employee.guard';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
-
-
+import { ProgramLoyaltyModule } from './pages/settings/program-loyalty/program-loyalty.module';
+import { MarketingModule } from './pages/marketing/marketing/marketing.module';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -65,42 +59,37 @@ const maskConfig: Partial<IConfig> = {
     AppComponent,
     ProfileComponent,
     ProfileCustomerComponent,
-    
     ListClientPageComponent,
-    PointingComponent,
-    PointComponent,
     HelpPageComponent,
     ResetAccountComponent,
     RescueComponent,
-    MarketingComponent,
     ClientDetailPageComponent,
 
     RegisterEmployeeComponent,
     EditEmployeeComponent,
     ListEmployeeComponent,
-    PasswordRecoveryComponent,
     ForgotPasswordComponent
-
-    
+   
 
   ],
 
   imports: [
+    MarketingModule,
     DashboardCustomerModule,
+    ProgramLoyaltyModule,
     DashboardModule,
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
-    MatDatepickerModule, MatNativeDateModule, MatInputModule,
     ToastrModule.forRoot(), // ToastrModule added
     NgxMaskModule.forRoot(maskConfig),
     ReactiveFormsModule,
     CarregarModule
   ],
   exports: [],
-  providers: [ MatDatepickerModule, MatNativeDateModule, MatInputModule, AuthenticationService, AuthService, ClientGuard, AdminGuard, EmployeeGuard, ],
+  providers: [ AuthenticationService, AuthService, ClientGuard, AdminGuard, EmployeeGuard ],
   bootstrap: [AppComponent],
   entryComponents: [
   ],

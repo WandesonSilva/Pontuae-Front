@@ -17,8 +17,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-campaign-create',
   templateUrl: './campaign-create.component.html',
   styleUrls: ['./campaign-create.component.css'],
-  providers: [
-    MatDatepickerModule, MatNativeDateModule,
+  providers: [ MatDatepickerModule, MatNativeDateModule
    
   ]
 })
