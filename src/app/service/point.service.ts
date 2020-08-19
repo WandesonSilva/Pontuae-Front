@@ -24,7 +24,7 @@ export class PointService {
     }
 
     async pointPost(data: PreRegisterModels) {
-        return this.http.post(`${environment.UrlLocal}/v1/ponto/v1/preregistro-pontuar`, data);
+        return this.http.post(`${environment.UrlBase}/v1/ponto/v1/preregistro-pontuar`, data);
 
      }
 
