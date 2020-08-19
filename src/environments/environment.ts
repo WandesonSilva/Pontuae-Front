@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  UrlBase: 'https://canvas-pontuae.azurewebsites.net',
+  production: false,
+  UrlBase: 'https://pontuae-api.azurewebsites.net',
   UrlLocal: 'https://localhost:44387'
  
 };
