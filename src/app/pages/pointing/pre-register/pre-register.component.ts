@@ -59,8 +59,7 @@ this.carregando = true;
     this.form.controls.IdEmpresa.setValue(idEmpresa_);
     this.form.controls.Id.setValue(id);
     this.form.controls.IdPreCadastro.setValue(1);  //está linha não tem utilidade
-    const valorInt = this.form.value.Contato;
-    this.form.value.Contato = valorInt.toString()
+    
 
     console.log(this.form.value);
 
