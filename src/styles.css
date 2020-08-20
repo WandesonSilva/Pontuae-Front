@@ -14,10 +14,6 @@
 
 }
 
-.autoHeight {
-  height: 100vh;
-}
-
 .margin-70 {
   margin-top: 70px;
 }
@@ -25,9 +21,22 @@
   font-size: 25px;  
 }
 .FundoLogin {
-  background: linear-gradient(60deg, #d6085e 25%, #800691 100%) ;
+  margin: 0;
+  padding: 0;
   height: 100%;
+  width: 100%;
+  background: linear-gradient(60deg, #d6085e 25%, #800691 100%) ;
+  background-size:  100% ;
+  position: relative;
+ 
 }
+.FundoDegrader{
+  height: 100vh;
+  background: linear-gradient(60deg, #d6085e 25%, #800691 100%) ;
+  background-size:  100% 100% ;
+
+}
+
 
 .BotaoSucesso {
 
