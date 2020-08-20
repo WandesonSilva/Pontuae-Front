@@ -32,12 +32,12 @@
                             <strong class=" uk-heading-small uk-margin-remove-bottom ukh2">{{item.nomeCompleto}}</strong>
                             <div class=" text-muted uk-margin-remove-bottom"> {{item.contato}}</div> 
   
-                              <span class="uk-badge badge-novo" *ngIf="item.segmentacao == 'Novo'" style="margin-right: 5px; font-size: 12px;"> {{item.segmentacao}}  </span> 
-                              <span class="badge-vip badge-vip" *ngIf="item.segmentacao == 'Vip'" style="margin-right: 5px;"> {{item.segmentacao}} </span> 
-                              <span class="uk-badge badge-ativo" *ngIf="item.segCustomizado == 'Ativo'" style="margin-right: 5px; font-size: 12px;"> {{item.segCustomizado}}   </span>
-                              <span class="uk-badge badge-bronze" *ngIf="item.segCustomizado == 'Bronze'" style="margin-right: 5px;"> {{item.segCustomizado}} </span> 
-                              <span class="uk-badge badge-prata" *ngIf="item.segCustomizado == 'Prata'" style="margin-right: 5px;"> {{item.segCustomizado}} </span>                        
-                              <span class="uk-badge badge-ouro" *ngIf="item.segCustomizado == 'Ouro'" style="color: rgba(46, 43, 43, 0.89); margin-right: 5px; "><i class="fas fa-crown"></i> {{item.segCustomizado}}</span>
+                              <span class="uk-badge badge-novo" *ngIf="item.segmentacao == 'Novo'" style="margin-right: 5px; font-size: 14px;"> {{item.segmentacao}}  </span> 
+                              <span class="uk-badge badge-vip" *ngIf="item.segmentacao == 'Vip'" style="margin-right: 5px; font-size: 14px;"> {{item.segmentacao}} </span> 
+                              <span class="uk-badge badge-ativo" *ngIf="item.segCustomizado == 'Ativo'" style="margin-right: 5px; font-size: 14px;"> {{item.segCustomizado}}   </span>
+                              <span class="uk-badge badge-bronze" *ngIf="item.segCustomizado == 'Bronze'" style="margin-right: 5px;  font-size: 14px;"> {{item.segCustomizado}} </span> 
+                              <span class="uk-badge badge-prata" *ngIf="item.segCustomizado == 'Prata'" style="margin-right: 5px;  font-size: 14px;"> {{item.segCustomizado}} </span>                        
+                              <span class="uk-badge badge-ouro" *ngIf="item.segCustomizado == 'Ouro'" style="color: rgba(17, 16, 16, 0.89); margin-right: 5px;  font-size: 14px; ">{{item.segCustomizado}}</span>
                              
                               
 
@@ -58,14 +58,14 @@
                       </div>
                     </div>
 
-                    <div class="uk-grid-margin uk-first-column" >
+                    <div class="uk-grid-margin uk-first-column uk-visible@m" >
                       <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                           <strong class=" uk-heading-small uk-margin-remove-bottom " style="font-size: 18px;">{{item.qtdVisita}}</strong>
                           <div class=" text-margin-top uk-margin-remove-bottom">Visitas</div>
                       </div>
                     </div>
 
-                    <div class="uk-grid-margin uk-first-column" >
+                    <div class="uk-grid-margin uk-first-column   uk-visible@m" >
                       <div class="uk-scrollspy-inview uk-animation-slide-right-medium" uk-scrollspy-class>
                           <strong class=" uk-heading-small uk-margin-remove-bottom "  style="font-size: 18px;">{{item.ultimaVisita | date:'dd/MM/yyyy HH:mm:ss'}}</strong>
                           <div class="text-margin-top uk-margin-remove-bottom">Ultima Visita</div>
@@ -84,7 +84,7 @@
             <!-- <i class="fas fa-eye"></i> -->
               <i  routerLink="/detail-customer/{{item.id}}" uk-tooltip="title: Visualiza detalhes; pos: bottom" class="fas fa-eye uk-button-visualiza "></i>
             <!-- <i class="fab fa-whatsapp-square"></i>    -->
-            <a href="https://api.whatsapp.com/send?l=pt&amp;phone={{item.contato}}"> <i uk-tooltip="title: Acessa whatsapp; pos: bottom" class= "uk-btn-Whatssap uk-visible@m" uk-icon="icon: whatsapp; ratio: 1.7 "></i>                  </a>
+            <a href="https://api.whatsapp.com/send?l=pt&amp;phone={{item.contato}}"> <i uk-tooltip="title: Acessa whatsapp; pos: bottom" class= "uk-btn-Whatssap uk-visible@m" uk-icon="icon: whatsapp; ratio: 1.7 "></i></a>
           </div>
 
         </div>
