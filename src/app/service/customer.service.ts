@@ -32,7 +32,7 @@ export class CustomerService {
   }
 
   getProfileCustomer(idUsuario: number) {
-    return this.http.get<Customer[]>(`${environment.UrlBase}/v1/cliente/v1/detalhe/${idUsuario}`);
+    return this.http.get<Customer[]>(`${environment.UrlLocal}/v1/cliente/v1/detalhe/${idUsuario}`);
   
   }
 
