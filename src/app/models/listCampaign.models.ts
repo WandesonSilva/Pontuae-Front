@@ -4,7 +4,7 @@ export class ListCampaign
    public nome: string;
    public segmentacao: string;
    public segCustomizado: string;
-   public DataEnvio: string; 
+   public dataEnvio: string; 
    public estadoEnvio: string;
 }
 

@@ -90,10 +90,12 @@
                                       <div class=" text-muted uk-margin-remove-bottom">{{item.contatos}} </div> 
                         
                                      <!-- <span class="uk-badge badge-novo" *ngIf='item.segCustomizado == Novo' style="margin-right: 5px; font-size: 12px;"> {{item.segCustomizado}}  </span>  -->
-                                     <span class="uk-badge badge-ativo" *ngIf="item.segCustomizado == 'Ativo'" style="margin-right: 5px; font-size: 12px;"> {{item.segCustomizado}}   </span>
-                                     <span class="uk-badge badge-bronze" *ngIf="item.segCustomizado == 'Bronze'" style="margin-right: 5px;"> {{item.segCustomizado}} </span> 
-                                     <span class="uk-badge badge-prata" *ngIf="item.segCustomizado == 'Prata'" style="margin-right: 5px;"> {{item.segCustomizado}} </span>                        
-                                     <span class="badge-ouro" *ngIf="item.segCustomizado == 'Ouro'" style="color: #000; margin-right: 5px; "><i class="fas fa-crown"></i> {{item.segCustomizado}}</span>
+
+                                     <span class="uk-badge badge-vip" *ngIf="item.segmentacao == 'Vip'" style="margin-right: 5px; font-size: 14px;"> {{item.segmentacao}} </span> 
+                                     <span class="uk-badge badge-ativo" *ngIf="item.segCustomizado == 'Ativo'" style="margin-right: 5px; font-size: 14px;"> {{item.segCustomizado}} </span>
+                                     <span class="uk-badge badge-bronze" *ngIf="item.segCustomizado == 'Bronze'" style="margin-right: 5px;  font-size: 14px;"> {{item.segCustomizado}} </span> 
+                                     <span class="uk-badge badge-prata" *ngIf="item.segCustomizado == 'Prata'" style="margin-right: 5px;  font-size: 14px;"> {{item.segCustomizado}} </span>                    
+                                
                                      <!-- <span class="badge-vip" style="margin-right: 5px;"> {{item.vip}} </span> Não sera usado neste momento   --> 
                            </div>
                     </div>

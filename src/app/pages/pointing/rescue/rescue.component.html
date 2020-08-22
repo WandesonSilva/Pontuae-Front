@@ -13,9 +13,8 @@
         <div class="uk-inline">
           <div class="uk-form-controls">
             <span class="uk-form-icon"><i class="material-icons">contact_phone</i></span>
-            <input class="uk-input uk-form-large uk-form-width-large" mask="(00) 00000-0000" formControlName="Contato"
-              type="text" placeholder="(DDD) + número"
-              [ngClass]="{'uk-form-danger': (!form.controls.Contato.valid && !form.controls.Contato.pristine)}">
+            <input class="uk-input uk-form-large uk-form-width-large"  formControlName="Contato"
+              type="number" placeholder="(DDD) + número">
           </div>
         </div>
       </div>
