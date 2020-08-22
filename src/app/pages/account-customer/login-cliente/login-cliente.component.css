@@ -1,3 +1,9 @@
 .altura{
-    height: auto;
+    height: 100vh;
+}
+.uk-grid>*{
+    padding-left: 0px;
+}
+.uk-grid-large{
+    padding-left: 40px;
 }
