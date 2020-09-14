@@ -27,9 +27,9 @@ export class ResetAccountComponent implements OnInit {
     private toastr: ToastrService,
   ) {
     this.form = this.fb.group({
-      Email: ['', Validators.compose([
-        Validators.required
-      ])],
+
+      IdUsuario: [''],
+      Email: [{ value: 'Email', disabled: true }],
       Senha: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(20),
@@ -48,6 +48,7 @@ export class ResetAccountComponent implements OnInit {
   submit() {
     console.log(this.form.value);
     this.carregando = true;
+    this.form.value.IdUsuario = Security.getUser().id;
     this
       .service
       .UpdateUsuario(this.form.value) 

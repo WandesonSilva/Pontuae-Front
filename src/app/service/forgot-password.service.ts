@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,9 @@ export class ForgotPasswordService {
     return headers;
 
   }
-    post(email: string) {
-    return this.http.post(`${environment.UrlBase}/v1/Usuario/${email}`, { headers: this.composeHeaders() });
-}
+    post(data: any) {
+    return this.http.post(`${environment.UrlBase}/v1/Usuario/v1/contaEmail`, data);
+   }
 
 
 }

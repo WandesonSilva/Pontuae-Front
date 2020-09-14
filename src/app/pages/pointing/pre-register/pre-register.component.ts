@@ -5,6 +5,7 @@ import { ToastrService, Toast } from 'ngx-toastr';
 import { Security } from 'src/app/utils/security.util';
 import { PointService } from 'src/app/service/point.service';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { listAwardClient } from 'src/app/models/listAwardClient.models';
 import { rescueModels } from 'src/app/models/rescue.models';
 import { AwardService } from 'src/app/service/award.service';
@@ -52,7 +53,7 @@ export class PreRegisterComponent implements OnInit {
 
 
   async submit() {
-this.carregando = true;
+   this.carregando = true;
 
     const idEmpresa_ = Security.getUser().idEmpresa;
     const id = Security.getUser().id;
@@ -64,24 +65,38 @@ this.carregando = true;
 
     console.log(this.form.value);
 
-    (await this
-      .service
-      .pointPost(this.form.value))
-      .subscribe((data: any) => {
-        this.carregando = false;
-        if (data.sucesso != true) {
-          this.toastr.info(data.mensage);
-        } if (data.sucesso == true) {
-          this.toastr.success(data.mensage);
-        }
-      },
-        (err) => {
+   
+  Swal.fire({
+    
+    text: "confirme o envio dos pontos!",
+    showCancelButton: true,
+    confirmButtonColor: '#17CC8D',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sim'
+    }).then(async (result) => {
+    if (result.value) {
+      (await this
+        .service
+        .pointPost(this.form.value))
+        .subscribe((data: any) => {
           this.carregando = false;
-          console.log(err)
-          this.toastr.warning(err,'Erro na operação');
-        })
+          if (data.sucesso != true) {
+            this.toastr.info(data.mensage);
+          } if (data.sucesso == true) {
+            this.toastr.success(data.mensage);
+           
+          }
+        }
+        // (err) => {
+        //   this.carregando = false;
+        //   console.log(err)
+        //   this.toastr.warning(err,'');
+        // }
+      )
+      }
+  });
+  // this.carregando = false;
   }
-
 
 
   backPage() {
@@ -102,7 +117,6 @@ this.carregando = true;
     }
   }
 
-
   rescue(id: number, pontoNecessario: number) {
     const user = Security.getUser();
     const resgatar = new rescueModels(user.id, id[0], user.idEmpresa, pontoNecessario[0]);
@@ -117,8 +131,7 @@ this.carregando = true;
         } if (data.sucesso === true) {
           this.toastr.success(data.mensage, '');
         }
-
-
+        
       }, (err) => {
         console.log(err);
         this.toastr.warning(err.mensage, '');

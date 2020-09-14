@@ -22,7 +22,8 @@ public customer: any = null;
   
   showClientDetails() {
     const Id = this.activatedRoute.snapshot.params.id;
+    
     this.service.GetDetails(Id).subscribe((data: any) => {this.customer = data;});
-
+    
   }
 }

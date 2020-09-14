@@ -23,16 +23,15 @@
 
 
       <div class="uk-width-1-3@s ">
-        <label class="uk-form-label" for="form-stacked-select" style="font-weight: 500;">Seg.Customizado</label>
+        <label class="uk-form-label" for="form-stacked-select" style="font-weight: 500;">perfis Customizados</label>
         <div class="uk-form-controls">
           <select class="uk-select" (change)="onChangeGetContactsOfSegCustomization($event.target.value)"
             id="form-stacked-select" formControlName="segCustomizado">
-            <option>Selecione uma opção</option>
-            <option value="Ativo">Ativo</option>
-            <option value="Ouro">Ouro</option>
-            <option value="Prata">Prata</option>
-            <option value="Bronze">Bronze</option>
-            <!-- <option value="Em Risco">Em Risco</option> -->
+            <option value="Ativo">Clientes Ativo</option>
+            <option value="Ouro">Clientes Ouro</option>
+            <option value="Prata">Clientes Prata</option>
+            <option value="Bronze">Clientes Bronze</option>
+  
           </select>
         </div>
       </div>
@@ -85,63 +84,57 @@
     </div>
     <!--uk-grid-->
     <br>
-    <div class="uk-alert-warning" uk-alert>
-      <p><i class="fas fa-exclamation-triangle"></i> Evite utilizar acentos e caracteres especiais na mensagem abaixo.
-      </p>
+    <div class="uk-alert-warning" uk-alert style=" box-shadow: 0px 2px 2px 0px rgba(250, 152, 5, 0.603);">
+      <a class="uk-alert-close" uk-close></a>
+      <p><i class="fas fa-exclamation-triangle"></i> Evite utilizar acentos e caracteres especiais na mensagem abaixo. Utilize a TAG  %nome% será substituida pelo nome do cliente durante o envio  </p>
     </div>
-
-
 
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Qual mensagem deseja
         enviar?</label>
-      <textarea class="uk-textarea" rows="5" formControlName="conteudo" id="campoMSM"  maxlength="160"
-        placeholder="Digite sua mensagem com até 160 caracteres."></textarea>
+      <textarea class="uk-textarea" rows="5" formControlName="conteudo" id="campoSMS"  maxlength="150"
+        placeholder="Oi %nome% Quer aproveitar um desconto de 10%? Apresente este SMS em nossa loja"></textarea>
+        <p id="count" ></p> 
+    
     </div>
 
-  
+            <div class="uk-text-left  uk-margin">
+              <a class="uk-button buttonSMS" href="https://pontuaae.com/?page_id=483" target="_blank"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Modelos Prontos</a>
 
-    <!-- <div class="uk-text-right">
-              <button class="uk-button buttonSMS" routerLink="/model-message"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Modelos Prontos</button>
-            </div>   -->
+              <a class="uk-margin-left" uk-tooltip="😃 Mensagem para clientes, Agradecimento, Datas especiais e mais; Digite sua mensagem com até 149 caracteres."
+                uk-icon="icon: info; ratio: 1.4"></a>
+            
+              </div>
+         
 
-    <div uk-grid>
+            <div uk-grid>
 
-      <div class="liga-desliga" style=" font-size: 22px">
-        <input  type="checkbox" class="liga-desliga__checkbox" id="liga-desliga" formControlName="agendamentoAtivo" (click)="checkBoxAgend()">
-        <label for="liga-desliga" class="liga-desliga__botao" style="font-size: 15px; font-weight: 500;">Agendar Campanhar?</label>
-      </div>
-
-      <div class="uk-width-1-3@s" *ngIf="showInputAgenda">
- 
-
-        <input [matDatepicker]="myDatepicker" class="uk-input "  class="uk-form-controls  formDatepicke" type="text"
-          formControlName="dataEnvio">
-        <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #myDatepicker color="accent"></mat-datepicker>
-      </div>
-
-      <div class="uk-width-1-5@s" *ngIf="showInputAgenda">
+              <div class="uk-margin">
+          
+                <label  style="font-size: 15px; font-weight: 500;">Agendar Campanhar?</label>
+              </div>
         
-         <input class="uk-input "  placeholder="" type="time"   
-          formControlName="horaEnvio" >
-          <div class="uk-alert-warning" uk-alert>
-            <a class="uk-alert-close" uk-close></a>
-            <p>Formato 12 horas</p>
-        </div>
-      </div>
-      <!-- <div class="uk-width-1-2@s">
-            <label class="uk-form-label" for="form-stacked-select">Será enviada mais de uma vez?</label>
-            <div class="uk-form-controls">
-              <select class="uk-select" id="form-stacked-select" formControlName="Reenviar" placeholder="Selecione">
-                <option>Selecione</option>
-                <option value="0">Não</option>
-                <option value="1">Sim</option>
-              </select>
-           </div>
-         </div> -->
-    </div>
-<br>
+              <div class="uk-width-1-3@s" *ngIf="showInputAgenda">
+         
+        
+                <input [matDatepicker]="myDatepicker" class="uk-input "  class="uk-form-controls  formDatepicke" type="text"
+                  formControlName="dataEnvio">
+                <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #myDatepicker color="accent"></mat-datepicker>
+              </div>
+        
+              <div class="uk-width-1-5@s" *ngIf="showInputAgenda">
+                
+                 <input class="uk-input "  placeholder="" type="time"   
+                  formControlName="horaEnvio" >
+                  <!-- <div class="uk-alert-warning" uk-alert>
+                    <a class="uk-alert-close" uk-close></a>
+                    <p>Formato 12 horas</p>
+                </div> -->
+              </div>
+         
+            </div>
+                <br>
     <div class="uk-text-right">
       <!-- [disabled]="form.invalid" -->
       <button class="uk-button BotaoSucesso uk-border-rounded" (click)="submit()"><i class="fa fa-paper-plane"
@@ -152,8 +145,9 @@
 
 
 <script>
-  var el_t = document.getElementById('campoMSM');
+  var el_t = document.getElementById('campoSMS');
   var length = el_t.getAttribute("maxlength");
+
   var el_c = document.getElementById('count');
   el_c.innerHTML = length;
   el_t.onkeyup = function () {

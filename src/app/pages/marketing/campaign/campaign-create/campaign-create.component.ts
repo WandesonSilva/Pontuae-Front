@@ -45,7 +45,7 @@ export class CampaignCreateComponent implements OnInit {
         Validators.minLength(2),
         Validators.maxLength(60),
         Validators.required])],
-      agendamentoAtivo:[],
+      
       dataEnvio: [],
       horaEnvio: [],
       conteudo: ['', Validators.compose([Validators.nullValidator])],
@@ -70,7 +70,7 @@ export class CampaignCreateComponent implements OnInit {
   //1 campo desativado, e nullos
   //2 campo ativa 
   checkBoxAgend() {  
-    var result =this.form.value.agendamentoAtivo != true ? this.showInputAgenda = true : this.showInputAgenda = false;
+    // var result =this.form.value.agendamentoAtivo != true ? this.showInputAgenda = true : this.showInputAgenda = false;
   //  this.form.value.dataEnvio = '';
   //  this.form.value.horaEnvio = '';
   }

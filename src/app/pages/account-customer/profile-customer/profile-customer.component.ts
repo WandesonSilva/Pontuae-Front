@@ -24,9 +24,9 @@ export class ProfileCustomerComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       IdUsuario: [''],
-      Nome: ['', Validators.compose([
+      NomeCompleto: ['', Validators.compose([
         Validators.minLength(3),
-        Validators.maxLength(20),
+        Validators.maxLength(30),
         Validators.required,
       ])],
       Email: ['', Validators.compose([
@@ -37,6 +37,15 @@ export class ProfileCustomerComponent implements OnInit {
         
         Validators.required,
       ])],
+ 
+      Sexo: ['', Validators.compose([
+        Validators.required,
+      ])],
+      
+      Cidade: ['', Validators.compose([
+        Validators.required,
+      ])],
+
       Contato: ['', Validators.compose([
         Validators.required,
       ])],
@@ -45,6 +54,7 @@ export class ProfileCustomerComponent implements OnInit {
 
   ngOnInit() {
     this.GetCustomer();
+
   }
 
   GetCustomer() {
@@ -53,13 +63,16 @@ export class ProfileCustomerComponent implements OnInit {
       .service
       .getProfileCustomer(id)
       .subscribe((data: any) => {
-        var myDate = new Date(data.dataNascimeto);
+        var myDate = new Date(data.dataNascimento);
 
         this.form.controls.IdUsuario.setValue(id);
-        this.form.controls.Nome.setValue(data.nomeCompleto);
+        this.form.controls.NomeCompleto.setValue(data.nomeCompleto);
         this.form.controls.Email.setValue(data.email);
         this.form.controls.Contato.setValue(data.contato);
+         this.form.controls.Cidade.setValue(data.cidade);
+        this.form.controls.Sexo.setValue(data.sexo);
         this.form.controls.DataNascimento.setValue(myDate.toISOString().substr(0, 10).split('-').reverse().join('/'));
+         console.log(this.form.value);
       },
         (err) => {
           console.log(err);
@@ -75,7 +88,7 @@ export class ProfileCustomerComponent implements OnInit {
       .UpdateProfileCustomer(this.form.value)
       .subscribe((data: any) => {
         this.carregando = false;
-        this.toastr.success('Salvo com sucesso');
+        this.toastr.success('Obá, cadastro feito com sucesso! 💜');
         
       }, (err) => {
         this.carregando = false;

@@ -37,16 +37,12 @@ export class ForgotPasswordComponent implements OnInit {
        this
       .service
       .post(this.form.value)
-      .subscribe((data: any) => {
-        console.log(this.form.value);
-        this.toastr.success('Consulte seu Gmail, Obrigado! ');
+      .subscribe((data: any) => {     
 
-      }, 
-      
-      (err) => {
-        console.log(err)
-        this.toastr.warning(err.data);
-      }
+        },
+        (err) => {
+          this.toastr.success('Acesse sua Conta do Gmail ');
+        }
       );
 
   }
