@@ -10,27 +10,38 @@
                 Perfil
             </h3>
         </div>
-        <div class="uk-width-auto"> <a class="uk-button uk-button-primary uk-aling-right card-round" type="button" style="background: #9a06ad"
-                uk-tooltip="title: Alterar Usuario" uk-icon="icon: user; ratio: 1.4 "
-                routerLink="/resetAccount">Alterar Usuario</a>                
-        </div>
+        <div class="uk-width-auto"> <button  class="  uk-aling-right card-round  uk-button-small uk-border-rounded"   
+          uk-icon="icon: user; ratio: 1 "
+          routerLink="/resetAccount" style="  
+          border: 2px solid rgba(170, 11, 175, 0.863);
+          color:  white;
+          font-size: 16px;
+          padding: 4px 5px 4px;
+          box-shadow: 0px 3px 4px 0px rgba(192, 7, 177, 0.295);
+          background-image: linear-gradient(to right, rgba(170, 11, 175, 0.863) 15%, rgba(170, 11, 175, 0.863));"> Alterar Conta </button>        
+          
+          <!-- <font style="vertical-align: inherit;">O EMAIL</font> -->
+          </div>
     </div>
       <div class="uk-margin">
     
 
       <div class="uk-margin">
-        <input class="uk-input uk-form-large" type="text" formControlName="Nome"
-          [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }"
-          placeholder="Nome">
+        <Label>Nome Completo</Label>
+        <input class="uk-input uk-form-large" type="text" formControlName="NomeCompleto"
+          [ngClass]="{'uk-form-danger': (!form.controls.NomeCompleto.valid && !form.controls.NomeCompleto.pristine) }"
+          placeholder="Informer Nome e Sobrenome">
       </div>
 
       <div class="uk-margin">
+        <Label>Email (conta do Gmail)</Label>
         <input class="uk-input uk-form-large" type="text" formControlName="Email"
           [ngClass]="{'uk-form-danger': (!form.controls.Email.valid && !form.controls.Email.pristine) }"
-          placeholder="Email de contato">
+          placeholder="nome@gmail.com">
       </div>
 
       <div class="uk-margin">
+        <Label>Whatsapp</Label>
         <input class="uk-input uk-form-large" mask="(00) 0000-0000" type="text" formControlName="Contato"
           [ngClass]="{'uk-form-danger': (!form.controls.Contato.valid && !form.controls.Contato.pristine) }"
           placeholder="Telefone">
@@ -39,6 +50,23 @@
         <Label>Data Nascimento</Label>
         <input class="uk-input uk-form-large" type="text" formControlName="DataNascimento" mask="00/00/0000"
           [ngClass]="{'uk-form-danger': (!form.controls.DataNascimento.valid && !form.controls.DataNascimento.pristine) }" >
+      </div>
+
+      <div class="uk-margin">
+        <Label>Sexo</Label>
+        <select class="uk-select uk-form-large" type="text" formControlName="Sexo" placeholder="Selecione">
+        <option value=""></option>
+        <option>Masculino</option>
+        <option>Feminino</option>
+        <option>Outro</option>
+        </select> 
+      </div>
+
+      <div class="uk-margin">
+        <Label>Cidade</Label>
+        <input class="uk-input uk-form-large" type="text" formControlName="Cidade"
+          [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Cidade.pristine) }"
+          placeholder="Informe sua Cidade">
       </div>
       
       <div class="uk-margin uk-text-right">

@@ -45,6 +45,12 @@ export class RegisterCustomerComponent implements OnInit {
       Cidade: ['', Validators.compose([
         Validators.required
       ])],
+      Sexo: ['', Validators.compose([
+        Validators.minLength(1),
+        Validators.maxLength(11),
+        Validators.required,
+
+      ])],
       Contato: ['', Validators.compose([
         Validators.required
       ])],
@@ -70,18 +76,14 @@ export class RegisterCustomerComponent implements OnInit {
       .cadastrarCliente(this.form.value)
       .subscribe(
         (data: any) => {
-        console.log(this.form.value);
-        this.toastr.info(data.dado.message);
-        this.router.navigate(['/loginCliente']);
-      }, 
-      
-      (err: any) => {
-        console.log(err);
-        this.carregando = false;
-        console.log(err);
-        this.toastr.warning(err, 'Erro no dados');
-      }
-      );
+          if(data.sucesso != true){
+            this.toastr.info(data.mensage)
+            this.carregando = false;
+          } if (data.sucesso === true){
+            this.toastr.success('Obá, cadastro recebido! 💜');
+            this.router.navigate(['/loginCliente']);
+          }
+        });
   }
 
   ToLogin(){

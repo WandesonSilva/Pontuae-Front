@@ -10,8 +10,6 @@
     </div>
     <form [formGroup]="form" class="uk-form-stacked">
 
-
-
       
       <!-- <div class="uk-margin">
               <div class="uk-form">
@@ -53,39 +51,31 @@
 
         <button class=" uk-button BotaoSucesso uk-border-rounded" [disabled]="form.invalid" (click)="submit()"> 
           <span *ngIf="!carregando">Enviar  <i
-            class="fa fa-paper-plane" aria-hidden="true"></i></span>
-         
+            class="fa fa-paper-plane" aria-hidden="true"></i></span>         
             <app-carregar *ngIf="carregando"  ></app-carregar>
           </button>
-        <button class=" buttonResgate uk-button" uk-toggle="target: #modal-close-default" (click)="seach()"
-          style="margin-left: 10px;">
-          <span *ngIf="!carregando">Resgate</span>
-        
-          <app-carregar *ngIf="carregando"  ></app-carregar>
-        </button>
 
+          <button class="uk-button  buttonResgate uk-margin-small-right  uk-margin-left" type="button" uk-toggle="target: #modal-close-default" (click)="seach()">Resgate</button>
+    
       </div>
 
     </form>
 
-    <div id="modal-close-default" uk-modal>
-      <div class="uk-modal-dialog uk-modal-body uk-background-muted">
-        <button class=" modal-close-default" type="button" uk-close style="background: rgb(221, 19, 19);"></button>
+    
 
+<!-- This is the modal with the default close button -->
+<div id="modal-close-default" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close style="background: #c91a1a ; color:#ffff"></button>
         <!-- page-Resgata Prêmio -->
         <div *ngFor="let item of ListAward$ | async">
           <!-- line-bordertop  -->
           <div class="uk-card uk-card-body uk-card-default uk-margin-top">
 
-
-
             <h4>{{item.nome}}</h4>
-
-
             <div class="uk-text-center">
               <button class="uk-button BotaoSucesso uk-border-rounded uk-button-small   card-round"
-                (click)="rescue([(item.id)],[(item.pontosNecessario)])"  *ngIf="item.saldo >= item.pontosNecessario">Resgatar
-               
+                (click)="rescue([(item.id)],[(item.pontosNecessario)])"  *ngIf="item.saldo >= item.pontosNecessario">Resgatar               
               
               </button>
                  <span class=" uk-border-rounded uk-button-small   card-round" *ngIf="item.saldo < item.pontosNecessario">Indisponível</span>
