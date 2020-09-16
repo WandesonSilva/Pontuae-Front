@@ -8,6 +8,7 @@ export const environment = {
   //UrlBase: 'https://localhost:44387'
  
 };
+  
 
 /*
  * For easier debugging in development mode, you can import the following file
