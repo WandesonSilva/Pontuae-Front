@@ -50,9 +50,10 @@
       <div class="uk-text-right">
 
         <button class=" uk-button BotaoSucesso uk-border-rounded" [disabled]="form.invalid" (click)="submit()"> 
-          <span *ngIf="!carregando">Enviar  <i
+          <!-- *ngIf="!carregando" -->
+          <span >Enviar  <i
             class="fa fa-paper-plane" aria-hidden="true"></i></span>         
-            <app-carregar *ngIf="carregando"  ></app-carregar>
+            <!-- <app-carregar *ngIf="carregando"  ></app-carregar> -->
           </button>
 
           <button class="uk-button  buttonResgate uk-margin-small-right  uk-margin-left" type="button" uk-toggle="target: #modal-close-default" (click)="seach()">Resgate</button>
