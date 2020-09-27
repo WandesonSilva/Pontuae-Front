@@ -4,6 +4,7 @@ import { AwardService } from 'src/app/service/award.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Security } from 'src/app/utils/security.util';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-award-edit',
@@ -20,14 +21,14 @@ export class AwardEditComponent implements OnInit {
     private fb: FormBuilder,
     private toastr: ToastrService,
     private activatedRoute: ActivatedRoute,
-  ) { 
+  ) {
 
 
     this.form = this.fb.group({
 
-      id: [''],
+      id: [],
       idEmpresa: [],
-      mome: ['', Validators.compose([
+      title: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(50),
         Validators.required
@@ -35,74 +36,76 @@ export class AwardEditComponent implements OnInit {
 
       texto: ['', Validators.compose([
         Validators.minLength(10),
-        Validators.maxLength(150),
+       
         Validators.required
       ])],
       qtdPontos: ['', Validators.compose([
         Validators.required
       ])],
-      
+
     });
 
   }
 
   ngOnInit() {
-  this.GeByIDAwaed();
    
+    this.GeByIDAwaed()
+
   }
 
-  GeByIDAwaed(){
+   GeByIDAwaed() {
     const id_empresa = Security.getUser().idEmpresa;
     const idAward = this.activatedRoute.snapshot.params.id;
     this.busy = true;
     this
-       .service
-       .getByIdAward(idAward, id_empresa)
-       .subscribe(
-         (data: any) => {
-           console.log(data);
-           this.busy = false;
+      .service
+      .getByIdAward(idAward, id_empresa)
+      .subscribe(
+        (data: any) => {
+         // console.log(data);
+          this.busy = false;
            this.form.controls.id.setValue(data.id);
-           this.form.controls.nome.setValue(data.nome);
+           this.form.controls.title.setValue(data.nome);
            this.form.controls.texto.setValue(data.texto);
-           this.form.controls.qtdPontos.setValue(data.pontosNecessario);
-
-         },
-         (err) => {
-           console.log(err);
-           this.busy = false;
-         }
-       );
+            this.form.controls.qtdPontos.setValue(data.pontosNecessario);
+console.log(this.form);
+        },
+        (err) => {
+          console.log(err);
+          this.busy = false;
+        }
+      );
   }
 
-  submit() {
+  async submit() {
     const idAward = this.activatedRoute.snapshot.params.id;
-    this.form.value.id = idAward;
-   this.form.value.idEmpresa = Security.getUser().idEmpresa;
+    this.form.value.id = parseInt(idAward);
+    this.form.value.idEmpresa = Security.getUser().idEmpresa;
+    console.log(this.form.value);
     this.busy = true;
     console.log(this.form.value);
-    this
+      await this
       .service
       .updateAward(this.form.value)
       .subscribe((data: any) => {
-   
+
         this.busy = false;
-        if(data.sucesso != true){
+        if (data.sucesso != true) {
           this.toastr.info(data.mensage)
-        } if (data.sucesso === true){
+        } if (data.sucesso === true) {
           this.toastr.success(data.mensage, '');
         }
         this.backPage();
-        
+
       }, (err) => {
         this.busy = false;
         console.log(err);
         this.toastr.warning(err.mensage);
       }
       );
-     
+
   }
-  backPage(){
+  backPage() {
     this.router.navigate(['/config/list-award']);
   }
 }

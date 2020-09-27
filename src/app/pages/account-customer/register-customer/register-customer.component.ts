@@ -26,7 +26,7 @@ export class RegisterCustomerComponent implements OnInit {
         
       // // ClaimType: ['', null],
       // // ClaimValue: ['', null],
-       IdUsuario: [''],
+      // IdUsuario: [''],
       Email: ['', Validators.compose([
         Validators.minLength(4),
         Validators.maxLength(55),
@@ -46,15 +46,15 @@ export class RegisterCustomerComponent implements OnInit {
         Validators.required
       ])],
       Sexo: ['', Validators.compose([
-        Validators.minLength(1),
-        Validators.maxLength(11),
         Validators.required,
+        ///Validators.minLength(1),
+        Validators.nullValidator
 
       ])],
       Contato: ['', Validators.compose([
         Validators.required
       ])],
-      DataNascimento: [''],
+      DataNascimento: [],
 
       // Cidade: ['',, Validators.compose([
       //   Validators.minLength(11),
@@ -76,15 +76,24 @@ export class RegisterCustomerComponent implements OnInit {
       .cadastrarCliente(this.form.value)
       .subscribe(
         (data: any) => {
+          console.log(data);
           if(data.sucesso != true){
-            this.toastr.info(data.mensage)
+            this.toastr.info(data.dado[0].message , data.mensage)
             this.carregando = false;
           } if (data.sucesso === true){
             this.toastr.success('Obá, cadastro recebido! 💜');
             this.router.navigate(['/loginCliente']);
           }
-        });
+        } ,
+        (err) => {
+          this.carregando = false;
+          console.log(err);
+          // this.toastr.warning('E-mail ou senha está incorreto');
+        }
+      );
   }
+
+
 
   ToLogin(){
     this.router.navigate(['/loginCliente']);

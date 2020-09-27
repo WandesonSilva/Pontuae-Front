@@ -1,86 +1,97 @@
-<div class="uk-flex-center FundoLogin uk-overflow-auto "uk-grid >
- 
+<div class="uk-flex-center FundoLogin uk-overflow-auto " uk-grid>
+
   <div class="uk-width-1-2@m">
     <div class=" uk-text-center uk-margin-top uk-margin-small uk-light">
       <a class=" uk-text-large uk-active uk-link-heading " style="font-family:Cocon">pontua <a
           style="font-family:Lucida Handwriting"> Aê</a>
       </a>
     </div>
-    <!-- <app-carregar *ngIf="carregando"></app-carregar>    *ngIf="!carregando"-->  
+    <!-- <app-carregar *ngIf="carregando"></app-carregar>    *ngIf="!carregando"-->
 
-    <form [formGroup]="form" > 
-      
-        <div class="uk-card uk-card-default  uk-card-body  uk-border-rounded">
+    <form [formGroup]="form">
 
-          <a (click)="ToLogin()"><span uk-icon="icon: arrow-left" ></span> Voltar</a>
+      <div class="uk-card uk-card-default  uk-card-body  uk-border-rounded">
 
-          <h3 class="uk-card-title uk-position-top-center"> Cadastro</h3>
+        <a (click)="ToLogin()"><span uk-icon="icon: arrow-left"></span> Voltar</a>
+
+        <h3 class="uk-card-title uk-position-top-center"> Cadastro</h3>
 
 
-           <div class="uk-margin uk-text-right"> <a style="color:darkgoldenrod;" uk-tooltip="😀 Informe o mesmo numero de celular que você informou no estabelecimento visitado"
+        <div class="uk-margin uk-text-right"> <a style="color:darkgoldenrod;"
+            uk-tooltip="😀 Informe o mesmo numero de celular que você informou no estabelecimento visitado"
             uk-icon="icon: warning; ratio: 1.4"></a></div>
 
 
-            
-          <div class="uk-margin">
-              <input class="uk-input uk-form-large" formControlName="Email" 
-               type="text" 
-               [ngClass]="{'uk-form-danger': (!form.controls.Email.valid && !form.controls.Email.pristine) }"
-               placeholder="nome@gmail.com">
-            </div>
 
-            <div class="uk-margin">
-              <input class="uk-input uk-form-large" formControlName="Senha" type="password"
-              [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"  
-              placeholder="Senha">
-            </div>    
-
-          <div class="uk-margin">
-            <input class="uk-input uk-form-large" type="text" formControlName="Nome"
-              [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }"
-              placeholder="Nome Completo" />
-          </div>
-          
-
-          <div class="uk-margin">
-          
-            <input class="uk-input uk-form-large" mask="(00) 0000-00000"  type="text" formControlName="Contato"
-              [ngClass]="{'uk-form-danger': (!form.controls.Contato.valid && !form.controls.Contato.pristine) }"
-              placeholder="DDD + número">
-          </div>
-         
-         
-          <div class="uk-margin">
-            <input class="uk-input uk-form-large" type="date" formControlName="DataNascimento"
-              [ngClass]="{'uk-form-danger': (!form.controls.DataNascimento.valid && !form.controls.DataNascimento.pristine) }"
-              placeholder="Data de nascimento">
-          </div>
-
-          
-      <div class="uk-margin">
-        <select class="uk-select uk-form-large" type="text" formControlName="Sexo" placeholder="Sexo">
-        <option value="">Sexo</option>
-        <option>Masculino</option>
-        <option>Feminino</option>
-        <option>Outro</option>
-        </select> 
-      </div>
-         
-          
-          <div class="uk-margin">
-            <input class="uk-input uk-form-large" type="text" formControlName="Cidade"
-              [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Cidade.pristine) }"
-              placeholder="Cidade" />
-          </div>
-          
-          <div class="uk-margin uk-text-right">
-           
-            <button class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoSucesso" [disabled]="form.invalid"
-              (click)="submit()">Salvar</button>
-          </div>
-          
+        <div class="uk-margin">
+          <input class="uk-input uk-form-large" formControlName="Email" type="text"
+            [ngClass]="{'uk-form-danger': (!form.controls.Email.valid && !form.controls.Email.pristine) }"
+            placeholder="nome@gmail.com">
         </div>
 
-      </form>
+        <div class="uk-margin">
+          <input class="uk-input uk-form-large" formControlName="Senha" type="password"
+            [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+            placeholder="Senha">
+        </div>
+
+        <div class="uk-margin">
+          <input class="uk-input uk-form-large" type="text" formControlName="Nome"
+            [ngClass]="{'uk-form-danger': (!form.controls.Nome.valid && !form.controls.Nome.pristine) }"
+            placeholder="Nome Completo" />
+        </div>
+
+
+        <div class="uk-margin">
+
+          <input class="uk-input uk-form-large" mask="(00) 0000-00000" type="text" formControlName="Contato"
+            [ngClass]="{'uk-form-danger': (!form.controls.Contato.valid && !form.controls.Contato.pristine) }"
+            placeholder="DDD + número">
+        </div>
+
+
+        <div class="uk-margin">
+          <input class="uk-input uk-form-large" type="date" formControlName="DataNascimento"
+            [ngClass]="{'uk-form-danger': (!form.controls.DataNascimento.valid && !form.controls.DataNascimento.pristine) }"
+            placeholder="Data de nascimento">
+        </div>
+
+
+        <div class="uk-margin">
+          <select class="uk-select uk-form-large" type="text" formControlName="Sexo" 
+          [ngClass]="{'uk-form-danger': (!form.controls.Sexo.valid && !form.controls.Sexo.pristine) }"
+          placeholder="Sexo">
+            <option  value="" selected="selected" hidden="hidden" >Sexo</option>
+            <option  value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+
+
+        <div class="uk-margin">
+          <select class="uk-select uk-form-large" type="text" formControlName="Cidade" 
+          [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Cidade.pristine) }"
+          placeholder="Cidade">
+            <option  value="" selected="selected" hidden="hidden" >Cidade</option>
+            <option  value="araguaina">Araguaina</option>
+           
+          </select>
+        </div>
+        <!-- <div class="uk-margin">
+          <input class="uk-input uk-form-large" type="text" formControlName="Cidade"
+            [ngClass]="{'uk-form-danger': (!form.controls.Cidade.valid && !form.controls.Cidade.pristine) }"
+            placeholder="Cidade" />
+        </div> -->
+
+        <div class="uk-margin uk-text-right">
+
+          <button class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoSucesso"
+            [disabled]="form.invalid" (click)="submit()">Salvar</button>
+        </div>
+
+      </div>
+
+    </form>
   </div>
 </div>

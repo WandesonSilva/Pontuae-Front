@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { listAwardClient } from '../models/listAwardClient.models';
 import { rescueModels } from '../models/rescue.models';
 import { ObjectAward } from '../models/ObjectAward.models';
+import { Observable } from 'rxjs';
 
 
 
@@ -31,10 +32,10 @@ export class AwardService {
     return this.http.post(`${environment.UrlBase}/v1/Premio/v1/post`, data);
   }
 
-  updateAward(data: any) { 
-    return this.http.put(`${environment.UrlBase}/v1/Premio/v1/put`, data, {headers: this.composeHeaders()});
+    updateAward(data: any)  { 
+    return  this.http.put(`${environment.UrlBase}/v1/Premio/v1/put`, data);
   }
-
+  // {headers: this.composeHeaders()})
   getListAward(idEmpresa: any) {
   
     return this.http.get<any[]>(`${environment.UrlBase}/v1/Premio/v1/lista/${idEmpresa}`);
@@ -42,11 +43,13 @@ export class AwardService {
 
    //averiguar
   getListAwardClient(idEmpresa: number, contato: string) {
+    console.log(idEmpresa);
     return this.http.get<listAwardClient[]>(`${environment.UrlBase}/v1/Premio/v1/lista/${idEmpresa}/${contato}`, { headers: this.composeHeaders()});
   }
 
 
   getByIdAward(id: number, idEmpresa: number,) {
+    
     return this.http.get<Award[]>(`${environment.UrlBase}/v1/Premio/v1/detalhe/${id}/${idEmpresa}`);
   }
   

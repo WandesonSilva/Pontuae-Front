@@ -16,7 +16,8 @@ import { AwardService } from 'src/app/service/award.service';
   styleUrls: ['./pre-register.component.css']
 })
 export class PreRegisterComponent implements OnInit {
-  // public carregando = false;
+  public carregando = false;
+  public countItem ;
   public form: FormGroup;
   public ListAward$: Observable<listAwardClient[]>;
 
@@ -86,12 +87,12 @@ export class PreRegisterComponent implements OnInit {
             this.toastr.success(data.mensage);
            
           }
-        }
-        // (err) => {
-        //   this.carregando = false;
-        //   console.log(err)
-        //   this.toastr.warning(err,'');
-        // }
+        },
+         (err) => {
+           ///this.carregando = false;
+           console.log(err)
+           this.toastr.warning(err,'');
+         }
       )
       }
   });
@@ -104,17 +105,24 @@ export class PreRegisterComponent implements OnInit {
   }
 
   async seach() {
+    this.carregando = true;
     const id = Security.getUser().idEmpresa;
     // console.log(event.target.value);
 
     if (this.form.value.Contato != '') {
-      const list = this.serviceAward.getListAwardClient(id, this.form.value.Contato);
-      this.ListAward$ = list;
+      const list = this.serviceAward.getListAwardClient(id, this.form.value.Contato).pipe();
 
+      this.ListAward$ = list;
+      this.ListAward$;
+     
+
+     
     }
     else {
       this.toastr.info('Informe o Celular do cliente para Consultar Prêmios');
+      
     }
+   
   }
 
   rescue(id: number, pontoNecessario: number) {
