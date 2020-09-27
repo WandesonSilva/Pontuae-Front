@@ -81,8 +81,10 @@ export class ProfileCustomerComponent implements OnInit {
 
 
   Submit() {
+    console.log(this.form.value);
     this.carregando = true;
     this.form.value.IdUsuario = Security.getUser().id;
+    //this.form.value.DataNascimento = new date(this.form.value.DataNascimento)
     this
       .service
       .UpdateProfileCustomer(this.form.value)

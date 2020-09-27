@@ -66,7 +66,7 @@ export class RegisterEmployeeComponent implements OnInit {
       .subscribe(
         (data: any) => {
           if(data.sucesso != true){
-            this.toastr.info(data.mensage)
+            this.toastr.info(data.dado[0].message, data.mensage)
           } if (data.sucesso === true){
             this.toastr.success(data.mensage, '');
             this.backPage();

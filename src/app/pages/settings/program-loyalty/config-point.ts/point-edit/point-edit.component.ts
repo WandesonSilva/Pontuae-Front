@@ -29,51 +29,51 @@ export class PointEditComponent implements OnInit {
     this.form = this.fb.group({
 
       idEmpresa: ['', null],
-  
+
       nome: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(50),
         Validators.required
       ])],
-    
+
 
       // // Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
       reais: ['', Validators.compose([
         Validators.required
       ])],
 
-      pontosFidelidade:  ['', Validators.compose([
+      pontosFidelidade: ['', Validators.compose([
         Validators.required
       ])],
 
-       validadePontos: ['', Validators.compose([
+      validadePontos: ['', Validators.compose([
         Validators.required
       ])],
-     
+
 
     });
 
   }
   ngOnInit() {
-      this.carregando = true;
-      this.GetRule();
-  
-  }
-
-submit(){
-  if(this.form.value.reais === 0){
-    this.post();
-  }
-  else{
-    this.put();
-  }
-
+    this.carregando = true;
+    this.GetRule();
 
   }
-  
 
-post() {
-  const id = Security.getUser().idEmpresa;
+  submit() {
+    if (this.form.value.reais === 0) {
+      this.post();
+    }
+    else {
+      this.put();
+    }
+
+
+  }
+
+
+  post() {
+    const id = Security.getUser().idEmpresa;
     this.form.value.idEmpresa = id;
 
     this.service
@@ -93,55 +93,56 @@ post() {
       );
   }
 
-   put() {
+  put() {
     this.carregando = true;
     this.service
-    .updateProgramLoyalty(this.form.value)
-    .subscribe(
-             (data: any) => {
-    this.carregando = false;
-    this.toastr.success(data.message, 'Salvo com sucesso');
-    this.router.navigate(['/']);
+      .updateProgramLoyalty(this.form.value)
+      .subscribe(
+        (data: any) => {
+          this.carregando = false;
+          this.toastr.success(data.message, 'Salvo com sucesso');
+          this.router.navigate(['/']);
 
-      },
+        },
 
-    (err) => {
-           console.log(err);
-         this.carregando = false;
-        this.toastr.success('Salvo com sucesso');
-       }
-     );
+        (err) => {
+          console.log(err);
+          this.carregando = false;
+          this.toastr.success('Salvo com sucesso');
+        }
+      );
   }
- 
-
- GetRule() {
-
-   const idEmpresa = Security.getUser().idEmpresa;
-
-   this
-    .service
-     .getByIdProgramLoyalty(idEmpresa)
-     .subscribe(
-       (data: any) => {
-         this.carregando = false;
-         this.form.controls.nome.setValue(data.nome);
-         this.form.controls.reais.setValue(data.reais);
-         this.form.controls.pontosFidelidade.setValue(data.pontosFidelidade);
-         this.form.controls.validadePontos.setValue(data.validadePontos);
-       },
-       (err) => {
-         console.log(err);
-         this.carregando = false;
-       }
-     );
-}
 
 
+  GetRule() {
 
-  
+    const idEmpresa = Security.getUser().idEmpresa;
 
- backPage() {
- this.router.navigate(['/home']);
- }
+    this
+      .service
+      .getByIdProgramLoyalty(idEmpresa)
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.carregando = false;
+          this.form.controls.nome.setValue(data.nome);
+          this.form.controls.reais.setValue(data.reais);
+          this.form.controls.pontosFidelidade.setValue(data.pontosFidelidade);
+          this.form.controls.validadePontos.setValue(data.validadePontos);
+        },
+        (err) => {
+          console.log(err);
+          this.carregando = false;
+        }
+      );
+  }
+
+
+
+
+
+  backPage() {
+    this.router.navigate(['/home']);
+  }
 }
 

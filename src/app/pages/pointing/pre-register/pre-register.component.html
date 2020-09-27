@@ -65,12 +65,20 @@
     
 <div id="modal-close-default" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
+      
         <button class="uk-modal-close-default" type="button" uk-close style="background: #c91a1a ; color:#ffff"></button>
         <!-- page-Resgata Prêmio -->
+        <!-- <app-carregar *ngIf="carregando"></app-carregar> -->
+        <div *ngIf="ListAward$ | async as listAwards ">
+          
+            <h4 *ngIf="listAwards.length < 1"> Usuario não encontrado</h4>
+          </div> 
+        
         <div *ngFor="let item of ListAward$ | async">
           <!-- line-bordertop  -->
-          <div class="uk-card uk-card-body uk-card-default uk-margin-top">
-
+         
+          <div   class="uk-card uk-card-body uk-card-default uk-margin-top">
+           
             <h4>{{item.nome}}</h4>
             <div class="uk-text-center">
               <button class="uk-button BotaoSucesso uk-border-rounded uk-button-small   card-round"

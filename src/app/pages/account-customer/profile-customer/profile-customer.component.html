@@ -48,7 +48,7 @@
       </div>
       <div class="uk-margin">
         <Label>Data Nascimento</Label>
-        <input class="uk-input uk-form-large" type="text" formControlName="DataNascimento" mask="00/00/0000"
+        <input class="uk-input uk-form-large" type="date" formControlName="DataNascimento" 
           [ngClass]="{'uk-form-danger': (!form.controls.DataNascimento.valid && !form.controls.DataNascimento.pristine) }" >
       </div>
 

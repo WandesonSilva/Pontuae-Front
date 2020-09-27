@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  UrlBase: 'https://pontuae-api.azurewebsites.net',
+  UrlBase: 'https://localhost:44387',
   //UrlBase: 'https://localhost:44387'
  
 };
