@@ -45,10 +45,14 @@ export class CustomerService {
     return a;
   }
 
-  //averiguar se estou usando este ou o RankList do classe  report-data
-  GetListCustomer(idEmpresa: number) {
-    return this.http.get<any[]>(`${environment.UrlBase}/v1/cliente/v1/lista/${idEmpresa}`, { headers: this.composeHeaders() });
+  //averiguar se estou usando este ou o RankList do classe  report-data  
+​//{IdEmpresa}
+  GetListCustomer(IdEmpresa: number) {
+    console.log(IdEmpresa);
+    return this.http.get<any[]>(`${environment.UrlBase}/v1/cliente/v1/lista/${IdEmpresa}`);
   }
+
+  // , { headers: this.composeHeaders() }
 
   //averiguar se pode remover este metodo, se não estive sendo utilizado
   GetByIdCustomer(idUsuario: number) {
