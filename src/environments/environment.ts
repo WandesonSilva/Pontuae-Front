@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  UrlBase: 'http://pontuaae-001-site1.gtempurl.com',
+  UrlBase: 'https://localhost:44387',
   //UrlBase: 'https://localhost:44387'
  
 };

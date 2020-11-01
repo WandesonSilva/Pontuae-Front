@@ -108,7 +108,7 @@
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  
 }
 
 
@@ -141,7 +141,7 @@ body {
   font-size: 12px;
   line-height: 1.4;
   color: #000;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -601,7 +601,7 @@ body {
 
 body {
   margin: 0%;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+ 
 }
 
 
@@ -711,7 +711,7 @@ strong {
 }
 
 .showSales{
-  font-family: Ubuntu, 'Helvetica', Roboto, sans-serif;
+
   color: #40d663;
   font-size: 18px;
   font-weight: 500;
