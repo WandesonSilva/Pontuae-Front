@@ -2,8 +2,8 @@
 
   <div class="uk-width-1-2@m">
     <div class=" uk-text-center uk-margin-top uk-margin-small uk-light">
-      <a class=" uk-text-large uk-active uk-link-heading " style="font-family:Cocon">pontua <a
-          style="font-family:Lucida Handwriting"> Aê</a>
+      <a routerLink="/loginCliente">
+        <img  src="../../../../assets/img/pontuae_svg.svg" alt="Logo"/> 
       </a>
     </div>
     <!-- <app-carregar *ngIf="carregando"></app-carregar>    *ngIf="!carregando"-->
@@ -14,7 +14,7 @@
 
         <a (click)="ToLogin()"><span uk-icon="icon: arrow-left"></span> Voltar</a>
 
-        <h3 class="uk-card-title uk-position-top-center"> Cadastro</h3>
+        <h3 class="uk-card-title uk-position-top-center"> Criar conta para resgatar pontos</h3>
 
 
         <div class="uk-margin uk-text-right"> <a style="color:darkgoldenrod;"
@@ -87,7 +87,10 @@
         <div class="uk-margin uk-text-right">
 
           <button class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoSucesso"
-            [disabled]="form.invalid" (click)="submit()">Salvar</button>
+            [disabled]="form.invalid" (click)="submit()">
+            <span *ngIf="!carregando">Cadastrar</span>
+            <app-carregar *ngIf="carregando"></app-carregar>
+          </button>
         </div>
 
       </div>
