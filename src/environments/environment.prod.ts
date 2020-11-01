@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  UrlBase: 'http://pontuaae-001-site1.gtempurl.com',
+  UrlBase: 'https://pontuae-api.azurewebsites.net/',
   UrlLocal: 'https://localhost:44387'
 
 };
