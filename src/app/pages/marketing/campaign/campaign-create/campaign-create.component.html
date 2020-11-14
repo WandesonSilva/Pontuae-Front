@@ -86,7 +86,7 @@
     <br>
     <div class="uk-alert-warning" uk-alert style=" box-shadow: 0px 2px 2px 0px rgba(250, 152, 5, 0.603);">
       <a class="uk-alert-close" uk-close></a>
-      <p><i class="fas fa-exclamation-triangle"></i> Utilize a TAG  %nome% será substituida pelo nome do cliente durante o envio  </p>
+      <p><i class="fas fa-exclamation-triangle"></i> Utilize a TAG  %nome% será substituida pelo nome do cliente durante o envio.  </p>
     </div>
 
     <div class="uk-margin">
@@ -94,12 +94,12 @@
         enviar?</label>
       <textarea class="uk-textarea" rows="5" formControlName="conteudo" id="campoSMS"  maxlength="150"
         placeholder="Oi %nome% Quer aproveitar um desconto de 10%? Apresente está mensagem em nossa loja"></textarea>
-        <p id="count" ></p> 
+
     
     </div>
 
             <div class="uk-text-left  uk-margin">
-              <a class="uk-button buttonSMS" href="https://pontuaae.com/?page_id=483" target="_blank"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Modelos Prontos</a>
+              <!-- <a class="uk-button buttonSMS" href="https://pontuaae.com/?page_id=483" target="_blank"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Modelos Prontos</a> -->
               <a class="uk-button buttonSMS  uk-margin-left" href="https://pt.piliapp.com/emoji/list/smileys-people/" target="_blank">😃<i uk-icon="icon: commenting; ratio: 1.1"> </i>Emojis</a>
 
               </div>
@@ -142,7 +142,7 @@
 </div>
 
 
-<script>
+<!-- <script>
   var el_t = document.getElementById('campoSMS');
   var length = el_t.getAttribute("maxlength");
 
@@ -152,4 +152,4 @@
     document.getElementById('count').innerHTML = (length - maxlength.value.length);
   };
 
-</script>
+</script> -->
