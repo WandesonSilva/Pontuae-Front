@@ -38,12 +38,12 @@
           </select>
         </div>
       </div>
-      <div class="uk-width-1-1@s "><p class="uk-label">Crédito SMS:</p></div>
+      <div class="uk-width-1-1@s "><p class="uk-label">Crédito WhatsApp:</p></div>
       <div hidden class="uk-width-1-4@s">
         <label  class="uk-form-label" for="form-stacked-select" >Canal de Comunicação</label>
         <div class="uk-form-controls">
           <select  class="uk-select" id="form-stacked-select" formControlName="Tipo"  >
-            <option value="SMS">SMS</option>
+            <option value="SMS">WhatsApp</option>
           </select>
         </div>
       </div>
@@ -53,15 +53,17 @@
 
     <!--uk-grid-->
     <br>
-    <div class="uk-alert-warning" uk-alert>
-      <p><i class="fas fa-exclamation-triangle"></i> Evite utilizar acentos e caracteres especiais na mensagem abaixo.</p>
+    <div class="uk-alert-warning" uk-alert style=" box-shadow: 0px 2px 2px 0px rgba(250, 152, 5, 0.603);">
+      <a class="uk-alert-close" uk-close></a>
+      <p><i class="fas fa-exclamation-triangle"></i> Utilize a TAG  %nome% será substituida pelo nome do cliente durante o envio  </p>
     </div>
  
 
     <div class="uk-margin">
       <label class="uk-form-label" for="form-stacked-text">Qual mensagem deseja enviar?</label>
-      <textarea class="uk-textarea" rows="5" formControlName="Conteudo"   id="textarea"   maxlength="160"
-        placeholder="Digite sua mensagem com até 160 caracteres."></textarea>
+      <textarea class="uk-textarea" rows="5" formControlName="conteudo" id="campoSMS"  
+      placeholder="Oi %nome% Quer aproveitar um desconto de 10%? Apresente está mensagem em nossa loja"></textarea>
+
     </div>
 
     <!--   
