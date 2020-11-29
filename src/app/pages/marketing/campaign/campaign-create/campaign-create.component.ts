@@ -48,7 +48,7 @@ export class CampaignCreateComponent implements OnInit {
       
       dataEnvio: [],
       horaEnvio: [],
-      conteudo: ['', Validators.compose([Validators.nullValidator])],
+      conteudo: ['', Validators.compose([Validators.maxLength(700)])],
       segCustomizado: ['', Validators.compose([Validators.nullValidator])],
     
     });
