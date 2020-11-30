@@ -36,7 +36,7 @@ export class AutomationCreateComponent implements OnInit {
       tempoPorDiaDoMes: [ null],
       tempoPorDia: [ null],
       tempoPorDiaDaSemana: ['', Validators.compose([ ])],
-      conteudo: ['', Validators.compose([Validators.maxLength(700), Validators.required])],
+      conteudo: ['', Validators.compose([Validators.maxLength(2000), Validators.required])],
       diasAntesAniversario: [ null],
    
 
